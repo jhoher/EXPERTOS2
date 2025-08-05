@@ -1,0 +1,419 @@
+2025.08.04 21:00:00.681	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:00:00.684	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:00.749	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:00.804	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:00.853	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:00.906	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:01.024	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:01.080	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:01.237	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:01.314	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:01.494	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:01.649	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:01.955	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.158	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.290	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.386	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.495	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.528	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.589	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.659	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.703	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.748	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.806	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.866	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:02.928	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:03.009	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:03.853	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:04.913	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:05.086	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:05.618	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:00:05.623	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:05.683	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:05.738	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:06.157	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:06.190	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:06.257	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:06.738	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:06.808	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:06.852	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:06.978	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:07.334	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:07.392	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:07.662	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:07.935	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:08.113	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:08.212	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:08.906	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:10.142	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:10.213	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:10.316	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:10.694	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:00:10.696	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:11.503	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:12.883	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:12.942	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:13.045	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:13.294	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:13.360	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:13.672	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:14.525	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:14.860	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:15.726	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:00:15.740	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:15.816	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:15.963	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:16.613	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:16.657	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:17.646	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:19.536	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:19.636	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:19.721	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:20.175	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:20.762	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:00:20.773	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:20.880	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:20.920	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:21.804	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:21.861	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:21.918	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:22.808	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:23.038	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:23.859	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:23.908	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:24.821	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:25.183	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:25.988	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:00:26.002	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:26.061	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:26.108	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:26.281	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:26.432	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:26.679	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:27.640	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:27.690	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:27.766	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:28.305	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:28.407	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:29.123	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:29.189	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	Botón VENTA presionado
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Corrigiendo contador de secuencias: de 1360 a 16
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #779 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #769 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #638 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpieza automática: Secuencia #1 sin actividad detectada
+2025.08.04 21:00:29.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiadas 16 secuencias fantasma. Total activas ahora: 0
+2025.08.04 21:00:29.465	Monedita de Oro - Coberturas (EURUSD,M1)	?? Registrada ENTRADA #1 con ticket #169943040 para secuencia #780
+2025.08.04 21:00:29.465	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #169943040 registrada en secuencia #780
+2025.08.04 21:00:29.590	Monedita de Oro - Coberturas (EURUSD,M1)	?? Registrada ENTRADA #2 con ticket #169943041 para secuencia #780
+2025.08.04 21:00:29.590	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #169943041 registrada en secuencia #780
+2025.08.04 21:00:29.590	Monedita de Oro - Coberturas (EURUSD,M1)	?? Nueva secuencia #780 iniciada en modo VENTA - ENTRADA #1 (TP:1.15527) y #2 (TP:1.15742) programadas
+2025.08.04 21:00:29.689	Monedita de Oro - Coberturas (EURUSD,M1)	🔍 Verificando activación CV - Secuencia #780 - Entradas actuales: 1 - Activar en: 2 - Ya activado: NO
+2025.08.04 21:00:29.690	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:33.603	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:34.267	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:34.338	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:34.614	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:34.894	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:35.186	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:36.323	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:36.507	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:36.891	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:37.258	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:37.317	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:38.292	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:38.931	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:39.686	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:39.973	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:40.144	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:40.311	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:42.939	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:43.240	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:44.748	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:44.948	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:44.998	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:45.719	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:46.785	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:46.851	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:46.939	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:46.971	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:47.007	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:47.666	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:49.692	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:49.984	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:50.732	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:50.897	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:50.961	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:51.915	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:52.432	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:52.533	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:53.247	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:53.450	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:53.853	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:54.304	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:54.939	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:55.124	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:55.619	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:55.687	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:56.843	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:56.907	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:57.680	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:57.754	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:00:58.828	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:00.014	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:00.017	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:00.271	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:00.272	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:00.336	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:00.337	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:01.378	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:01.379	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:03.396	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:03.396	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:03.802	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:03.803	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:03.966	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:03.968	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:04.199	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:04.216	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:04.305	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:04.308	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:04.904	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:12:04.907	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:04.922	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:05.324	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:05.328	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:05.566	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:05.572	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:06.067	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:06.069	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:07.201	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:07.217	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:07.265	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:07.265	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:07.532	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:07.536	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:08.515	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:08.516	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:09.115	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:09.117	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:09.295	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:09.310	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:11.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:12:11.365	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:11.366	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:11.413	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:11.414	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:11.477	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:11.482	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:11.525	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:11.530	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:11.647	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:11.650	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:13.362	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:13.363	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:13.740	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:13.755	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:14.666	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:14.668	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:15.806	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:12:15.810	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:15.825	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:16.816	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:16.818	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:16.883	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:16.885	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:16.938	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:16.955	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:17.171	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:17.175	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:17.524	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:17.525	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:17.802	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:17.818	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:17.928	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:17.940	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:18.382	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:18.385	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:18.748	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #780 porque fue cerrada manualmente
+2025.08.04 21:12:18.751	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:19.504	Monedita de Oro - Coberturas (EURUSD,M1)	? Activación muy reciente en secuencia #780 - Esperando...
+2025.08.04 21:12:19.506	Monedita de Oro - Coberturas (EURUSD,M1)	🔍 Verificando activación CV - Secuencia #780 - Entradas actuales: 2 - Activar en: 2 - Ya activado: NO
+2025.08.04 21:12:19.506	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.08.04 21:12:19.506	Monedita de Oro - Coberturas (EURUSD,M1)	🎯🎯🎯 ACTIVANDO SISTEMA DE CIERRE VIRTUAL 🎯🎯🎯
+2025.08.04 21:12:19.506	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Secuencia #780
+2025.08.04 21:12:19.506	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Entradas activas: 2
+2025.08.04 21:12:19.506	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Configurado para activar en entrada #2
+2025.08.04 21:12:19.553	Monedita de Oro - Coberturas (EURUSD,M1)	✅ CIERRE VIRTUAL ACTIVADO
+2025.08.04 21:12:19.553	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Precio de cierre virtual: 26.15657
+2025.08.04 21:12:19.553	Monedita de Oro - Coberturas (EURUSD,M1)	💰 Ganancia objetivo: €0.09
+2025.08.04 21:12:19.553	Monedita de Oro - Coberturas (EURUSD,M1)	⚠️ Los TPs individuales NO se modifican
+2025.08.04 21:12:19.567	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.28
+2025.08.04 21:12:19.567	Monedita de Oro - Coberturas (EURUSD,M1)	?? ENTRADA #2 activada - Secuencia #780
+2025.08.04 21:12:19.567	Monedita de Oro - Coberturas (EURUSD,M1)	?? ENTRADA #2 ACTIVADA - SE DEBE REUBICAR TPs
+2025.08.04 21:12:19.567	Monedita de Oro - Coberturas (EURUSD,M1)	?? Activación detectada - Programando siguiente entrada
+2025.08.04 21:12:19.691	Monedita de Oro - Coberturas (EURUSD,M1)	?? Programando SELL STOP SEC780_ENT3 con TP individual: 1.15527
+2025.08.04 21:12:19.691	Monedita de Oro - Coberturas (EURUSD,M1)	?? Registrada ENTRADA #2 con ticket #169943896 para secuencia #780
+2025.08.04 21:12:19.691	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #169943896 registrada en secuencia #780
+2025.08.04 21:12:19.691	Monedita de Oro - Coberturas (EURUSD,M1)	? SEC780_ENT3 programada exitosamente - Ticket: 169943896 - TP: 1.15527
+2025.08.04 21:12:19.691	Monedita de Oro - Coberturas (EURUSD,M1)	?? Nota: Sistema de cierre virtual activo - Se cerrará TODO al alcanzar ganancia objetivo
+2025.08.04 21:12:19.702	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:19.920	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:20.687	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:12:20.706	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:21.677	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:23.313	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:23.370	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:23.882	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.27
+2025.08.04 21:12:23.889	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:24.404	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:25.371	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:25.437	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:26.915	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:12:26.916	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:26.968	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:27.227	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:28.586	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.31
+2025.08.04 21:12:28.588	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:35.022	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:12:35.022	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.34
+2025.08.04 21:12:35.026	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:35.102	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:35.160	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:35.322	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:35.690	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:36.335	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:36.720	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:36.979	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:37.475	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:37.880	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:37.991	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:41.680	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:12:41.681	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.37
+2025.08.04 21:12:41.684	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:42.907	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:45.997	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:48.553	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:12:48.553	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.36
+2025.08.04 21:12:48.555	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:49.162	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:50.763	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:51.315	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:52.369	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:52.569	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:53.190	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:12:53.190	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.33
+2025.08.04 21:12:53.192	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:54.238	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:54.412	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:55.229	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:55.278	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:12:55.653	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:00.536	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:02.979	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:03.815	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:05.002	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:13:05.004	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.34
+2025.08.04 21:13:05.006	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:05.297	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:05.905	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:06.530	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:07.294	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:13.874	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:13:13.875	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.35
+2025.08.04 21:13:13.876	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:14.894	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:15.309	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:15.797	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:19.269	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:13:19.271	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.35
+2025.08.04 21:13:19.276	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:19.336	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:19.772	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:20.712	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:22.351	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:22.399	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:22.576	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:23.056	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:23.122	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:23.198	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:23.310	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:23.374	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:23.548	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:23.757	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:13:23.757	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.37
+2025.08.04 21:13:23.759	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:23.964	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:24.014	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:24.058	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:24.625	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:25.693	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:25.744	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:26.060	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:26.185	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:27.684	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:27.985	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:28.424	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:28.477	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:28.594	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:13:28.594	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.34
+2025.08.04 21:13:28.598	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:28.649	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:29.389	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:29.470	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:31.612	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:33.520	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:36.089	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:13:36.090	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.34
+2025.08.04 21:13:36.096	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:37.211	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:39.166	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:40.190	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:40.245	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:40.311	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:41.666	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:13:41.667	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.38
+2025.08.04 21:13:41.673	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:42.328	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:42.484	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:42.539	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:43.792	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:43.839	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:43.905	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:44.033	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:44.141	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:44.860	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:45.076	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:46.096	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:47.721	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:13:47.723	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.38
+2025.08.04 21:13:47.728	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:48.025	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:48.073	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:48.134	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:48.411	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:48.675	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:48.841	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:52.234	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:54.239	Monedita de Oro - Coberturas (EURUSD,M1)	?? Orden pendiente ENTRADA #2 no encontrada para secuencia #769 - Intentando recrear
+2025.08.04 21:13:54.241	Monedita de Oro - Coberturas (EURUSD,M1)	📊 Monitor CV #780 - Precio: 26.15657 - P&L: €-0.37
+2025.08.04 21:13:54.243	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:54.303	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:54.737	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:54.985	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:55.075	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:55.152	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.04 21:13:55.963	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
