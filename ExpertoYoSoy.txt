@@ -1,0 +1,1403 @@
+2025.08.14 20:46:00.046	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:00.243	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:00.391	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:00.401	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:00.402	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #901 para persistencia entre timeframes
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 902
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 1 secuencias guardadas
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #901 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:00.409	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:02.647	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:02.658	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:02.700	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:02.710	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:02.996	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:02.998	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:03.129	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:03.133	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:04.190	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:04.202	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:04.242	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:04.254	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:04.316	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:04.322	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:04.486	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:04.499	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:04.622	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:04.633	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:05.247	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #901 porque fue cerrada manualmente
+2025.08.14 20:46:05.259	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:05.471	Monedita de Oro - Coberturas (EURUSD,M1)	?? ALERTA CRÍTICA: Secuencia #901 con 1 posiciones SIN órdenes pendientes - CIERRE INMEDIATO
+2025.08.14 20:46:05.471	Monedita de Oro - Coberturas (EURUSD,M1)	? Modo cierre rápido activado para secuencia #901 - Slippage aumentado
+2025.08.14 20:46:05.471	Monedita de Oro - Coberturas (EURUSD,M1)	??? Añadida ENTRADA #1 específica ticket #172733709 a la lista para cierre
+2025.08.14 20:46:05.471	Monedita de Oro - Coberturas (EURUSD,M1)	?? Cerrando posición #172733707 de secuencia #901
+2025.08.14 20:46:05.578	Monedita de Oro - Coberturas (EURUSD,M1)	? Posición #172733707 cerrada exitosamente
+2025.08.14 20:46:05.588	Monedita de Oro - Coberturas (EURUSD,M1)	? Secuencia #901 cerrada completamente
+2025.08.14 20:46:05.588	Monedita de Oro - Coberturas (EURUSD,M1)	? Secuencia #901 marcada para cierre por seguridad
+2025.08.14 20:46:05.596	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:05.604	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:05.880	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:06.257	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:06.362	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:07.270	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:07.413	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #882
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #638
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:07.417	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:09.399	Monedita de Oro - Coberturas (EURUSD,M1)	Pips Entrada2 actualizado a: 9
+2025.08.14 20:46:12.249	Monedita de Oro - Coberturas (EURUSD,M1)	Botón COMPRA presionado
+2025.08.14 20:46:12.249	Monedita de Oro - Coberturas (EURUSD,M1)	?? Corrigiendo contador de secuencias: de 1 a 0
+2025.08.14 20:46:12.365	Monedita de Oro - Coberturas (EURUSD,M1)	?? Registrada ENTRADA #1 con ticket #172733750 para secuencia #902
+2025.08.14 20:46:12.365	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #172733750 registrada en secuencia #902
+2025.08.14 20:46:12.471	Monedita de Oro - Coberturas (EURUSD,M1)	?? Registrada ENTRADA #1 con ticket #172733751 para secuencia #902
+2025.08.14 20:46:12.471	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #172733751 registrada en secuencia #902
+2025.08.14 20:46:12.471	Monedita de Oro - Coberturas (EURUSD,M1)	?? Nueva secuencia #902 iniciada en modo COMPRA - ENTRADA #1 (TP:1.16665) y #2 (TP:1.16456) programadas
+2025.08.14 20:46:13.490	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:13.970	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:14.495	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:15.858	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:16.073	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:17.199	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 1 secuencias guardadas
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.214	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.214	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.214	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.214	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.214	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.214	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.215	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.215	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.215	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.215	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.215	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.215	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.215	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.215	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.215	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.215	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.215	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.219	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 17 secuencias guardadas
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.220	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.227	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.227	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.227	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.227	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.227	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.228	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.234	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 33 secuencias guardadas
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.235	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.244	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.252	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 49 secuencias guardadas
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.271	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.275	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 65 secuencias guardadas
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.276	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.284	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.298	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 81 secuencias guardadas
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.299	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.300	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.301	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.301	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.301	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 97 secuencias guardadas
+2025.08.14 20:46:17.301	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.301	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.301	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.301	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.301	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.301	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.301	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.302	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.302	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.302	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.302	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.302	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.302	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.302	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.302	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.302	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.314	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 113 secuencias guardadas
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.322	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.322	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.330	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 129 secuencias guardadas
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.334	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.335	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.335	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.335	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.335	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.335	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.335	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.335	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.346	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.352	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 145 secuencias guardadas
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.361	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.362	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.367	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 161 secuencias guardadas
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.368	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.375	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.376	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.376	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.376	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.376	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.376	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.381	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 177 secuencias guardadas
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.383	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.401	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.404	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 193 secuencias guardadas
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.405	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.423	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.427	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.427	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.427	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 209 secuencias guardadas
+2025.08.14 20:46:17.427	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.427	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.427	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.427	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.427	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.428	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.428	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.428	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.428	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.428	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.428	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.428	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.428	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.428	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.428	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.428	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.438	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.481	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 225 secuencias guardadas
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.482	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.484	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 241 secuencias guardadas
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.492	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.497	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 257 secuencias guardadas
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.498	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.633	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.637	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 273 secuencias guardadas
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.638	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.654	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.668	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 289 secuencias guardadas
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.669	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 305 secuencias guardadas
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.671	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.720	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.725	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 321 secuencias guardadas
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.726	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.753	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.757	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 337 secuencias guardadas
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.758	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.776	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.776	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.777	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.781	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 353 secuencias guardadas
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.782	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.954	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 369 secuencias guardadas
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:17.959	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.013	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.017	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 385 secuencias guardadas
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.018	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.047	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 401 secuencias guardadas
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.053	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.054	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.054	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.054	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.054	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.071	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.075	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 417 secuencias guardadas
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.076	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.087	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.090	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 433 secuencias guardadas
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.091	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.140	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:18.140	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:18.140	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:18.140	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:18.140	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.140	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.140	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.140	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.140	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.141	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.141	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.141	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.141	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.141	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.141	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.141	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.141	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.146	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 449 secuencias guardadas
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.147	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.199	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.203	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 465 secuencias guardadas
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.204	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.269	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.273	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 481 secuencias guardadas
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.274	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Cambio de chart detectado - Asegurando persistencia de órdenes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #902 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #882 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #638 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.315	Monedita de Oro - Coberturas (EURUSD,M1)	Guardado estado de secuencia #1 para persistencia entre timeframes
+2025.08.14 20:46:18.319	Monedita de Oro - Coberturas (EURUSD,M1)	Interfaz ya existe, omitiendo creación
+2025.08.14 20:46:18.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurado contador de IDs de secuencia desde cambio de temporalidad: 903
+2025.08.14 20:46:18.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurando 497 secuencias guardadas
+2025.08.14 20:46:18.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #902 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #882 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #638 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.320	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: Sí, Cerrada manualmente: Sí
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: VENTA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: No
+2025.08.14 20:46:18.321	Monedita de Oro - Coberturas (EURUSD,M1)	Restaurada secuencia #1 - Modo: COMPRA, Entrada2 pendiente: No, Cerrada manualmente: Sí
+2025.08.14 20:46:20.346	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:20.357	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #638 porque fue cerrada manualmente
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #882
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #638
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.361	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.08.14 20:46:20.956	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:23.791	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:24.101	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:26.515	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:26.723	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:30.405	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:30.606	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:30.833	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:30.902	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:30.977	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:31.080	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:31.480	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:31.532	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:31.585	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:31.641	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:31.871	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:31.944	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:32.034	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:33.206	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:34.192	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:34.916	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:35.012	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:36.711	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:36.794	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:36.849	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:36.932	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:37.182	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:40.051	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:40.517	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:41.247	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:41.329	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:41.446	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:41.672	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:45.438	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:46.522	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:46.574	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:46.934	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:47.669	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:47.972	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:48.248	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:48.409	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:48.749	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:49.291	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:50.186	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:50.817	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:53.822	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:54.342	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:56.541	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:56.721	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:56.933	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:58.309	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:58.483	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:46:58.541	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #902 porque fue cerrada manualmente
+2025.08.14 20:55:00.479	Monedita de Oro - Coberturas (EURUSD,M1)	? Activación muy reciente en secuencia #902 - Esperando...
+2025.08.14 20:55:00.480	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.08.14 20:55:00.480	Monedita de Oro - Coberturas (EURUSD,M1)	🎯 ACTIVANDO SISTEMA DE CIERRE VIRTUAL
+2025.08.14 20:55:00.480	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Secuencia #902
+2025.08.14 20:55:00.480	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Entradas activas: 2
+2025.08.14 20:55:00.480	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Activado en entrada #2
+2025.08.14 20:55:00.480	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.08.14 20:55:00.480	Monedita de Oro - Coberturas (EURUSD,M1)	===== CÁLCULO DE PRECIO VIRTUAL =====
+2025.08.14 20:55:00.480	Monedita de Oro - Coberturas (EURUSD,M1)	Secuencia #902
+2025.08.14 20:55:00.481	Monedita de Oro - Coberturas (EURUSD,M1)	  BUY 0.50 @ 1.16565 | Comisión: €2.60
+2025.08.14 20:55:00.481	Monedita de Oro - Coberturas (EURUSD,M1)	  SELL 1.00 @ 1.16556 | Comisión: €5.20
+2025.08.14 20:55:00.481	Monedita de Oro - Coberturas (EURUSD,M1)	BID: 1.16556 / ASK: 1.16556
+2025.08.14 20:55:00.481	Monedita de Oro - Coberturas (EURUSD,M1)	Spread: 1 puntos
+2025.08.14 20:55:00.481	Monedita de Oro - Coberturas (EURUSD,M1)	Comisiones totales: €7.80 (CORRECTAS - sin duplicar)
+2025.08.14 20:55:00.481	Monedita de Oro - Coberturas (EURUSD,M1)	Swaps: €0.00
+2025.08.14 20:55:00.481	Monedita de Oro - Coberturas (EURUSD,M1)	Objetivo: €0.10
+2025.08.14 20:55:00.481	Monedita de Oro - Coberturas (EURUSD,M1)	PRECIO VIRTUAL CALCULADO: 1.16530
+2025.08.14 20:55:00.481	Monedita de Oro - Coberturas (EURUSD,M1)	Dirección: CORTA (precio debe bajar)
+2025.08.14 20:55:00.481	Monedita de Oro - Coberturas (EURUSD,M1)	Ganancia esperada: €-0.30
+2025.08.14 20:55:00.481	Monedita de Oro - Coberturas (EURUSD,M1)	Diferencia con objetivo: €0.4000
+2025.08.14 20:55:00.482	Monedita de Oro - Coberturas (EURUSD,M1)	✅ Precio virtual: 1.16530
+2025.08.14 20:55:00.482	Monedita de Oro - Coberturas (EURUSD,M1)	💰 Objetivo: €0.10
+2025.08.14 20:55:00.482	Monedita de Oro - Coberturas (EURUSD,M1)	📌 La secuencia continúa activa hasta tocar el precio virtual
+2025.08.14 20:55:00.482	Monedita de Oro - Coberturas (EURUSD,M1)	?? ENTRADA #2 activada - Secuencia #902
+2025.08.14 20:55:00.483	Monedita de Oro - Coberturas (EURUSD,M1)	?? ENTRADA #2 ACTIVADA - SE DEBE REUBICAR TPs
+2025.08.14 20:55:00.483	Monedita de Oro - Coberturas (EURUSD,M1)	?? Activación detectada - Programando siguiente entrada
+2025.08.14 20:55:00.606	Monedita de Oro - Coberturas (EURUSD,M1)	?? Programando BUY STOP SEC902_ENT3 con TP individual: 1.16665
+2025.08.14 20:55:00.606	Monedita de Oro - Coberturas (EURUSD,M1)	?? Registrada ENTRADA #2 con ticket #172735667 para secuencia #902
+2025.08.14 20:55:00.606	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #172735667 registrada en secuencia #902
+2025.08.14 20:55:00.606	Monedita de Oro - Coberturas (EURUSD,M1)	? SEC902_ENT3 programada exitosamente - Ticket: 172735667 - TP: 1.16665
+2025.08.14 20:55:00.606	Monedita de Oro - Coberturas (EURUSD,M1)	?? Nota: Sistema de cierre virtual activo - Se cerrará TODO al alcanzar ganancia objetivo
+2025.08.14 20:55:11.235	Monedita de Oro - Coberturas (EURUSD,M1)	? Activación muy reciente en secuencia #902 - Esperando...
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	🔄 RECALCULANDO PRECIO VIRTUAL - Nueva entrada detectada
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Secuencia #902
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Entradas anteriores: 2
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Entradas actuales: 3
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	===== CÁLCULO DE PRECIO VIRTUAL =====
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	Secuencia #902
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	  BUY 0.50 @ 1.16565 | Comisión: €2.60
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	  SELL 1.00 @ 1.16556 | Comisión: €5.20
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	  BUY 2.00 @ 1.16565 | Comisión: €10.40
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	BID: 1.16565 / ASK: 1.16565
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	Spread: 1 puntos
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	Comisiones totales: €18.20 (CORRECTAS - sin duplicar)
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	Swaps: €0.00
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	Objetivo: €0.10
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	PRECIO VIRTUAL CALCULADO: 1.16584
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	Dirección: LARGA (precio debe subir)
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	Ganancia esperada: €0.30
+2025.08.14 20:55:11.236	Monedita de Oro - Coberturas (EURUSD,M1)	Diferencia con objetivo: €0.2000
+2025.08.14 20:55:11.239	Monedita de Oro - Coberturas (EURUSD,M1)	✅ Precio virtual: 1.16584
+2025.08.14 20:55:11.239	Monedita de Oro - Coberturas (EURUSD,M1)	💰 Objetivo: €0.10
+2025.08.14 20:55:11.239	Monedita de Oro - Coberturas (EURUSD,M1)	📌 La secuencia continúa activa hasta tocar el precio virtual
+2025.08.14 20:55:11.239	Monedita de Oro - Coberturas (EURUSD,M1)	?? Activación detectada - Programando siguiente entrada
+2025.08.14 20:55:11.343	Monedita de Oro - Coberturas (EURUSD,M1)	?? Programando SELL STOP SEC902_ENT4 con TP individual: 1.16456
+2025.08.14 20:55:11.343	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #172735722 registrada en secuencia #902
+2025.08.14 20:55:11.343	Monedita de Oro - Coberturas (EURUSD,M1)	? SEC902_ENT4 programada exitosamente - Ticket: 172735722 - TP: 1.16456
+2025.08.14 20:55:11.343	Monedita de Oro - Coberturas (EURUSD,M1)	?? Nota: Sistema de cierre virtual activo - Se cerrará TODO al alcanzar ganancia objetivo
+2025.08.14 20:55:52.271	Monedita de Oro - Coberturas (EURUSD,M1)	? Activación muy reciente en secuencia #902 - Esperando...
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	🔄 RECALCULANDO PRECIO VIRTUAL - Nueva entrada detectada
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Secuencia #902
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Entradas anteriores: 3
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	📍 Entradas actuales: 4
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	===== CÁLCULO DE PRECIO VIRTUAL =====
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	Secuencia #902
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	  BUY 0.50 @ 1.16565 | Comisión: €2.60
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	  SELL 1.00 @ 1.16556 | Comisión: €5.20
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	  BUY 2.00 @ 1.16565 | Comisión: €10.40
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	  SELL 4.00 @ 1.16556 | Comisión: €20.80
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	BID: 1.16556 / ASK: 1.16556
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	Spread: 1 puntos
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	Comisiones totales: €39.00 (CORRECTAS - sin duplicar)
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	Swaps: €0.00
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	Objetivo: €0.10
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	PRECIO VIRTUAL CALCULADO: 1.16530
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	Dirección: CORTA (precio debe bajar)
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	Ganancia esperada: €-1.50
+2025.08.14 20:55:52.272	Monedita de Oro - Coberturas (EURUSD,M1)	Diferencia con objetivo: €1.6000
+2025.08.14 20:55:52.273	Monedita de Oro - Coberturas (EURUSD,M1)	✅ Precio virtual: 1.16530
+2025.08.14 20:55:52.273	Monedita de Oro - Coberturas (EURUSD,M1)	💰 Objetivo: €0.10
+2025.08.14 20:55:52.273	Monedita de Oro - Coberturas (EURUSD,M1)	📌 La secuencia continúa activa hasta tocar el precio virtual
+2025.08.14 20:55:52.273	Monedita de Oro - Coberturas (EURUSD,M1)	?? Activación detectada - Programando siguiente entrada
+2025.08.14 20:55:52.376	Monedita de Oro - Coberturas (EURUSD,M1)	?? Programando BUY STOP SEC902_ENT5 con TP individual: 1.16665
+2025.08.14 20:55:52.376	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #172735822 registrada en secuencia #902
+2025.08.14 20:55:52.376	Monedita de Oro - Coberturas (EURUSD,M1)	? SEC902_ENT5 programada exitosamente - Ticket: 172735822 - TP: 1.16665
+2025.08.14 20:55:52.376	Monedita de Oro - Coberturas (EURUSD,M1)	?? Nota: Sistema de cierre virtual activo - Se cerrará TODO al alcanzar ganancia objetivo
+2025.08.14 20:57:18.740	Monedita de Oro - Coberturas (EURUSD,M1)	💰 PRECIO VIRTUAL ALCANZADO (Posición CORTA)
+2025.08.14 20:57:18.740	Monedita de Oro - Coberturas (EURUSD,M1)	   ASK actual: 1.16530
+2025.08.14 20:57:18.740	Monedita de Oro - Coberturas (EURUSD,M1)	   Precio virtual: 1.16530
+2025.08.14 20:57:18.740	Monedita de Oro - Coberturas (EURUSD,M1)	🎯 EJECUTANDO CIERRE VIRTUAL - Secuencia #902
+2025.08.14 20:57:18.740	Monedita de Oro - Coberturas (EURUSD,M1)	? Modo cierre rápido activado para secuencia #902 - Slippage aumentado
+2025.08.14 20:57:18.740	Monedita de Oro - Coberturas (EURUSD,M1)	??? Añadida ENTRADA #1 específica ticket #172733751 a la lista para cierre
+2025.08.14 20:57:18.740	Monedita de Oro - Coberturas (EURUSD,M1)	??? Añadida ENTRADA #2 específica ticket #172735667 a la lista para cierre
+2025.08.14 20:57:18.740	Monedita de Oro - Coberturas (EURUSD,M1)	?? Eliminando orden pendiente #172735822 de secuencia #902
+2025.08.14 20:57:18.850	Monedita de Oro - Coberturas (EURUSD,M1)	? Orden #172735822 eliminada exitosamente
+2025.08.14 20:57:18.876	Monedita de Oro - Coberturas (EURUSD,M1)	?? Cerrando posición #172733750 de secuencia #902
+2025.08.14 20:57:18.981	Monedita de Oro - Coberturas (EURUSD,M1)	? Posición #172733750 cerrada exitosamente
+2025.08.14 20:57:19.001	Monedita de Oro - Coberturas (EURUSD,M1)	?? Cerrando posición #172733751 de secuencia #902
+2025.08.14 20:57:19.107	Monedita de Oro - Coberturas (EURUSD,M1)	? Posición #172733751 cerrada exitosamente
+2025.08.14 20:57:19.126	Monedita de Oro - Coberturas (EURUSD,M1)	?? Cerrando posición #172735667 de secuencia #902
+2025.08.14 20:57:19.229	Monedita de Oro - Coberturas (EURUSD,M1)	? Posición #172735667 cerrada exitosamente
+2025.08.14 20:57:19.253	Monedita de Oro - Coberturas (EURUSD,M1)	?? Cerrando posición #172735722 de secuencia #902
+2025.08.14 20:57:19.359	Monedita de Oro - Coberturas (EURUSD,M1)	? Posición #172735722 cerrada exitosamente
+2025.08.14 20:57:19.378	Monedita de Oro - Coberturas (EURUSD,M1)	? Secuencia #902 cerrada completamente
+2025.08.14 20:57:19.378	Monedita de Oro - Coberturas (EURUSD,M1)	✅ Cierre virtual completado - Secuencia #902
+2025.08.14 20:57:20.404	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #902
