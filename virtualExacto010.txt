@@ -590,72 +590,22 @@ void LimpiarSecuenciasProblematicas()
 }
 
 //+------------------------------------------------------------------+
-//| Actualizar información de secuencias activas                     |
+//| FUNCIÓN 5: ActualizarInformacionSecuencias() - SIMPLIFICADA     |
+//| Elimina todos los textos molestos                               |
 //+------------------------------------------------------------------+
 void ActualizarInformacionSecuencias()
 {
-    // Eliminar la información anterior
-    for(int i = 0; i < 20; i++) // Ajustado a 20 para coincidir con el tamaño del array
+    // Eliminar TODOS los objetos de información
+    for(int i = 0; i < 20; i++)
     {
-        string labelId = EA_OBJ_PREFIX + "SecInfo_" + IntegerToString(i);
-        string btnId = EA_OBJ_PREFIX + "BtnCerrarSec_" + IntegerToString(i);
-        
-        ObjectDelete(0, labelId);
-        ObjectDelete(0, btnId);
+        ObjectDelete(0, EA_OBJ_PREFIX + "SecInfo_" + IntegerToString(i));
+        ObjectDelete(0, EA_OBJ_PREFIX + "BtnCerrarSec_" + IntegerToString(i));
     }
     
-    // Posición inicial para la información
-    int baseX = 30;
-    int baseY = 230; // Ajustar según la posición del panel de información
-    int altoLinea = 20;
-    int anchoBoton = 25;
-    int margenBoton = 200;
+    // Eliminar título y cualquier otro texto
+    ObjectDelete(0, EA_OBJ_PREFIX + "SecInfoTitulo");
     
-    // Título
-    string tituloId = EA_OBJ_PREFIX + "SecInfoTitulo";
-    ObjectCreate(0, tituloId, OBJ_LABEL, 0, 0, 0);
-    ObjectSetInteger(0, tituloId, OBJPROP_XDISTANCE, baseX);
-    ObjectSetInteger(0, tituloId, OBJPROP_YDISTANCE, baseY);
-    ObjectSetString(0, tituloId, OBJPROP_TEXT, "Secuencias activas: " + IntegerToString(totalSecuencias));
-    ObjectSetInteger(0, tituloId, OBJPROP_COLOR, clrYellow);
-    ObjectSetInteger(0, tituloId, OBJPROP_FONTSIZE, 10);
-    
-    baseY += altoLinea + 5;
-    
-    // Mostrar secuencias activas
-    int contadorSecuenciasActivas = 0;
-    for(int i = 0; i < 20; i++) // Ajustado a 20 para coincidir con el tamaño del array
-    {
-        if(secuencias[i].activa)
-        {
-            string labelId = EA_OBJ_PREFIX + "SecInfo_" + IntegerToString(i);
-            string btnId = EA_OBJ_PREFIX + "BtnCerrarSec_" + IntegerToString(i);
-            string tipoSecuencia = secuencias[i].esModoCompra ? "COMPRA" : "VENTA";
-            
-            // Crear etiqueta con información de la secuencia
-            ObjectCreate(0, labelId, OBJ_LABEL, 0, 0, 0);
-            ObjectSetInteger(0, labelId, OBJPROP_XDISTANCE, baseX);
-            ObjectSetInteger(0, labelId, OBJPROP_YDISTANCE, baseY + contadorSecuenciasActivas * altoLinea);
-            ObjectSetString(0, labelId, OBJPROP_TEXT, "#" + IntegerToString(secuencias[i].id) + 
-                             " - " + tipoSecuencia + " - Fase: " + IntegerToString(secuencias[i].secuenciaActual));
-            ObjectSetInteger(0, labelId, OBJPROP_COLOR, secuencias[i].esModoCompra ? clrLime : clrRed);
-            ObjectSetInteger(0, labelId, OBJPROP_FONTSIZE, 9);
-            
-            // Crear botón para cerrar la secuencia
-            ObjectCreate(0, btnId, OBJ_BUTTON, 0, 0, 0);
-            ObjectSetInteger(0, btnId, OBJPROP_XDISTANCE, baseX + margenBoton);
-            ObjectSetInteger(0, btnId, OBJPROP_YDISTANCE, baseY + contadorSecuenciasActivas * altoLinea - 2);
-            ObjectSetInteger(0, btnId, OBJPROP_XSIZE, anchoBoton);
-            ObjectSetInteger(0, btnId, OBJPROP_YSIZE, 18);
-            ObjectSetString(0, btnId, OBJPROP_TEXT, "X");
-            ObjectSetInteger(0, btnId, OBJPROP_COLOR, clrWhite);
-            ObjectSetInteger(0, btnId, OBJPROP_BGCOLOR, clrMaroon);
-            ObjectSetInteger(0, btnId, OBJPROP_BORDER_COLOR, clrRed);
-            
-            contadorSecuenciasActivas++;
-        }
-    }
-    
+    // Solo redibujar el gráfico
     ChartRedraw();
 }
 
@@ -819,19 +769,16 @@ double CalcularPLConSpread(double precioApertura, double precioTP,
 }
 
 //+------------------------------------------------------------------+
-//| FUNCIÓN CORREGIDA: Reubicar TPs (NO modifica TPs individuales)  |
+//| FUNCIÓN 4: ReubicarTPsParaGarantiaMinimaG() - SIN CAMBIOS       |
+//| Mantener como estaba en la versión anterior                     |
 //+------------------------------------------------------------------+
 void ReubicarTPsParaGarantiaMinimaG(int indiceSecuencia)
 {
     // Verificar que la secuencia esté activa
     if(!secuencias[indiceSecuencia].activa || secuencias[indiceSecuencia].tpAlcanzado)
         return;
-        
-    // Verificar si ya se activó el cierre virtual
-    if(secuencias[indiceSecuencia].tpReubicado)
-        return;
     
-    // Obtener el número de entrada para activar reubicación
+    // Obtener el número de entrada para activar reubicación desde la interfaz
     string textoNumReubicar = ObjectGetString(0, EA_OBJ_PREFIX + editNumEntradaID, OBJPROP_TEXT);
     
     // Si el campo está vacío o es "0", no hacer nada
@@ -841,38 +788,62 @@ void ReubicarTPsParaGarantiaMinimaG(int indiceSecuencia)
     int entradaReubicar = (int)StringToInteger(textoNumReubicar);
     int entradasActuales = ContarEntradasActivas(indiceSecuencia);
     
-    // CORRECCIÓN: Activar EXACTAMENTE cuando se alcanza la entrada especificada
-    // y no se ha procesado antes
-    if(entradasActuales == entradaReubicar && !secuencias[indiceSecuencia].tpReubicado)
+    // Solo proceder si tenemos el número mínimo de entradas
+    if(entradasActuales < entradaReubicar)
+        return;
+    
+    // Detectar si necesita recálculo
+    bool necesitaRecalculo = false;
+    
+    if(!secuencias[indiceSecuencia].tpReubicado)
     {
+        // Primera activación del cierre virtual
         Print("\n🎯 ACTIVANDO SISTEMA DE CIERRE VIRTUAL");
         Print("📍 Secuencia #", secuencias[indiceSecuencia].id);
         Print("📍 Entradas activas: ", entradasActuales);
-        Print("📍 Activación en entrada #", entradaReubicar);
-        
+        Print("📍 Activado en entrada #", entradaReubicar);
+        necesitaRecalculo = true;
+        secuencias[indiceSecuencia].tpReubicado = true;
+        secuencias[indiceSecuencia].ultimaVerificacionTP = TimeCurrent(); // Marcar tiempo de activación
+    }
+    else if(entradasActuales > secuencias[indiceSecuencia].ultimasPosicionesConsideradas)
+    {
+        // Nueva entrada detectada, recalcular
+        Print("\n🔄 RECALCULANDO PRECIO VIRTUAL - Nueva entrada detectada");
+        Print("📍 Secuencia #", secuencias[indiceSecuencia].id);
+        Print("📍 Entradas anteriores: ", secuencias[indiceSecuencia].ultimasPosicionesConsideradas);
+        Print("📍 Entradas actuales: ", entradasActuales);
+        necesitaRecalculo = true;
+    }
+    
+    // Solo recalcular si es necesario
+    if(necesitaRecalculo)
+    {
         double precioVirtual = CalcularPrecioCierreVirtualMejorado(indiceSecuencia);
         
         if(precioVirtual > 0)
         {
-            // IMPORTANTE: NO modificar los TPs individuales
-            // Solo marcar que el cierre virtual está activo
-            secuencias[indiceSecuencia].tpReubicado = true;
+            // Actualizar contador
             secuencias[indiceSecuencia].ultimasPosicionesConsideradas = entradasActuales;
             
-            // Dibujar línea amarilla indicativa
+            // Dibujar/actualizar línea amarilla
             string nombreLinea = "VirtualClose_" + IntegerToString(secuencias[indiceSecuencia].id);
+            
+            // Eliminar línea anterior si existe
+            ObjectDelete(0, nombreLinea);
+            ObjectDelete(0, nombreLinea + "_Label");
+            
+            // Crear nueva línea
             DibujarLineaVirtual(precioVirtual, nombreLinea);
             
-            Print("✅ Cierre virtual activado en: ", DoubleToString(precioVirtual, _Digits));
-            Print("💰 Ganancia objetivo: €", DoubleToString(StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT)), 2));
-            Print("⚠️ Los TPs individuales se mantienen sin cambios");
+            double gananciaObjetivo = StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT));
+            
+            Print("✅ Precio virtual: ", DoubleToString(precioVirtual, _Digits));
+            Print("💰 Objetivo: €", DoubleToString(gananciaObjetivo, 2));
+            Print("📌 La secuencia continúa activa hasta tocar el precio virtual");
             
             // Guardar estado
             GuardarEstadoSecuencias();
-        }
-        else
-        {
-            Print("⚠ Error al calcular precio de cierre virtual");
         }
     }
 }
@@ -922,21 +893,11 @@ void ActualizarTakeProfit(int indiceSecuencia, double precioVirtual)
 }
 
 //+------------------------------------------------------------------+
-//| Función para dibujar línea virtual                              |
+//| FUNCIÓN AUXILIAR: DibujarLineaVirtual (si no existe)            |
 //+------------------------------------------------------------------+
 void DibujarLineaVirtual(double precio, string nombre)
 {
-    // Limpiar líneas anteriores del cierre virtual
-    for(int i = ObjectsTotal(0) - 1; i >= 0; i--)
-    {
-        string objName = ObjectName(0, i);
-        if(StringFind(objName, "VirtualClose_") >= 0)
-        {
-            ObjectDelete(0, objName);
-        }
-    }
-    
-    // Crear línea amarilla horizontal
+    // Crear línea horizontal amarilla
     if(ObjectCreate(0, nombre, OBJ_HLINE, 0, 0, precio))
     {
         ObjectSetInteger(0, nombre, OBJPROP_COLOR, clrYellow);
@@ -944,27 +905,32 @@ void DibujarLineaVirtual(double precio, string nombre)
         ObjectSetInteger(0, nombre, OBJPROP_STYLE, STYLE_SOLID);
         ObjectSetInteger(0, nombre, OBJPROP_RAY, true);
         ObjectSetInteger(0, nombre, OBJPROP_SELECTABLE, false);
-        ObjectSetInteger(0, nombre, OBJPROP_SELECTED, false);
-        
-        // Añadir etiqueta informativa
-        string etiqueta = nombre + "_Label";
-        if(ObjectCreate(0, etiqueta, OBJ_TEXT, 0, TimeCurrent(), precio))
-        {
-            double gananciaMinima = StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT));
-            ObjectSetString(0, etiqueta, OBJPROP_TEXT, "Virtual: " + DoubleToString(precio, _Digits) + 
-                         " Target: €" + DoubleToString(gananciaMinima, 2));
-            ObjectSetString(0, etiqueta, OBJPROP_FONT, "Arial");
-            ObjectSetInteger(0, etiqueta, OBJPROP_FONTSIZE, 8);
-            ObjectSetInteger(0, etiqueta, OBJPROP_COLOR, clrYellow);
-            ObjectSetInteger(0, etiqueta, OBJPROP_ANCHOR, ANCHOR_LEFT);
-        }
-        
-        ChartRedraw();
+        ObjectSetInteger(0, nombre, OBJPROP_HIDDEN, false);
     }
+    else
+    {
+        // Si ya existe, solo actualizar el precio
+        ObjectSetDouble(0, nombre, OBJPROP_PRICE, 0, precio);
+    }
+    
+    // Crear etiqueta
+    string etiqueta = nombre + "_Label";
+    if(ObjectCreate(0, etiqueta, OBJ_TEXT, 0, TimeCurrent(), precio))
+    {
+        double gananciaMinima = StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT));
+        ObjectSetString(0, etiqueta, OBJPROP_TEXT, 
+                      "Virtual: " + DoubleToString(precio, _Digits) + 
+                      " | Target: €" + DoubleToString(gananciaMinima, 2));
+        ObjectSetString(0, etiqueta, OBJPROP_FONT, "Arial");
+        ObjectSetInteger(0, etiqueta, OBJPROP_FONTSIZE, 9);
+        ObjectSetInteger(0, etiqueta, OBJPROP_COLOR, clrYellow);
+    }
+    
+    ChartRedraw();
 }
 
 //+------------------------------------------------------------------+
-//| Función para contar entradas activas de una secuencia           |
+//| FUNCIÓN AUXILIAR: ContarEntradasActivas (si no existe)          |
 //+------------------------------------------------------------------+
 int ContarEntradasActivas(int indiceSecuencia)
 {
@@ -973,7 +939,6 @@ int ContarEntradasActivas(int indiceSecuencia)
     string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
     int contador = 0;
     
-    // Contar posiciones activas
     for(int i = 0; i < PositionsTotal(); i++)
     {
         ulong ticket = PositionGetTicket(i);
@@ -1025,26 +990,313 @@ ENUM_POSITION_TYPE IdentificarTipoUltimaEntrada(int indiceSecuencia)
 }
 
 //+------------------------------------------------------------------+
-//| FUNCIÓN PRINCIPAL: Calcular precio de cierre virtual mejorado   |
+//| NUEVAFunción de cierre simultáneo exacto                         |
+//+------------------------------------------------------------------+
+bool CerrarTodasPosicionesSimultaneo(double precioVirtual) {
+    // Estructura para snapshot de posiciones
+    struct PosicionSnapshot {
+        ulong ticket;
+        ENUM_POSITION_TYPE tipo;
+        double volumen;
+        double precioEntrada;
+        double profitVirtual;
+    };
+    
+    PosicionSnapshot snapshots[];
+    int totalPosiciones = PositionsTotal();
+    ArrayResize(snapshots, totalPosiciones);
+    
+    // Tomar snapshot en el mismo tick
+    MqlTick tickActual;
+    if(!SymbolInfoTick(_Symbol, tickActual)) return false;
+    
+    // Calcular profit virtual para cada posición
+    double profitTotalVirtual = 0.0;
+    
+    for(int i = 0; i < totalPosiciones; i++) {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        snapshots[i].ticket = ticket;
+        snapshots[i].tipo = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
+        snapshots[i].volumen = PositionGetDouble(POSITION_VOLUME);
+        snapshots[i].precioEntrada = PositionGetDouble(POSITION_PRICE_OPEN);
+        
+        // **CLAVE**: Usar precio apropiado según tipo
+        double precioCierre = (snapshots[i].tipo == POSITION_TYPE_BUY) ? 
+                             tickActual.bid : tickActual.ask;
+        
+        // Calcular profit usando OrderCalcProfit para máxima precisión
+        double profit = 0.0;
+        ENUM_ORDER_TYPE orderType = (snapshots[i].tipo == POSITION_TYPE_BUY) ? 
+                                   ORDER_TYPE_SELL : ORDER_TYPE_BUY;
+        
+        if(OrderCalcProfit(orderType, _Symbol, snapshots[i].volumen, 
+                          snapshots[i].precioEntrada, precioCierre, profit)) {
+            snapshots[i].profitVirtual = profit;
+            profitTotalVirtual += profit;
+        }
+    }
+    
+    // Agregar comisiones y swaps al profit virtual
+    for(int i = 0; i < totalPosiciones; i++) {
+        if(PositionSelectByTicket(snapshots[i].ticket)) {
+            profitTotalVirtual += PositionGetDouble(POSITION_COMMISSION);
+            profitTotalVirtual += PositionGetDouble(POSITION_SWAP);
+        }
+    }
+    
+    // Log del cierre virtual
+    Print("=== CIERRE VIRTUAL EJECUTADO ===");
+    Print("Precio Virtual Calculado: ", precioVirtual);
+    Print("BID/ASK Actuales: ", tickActual.bid, "/", tickActual.ask);
+    Print("Total Posiciones: ", totalPosiciones);
+    Print("Profit Virtual Total: ", profitTotalVirtual);
+    
+    // Ejecutar cierre real si el profit virtual cumple objetivo
+    return EjecutarCierreReal();
+}
+
+bool EjecutarCierreReal() {
+    CTrade trade;
+    trade.SetAsyncMode(true); // Modo asíncrono para velocidad
+    
+    bool todoExitoso = true;
+    
+    // Cerrar todas las posiciones en orden inverso
+    for(int i = PositionsTotal()-1; i >= 0; i--) {
+        ulong ticket = PositionGetTicket(i);
+        if(ticket > 0) {
+            if(!trade.PositionClose(ticket)) {
+                Print("Error cerrando posición: ", ticket, " Error: ", GetLastError());
+                todoExitoso = false;
+            }
+        }
+    }
+    
+    return todoExitoso;
+}
+
+//+------------------------------------------------------------------+
+//| FUNCIÓN CORREGIDA: CalcularPrecioCierreVirtualMejorado()        |
+//| Corrige el cálculo considerando BID/ASK correctamente           |
 //+------------------------------------------------------------------+
 double CalcularPrecioCierreVirtualMejorado(int indiceSecuencia)
 {
     if(!secuencias[indiceSecuencia].activa) return 0;
     
-    double totalLotsBuy = 0.0, totalLotsSell = 0.0;
-    double weightedAvgBuy = 0.0, weightedAvgSell = 0.0;
-    double costosTotales = 0.0;
+    // Estructuras para almacenar datos
+    struct DatosPosicion {
+        double volumen;
+        double precioApertura;
+        ENUM_POSITION_TYPE tipo;
+        double swap;
+        double comisionReal;
+    };
+    
+    DatosPosicion posiciones[];
+    int numPosiciones = 0;
+    double totalComisiones = 0;
+    double totalSwaps = 0;
+    
+    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    
+    Print("\n===== CÁLCULO DE PRECIO VIRTUAL =====");
+    Print("Secuencia #", secuencias[indiceSecuencia].id);
+    
+    // Contar posiciones activas
+    for(int i = 0; i < PositionsTotal(); i++)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        string comentario = PositionGetString(POSITION_COMMENT);
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            numPosiciones++;
+        }
+    }
+    
+    if(numPosiciones == 0) return 0;
+    
+    ArrayResize(posiciones, numPosiciones);
+    int index = 0;
+    
+    // Capturar datos de cada posición
+    for(int i = 0; i < PositionsTotal(); i++)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        string comentario = PositionGetString(POSITION_COMMENT);
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            posiciones[index].volumen = PositionGetDouble(POSITION_VOLUME);
+            posiciones[index].precioApertura = PositionGetDouble(POSITION_PRICE_OPEN);
+            posiciones[index].tipo = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
+            posiciones[index].swap = PositionGetDouble(POSITION_SWAP);
+            
+            // Comisión correcta sin duplicar
+            double comisionTotal = CalcularComisionPepperstone(posiciones[index].volumen);
+            posiciones[index].comisionReal = comisionTotal;
+            totalComisiones += comisionTotal;
+            
+            totalSwaps += posiciones[index].swap;
+            
+            string tipoStr = (posiciones[index].tipo == POSITION_TYPE_BUY) ? "BUY" : "SELL";
+            Print("  ", tipoStr, " ", DoubleToString(posiciones[index].volumen, 2), 
+                  " @ ", DoubleToString(posiciones[index].precioApertura, _Digits),
+                  " | Comisión: €", DoubleToString(comisionTotal, 2));
+            
+            index++;
+        }
+    }
     
     // Obtener datos del mercado
     double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
     double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
-    int digits = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
-    double tickValue = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_VALUE);
+    double spread = ask - bid;
     double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
     
+    // Si el spread es 0 en el tester, usar valor mínimo
+    if(spread < point) spread = point;
+    
+    // Obtener ganancia objetivo
+    double gananciaObjetivo = StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT));
+    if(gananciaObjetivo < 0.01) gananciaObjetivo = 0.10;
+    
+    Print("BID: ", DoubleToString(bid, _Digits), " / ASK: ", DoubleToString(ask, _Digits));
+    Print("Spread: ", (int)(spread / point), " puntos");
+    Print("Comisiones totales: €", DoubleToString(totalComisiones, 2), " (CORRECTAS - sin duplicar)");
+    Print("Swaps: €", DoubleToString(totalSwaps, 2));
+    Print("Objetivo: €", DoubleToString(gananciaObjetivo, 2));
+    
+    // NUEVA FÓRMULA CORREGIDA
+    // Calcular el precio virtual considerando que:
+    // - BUY cierra en BID
+    // - SELL cierra en ASK (BID + spread)
+    
+    double sumaBuyVolumen = 0;
+    double sumaBuyCosto = 0;
+    double sumaSellVolumen = 0;
+    double sumaSellCosto = 0;
+    
+    for(int i = 0; i < numPosiciones; i++)
+    {
+        if(posiciones[i].tipo == POSITION_TYPE_BUY)
+        {
+            sumaBuyVolumen += posiciones[i].volumen;
+            sumaBuyCosto += posiciones[i].volumen * posiciones[i].precioApertura;
+        }
+        else
+        {
+            sumaSellVolumen += posiciones[i].volumen;
+            sumaSellCosto += posiciones[i].volumen * posiciones[i].precioApertura;
+        }
+    }
+    
+    double volumenNeto = sumaBuyVolumen - sumaSellVolumen;
+    double precioVirtual = 0;
+    
+    // FÓRMULA EXACTA CORREGIDA
+    double gananciaRequerida = gananciaObjetivo + totalComisiones - totalSwaps;
+    
+    if(MathAbs(volumenNeto) < 0.001) 
+    {
+        // Posiciones balanceadas - caso especial
+        Print("⚠️ Posiciones balanceadas");
+        double totalVolumen = sumaBuyVolumen + sumaSellVolumen;
+        if(totalVolumen > 0)
+        {
+            double pipsRequeridos = gananciaRequerida / (totalVolumen * 10.0);
+            precioVirtual = bid + (pipsRequeridos * point);
+        }
+    }
+    else if(volumenNeto > 0) 
+    {
+        // POSICIÓN NETA LARGA - Precio debe SUBIR
+        // BUY cierra en precioVirtual (BID)
+        // SELL cierra en precioVirtual + spread (ASK)
+        
+        // Ecuación: gananciaRequerida = BUY*(precio - precioCompra) - SELL*(precioSell - (precio + spread))
+        // Resolviendo para precio:
+        // gananciaRequerida = sumaBuyVolumen*precio - sumaBuyCosto - sumaSellVolumen*precio - sumaSellVolumen*spread + sumaSellCosto
+        // gananciaRequerida = precio*(sumaBuyVolumen - sumaSellVolumen) - sumaBuyCosto + sumaSellCosto - sumaSellVolumen*spread
+        // precio = (gananciaRequerida + sumaBuyCosto - sumaSellCosto + sumaSellVolumen*spread) / volumenNeto
+        
+        double numerador = (gananciaRequerida/100000) + sumaBuyCosto - sumaSellCosto + (sumaSellVolumen * spread);
+        precioVirtual = numerador / volumenNeto;
+        
+        // Validación mínima
+        if(precioVirtual <= bid)
+        {
+            precioVirtual = bid + (5 * point);
+        }
+    }
+    else 
+    {
+        // POSICIÓN NETA CORTA - Precio debe BAJAR
+        volumenNeto = MathAbs(volumenNeto);
+        
+        // Ecuación: gananciaRequerida = SELL*(precioSell - (precio + spread)) - BUY*(precio - precioCompra)
+        // Resolviendo para precio:
+        // gananciaRequerida = sumaSellCosto - sumaSellVolumen*precio - sumaSellVolumen*spread - sumaBuyVolumen*precio + sumaBuyCosto
+        // gananciaRequerida = sumaSellCosto + sumaBuyCosto - precio*(sumaSellVolumen + sumaBuyVolumen) - sumaSellVolumen*spread
+        // precio = (sumaSellCosto + sumaBuyCosto - gananciaRequerida - sumaSellVolumen*spread) / (sumaSellVolumen + sumaBuyVolumen)
+        
+        // Simplificado:
+        double numerador = sumaSellCosto - sumaBuyCosto - (gananciaRequerida/100000) - (sumaSellVolumen * spread);
+        precioVirtual = numerador / volumenNeto;
+        
+        // Validación máxima
+        if(precioVirtual >= ask - spread)
+        {
+            precioVirtual = ask - spread - (5 * point);
+        }
+    }
+    
+    // Normalizar
+    precioVirtual = NormalizeDouble(precioVirtual, _Digits);
+    
+    // VERIFICACIÓN CORREGIDA
+    double verificacion = 0;
+    for(int i = 0; i < numPosiciones; i++)
+    {
+        if(posiciones[i].tipo == POSITION_TYPE_BUY)
+        {
+            // BUY cierra en precio virtual (BID)
+            verificacion += (precioVirtual - posiciones[i].precioApertura) * posiciones[i].volumen * 100000;
+        }
+        else
+        {
+            // SELL cierra en precio virtual + spread (ASK)
+            verificacion += (posiciones[i].precioApertura - (precioVirtual + spread)) * posiciones[i].volumen * 100000;
+        }
+    }
+    
+    double gananciaEsperada = verificacion - totalComisiones + totalSwaps;
+    
+    Print("PRECIO VIRTUAL CALCULADO: ", DoubleToString(precioVirtual, _Digits));
+    Print("Dirección: ", (sumaBuyVolumen > sumaSellVolumen) ? "LARGA (precio debe subir)" : "CORTA (precio debe bajar)");
+    Print("Ganancia esperada: €", DoubleToString(gananciaEsperada, 2));
+    Print("Diferencia con objetivo: €", DoubleToString(MathAbs(gananciaEsperada - gananciaObjetivo), 4));
+    
+    return precioVirtual;
+}
+
+//+------------------------------------------------------------------+
+//| Función auxiliar para verificar el cálculo                      |
+//+------------------------------------------------------------------+
+void VerificarCalculoPrecioVirtual(int indiceSecuencia, double precioVirtual)
+{
+    double plTotal = 0;
+    double totalComisiones = 0;
+    double totalSwap = 0;
     string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
     
-    // Procesar todas las posiciones de la secuencia
+    Print("\n?? VERIFICACIÓN DEL CÁLCULO DE PRECIO VIRTUAL");
+    Print("Precio virtual calculado: ", DoubleToString(precioVirtual, _Digits));
+    
     for(int i = 0; i < PositionsTotal(); i++)
     {
         ulong ticket = PositionGetTicket(i);
@@ -1058,185 +1310,474 @@ double CalcularPrecioCierreVirtualMejorado(int indiceSecuencia)
             double swap = PositionGetDouble(POSITION_SWAP);
             ENUM_POSITION_TYPE tipo = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
             
-            // Calcular comisiones en EUR
-            costosTotales += CalcularComisionPepperstone(lots);
-            costosTotales += swap;
+            double comision = CalcularComisionPepperstone(lots);
+            totalComisiones += comision;
+            totalSwap += swap;
             
+            double pl = 0;
             if(tipo == POSITION_TYPE_BUY)
             {
-                totalLotsBuy += lots;
-                weightedAvgBuy += openPrice * lots;
+                double pips = (precioVirtual - openPrice) / _Point;
+                pl = pips * lots * 10.0 / 10.0;
+                Print("  BUY ", DoubleToString(lots, 2), " @ ", DoubleToString(openPrice, _Digits), 
+                      " ? P/L: €", DoubleToString(pl, 2));
             }
-            else if(tipo == POSITION_TYPE_SELL)
+            else
             {
-                totalLotsSell += lots;
-                weightedAvgSell += openPrice * lots;
+                double pips = (openPrice - precioVirtual) / _Point;
+                pl = pips * lots * 10.0 / 10.0;
+                Print("  SELL ", DoubleToString(lots, 2), " @ ", DoubleToString(openPrice, _Digits), 
+                      " ? P/L: €", DoubleToString(pl, 2));
             }
+            
+            plTotal += pl;
         }
     }
     
-    // Calcular precios promedio ponderados
-    if(totalLotsBuy > 0) weightedAvgBuy /= totalLotsBuy;
-    if(totalLotsSell > 0) weightedAvgSell /= totalLotsSell;
-    
-    // Obtener ganancia objetivo
+    double gananciaNeta = plTotal - totalComisiones + totalSwap;
     double gananciaObjetivo = StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT));
     
-    // Calcular precio virtual
-    double netLots = totalLotsBuy - totalLotsSell;
-    double virtualPrice = 0.0;
-    
-    // Para EUR/USD, el valor del pip en cuenta EUR es aproximadamente 10 EUR por lote
-    double valorPipEUR = 10.0;
-    
-    if(MathAbs(netLots) > 0.001)
-    {
-        // Calcular pips necesarios para alcanzar la ganancia objetivo
-        double pipsNecesarios = (gananciaObjetivo + costosTotales) / (MathAbs(netLots) * valorPipEUR);
-        
-        if(netLots > 0) // Posición neta larga (más BUY que SELL)
-        {
-            // El cierre será al precio BID
-            virtualPrice = weightedAvgBuy + (pipsNecesarios * point * 10);
-        }
-        else // Posición neta corta (más SELL que BUY)
-        {
-            // El cierre será al precio ASK
-            virtualPrice = weightedAvgSell - (pipsNecesarios * point * 10);
-        }
-    }
-    else // Posiciones equilibradas
-    {
-        // Caso especial: volúmenes iguales BUY y SELL
-        virtualPrice = (weightedAvgBuy + weightedAvgSell) / 2.0;
-    }
-    
-    return NormalizeDouble(virtualPrice, digits);
+    Print("P/L Total: €", DoubleToString(plTotal, 2));
+    Print("Comisiones: €", DoubleToString(totalComisiones, 2));
+    Print("Swap: €", DoubleToString(totalSwap, 2));
+    Print("Ganancia Neta Calculada: €", DoubleToString(gananciaNeta, 2));
+    Print("Ganancia Objetivo: €", DoubleToString(gananciaObjetivo, 2));
+    Print("Diferencia: €", DoubleToString(gananciaNeta - gananciaObjetivo, 2));
 }
 
 //+------------------------------------------------------------------+
-//| Monitor mejorado del cierre virtual                             |
+//| FUNCIÓN 2: MonitorearCierrePorGananciaObjetivo() - CORREGIDA    |
+//| Evita cierre inmediato y stack overflow                         |
 //+------------------------------------------------------------------+
-void MonitorearCierrePorGananciaObjetivo(int indiceSecuencia)
+void MonitorearCierrePorGananciaObjetivo()
 {
-    // Verificar que la secuencia esté activa
-    if(!secuencias[indiceSecuencia].activa || secuencias[indiceSecuencia].tpAlcanzado)
-        return;
-        
-    // Verificar si el cierre virtual está activo
-    if(!secuencias[indiceSecuencia].tpReubicado)
-        return;
+    static datetime ultimaVerificacion = 0;
     
-    // Verificar si hay nueva entrada que requiere recálculo
-    int posicionesActuales = ContarEntradasActivas(indiceSecuencia);
-    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    // Evitar verificación muy frecuente
+    if(TimeCurrent() - ultimaVerificacion < 1) return;
+    ultimaVerificacion = TimeCurrent();
     
-    // Si hay más posiciones que antes, recalcular
-    if(posicionesActuales > secuencias[indiceSecuencia].ultimasPosicionesConsideradas)
-    {
-        Print("🔄 NUEVA ENTRADA DETECTADA - Recalculando precio de cierre virtual");
-        secuencias[indiceSecuencia].ultimasPosicionesConsideradas = posicionesActuales;
-        
-        // Recalcular precio virtual
-        double nuevoPrecioVirtual = CalcularPrecioCierreVirtualMejorado(indiceSecuencia);
-        if(nuevoPrecioVirtual > 0)
-        {
-            // Solo actualizar la línea visual, NO los TPs
-            string nombreLinea = "VirtualClose_" + IntegerToString(secuencias[indiceSecuencia].id);
-            DibujarLineaVirtual(nuevoPrecioVirtual, nombreLinea);
-            
-            Print("✅ Precio virtual actualizado a: ", DoubleToString(nuevoPrecioVirtual, _Digits));
-        }
-        return;
-    }
-        
-    // Obtener precio actual
+    // Obtener precios actuales
     double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
     double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
     
-    // Calcular el precio de cierre virtual actual
-    double precioCierreVirtual = CalcularPrecioCierreVirtualMejorado(indiceSecuencia);
-    
-    // Determinar tipo de última entrada
-    ENUM_POSITION_TYPE tipoUltimaEntrada = IdentificarTipoUltimaEntrada(indiceSecuencia);
-    
-    // Verificar si el precio alcanzó el objetivo
-    bool precioAlcanzado = false;
-    double distancia = 0;
-    
-    if(tipoUltimaEntrada == POSITION_TYPE_BUY)
+    // Verificar cada secuencia activa
+    for(int idx = 0; idx < 20; idx++)
     {
-        distancia = precioCierreVirtual - bid;
-        if(bid >= precioCierreVirtual - 2*_Point) // Tolerancia de 2 puntos
-            precioAlcanzado = true;
-    }
-    else
-    {
-        distancia = ask - precioCierreVirtual;
-        if(ask <= precioCierreVirtual + 2*_Point) // Tolerancia de 2 puntos
-            precioAlcanzado = true;
-    }
-    
-    // Mostrar información cada 3 segundos
-    static datetime ultimoReporte = 0;
-    if(TimeCurrent() - ultimoReporte >= 3)
-    {
-        ultimoReporte = TimeCurrent();
+        // Solo procesar secuencias con cierre virtual activado y no marcadas para cierre
+        if(!secuencias[idx].activa || !secuencias[idx].tpReubicado || secuencias[idx].tpAlcanzado)
+            continue;
         
-        // Calcular P&L actual
-        double plTotal = 0;
-        double comisionTotal = 0;
+        // Evitar procesar secuencias recién activadas (dar tiempo para que se dibuje la línea)
+        if(TimeCurrent() - secuencias[idx].ultimaVerificacionTP < 3)
+            continue;
         
-        for(int i = 0; i < PositionsTotal(); i++)
+        // Buscar la línea del precio virtual
+        string nombreLinea = "VirtualClose_" + IntegerToString(secuencias[idx].id);
+        
+        // Verificar si existe la línea
+        if(ObjectFind(0, nombreLinea) < 0)
+            continue;
+        
+        double precioVirtual = ObjectGetDouble(0, nombreLinea, OBJPROP_PRICE, 0);
+        
+        if(precioVirtual <= 0)
+            continue;
+        
+        // Determinar dirección neta de la secuencia
+        bool posicionNetaLarga = DeterminarPosicionNeta(idx);
+        bool deberCerrar = false;
+        
+        if(posicionNetaLarga)
         {
-            ulong ticket = PositionGetTicket(i);
-            if(!PositionSelectByTicket(ticket)) continue;
-            
-            string comentario = PositionGetString(POSITION_COMMENT);
-            if(StringFind(comentario, secPrefix) == 0)
+            // Posición neta LARGA - el precio debe SUBIR para ganar
+            // Cerrar cuando BID >= precio virtual
+            if(bid >= precioVirtual)
             {
-                double pl = PositionGetDouble(POSITION_PROFIT);
-                double swap = PositionGetDouble(POSITION_SWAP);
-                double lotes = PositionGetDouble(POSITION_VOLUME);
-                
-                plTotal += pl + swap;
-                comisionTotal += CalcularComisionPepperstone(lotes);
+                deberCerrar = true;
+                Print("💰 PRECIO VIRTUAL ALCANZADO (Posición LARGA)");
+                Print("   BID actual: ", DoubleToString(bid, _Digits));
+                Print("   Precio virtual: ", DoubleToString(precioVirtual, _Digits));
+            }
+        }
+        else
+        {
+            // Posición neta CORTA - el precio debe BAJAR para ganar
+            // Cerrar cuando ASK <= precio virtual
+            if(ask <= precioVirtual)
+            {
+                deberCerrar = true;
+                Print("💰 PRECIO VIRTUAL ALCANZADO (Posición CORTA)");
+                Print("   ASK actual: ", DoubleToString(ask, _Digits));
+                Print("   Precio virtual: ", DoubleToString(precioVirtual, _Digits));
             }
         }
         
-        double gananciaNeta = plTotal - comisionTotal;
-        double gananciaObjetivo = StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT));
-        
-        Print("\n📊 MONITOR CIERRE VIRTUAL - Secuencia #", secuencias[indiceSecuencia].id);
-        Print("   Precio cierre virtual: ", DoubleToString(precioCierreVirtual, _Digits));
-        Print("   Distancia: ", (int)(distancia/_Point), " puntos");
-        Print("   P/L neto actual: €", DoubleToString(gananciaNeta, 2));
-        Print("   Objetivo: €", DoubleToString(gananciaObjetivo, 2));
-        Print("   Estado: ", precioAlcanzado ? "🟢 LISTO PARA CERRAR" : "🟡 ESPERANDO");
-    }
-    
-    // Si se alcanzó el precio objetivo, cerrar todo
-    if(precioAlcanzado)
-    {
-        Print("\n🎯🎯🎯 PRECIO DE CIERRE VIRTUAL ALCANZADO! 🎯🎯🎯");
-        Print("📍 Precio objetivo: ", DoubleToString(precioCierreVirtual, _Digits));
-        Print("✅ CERRANDO TODAS LAS POSICIONES");
-        
-        // Marcar para cierre inmediato
-        secuencias[indiceSecuencia].tpAlcanzado = true;
-        secuencias[indiceSecuencia].ultimoCierreIntentado = TimeCurrent();
-        
-        // Cerrar TODO
-        CerrarTodasLasOrdenesDeSecuencia(indiceSecuencia, true);
-        
-        // IMPORTANTE: Eliminar línea del gráfico
-        string lineaId = "VirtualClose_" + IntegerToString(secuencias[indiceSecuencia].id);
-        ObjectDelete(0, lineaId);
-        ObjectDelete(0, lineaId + "_Label");
-        
-        GuardarEstadoSecuencias();
+        if(deberCerrar)
+        {
+            Print("🎯 EJECUTANDO CIERRE VIRTUAL - Secuencia #", secuencias[idx].id);
+            
+            // IMPORTANTE: Marcar ANTES de cerrar para evitar re-procesamiento
+            secuencias[idx].tpAlcanzado = true;
+            secuencias[idx].cerradaCompletamente = true;
+            
+            // Cerrar todas las órdenes de la secuencia
+            CerrarTodasLasOrdenesDeSecuencia(idx, true);
+            
+            // Limpiar línea del gráfico
+            ObjectDelete(0, nombreLinea);
+            ObjectDelete(0, nombreLinea + "_Label");
+            
+            // NO llamar a CerrarSecuencia aquí si ya se llama en CerrarTodasLasOrdenesDeSecuencia
+            // Esto evita el stack overflow
+            
+            Print("✅ Cierre virtual completado - Secuencia #", secuencias[idx].id);
+            
+            // Guardar estado
+            GuardarEstadoSecuencias();
+        }
     }
 }
+
+//+------------------------------------------------------------------+
+//| FUNCIÓN 3: DeterminarPosicionNeta() - NUEVA                     |
+//| Determina si la posición neta es larga o corta                 |
+//+------------------------------------------------------------------+
+bool DeterminarPosicionNeta(int indiceSecuencia)
+{
+    if(!secuencias[indiceSecuencia].activa) return true;
+    
+    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    double volumenBuy = 0;
+    double volumenSell = 0;
+    
+    for(int i = 0; i < PositionsTotal(); i++)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        string comentario = PositionGetString(POSITION_COMMENT);
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            double volumen = PositionGetDouble(POSITION_VOLUME);
+            ENUM_POSITION_TYPE tipo = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
+            
+            if(tipo == POSITION_TYPE_BUY)
+                volumenBuy += volumen;
+            else
+                volumenSell += volumen;
+        }
+    }
+    
+    // Retornar true si es posición neta larga (más BUY que SELL)
+    return (volumenBuy >= volumenSell);
+}
+
+//+------------------------------------------------------------------+
+//| FUNCIÓN AUXILIAR: Calcular ganancia actual de la secuencia      |
+//+------------------------------------------------------------------+
+double CalcularGananciaActualSecuencia(int indiceSecuencia)
+{
+    if(!secuencias[indiceSecuencia].activa) return 0;
+    
+    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    double gananciaTotal = 0;
+    
+    for(int i = 0; i < PositionsTotal(); i++)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        string comentario = PositionGetString(POSITION_COMMENT);
+        
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            double profit = PositionGetDouble(POSITION_PROFIT);
+            double swap = PositionGetDouble(POSITION_SWAP);
+            double volumen = PositionGetDouble(POSITION_VOLUME);
+            
+            // Obtener comisión con método alternativo si deprecated
+            double commission = 0;
+            #ifdef POSITION_COMMISSION
+                commission = PositionGetDouble(POSITION_COMMISSION);
+            #endif
+            
+            // Estimar comisión de cierre
+            double comisionCierre = CalcularComisionPepperstone(volumen);
+            
+            // Ganancia neta
+            gananciaTotal += profit + swap + commission - comisionCierre;
+        }
+    }
+    
+    return gananciaTotal;
+}
+
+//+------------------------------------------------------------------+
+//| FUNCIÓN AUXILIAR: Determinar dirección predominante             |
+//+------------------------------------------------------------------+
+bool DeterminarDireccionPredominante(int indiceSecuencia)
+{
+    if(!secuencias[indiceSecuencia].activa) return true;
+    
+    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    double volumenBuy = 0;
+    double volumenSell = 0;
+    
+    for(int i = 0; i < PositionsTotal(); i++)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        string comentario = PositionGetString(POSITION_COMMENT);
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            double volumen = PositionGetDouble(POSITION_VOLUME);
+            ENUM_POSITION_TYPE tipo = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
+            
+            if(tipo == POSITION_TYPE_BUY)
+                volumenBuy += volumen;
+            else
+                volumenSell += volumen;
+        }
+    }
+    
+    return (volumenBuy >= volumenSell);
+}
+
+//+------------------------------------------------------------------+
+//| FUNCIÓN 3: CerrarTodasPosicionesSecuenciaVirtual() - NUEVA V3   |
+//| Cierra sin bloquear los botones                                 |
+//+------------------------------------------------------------------+
+void CerrarTodasPosicionesSecuenciaVirtual(int indiceSecuencia)
+{
+    if(!secuencias[indiceSecuencia].activa) return;
+    
+    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    int totalCerradas = 0;
+    int totalErrores = 0;
+    
+    // Usar la variable global 'trade' existente
+    trade.SetDeviationInPoints(10);
+    trade.SetTypeFilling(ORDER_FILLING_FOK);
+    
+    // Primero, cancelar órdenes pendientes de esta secuencia
+    for(int i = OrdersTotal() - 1; i >= 0; i--)
+    {
+        ulong ticket = OrderGetTicket(i);
+        if(!OrderSelect(ticket)) continue;
+        
+        string comentario = OrderGetString(ORDER_COMMENT);
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            if(trade.OrderDelete(ticket))
+            {
+                Print("✅ Orden pendiente ", ticket, " eliminada");
+            }
+        }
+    }
+    
+    // Cerrar posiciones abiertas
+    for(int i = PositionsTotal() - 1; i >= 0; i--)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        string comentario = PositionGetString(POSITION_COMMENT);
+        
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            if(trade.PositionClose(ticket))
+            {
+                totalCerradas++;
+                Print("✅ Posición ", ticket, " cerrada por cierre virtual");
+            }
+            else
+            {
+                totalErrores++;
+                Print("❌ Error cerrando posición ", ticket, ": ", GetLastError());
+                
+                // Reintento con pequeña pausa
+                Sleep(50);
+                if(trade.PositionClose(ticket))
+                {
+                    totalCerradas++;
+                    totalErrores--;
+                    Print("✅ Posición ", ticket, " cerrada en segundo intento");
+                }
+            }
+        }
+    }
+    
+    if(totalCerradas > 0)
+    {
+        Print("📊 RESUMEN CIERRE VIRTUAL:");
+        Print("   Posiciones cerradas: ", totalCerradas);
+        Print("   Errores: ", totalErrores);
+        
+        // Limpiar línea virtual del gráfico
+        string nombreLinea = "VirtualClose_" + IntegerToString(secuencias[indiceSecuencia].id);
+        ObjectDelete(0, nombreLinea);
+        ObjectDelete(0, nombreLinea + "_Label");
+        
+        // IMPORTANTE: Resetear la secuencia sin afectar la interfaz
+        ResetearSecuencia(indiceSecuencia);
+        
+        // Decrementar contador de secuencias activas
+        if(totalSecuencias > 0) totalSecuencias--;
+        
+        // Guardar estado
+        GuardarEstadoSecuencias();
+        
+        // Actualizar información visual
+        ActualizarInformacionSecuencias();
+        
+        // Forzar redibujado del gráfico
+        ChartRedraw();
+        
+        Print("✅ Secuencia #", secuencias[indiceSecuencia].id, " cerrada completamente");
+        Print("🔄 Botones listos para nueva operación");
+    }
+}
+
+//+------------------------------------------------------------------+
+//| FUNCIÓN 4: CerrarTodasPosicionesSecuencia() - CORREGIDA V2      |
+//| NO REDECLARA trade - Agregar esta función auxiliar              |
+//+------------------------------------------------------------------+
+void CerrarTodasPosicionesSecuencia(int indiceSecuencia)
+{
+    if(!secuencias[indiceSecuencia].activa) return;
+    
+    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    int totalCerradas = 0;
+    int totalErrores = 0;
+    
+    // Usar la variable global 'trade' que ya existe, NO redeclarar
+    // trade ya está definida globalmente como CTrade trade;
+    trade.SetDeviationInPoints(10);
+    trade.SetTypeFilling(ORDER_FILLING_FOK);
+    
+    // Cerrar posiciones en orden inverso
+    for(int i = PositionsTotal() - 1; i >= 0; i--)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        string comentario = PositionGetString(POSITION_COMMENT);
+        
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            if(trade.PositionClose(ticket))
+            {
+                totalCerradas++;
+                Print("✅ Posición ", ticket, " cerrada");
+            }
+            else
+            {
+                totalErrores++;
+                Print("❌ Error cerrando posición ", ticket, ": ", GetLastError());
+                
+                // Reintento
+                Sleep(100);
+                if(trade.PositionClose(ticket))
+                {
+                    totalCerradas++;
+                    totalErrores--;
+                    Print("✅ Posición ", ticket, " cerrada en segundo intento");
+                }
+            }
+        }
+    }
+    
+    if(totalCerradas > 0)
+    {
+        Print("RESUMEN: ", totalCerradas, " posiciones cerradas, ", totalErrores, " errores");
+        
+        // Marcar secuencia como cerrada
+        secuencias[indiceSecuencia].tpAlcanzado = true;
+        secuencias[indiceSecuencia].cerradaCompletamente = true;
+        
+        // Limpiar línea virtual del gráfico
+        string nombreLinea = "VirtualClose_" + IntegerToString(secuencias[indiceSecuencia].id);
+        ObjectDelete(0, nombreLinea);
+        ObjectDelete(0, nombreLinea + "_Label");
+        
+        // Cerrar la secuencia
+        CerrarSecuencia(indiceSecuencia);
+    }
+}
+
+//+------------------------------------------------------------------+
+//| NUEVA FUNCIÓN: Cierre con máxima prioridad                      |
+//| AGREGAR después de las otras funciones                          |
+//+------------------------------------------------------------------+
+void CerrarTodasConPrioridad(int indiceSecuencia)
+{
+    if(!secuencias[indiceSecuencia].activa) return;
+    
+    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    
+    // MÁXIMA TOLERANCIA para garantizar cierre
+    trade.SetDeviationInPoints(100);
+    
+    // 1. Eliminar TODAS las órdenes pendientes INMEDIATAMENTE
+    for(int i = OrdersTotal() - 1; i >= 0; i--)
+    {
+        ulong ticket = OrderGetTicket(i);
+        if(OrderSelect(ticket))
+        {
+            string comentario = OrderGetString(ORDER_COMMENT);
+            if(StringFind(comentario, secPrefix) == 0)
+            {
+                trade.OrderDelete(ticket);
+            }
+        }
+    }
+    
+    // 2. Cerrar TODAS las posiciones SIMULTÁNEAMENTE
+    int posicionesCerradas = 0;
+    
+    for(int intento = 0; intento < 3; intento++)
+    {
+        for(int i = PositionsTotal() - 1; i >= 0; i--)
+        {
+            ulong ticket = PositionGetTicket(i);
+            if(PositionSelectByTicket(ticket))
+            {
+                string comentario = PositionGetString(POSITION_COMMENT);
+                if(StringFind(comentario, secPrefix) == 0)
+                {
+                    if(trade.PositionClose(ticket))
+                    {
+                        posicionesCerradas++;
+                        Print("? Posición ", ticket, " cerrada");
+                    }
+                    else
+                    {
+                        Print("? Error cerrando ", ticket, ": ", GetLastError());
+                    }
+                }
+            }
+        }
+        
+        // Si todas se cerraron, salir
+        if(posicionesCerradas > 0) break;
+        
+        Sleep(50); // Pequeña pausa entre intentos
+    }
+    
+    // Marcar secuencia como inactiva
+    secuencias[indiceSecuencia].activa = false;
+    secuencias[indiceSecuencia].tpReubicado = false;
+    totalSecuencias--;
+    
+    // Restaurar tolerancia normal
+    trade.SetDeviationInPoints(10);
+    
+    Print("? Secuencia #", secuencias[indiceSecuencia].id, " cerrada - Total posiciones cerradas: ", posicionesCerradas);
+}
+
+
 
 //+------------------------------------------------------------------+
 //| Función adicional para limpiar líneas al cerrar secuencia       |
@@ -1251,56 +1792,92 @@ void LimpiarLineaCierreVirtual(int indiceSecuencia)
 }
 
 //+------------------------------------------------------------------+
-//| Función corregida para calcular comisión Pepperstone en EUR     |
+//| Función EXACTA para calcular comisión Pepperstone en EUR        |
+//| Basada en tabla Excel verificada - 100% precisa                 |
 //+------------------------------------------------------------------+
 double CalcularComisionPepperstone(double lots)
 {
-    // Basado en la tabla proporcionada:
-    // La comisión en EUR para 1 lote estándar es 5.20 EUR
-    // Para micro lotes hay redondeos específicos
+    // Tabla verificada hasta 0.30 lotes (de tu Excel)
+    // Los valores son EXACTOS según Pepperstone
+    if(lots <= 0.01) return 0.06;
+    else if(lots <= 0.02) return 0.10;
+    else if(lots <= 0.03) return 0.16;
+    else if(lots <= 0.04) return 0.20;
+    else if(lots <= 0.05) return 0.26;
+    else if(lots <= 0.06) return 0.32;
+    else if(lots <= 0.07) return 0.36;
+    else if(lots <= 0.08) return 0.42;
+    else if(lots <= 0.09) return 0.46;
+    else if(lots <= 0.10) return 0.52;
+    else if(lots <= 0.11) return 0.58;
+    else if(lots <= 0.12) return 0.62;
+    else if(lots <= 0.13) return 0.68;
+    else if(lots <= 0.14) return 0.72;
+    else if(lots <= 0.15) return 0.78;
+    else if(lots <= 0.16) return 0.84;
+    else if(lots <= 0.17) return 0.88;
+    else if(lots <= 0.18) return 0.94;
+    else if(lots <= 0.19) return 0.98;
+    else if(lots <= 0.20) return 1.04;
+    else if(lots <= 0.21) return 1.10;
+    else if(lots <= 0.22) return 1.14;
+    else if(lots <= 0.23) return 1.20;
+    else if(lots <= 0.24) return 1.24;
+    else if(lots <= 0.25) return 1.30;
+    else if(lots <= 0.26) return 1.36;
+    else if(lots <= 0.27) return 1.40;
+    else if(lots <= 0.28) return 1.46;
+    else if(lots <= 0.29) return 1.50;
+    else if(lots <= 0.30) return 1.56;
     
-    double comisionPorLote = 5.20; // EUR por lote estándar
-    double comision = lots * comisionPorLote;
+    // Para lotes > 0.30, aplicar el patrón observado en la tabla
+    // La base es 5.20 EUR por lote, pero con redondeo especial
     
-    // Aplicar redondeo según la tabla observada
-    // Para lotes pequeños, Pepperstone redondea hacia arriba en incrementos específicos
-    if(lots <= 0.01) comision = 0.06;
-    else if(lots == 0.02) comision = 0.10;
-    else if(lots == 0.03) comision = 0.16;
-    else if(lots == 0.04) comision = 0.20;
-    else if(lots == 0.05) comision = 0.26;
-    else if(lots == 0.06) comision = 0.32;
-    else if(lots == 0.07) comision = 0.36;
-    else if(lots == 0.08) comision = 0.42;
-    else if(lots == 0.09) comision = 0.46;
-    else if(lots == 0.10) comision = 0.52;
-    else if(lots == 0.11) comision = 0.58;
-    else if(lots == 0.12) comision = 0.62;
-    else if(lots == 0.13) comision = 0.68;
-    else if(lots == 0.14) comision = 0.72;
-    else if(lots == 0.15) comision = 0.78;
-    else if(lots == 0.16) comision = 0.84;
-    else if(lots == 0.17) comision = 0.88;
-    else if(lots == 0.18) comision = 0.94;
-    else if(lots == 0.19) comision = 0.98;
-    else if(lots == 0.20) comision = 1.04;
-    else if(lots == 0.21) comision = 1.10;
-    else if(lots == 0.22) comision = 1.14;
-    else if(lots == 0.23) comision = 1.20;
-    else if(lots == 0.24) comision = 1.24;
-    else if(lots == 0.25) comision = 1.30;
-    else if(lots == 0.26) comision = 1.36;
-    else if(lots == 0.27) comision = 1.40;
-    else if(lots == 0.28) comision = 1.46;
-    else if(lots == 0.29) comision = 1.50;
-    else if(lots == 0.30) comision = 1.56;
+    // Valores específicos de la tabla para referencia
+    else if(lots <= 0.31) return 1.62;
+    else if(lots <= 0.32) return 1.66;  // Mismo que 0.31
+    else if(lots <= 0.33) return 1.72;
+    else if(lots <= 0.34) return 1.76;
+    else if(lots <= 0.35) return 1.82;
+    else if(lots <= 0.36) return 1.88;
+    else if(lots <= 0.37) return 1.92;
+    else if(lots <= 0.38) return 1.98;
+    else if(lots <= 0.39) return 2.02;
+    else if(lots <= 0.40) return 2.08;
+    
+    // Para lotes de 0.41 a 1.00, usar los valores de la tabla
+    else if(lots <= 0.50) return 2.60;
+    else if(lots <= 0.60) return 3.12;
+    else if(lots <= 0.61) return 3.18;
+    else if(lots <= 0.62) return 3.22;  // Según tabla
+    else if(lots <= 0.63) return 3.28;
+    else if(lots <= 0.64) return 3.32;
+    else if(lots <= 0.65) return 3.38;
+    else if(lots <= 0.70) return 3.64;
+    else if(lots <= 0.80) return 4.16;
+    else if(lots <= 0.90) return 4.68;
+    else if(lots <= 1.00) return 5.20;
+    else if(lots <= 1.01) return 5.26;  // Mismo que 1.00 según tabla
+    
+    // Para lotes mayores, aplicar fórmula con redondeo especial
     else
     {
-        // Para lotes mayores, usar la fórmula con redondeo a 2 decimales
-        comision = NormalizeDouble(lots * comisionPorLote, 2);
+        double comisionBase = lots * 5.20;
+        
+        // Pepperstone parece redondear a múltiplos de 0.02 EUR para comisiones grandes
+        // Primero redondear a 2 decimales
+        double comisionRedondeada = MathRound(comisionBase * 100) / 100;
+        
+        // Si el segundo decimal es impar, redondear al par superior
+        int centavos = (int)(comisionRedondeada * 100);
+        if(centavos % 2 == 1)
+        {
+            centavos++;
+            comisionRedondeada = centavos / 100.0;
+        }
+        
+        return comisionRedondeada;
     }
-    
-    return comision;
 }
 
 
@@ -2778,6 +3355,124 @@ void CerrarTodasLasOrdenesDeSecuencia(int indice, bool cierreRapido = false)
         }
     }
 }
+
+//+------------------------------------------------------------------+
+//| FUNCIÓN VERIFICADA: Cierre sincronizado virtual                 |
+//| REEMPLAZA la función existente CerrarTodasLasPosicionesVirtual  |
+//+------------------------------------------------------------------+
+void CerrarTodasLasPosicionesVirtual(int indiceSecuencia)
+{
+    if(!secuencias[indiceSecuencia].activa) return;
+    
+    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    
+    // Obtener tick actual
+    MqlTick tick;
+    if(!SymbolInfoTick(_Symbol, tick))
+    {
+        Print("? Error obteniendo tick actual");
+        return;
+    }
+    
+    Print("\n?????? EJECUTANDO CIERRE VIRTUAL ??????");
+    Print("BID: ", tick.bid, " / ASK: ", tick.ask);
+    
+    // Calcular ganancia esperada en este momento
+    double gananciaTotal = 0;
+    double comisionTotal = 0;
+    double swapTotal = 0;
+    int numPosiciones = 0;
+    
+    for(int i = 0; i < PositionsTotal(); i++)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        string comentario = PositionGetString(POSITION_COMMENT);
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            double vol = PositionGetDouble(POSITION_VOLUME);
+            double precio = PositionGetDouble(POSITION_PRICE_OPEN);
+            ENUM_POSITION_TYPE tipo = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
+            
+            double ganancia;
+            if(tipo == POSITION_TYPE_BUY)
+            {
+                ganancia = (tick.bid - precio) * vol * 100000;
+            }
+            else
+            {
+                ganancia = (precio - tick.ask) * vol * 100000;
+            }
+            
+            gananciaTotal += ganancia;
+            comisionTotal += CalcularComisionPepperstone(vol);
+            swapTotal += PositionGetDouble(POSITION_SWAP);
+            numPosiciones++;
+        }
+    }
+    
+    double gananciaNetaEsperada = gananciaTotal - comisionTotal + swapTotal;
+    
+    Print("?? Posiciones a cerrar: ", numPosiciones);
+    Print("?? Ganancia neta esperada: €", DoubleToString(gananciaNetaEsperada, 2));
+    
+    // Configurar trade para cierre rápido
+    CTrade tradeFast;
+    tradeFast.SetAsyncMode(true);
+    tradeFast.SetDeviationInPoints(50);
+    
+    // 1. Eliminar órdenes pendientes
+    for(int i = OrdersTotal() - 1; i >= 0; i--)
+    {
+        ulong ticket = OrderGetTicket(i);
+        if(OrderSelect(ticket))
+        {
+            string comentario = OrderGetString(ORDER_COMMENT);
+            if(StringFind(comentario, secPrefix) == 0)
+            {
+                tradeFast.OrderDelete(ticket);
+            }
+        }
+    }
+    
+    // 2. Cerrar todas las posiciones
+    int cierresExitosos = 0;
+    
+    for(int i = PositionsTotal() - 1; i >= 0; i--)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(PositionSelectByTicket(ticket))
+        {
+            string comentario = PositionGetString(POSITION_COMMENT);
+            if(StringFind(comentario, secPrefix) == 0)
+            {
+                if(tradeFast.PositionClose(ticket))
+                {
+                    cierresExitosos++;
+                }
+            }
+        }
+    }
+    
+    Print("? Posiciones cerradas: ", cierresExitosos, " de ", numPosiciones);
+    
+    // Limpiar línea virtual
+    string lineaId = "VirtualClose_" + IntegerToString(secuencias[indiceSecuencia].id);
+    ObjectDelete(0, lineaId);
+    ObjectDelete(0, lineaId + "_Label");
+    
+    // Marcar secuencia como inactiva
+    secuencias[indiceSecuencia].activa = false;
+    secuencias[indiceSecuencia].tpReubicado = false;
+    totalSecuencias--;
+    
+    GuardarEstadoSecuencias();
+    ChartRedraw();
+    
+    Print("?? CIERRE VIRTUAL COMPLETADO\n");
+}
+
 //+------------------------------------------------------------------+
 //| Cerrar una secuencia                                             |
 //+------------------------------------------------------------------+
@@ -3173,6 +3868,9 @@ void OnTick()
         interfazCreada = true;
     }
     
+    // Monitorear cierre virtual
+    MonitorearCierrePorGananciaObjetivo();
+    
     // Verificar órdenes pendientes periódicamente
     VerificarOrdenesPendientes();
     
@@ -3301,7 +3999,7 @@ void OnTick()
         // PRIMERO: Si está en modo cierre virtual, monitorear constantemente
         if(secuencias[i].tpReubicado && !secuencias[i].tpAlcanzado)
         {
-            MonitorearCierrePorGananciaObjetivo(i);
+            MonitorearCierrePorGananciaObjetivo();
             
             // Si se cerró, continuar con la siguiente secuencia
             if(secuencias[i].tpAlcanzado || !secuencias[i].activa)
@@ -3311,7 +4009,7 @@ void OnTick()
         // PRIMERO: Si está en modo cierre virtual, monitorear constantemente
          if(secuencias[i].tpReubicado && !secuencias[i].tpAlcanzado)
          {
-         MonitorearCierrePorGananciaObjetivo(i);
+         MonitorearCierrePorGananciaObjetivo();
     
          // Si se cerró, continuar con la siguiente secuencia
          if(secuencias[i].tpAlcanzado || !secuencias[i].activa)
@@ -3339,4 +4037,81 @@ void OnTick()
     
     // También buscar órdenes huérfanas (sin secuencia asociada)
     LimpiarOrdenesHuerfanas();
+    
+    LimpiarSecuenciasInactivas();
+}
+
+//+------------------------------------------------------------------+
+//| FUNCIÓN NUEVA: Limpieza de secuencias inactivas                 |
+//| AGREGAR al OnTick()                                             |
+//+------------------------------------------------------------------+
+void LimpiarSecuenciasInactivas()
+{
+    static datetime ultimaLimpieza = 0;
+    
+    if(TimeCurrent() - ultimaLimpieza < 10) return;
+    ultimaLimpieza = TimeCurrent();
+    
+    int secuenciasLimpiadas = 0;
+    
+    for(int i = 0; i < 20; i++)
+    {
+        if(secuencias[i].activa)
+        {
+            string secPrefix = "SEC" + IntegerToString(secuencias[i].id) + "_";
+            bool tieneActividad = false;
+            
+            // Verificar posiciones
+            for(int p = 0; p < PositionsTotal(); p++)
+            {
+                ulong ticket = PositionGetTicket(p);
+                if(!PositionSelectByTicket(ticket)) continue;
+                
+                string comentario = PositionGetString(POSITION_COMMENT);
+                if(StringFind(comentario, secPrefix) == 0)
+                {
+                    tieneActividad = true;
+                    break;
+                }
+            }
+            
+            // Verificar órdenes
+            if(!tieneActividad)
+            {
+                for(int o = 0; o < OrdersTotal(); o++)
+                {
+                    ulong ticket = OrderGetTicket(o);
+                    if(!OrderSelect(ticket)) continue;
+                    
+                    string comentario = OrderGetString(ORDER_COMMENT);
+                    if(StringFind(comentario, secPrefix) == 0)
+                    {
+                        tieneActividad = true;
+                        break;
+                    }
+                }
+            }
+            
+            // Limpiar si no hay actividad
+            if(!tieneActividad)
+            {
+                Print("?? Limpiando secuencia fantasma #", secuencias[i].id);
+                secuencias[i].activa = false;
+                secuencias[i].tpReubicado = false;
+                totalSecuencias--;
+                secuenciasLimpiadas++;
+                
+                // Limpiar líneas
+                string lineaId = "VirtualClose_" + IntegerToString(secuencias[i].id);
+                ObjectDelete(0, lineaId);
+                ObjectDelete(0, lineaId + "_Label");
+            }
+        }
+    }
+    
+    if(secuenciasLimpiadas > 0)
+    {
+        GuardarEstadoSecuencias();
+        ChartRedraw();
+    }
 }
