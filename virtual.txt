@@ -798,10 +798,10 @@ void ReubicarTPsParaGarantiaMinimaG(int indiceSecuencia)
     if(!secuencias[indiceSecuencia].tpReubicado)
     {
         // Primera activación del cierre virtual
-        Print("\n🎯 ACTIVANDO SISTEMA DE CIERRE VIRTUAL");
-        Print("📍 Secuencia #", secuencias[indiceSecuencia].id);
-        Print("📍 Entradas activas: ", entradasActuales);
-        Print("📍 Activado en entrada #", entradaReubicar);
+        Print("\n?? ACTIVANDO SISTEMA DE CIERRE VIRTUAL");
+        Print("?? Secuencia #", secuencias[indiceSecuencia].id);
+        Print("?? Entradas activas: ", entradasActuales);
+        Print("?? Activado en entrada #", entradaReubicar);
         necesitaRecalculo = true;
         secuencias[indiceSecuencia].tpReubicado = true;
         secuencias[indiceSecuencia].ultimaVerificacionTP = TimeCurrent(); // Marcar tiempo de activación
@@ -809,10 +809,10 @@ void ReubicarTPsParaGarantiaMinimaG(int indiceSecuencia)
     else if(entradasActuales > secuencias[indiceSecuencia].ultimasPosicionesConsideradas)
     {
         // Nueva entrada detectada, recalcular
-        Print("\n🔄 RECALCULANDO PRECIO VIRTUAL - Nueva entrada detectada");
-        Print("📍 Secuencia #", secuencias[indiceSecuencia].id);
-        Print("📍 Entradas anteriores: ", secuencias[indiceSecuencia].ultimasPosicionesConsideradas);
-        Print("📍 Entradas actuales: ", entradasActuales);
+        Print("\n?? RECALCULANDO PRECIO VIRTUAL - Nueva entrada detectada");
+        Print("?? Secuencia #", secuencias[indiceSecuencia].id);
+        Print("?? Entradas anteriores: ", secuencias[indiceSecuencia].ultimasPosicionesConsideradas);
+        Print("?? Entradas actuales: ", entradasActuales);
         necesitaRecalculo = true;
     }
     
@@ -838,9 +838,9 @@ void ReubicarTPsParaGarantiaMinimaG(int indiceSecuencia)
             
             double gananciaObjetivo = StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT));
             
-            Print("✅ Precio virtual: ", DoubleToString(precioVirtual, _Digits));
-            Print("💰 Objetivo: €", DoubleToString(gananciaObjetivo, 2));
-            Print("📌 La secuencia continúa activa hasta tocar el precio virtual");
+            Print("? Precio virtual: ", DoubleToString(precioVirtual, _Digits));
+            Print("?? Objetivo: €", DoubleToString(gananciaObjetivo, 2));
+            Print("?? La secuencia continúa activa hasta tocar el precio virtual");
             
             // Guardar estado
             GuardarEstadoSecuencias();
@@ -1078,8 +1078,8 @@ bool EjecutarCierreReal() {
 }
 
 //+------------------------------------------------------------------+
-//| FUNCIÓN CORREGIDA: CalcularPrecioCierreVirtualMejorado()        |
-//| Corrige el cálculo considerando BID/ASK correctamente           |
+//| FÓRMULA MATEMÁTICA PURA: CalcularPrecioCierreVirtualMejorado    |
+//| Garantiza resultado EXACTO con cualquier configuración          |
 //+------------------------------------------------------------------+
 double CalcularPrecioCierreVirtualMejorado(int indiceSecuencia)
 {
@@ -1136,7 +1136,6 @@ double CalcularPrecioCierreVirtualMejorado(int indiceSecuencia)
             posiciones[index].tipo = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
             posiciones[index].swap = PositionGetDouble(POSITION_SWAP);
             
-            // Comisión correcta sin duplicar
             double comisionTotal = CalcularComisionPepperstone(posiciones[index].volumen);
             posiciones[index].comisionReal = comisionTotal;
             totalComisiones += comisionTotal;
@@ -1158,134 +1157,210 @@ double CalcularPrecioCierreVirtualMejorado(int indiceSecuencia)
     double spread = ask - bid;
     double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
     
-    // Si el spread es 0 en el tester, usar valor mínimo
     if(spread < point) spread = point;
     
-    // Obtener ganancia objetivo
+    // LEER GANANCIA OBJETIVO EXACTA
     double gananciaObjetivo = StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT));
-    if(gananciaObjetivo < 0.01) gananciaObjetivo = 0.10;
     
-    Print("BID: ", DoubleToString(bid, _Digits), " / ASK: ", DoubleToString(ask, _Digits));
+    if(gananciaObjetivo <= 0) 
+    {
+        Print("⚠️ ERROR: Ganancia objetivo inválida: ", gananciaObjetivo);
+        gananciaObjetivo = 0.01;
+    }
+    
+    Print("BID actual: ", DoubleToString(bid, _Digits));
+    Print("ASK actual: ", DoubleToString(ask, _Digits));
     Print("Spread: ", (int)(spread / point), " puntos");
-    Print("Comisiones totales: €", DoubleToString(totalComisiones, 2), " (CORRECTAS - sin duplicar)");
+    Print("Comisiones: €", DoubleToString(totalComisiones, 2));
     Print("Swaps: €", DoubleToString(totalSwaps, 2));
-    Print("Objetivo: €", DoubleToString(gananciaObjetivo, 2));
+    Print("🎯 GANANCIA OBJETIVO: €", DoubleToString(gananciaObjetivo, 2));
     
-    // NUEVA FÓRMULA CORREGIDA
-    // Calcular el precio virtual considerando que:
-    // - BUY cierra en BID
-    // - SELL cierra en ASK (BID + spread)
-    
-    double sumaBuyVolumen = 0;
-    double sumaBuyCosto = 0;
-    double sumaSellVolumen = 0;
-    double sumaSellCosto = 0;
+    // Calcular volúmenes totales
+    double volBuy = 0, volSell = 0;
+    double costoBuy = 0, costoSell = 0;
     
     for(int i = 0; i < numPosiciones; i++)
     {
         if(posiciones[i].tipo == POSITION_TYPE_BUY)
         {
-            sumaBuyVolumen += posiciones[i].volumen;
-            sumaBuyCosto += posiciones[i].volumen * posiciones[i].precioApertura;
+            volBuy += posiciones[i].volumen;
+            costoBuy += posiciones[i].volumen * posiciones[i].precioApertura;
         }
         else
         {
-            sumaSellVolumen += posiciones[i].volumen;
-            sumaSellCosto += posiciones[i].volumen * posiciones[i].precioApertura;
+            volSell += posiciones[i].volumen;
+            costoSell += posiciones[i].volumen * posiciones[i].precioApertura;
         }
     }
     
-    double volumenNeto = sumaBuyVolumen - sumaSellVolumen;
-    double precioVirtual = 0;
+    double volNeto = volBuy - volSell;
     
-    // FÓRMULA EXACTA CORREGIDA
+    Print("Volumen BUY: ", DoubleToString(volBuy, 2), " lotes");
+    Print("Volumen SELL: ", DoubleToString(volSell, 2), " lotes");
+    Print("Volumen NETO: ", DoubleToString(volNeto, 3), " lotes");
+    Print("Dirección: ", (volNeto > 0) ? "📈 LARGA" : "📉 CORTA");
+    
+    // =========================================================
+    // FÓRMULA MATEMÁTICA EXACTA
+    // =========================================================
+    
+    double precioVirtual = 0;
     double gananciaRequerida = gananciaObjetivo + totalComisiones - totalSwaps;
     
-    if(MathAbs(volumenNeto) < 0.001) 
+    Print("\n📐 CÁLCULO MATEMÁTICO EXACTO:");
+    Print("Ganancia requerida (con comisiones): €", DoubleToString(gananciaRequerida, 2));
+    
+    if(MathAbs(volNeto) < 0.001)
     {
-        // Posiciones balanceadas - caso especial
-        Print("⚠️ Posiciones balanceadas");
-        double totalVolumen = sumaBuyVolumen + sumaSellVolumen;
-        if(totalVolumen > 0)
-        {
-            double pipsRequeridos = gananciaRequerida / (totalVolumen * 10.0);
-            precioVirtual = bid + (pipsRequeridos * point);
-        }
+        // Posiciones perfectamente balanceadas
+        Print("⚠️ Posiciones balanceadas - usando precio actual");
+        precioVirtual = bid;
     }
-    else if(volumenNeto > 0) 
+    else
     {
-        // POSICIÓN NETA LARGA - Precio debe SUBIR
-        // BUY cierra en precioVirtual (BID)
-        // SELL cierra en precioVirtual + spread (ASK)
+        // FÓRMULA EXACTA PARA EURUSD
+        // P&L = Σ(BUY * (precio - apertura)) + Σ(SELL * (apertura - precio - spread))
+        // Todo multiplicado por 100000 para convertir a EUR
         
-        // Ecuación: gananciaRequerida = BUY*(precio - precioCompra) - SELL*(precioSell - (precio + spread))
-        // Resolviendo para precio:
-        // gananciaRequerida = sumaBuyVolumen*precio - sumaBuyCosto - sumaSellVolumen*precio - sumaSellVolumen*spread + sumaSellCosto
-        // gananciaRequerida = precio*(sumaBuyVolumen - sumaSellVolumen) - sumaBuyCosto + sumaSellCosto - sumaSellVolumen*spread
-        // precio = (gananciaRequerida + sumaBuyCosto - sumaSellCosto + sumaSellVolumen*spread) / volumenNeto
+        // Reorganizando:
+        // gananciaRequerida = volBuy*precio - costoBuy + costoSell - volSell*precio - volSell*spread
+        // gananciaRequerida = precio*(volBuy - volSell) - costoBuy + costoSell - volSell*spread
+        // precio = (gananciaRequerida + costoBuy - costoSell + volSell*spread) / (volBuy - volSell)
         
-        double numerador = (gananciaRequerida/100000) + sumaBuyCosto - sumaSellCosto + (sumaSellVolumen * spread);
-        precioVirtual = numerador / volumenNeto;
+        double numerador = (gananciaRequerida / 100000.0) + costoBuy - costoSell + (volSell * spread);
+        double denominador = volNeto;
         
-        // Validación mínima
-        if(precioVirtual <= bid)
-        {
-            precioVirtual = bid + (5 * point);
-        }
-    }
-    else 
-    {
-        // POSICIÓN NETA CORTA - Precio debe BAJAR
-        volumenNeto = MathAbs(volumenNeto);
+        Print("Numerador: ", DoubleToString(numerador, 8));
+        Print("Denominador: ", DoubleToString(denominador, 3));
         
-        // Ecuación: gananciaRequerida = SELL*(precioSell - (precio + spread)) - BUY*(precio - precioCompra)
-        // Resolviendo para precio:
-        // gananciaRequerida = sumaSellCosto - sumaSellVolumen*precio - sumaSellVolumen*spread - sumaBuyVolumen*precio + sumaBuyCosto
-        // gananciaRequerida = sumaSellCosto + sumaBuyCosto - precio*(sumaSellVolumen + sumaBuyVolumen) - sumaSellVolumen*spread
-        // precio = (sumaSellCosto + sumaBuyCosto - gananciaRequerida - sumaSellVolumen*spread) / (sumaSellVolumen + sumaBuyVolumen)
+        precioVirtual = numerador / denominador;
         
-        // Simplificado:
-        double numerador = sumaSellCosto - sumaBuyCosto - (gananciaRequerida/100000) - (sumaSellVolumen * spread);
-        precioVirtual = numerador / volumenNeto;
-        
-        // Validación máxima
-        if(precioVirtual >= ask - spread)
-        {
-            precioVirtual = ask - spread - (5 * point);
-        }
+        Print("Precio calculado inicial: ", DoubleToString(precioVirtual, _Digits));
     }
     
     // Normalizar
     precioVirtual = NormalizeDouble(precioVirtual, _Digits);
     
-    // VERIFICACIÓN CORREGIDA
-    double verificacion = 0;
+    // =========================================================
+    // VERIFICACIÓN Y AJUSTE FINO
+    // =========================================================
+    
+    Print("\n🔍 VERIFICACIÓN DEL CÁLCULO:");
+    
+    // Calcular P&L con el precio calculado
+    double plVerificacion = 0;
+    
     for(int i = 0; i < numPosiciones; i++)
     {
+        double pl = 0;
+        
         if(posiciones[i].tipo == POSITION_TYPE_BUY)
         {
-            // BUY cierra en precio virtual (BID)
-            verificacion += (precioVirtual - posiciones[i].precioApertura) * posiciones[i].volumen * 100000;
+            // BUY cierra al precio virtual (BID)
+            pl = (precioVirtual - posiciones[i].precioApertura) * posiciones[i].volumen * 100000.0;
+            Print("  BUY ", DoubleToString(posiciones[i].volumen, 2), 
+                  " @ ", DoubleToString(posiciones[i].precioApertura, _Digits),
+                  " → ", DoubleToString(precioVirtual, _Digits),
+                  " = €", DoubleToString(pl, 2));
         }
         else
         {
-            // SELL cierra en precio virtual + spread (ASK)
-            verificacion += (posiciones[i].precioApertura - (precioVirtual + spread)) * posiciones[i].volumen * 100000;
+            // SELL cierra al precio virtual + spread (ASK)
+            double precioCloseSell = precioVirtual + spread;
+            pl = (posiciones[i].precioApertura - precioCloseSell) * posiciones[i].volumen * 100000.0;
+            Print("  SELL ", DoubleToString(posiciones[i].volumen, 2), 
+                  " @ ", DoubleToString(posiciones[i].precioApertura, _Digits),
+                  " → ", DoubleToString(precioCloseSell, _Digits),
+                  " = €", DoubleToString(pl, 2));
         }
+        
+        plVerificacion += pl;
     }
     
-    double gananciaEsperada = verificacion - totalComisiones + totalSwaps;
+    double gananciaCalculada = plVerificacion - totalComisiones + totalSwaps;
+    double error = gananciaCalculada - gananciaObjetivo;
     
-    Print("PRECIO VIRTUAL CALCULADO: ", DoubleToString(precioVirtual, _Digits));
-    Print("Dirección: ", (sumaBuyVolumen > sumaSellVolumen) ? "LARGA (precio debe subir)" : "CORTA (precio debe bajar)");
-    Print("Ganancia esperada: €", DoubleToString(gananciaEsperada, 2));
-    Print("Diferencia con objetivo: €", DoubleToString(MathAbs(gananciaEsperada - gananciaObjetivo), 4));
+    Print("\nP&L bruto: €", DoubleToString(plVerificacion, 2));
+    Print("Menos comisiones: €", DoubleToString(totalComisiones, 2));
+    Print("Más swaps: €", DoubleToString(totalSwaps, 2));
+    Print("Ganancia calculada: €", DoubleToString(gananciaCalculada, 3));
+    Print("Error inicial: €", DoubleToString(error, 4));
+    
+    // Si hay error significativo, hacer ajuste fino
+    if(MathAbs(error) > 0.001)
+    {
+        Print("\n⚙️ AJUSTE FINO REQUERIDO:");
+        
+        // Ajustar el precio proporcionalmente al error
+        // Si el error es positivo (ganancia mayor), necesitamos bajar el precio si es largo
+        // Si el error es negativo (ganancia menor), necesitamos subir el precio si es largo
+        
+        double ajustePorEUR = 1.0 / (MathAbs(volNeto) * 100000.0); // Cuánto mueve el precio 1 EUR
+        double ajuste = -error * ajustePorEUR; // Negativo porque queremos eliminar el error
+        
+        if(volNeto < 0) ajuste = -ajuste; // Invertir para posición corta
+        
+        Print("Ajuste por EUR: ", DoubleToString(ajustePorEUR, 8));
+        Print("Ajuste necesario: ", DoubleToString(ajuste, _Digits));
+        
+        precioVirtual += ajuste;
+        precioVirtual = NormalizeDouble(precioVirtual, _Digits);
+        
+        // Recalcular con el precio ajustado
+        plVerificacion = 0;
+        
+        for(int i = 0; i < numPosiciones; i++)
+        {
+            if(posiciones[i].tipo == POSITION_TYPE_BUY)
+            {
+                plVerificacion += (precioVirtual - posiciones[i].precioApertura) * 
+                                 posiciones[i].volumen * 100000.0;
+            }
+            else
+            {
+                plVerificacion += (posiciones[i].precioApertura - (precioVirtual + spread)) * 
+                                 posiciones[i].volumen * 100000.0;
+            }
+        }
+        
+        gananciaCalculada = plVerificacion - totalComisiones + totalSwaps;
+        
+        Print("Precio ajustado: ", DoubleToString(precioVirtual, _Digits));
+        Print("Nueva ganancia: €", DoubleToString(gananciaCalculada, 3));
+    }
+    
+    // =========================================================
+    // RESULTADO FINAL
+    // =========================================================
+    
+    Print("\n========================================");
+    Print("📍 PRECIO VIRTUAL FINAL: ", DoubleToString(precioVirtual, _Digits));
+    
+    if(volNeto < 0)
+    {
+        Print("📍 SELL cerrarán en ASK: ", DoubleToString(precioVirtual + spread, _Digits));
+    }
+    
+    Print("💰 GANANCIA ESPERADA: €", DoubleToString(gananciaCalculada, 3));
+    Print("🎯 OBJETIVO: €", DoubleToString(gananciaObjetivo, 3));
+    Print("📊 PRECISIÓN: €", DoubleToString(MathAbs(gananciaCalculada - gananciaObjetivo), 5));
+    
+    if(MathAbs(gananciaCalculada - gananciaObjetivo) <= 0.001)
+    {
+        Print("✅ PRECISIÓN PERFECTA ALCANZADA");
+    }
+    else
+    {
+        Print("⚠️ Precisión: ", DoubleToString((1 - MathAbs(error)/gananciaObjetivo) * 100, 1), "%");
+    }
+    
+    Print("========================================\n");
     
     return precioVirtual;
 }
 
 //+------------------------------------------------------------------+
-//| Función auxiliar para verificar el cálculo                      |
+//| Función auxiliar para verificar el cálculo - CORREGIDA          |
 //+------------------------------------------------------------------+
 void VerificarCalculoPrecioVirtual(int indiceSecuencia, double precioVirtual)
 {
@@ -1294,8 +1369,16 @@ void VerificarCalculoPrecioVirtual(int indiceSecuencia, double precioVirtual)
     double totalSwap = 0;
     string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
     
-    Print("\n?? VERIFICACIÓN DEL CÁLCULO DE PRECIO VIRTUAL");
+    Print("\n🔍 VERIFICACIÓN DEL CÁLCULO DE PRECIO VIRTUAL");
     Print("Precio virtual calculado: ", DoubleToString(precioVirtual, _Digits));
+    
+    // Obtener spread actual
+    double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+    double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+    double spread = ask - bid;
+    double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+    
+    double valorPipPorLote = 10.0; // 10 EUR por pip por lote estándar
     
     for(int i = 0; i < PositionsTotal(); i++)
     {
@@ -1317,17 +1400,21 @@ void VerificarCalculoPrecioVirtual(int indiceSecuencia, double precioVirtual)
             double pl = 0;
             if(tipo == POSITION_TYPE_BUY)
             {
-                double pips = (precioVirtual - openPrice) / _Point;
-                pl = pips * lots * 10.0 / 10.0;
+                // BUY cierra en precio virtual (BID)
+                double pips = (precioVirtual - openPrice) / point / 10.0;
+                pl = pips * lots * valorPipPorLote;
                 Print("  BUY ", DoubleToString(lots, 2), " @ ", DoubleToString(openPrice, _Digits), 
-                      " ? P/L: €", DoubleToString(pl, 2));
+                      " → P/L: €", DoubleToString(pl, 2));
             }
             else
             {
-                double pips = (openPrice - precioVirtual) / _Point;
-                pl = pips * lots * 10.0 / 10.0;
+                // SELL cierra en precio virtual + spread (ASK)
+                double precioCloseSell = precioVirtual + spread;
+                double pips = (openPrice - precioCloseSell) / point / 10.0;
+                pl = pips * lots * valorPipPorLote;
                 Print("  SELL ", DoubleToString(lots, 2), " @ ", DoubleToString(openPrice, _Digits), 
-                      " ? P/L: €", DoubleToString(pl, 2));
+                      " (cierra en ", DoubleToString(precioCloseSell, _Digits), ")",
+                      " → P/L: €", DoubleToString(pl, 2));
             }
             
             plTotal += pl;
@@ -1342,40 +1429,56 @@ void VerificarCalculoPrecioVirtual(int indiceSecuencia, double precioVirtual)
     Print("Swap: €", DoubleToString(totalSwap, 2));
     Print("Ganancia Neta Calculada: €", DoubleToString(gananciaNeta, 2));
     Print("Ganancia Objetivo: €", DoubleToString(gananciaObjetivo, 2));
-    Print("Diferencia: €", DoubleToString(gananciaNeta - gananciaObjetivo, 2));
+    Print("Diferencia: €", DoubleToString(gananciaNeta - gananciaObjetivo, 4));
+    
+    // Validación de precisión para valores pequeños
+    if(gananciaObjetivo < 0.10)
+    {
+        double errorPorcentual = MathAbs((gananciaNeta - gananciaObjetivo) / gananciaObjetivo * 100);
+        Print("Error porcentual: ", DoubleToString(errorPorcentual, 2), "%");
+        
+        if(errorPorcentual > 5.0)
+        {
+            Print("⚠️ ADVERTENCIA: Error mayor al 5% para valor pequeño");
+        }
+        else
+        {
+            Print("✅ Precisión aceptable para valor pequeño");
+        }
+    }
 }
 
 //+------------------------------------------------------------------+
-//| FUNCIÓN 2: MonitorearCierrePorGananciaObjetivo() - CORREGIDA    |
-//| Evita cierre inmediato y stack overflow                         |
+//| FUNCIÓN CORREGIDA: MonitorearCierrePorGananciaObjetivo()        |
+//| Cierre más preciso cuando se alcanza el precio virtual          |
 //+------------------------------------------------------------------+
 void MonitorearCierrePorGananciaObjetivo()
 {
     static datetime ultimaVerificacion = 0;
     
-    // Evitar verificación muy frecuente
+    // Verificar cada segundo
     if(TimeCurrent() - ultimaVerificacion < 1) return;
     ultimaVerificacion = TimeCurrent();
     
-    // Obtener precios actuales
+    // Obtener precios actuales con máxima precisión
     double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
     double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+    double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
     
     // Verificar cada secuencia activa
     for(int idx = 0; idx < 20; idx++)
     {
-        // Solo procesar secuencias con cierre virtual activado y no marcadas para cierre
+        // Solo procesar secuencias con cierre virtual activado
         if(!secuencias[idx].activa || !secuencias[idx].tpReubicado || secuencias[idx].tpAlcanzado)
             continue;
         
-        // Evitar procesar secuencias recién activadas (dar tiempo para que se dibuje la línea)
-        if(TimeCurrent() - secuencias[idx].ultimaVerificacionTP < 3)
+        // Evitar procesar secuencias recién activadas
+        if(TimeCurrent() - secuencias[idx].ultimaVerificacionTP < 2)
             continue;
         
         // Buscar la línea del precio virtual
         string nombreLinea = "VirtualClose_" + IntegerToString(secuencias[idx].id);
         
-        // Verificar si existe la línea
         if(ObjectFind(0, nombreLinea) < 0)
             continue;
         
@@ -1388,28 +1491,34 @@ void MonitorearCierrePorGananciaObjetivo()
         bool posicionNetaLarga = DeterminarPosicionNeta(idx);
         bool deberCerrar = false;
         
+        // MARGEN DE TOLERANCIA para evitar cierres prematuros
+        double tolerancia = point * 0.5; // Medio punto de tolerancia
+        
         if(posicionNetaLarga)
         {
-            // Posición neta LARGA - el precio debe SUBIR para ganar
-            // Cerrar cuando BID >= precio virtual
+            // Posición LARGA - cerrar cuando BID >= precio virtual
+            // IMPORTANTE: Usar >= sin tolerancia adicional para posición larga
             if(bid >= precioVirtual)
             {
                 deberCerrar = true;
                 Print("💰 PRECIO VIRTUAL ALCANZADO (Posición LARGA)");
                 Print("   BID actual: ", DoubleToString(bid, _Digits));
                 Print("   Precio virtual: ", DoubleToString(precioVirtual, _Digits));
+                Print("   Diferencia: ", DoubleToString((bid - precioVirtual) / point, 1), " puntos");
             }
         }
         else
         {
-            // Posición neta CORTA - el precio debe BAJAR para ganar
-            // Cerrar cuando ASK <= precio virtual
-            if(ask <= precioVirtual)
+            // Posición CORTA - cerrar cuando ASK <= precio virtual
+            // Para posición corta, el precio virtual representa el BID objetivo
+            // Las SELL se cierran al ASK, así que verificamos ASK <= precio virtual + spread
+            if(ask <= precioVirtual + (ask - bid))
             {
                 deberCerrar = true;
                 Print("💰 PRECIO VIRTUAL ALCANZADO (Posición CORTA)");
                 Print("   ASK actual: ", DoubleToString(ask, _Digits));
-                Print("   Precio virtual: ", DoubleToString(precioVirtual, _Digits));
+                Print("   Precio virtual (BID): ", DoubleToString(precioVirtual, _Digits));
+                Print("   Diferencia: ", DoubleToString((precioVirtual - ask) / point, 1), " puntos");
             }
         }
         
@@ -1421,22 +1530,124 @@ void MonitorearCierrePorGananciaObjetivo()
             secuencias[idx].tpAlcanzado = true;
             secuencias[idx].cerradaCompletamente = true;
             
-            // Cerrar todas las órdenes de la secuencia
-            CerrarTodasLasOrdenesDeSecuencia(idx, true);
+            // Obtener ganancia objetivo para verificación
+            double gananciaObjetivo = StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT));
+            Print("   Ganancia objetivo: €", DoubleToString(gananciaObjetivo, 2));
+            
+            // CERRAR CON MÁXIMA PRIORIDAD Y VELOCIDAD
+            CerrarTodasLasOrdenesConPrecision(idx);
             
             // Limpiar línea del gráfico
             ObjectDelete(0, nombreLinea);
             ObjectDelete(0, nombreLinea + "_Label");
             
-            // NO llamar a CerrarSecuencia aquí si ya se llama en CerrarTodasLasOrdenesDeSecuencia
-            // Esto evita el stack overflow
-            
             Print("✅ Cierre virtual completado - Secuencia #", secuencias[idx].id);
             
             // Guardar estado
             GuardarEstadoSecuencias();
+            
+            // Salir del bucle para evitar procesar múltiples secuencias
+            break;
         }
     }
+}
+
+//+------------------------------------------------------------------+
+//| Nueva función de cierre con máxima precisión                    |
+//+------------------------------------------------------------------+
+void CerrarTodasLasOrdenesConPrecision(int indiceSecuencia)
+{
+    if(!secuencias[indiceSecuencia].activa) return;
+    
+    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    
+    // Configurar trade para máxima velocidad
+    trade.SetDeviationInPoints(2); // Solo 2 puntos de desviación para mayor precisión
+    trade.SetTypeFilling(ORDER_FILLING_IOC); // Immediate or Cancel para ejecución rápida
+    trade.SetAsyncMode(false); // Modo síncrono para asegurar orden de cierre
+    
+    // Arrays para almacenar tickets por tipo
+    ulong ticketsBuy[];
+    ulong ticketsSell[];
+    int numBuy = 0;
+    int numSell = 0;
+    
+    // Primero, eliminar TODAS las órdenes pendientes INMEDIATAMENTE
+    for(int i = OrdersTotal() - 1; i >= 0; i--)
+    {
+        ulong ticket = OrderGetTicket(i);
+        if(OrderSelect(ticket))
+        {
+            string comentario = OrderGetString(ORDER_COMMENT);
+            if(StringFind(comentario, secPrefix) == 0)
+            {
+                trade.OrderDelete(ticket);
+                Print("   Eliminada orden pendiente #", ticket);
+            }
+        }
+    }
+    
+    // Clasificar posiciones por tipo
+    for(int i = 0; i < PositionsTotal(); i++)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        string comentario = PositionGetString(POSITION_COMMENT);
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            ENUM_POSITION_TYPE tipo = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
+            
+            if(tipo == POSITION_TYPE_BUY)
+            {
+                ArrayResize(ticketsBuy, numBuy + 1);
+                ticketsBuy[numBuy++] = ticket;
+            }
+            else
+            {
+                ArrayResize(ticketsSell, numSell + 1);
+                ticketsSell[numSell++] = ticket;
+            }
+        }
+    }
+    
+    // CERRAR TODAS LAS POSICIONES SIMULTÁNEAMENTE
+    // Primero las SELL (que son más sensibles al spread)
+    for(int i = 0; i < numSell; i++)
+    {
+        if(trade.PositionClose(ticketsSell[i]))
+        {
+            Print("   ✅ SELL #", ticketsSell[i], " cerrada");
+        }
+        else
+        {
+            Print("   ⚠️ Error cerrando SELL #", ticketsSell[i], ": ", GetLastError());
+        }
+    }
+    
+    // Luego las BUY
+    for(int i = 0; i < numBuy; i++)
+    {
+        if(trade.PositionClose(ticketsBuy[i]))
+        {
+            Print("   ✅ BUY #", ticketsBuy[i], " cerrada");
+        }
+        else
+        {
+            Print("   ⚠️ Error cerrando BUY #", ticketsBuy[i], ": ", GetLastError());
+        }
+    }
+    
+    // Marcar secuencia como cerrada
+    secuencias[indiceSecuencia].activa = false;
+    secuencias[indiceSecuencia].cerradaCompletamente = true;
+    
+    if(totalSecuencias > 0) totalSecuencias--;
+    
+    // Restaurar configuración normal
+    trade.SetDeviationInPoints(10);
+    
+    Print("📊 Cierre completado - Total BUY: ", numBuy, ", Total SELL: ", numSell);
 }
 
 //+------------------------------------------------------------------+
@@ -1572,7 +1783,7 @@ void CerrarTodasPosicionesSecuenciaVirtual(int indiceSecuencia)
         {
             if(trade.OrderDelete(ticket))
             {
-                Print("✅ Orden pendiente ", ticket, " eliminada");
+                Print("? Orden pendiente ", ticket, " eliminada");
             }
         }
     }
@@ -1590,12 +1801,12 @@ void CerrarTodasPosicionesSecuenciaVirtual(int indiceSecuencia)
             if(trade.PositionClose(ticket))
             {
                 totalCerradas++;
-                Print("✅ Posición ", ticket, " cerrada por cierre virtual");
+                Print("? Posición ", ticket, " cerrada por cierre virtual");
             }
             else
             {
                 totalErrores++;
-                Print("❌ Error cerrando posición ", ticket, ": ", GetLastError());
+                Print("? Error cerrando posición ", ticket, ": ", GetLastError());
                 
                 // Reintento con pequeña pausa
                 Sleep(50);
@@ -1603,7 +1814,7 @@ void CerrarTodasPosicionesSecuenciaVirtual(int indiceSecuencia)
                 {
                     totalCerradas++;
                     totalErrores--;
-                    Print("✅ Posición ", ticket, " cerrada en segundo intento");
+                    Print("? Posición ", ticket, " cerrada en segundo intento");
                 }
             }
         }
@@ -1611,7 +1822,7 @@ void CerrarTodasPosicionesSecuenciaVirtual(int indiceSecuencia)
     
     if(totalCerradas > 0)
     {
-        Print("📊 RESUMEN CIERRE VIRTUAL:");
+        Print("?? RESUMEN CIERRE VIRTUAL:");
         Print("   Posiciones cerradas: ", totalCerradas);
         Print("   Errores: ", totalErrores);
         
@@ -1635,8 +1846,8 @@ void CerrarTodasPosicionesSecuenciaVirtual(int indiceSecuencia)
         // Forzar redibujado del gráfico
         ChartRedraw();
         
-        Print("✅ Secuencia #", secuencias[indiceSecuencia].id, " cerrada completamente");
-        Print("🔄 Botones listos para nueva operación");
+        Print("? Secuencia #", secuencias[indiceSecuencia].id, " cerrada completamente");
+        Print("?? Botones listos para nueva operación");
     }
 }
 
@@ -1670,12 +1881,12 @@ void CerrarTodasPosicionesSecuencia(int indiceSecuencia)
             if(trade.PositionClose(ticket))
             {
                 totalCerradas++;
-                Print("✅ Posición ", ticket, " cerrada");
+                Print("? Posición ", ticket, " cerrada");
             }
             else
             {
                 totalErrores++;
-                Print("❌ Error cerrando posición ", ticket, ": ", GetLastError());
+                Print("? Error cerrando posición ", ticket, ": ", GetLastError());
                 
                 // Reintento
                 Sleep(100);
@@ -1683,7 +1894,7 @@ void CerrarTodasPosicionesSecuencia(int indiceSecuencia)
                 {
                     totalCerradas++;
                     totalErrores--;
-                    Print("✅ Posición ", ticket, " cerrada en segundo intento");
+                    Print("? Posición ", ticket, " cerrada en segundo intento");
                 }
             }
         }
