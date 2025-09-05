@@ -412,5 +412,26 @@
 2025.09.04 14:03:28.818	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #176823928 registrada en secuencia #1125
 2025.09.04 14:03:28.818	Monedita de Oro - Coberturas (EURUSD,M1)	? SEC1125_ENT9 programada exitosamente - Ticket: 176823928 - TP: 1.16350
 2025.09.04 14:03:28.818	Monedita de Oro - Coberturas (EURUSD,M1)	?? Nota: Sistema de cierre virtual activo - Se cerrará TODO al alcanzar ganancia objetivo
+2025.09.04 14:11:08.534	Monedita de Oro - Coberturas (EURUSD,M1)	?? Limpiando secuencia fantasma #1
+2025.09.04 14:11:29.956	Monedita de Oro - Coberturas (EURUSD,M1)	?? PRECIO VIRTUAL ALCANZADO (Posición LARGA)
+2025.09.04 14:11:29.956	Monedita de Oro - Coberturas (EURUSD,M1)	   BID actual: 1.16499
+2025.09.04 14:11:29.956	Monedita de Oro - Coberturas (EURUSD,M1)	   Precio virtual: 1.16497
+2025.09.04 14:11:29.956	Monedita de Oro - Coberturas (EURUSD,M1)	   Precio objetivo (con ajuste): 1.16498
+2025.09.04 14:11:29.956	Monedita de Oro - Coberturas (EURUSD,M1)	   Diferencia: +2.0 puntos
+2025.09.04 14:11:29.956	Monedita de Oro - Coberturas (EURUSD,M1)	?? EJECUTANDO CIERRE VIRTUAL - Secuencia #1125
+2025.09.04 14:11:29.957	Monedita de Oro - Coberturas (EURUSD,M1)	   Ganancia objetivo: €0.05
+2025.09.04 14:11:29.957	Monedita de Oro - Coberturas (EURUSD,M1)	   Ganancia estimada actual: €0.60
+2025.09.04 14:11:30.061	Monedita de Oro - Coberturas (EURUSD,M1)	   Eliminada orden pendiente #176823928
+2025.09.04 14:11:30.159	Monedita de Oro - Coberturas (EURUSD,M1)	   ? SELL #176819654 cerrada
+2025.09.04 14:11:30.249	Monedita de Oro - Coberturas (EURUSD,M1)	   ? SELL #176820343 cerrada
+2025.09.04 14:11:30.341	Monedita de Oro - Coberturas (EURUSD,M1)	   ? SELL #176821262 cerrada
+2025.09.04 14:11:30.431	Monedita de Oro - Coberturas (EURUSD,M1)	   ? SELL #176822540 cerrada
+2025.09.04 14:11:30.524	Monedita de Oro - Coberturas (EURUSD,M1)	   ? BUY #176819655 cerrada
+2025.09.04 14:11:30.616	Monedita de Oro - Coberturas (EURUSD,M1)	   ? BUY #176820485 cerrada
+2025.09.04 14:11:30.705	Monedita de Oro - Coberturas (EURUSD,M1)	   ? BUY #176822225 cerrada
+2025.09.04 14:11:30.799	Monedita de Oro - Coberturas (EURUSD,M1)	   ? BUY #176823163 cerrada
+2025.09.04 14:11:30.799	Monedita de Oro - Coberturas (EURUSD,M1)	?? Cierre completado - Total BUY: 4, Total SELL: 4
+2025.09.04 14:11:30.799	Monedita de Oro - Coberturas (EURUSD,M1)	? Cierre virtual completado - Secuencia #1125
+
 
 
