@@ -1,4 +1,91 @@
 //+------------------------------------------------------------------+
+//| NUEVAFunción de cierre simultáneo exacto                         |
+//+------------------------------------------------------------------+
+bool CerrarTodasPosicionesSimultaneo(double precioVirtual) {
+    // Estructura para snapshot de posiciones
+    struct PosicionSnapshot {
+        ulong ticket;
+        ENUM_POSITION_TYPE tipo;
+        double volumen;
+        double precioEntrada;
+        double profitVirtual;
+    };
+    
+    PosicionSnapshot snapshots[];
+    int totalPosiciones = PositionsTotal();
+    ArrayResize(snapshots, totalPosiciones);
+    
+    // Tomar snapshot en el mismo tick
+    MqlTick tickActual;
+    if(!SymbolInfoTick(_Symbol, tickActual)) return false;
+    
+    // Calcular profit virtual para cada posición
+    double profitTotalVirtual = 0.0;
+    
+    for(int i = 0; i < totalPosiciones; i++) {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        snapshots[i].ticket = ticket;
+        snapshots[i].tipo = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
+        snapshots[i].volumen = PositionGetDouble(POSITION_VOLUME);
+        snapshots[i].precioEntrada = PositionGetDouble(POSITION_PRICE_OPEN);
+        
+        // **CLAVE**: Usar precio apropiado según tipo
+        double precioCierre = (snapshots[i].tipo == POSITION_TYPE_BUY) ? 
+                             tickActual.bid : tickActual.ask;
+        
+        // Calcular profit usando OrderCalcProfit para máxima precisión
+        double profit = 0.0;
+        ENUM_ORDER_TYPE orderType = (snapshots[i].tipo == POSITION_TYPE_BUY) ? 
+                                   ORDER_TYPE_SELL : ORDER_TYPE_BUY;
+        
+        if(OrderCalcProfit(orderType, _Symbol, snapshots[i].volumen, 
+                          snapshots[i].precioEntrada, precioCierre, profit)) {
+            snapshots[i].profitVirtual = profit;
+            profitTotalVirtual += profit;
+        }
+    }
+    
+    // Agregar comisiones y swaps al profit virtual
+    for(int i = 0; i < totalPosiciones; i++) {
+        if(PositionSelectByTicket(snapshots[i].ticket)) {
+            profitTotalVirtual += PositionGetDouble(POSITION_COMMISSION);
+            profitTotalVirtual += PositionGetDouble(POSITION_SWAP);
+        }
+    }
+    
+    // Log del cierre virtual
+    Print("=== CIERRE VIRTUAL EJECUTADO ===");
+    Print("Precio Virtual Calculado: ", precioVirtual);
+    Print("BID/ASK Actuales: ", tickActual.bid, "/", tickActual.ask);
+    Print("Total Posiciones: ", totalPosiciones);
+    Print("Profit Virtual Total: ", profitTotalVirtual);
+    
+    // Ejecutar cierre real si el profit virtual cumple objetivo
+    return EjecutarCierreReal();
+}
+
+bool EjecutarCierreReal() {
+    CTrade trade;
+    trade.SetAsyncMode(true); // Modo asíncrono para velocidad
+    
+    bool todoExitoso = true;
+    
+    // Cerrar todas las posiciones en orden inverso
+    for(int i = PositionsTotal()-1; i >= 0; i--) {
+        ulong ticket = PositionGetTicket(i);
+        if(ticket > 0) {
+            if(!trade.PositionClose(ticket)) {
+                Print("Error cerrando posición: ", ticket, " Error: ", GetLastError());
+                todoExitoso = false;
+            }
+        }
+    }
+    
+    return todoExitoso;
+}
+//+------------------------------------------------------------------+
 //| Cerrar todas las secuencias                                      |
 //+------------------------------------------------------------------+
 void CerrarTodasLasSecuencias()
@@ -469,4 +556,5 @@ void MonitorearCierrePorGananciaObjetivo()
         }
     }
 }
+
 
