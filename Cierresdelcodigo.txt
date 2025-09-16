@@ -1,4 +1,19 @@
 //+------------------------------------------------------------------+
+//| Cerrar todas las secuencias                                      |
+//+------------------------------------------------------------------+
+void CerrarTodasLasSecuencias()
+{
+    for(int i = 0; i < 20; i++) // Ajustado a 20 para coincidir con el tamaño del array
+    {
+        if(secuencias[i].activa)
+        {
+            Print("?? Iniciando cierre de secuencia #", secuencias[i].id);
+            CerrarSecuencia(i);
+            Sleep(200); // Pausa entre cierres de secuencias
+        }
+    }
+}
+//+------------------------------------------------------------------+
 //| FUNCIÓN 3: CerrarTodasPosicionesSecuenciaVirtual() - NUEVA V3   |
 //| Cierra sin bloquear los botones                                 |
 //+------------------------------------------------------------------+
@@ -454,3 +469,4 @@ void MonitorearCierrePorGananciaObjetivo()
         }
     }
 }
+
