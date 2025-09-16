@@ -107,7 +107,7 @@ CTrade trade;
 
 // Declaraciones previas de funciones para evitar errores de compilación
 void CerrarSecuencia(int indice);
-void CerrarSecuenciaVirtual(int indice, bool cierreRapido = false);
+void CerrarTodasLasOrdenesDeSecuencia(int indice, bool cierreRapido = false);
 void RecuperarOrdenesPendientes();
 void CerrarTodasLasSecuencias();
 void IniciarSecuencia(bool esCompra);
@@ -405,7 +405,7 @@ void VerificarCierrePorNumeroEntrada(int indiceSecuencia)
         secuencias[indiceSecuencia].ultimoCierreIntentado = TimeCurrent();
         
         // Cerrar todas las órdenes
-        CerrarSecuenciaVirtual(indiceSecuencia, true);
+        CerrarTodasLasOrdenesDeSecuencia(indiceSecuencia, true);
         CerrarSecuencia(indiceSecuencia);
         
         // Actualizar el estado
@@ -1442,8 +1442,8 @@ void VerificarCalculoPrecioVirtual(int indiceSecuencia, double precioVirtual)
 }
 
 //+------------------------------------------------------------------+
-//| FUNCIÓN MEJORADA: MonitorearCierrePorGananciaObjetivo()         |
-//| Con tolerancia ajustable para evitar cierres prematuros         |
+//| FUNCIÓN 2: MonitorearCierrePorGananciaObjetivo() - CORREGIDA    |
+//| Evita cierre inmediato y stack overflow                         |
 //+------------------------------------------------------------------+
 void MonitorearCierrePorGananciaObjetivo()
 {
@@ -1456,10 +1456,6 @@ void MonitorearCierrePorGananciaObjetivo()
     // Obtener precios actuales
     double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
     double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
-    double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
-    
-    // TOLERANCIA: Esperar a que el precio supere el virtual por al menos 1 punto
-    double tolerancia = 1 * point; // 0.1 pip de tolerancia
     
     // Verificar cada secuencia activa
     for(int idx = 0; idx < 20; idx++)
@@ -1468,7 +1464,7 @@ void MonitorearCierrePorGananciaObjetivo()
         if(!secuencias[idx].activa || !secuencias[idx].tpReubicado || secuencias[idx].tpAlcanzado)
             continue;
         
-        // Evitar procesar secuencias recién activadas
+        // Evitar procesar secuencias recién activadas (dar tiempo para que se dibuje la línea)
         if(TimeCurrent() - secuencias[idx].ultimaVerificacionTP < 3)
             continue;
         
@@ -1490,26 +1486,26 @@ void MonitorearCierrePorGananciaObjetivo()
         
         if(posicionNetaLarga)
         {
-            // Posición LARGA - cerrar cuando BID >= precio virtual + tolerancia
-            if(bid >= precioVirtual + tolerancia)
+            // Posición neta LARGA - el precio debe SUBIR para ganar
+            // Cerrar cuando BID >= precio virtual
+            if(bid >= precioVirtual)
             {
                 deberCerrar = true;
-                Print("\n?? PRECIO VIRTUAL ALCANZADO (Posición LARGA)");
+                Print("?? PRECIO VIRTUAL ALCANZADO (Posición LARGA)");
                 Print("   BID actual: ", DoubleToString(bid, _Digits));
                 Print("   Precio virtual: ", DoubleToString(precioVirtual, _Digits));
-                Print("   Tolerancia aplicada: ", DoubleToString(tolerancia/_Point, 1), " puntos");
             }
         }
         else
         {
-            // Posición CORTA - cerrar cuando ASK <= precio virtual - tolerancia
-            if(ask <= precioVirtual - tolerancia)
+            // Posición neta CORTA - el precio debe BAJAR para ganar
+            // Cerrar cuando ASK <= precio virtual
+            if(ask <= precioVirtual)
             {
                 deberCerrar = true;
-                Print("\n?? PRECIO VIRTUAL ALCANZADO (Posición CORTA)");
+                Print("?? PRECIO VIRTUAL ALCANZADO (Posición CORTA)");
                 Print("   ASK actual: ", DoubleToString(ask, _Digits));
                 Print("   Precio virtual: ", DoubleToString(precioVirtual, _Digits));
-                Print("   Tolerancia aplicada: ", DoubleToString(tolerancia/_Point, 1), " puntos");
             }
         }
         
@@ -1517,11 +1513,19 @@ void MonitorearCierrePorGananciaObjetivo()
         {
             Print("?? EJECUTANDO CIERRE VIRTUAL - Secuencia #", secuencias[idx].id);
             
-            // Marcar ANTES de cerrar para evitar re-procesamiento
+            // IMPORTANTE: Marcar ANTES de cerrar para evitar re-procesamiento
             secuencias[idx].tpAlcanzado = true;
+            secuencias[idx].cerradaCompletamente = true;
             
-            // Usar la nueva función unificada
-            CerrarSecuenciaVirtual(idx);
+            // Cerrar todas las órdenes de la secuencia
+            CerrarTodasLasOrdenesDeSecuencia(idx, true);
+            
+            // Limpiar línea del gráfico
+            ObjectDelete(0, nombreLinea);
+            ObjectDelete(0, nombreLinea + "_Label");
+            
+            // NO llamar a CerrarSecuencia aquí si ya se llama en CerrarTodasLasOrdenesDeSecuencia
+            // Esto evita el stack overflow
             
             Print("? Cierre virtual completado - Secuencia #", secuencias[idx].id);
             
@@ -2806,14 +2810,14 @@ void VerificarCierrePorFaltaDePendientes()
             secuencias[i].ultimoCierreIntentado = TimeCurrent();
             
             // Cierre agresivo inmediato
-            CerrarSecuenciaVirtual(i, true);
+            CerrarTodasLasOrdenesDeSecuencia(i, true);
             
             // Si no se cerró completamente en el primer intento, forzar
             if(!secuencias[i].cerradaCompletamente)
             {
                 // Segundo intento inmediato
                 Sleep(50);
-                CerrarSecuenciaVirtual(i, true);
+                CerrarTodasLasOrdenesDeSecuencia(i, true);
             }
             
             // Marcar como cerrada aunque queden posiciones (se cerrarán en OnTick)
@@ -3086,75 +3090,32 @@ void CerrarTodasLasSecuencias()
 }
 
 //+------------------------------------------------------------------+
-//| FUNCIÓN UNIFICADA: CerrarSecuenciaVirtual()                     |
-//| Reemplaza ambas funciones y garantiza cierre preciso            |
+//| Cerrar todas las órdenes de una secuencia                        |
 //+------------------------------------------------------------------+
-void CerrarSecuenciaVirtual(int indiceSecuencia)
+void CerrarTodasLasOrdenesDeSecuencia(int indice, bool cierreRapido = false)
 {
-    if(!secuencias[indiceSecuencia].activa) return;
+    if(!secuencias[indice].activa) return;
     
-    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    string secPrefix = "SEC" + IntegerToString(secuencias[indice].id) + "_";
+    bool errorEnCierre = false;
     
-    // Obtener precio virtual objetivo
-    string nombreLinea = "VirtualClose_" + IntegerToString(secuencias[indiceSecuencia].id);
-    double precioVirtual = 0;
-    
-    if(ObjectFind(0, nombreLinea) >= 0)
-    {
-        precioVirtual = ObjectGetDouble(0, nombreLinea, OBJPROP_PRICE, 0);
-    }
-    
-    Print("\n=== INICIANDO CIERRE VIRTUAL ===");
-    Print("Secuencia #", secuencias[indiceSecuencia].id);
-    Print("Precio Virtual Objetivo: ", DoubleToString(precioVirtual, _Digits));
-    
-    // PASO 1: Eliminar todas las órdenes pendientes INMEDIATAMENTE
-    int ordenesPendientesEliminadas = 0;
-    for(int i = OrdersTotal() - 1; i >= 0; i--)
-    {
-        ulong ticket = OrderGetTicket(i);
-        if(!OrderSelect(ticket)) continue;
+    // Configurar slippage para cierres rápidos
+    if(cierreRapido) {
+        // Guardar la desviación actual
+        int slippage_original = 10; // Valor predeterminado
         
-        string comentario = OrderGetString(ORDER_COMMENT);
-        if(StringFind(comentario, secPrefix) == 0)
-        {
-            if(trade.OrderDelete(ticket))
-            {
-                ordenesPendientesEliminadas++;
-                Print("✓ Orden pendiente #", ticket, " eliminada");
-            }
-        }
+        // Aumentar el slippage para cierre rápido
+        trade.SetDeviationInPoints(50);
+        Print("? Modo cierre rápido activado para secuencia #", secuencias[indice].id, " - Slippage aumentado");
     }
     
-    // PASO 2: Configurar para cierre preciso
-    // Usar slippage mínimo para máxima precisión
-    trade.SetDeviationInPoints(2); // Solo 2 puntos de desviación (0.2 pips)
-    trade.SetTypeFilling(ORDER_FILLING_IOC); // Immediate or Cancel para ejecución rápida
-    
-    // PASO 3: Obtener precios actuales para verificación
-    double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
-    double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
-    double spread = ask - bid;
-    
-    // PASO 4: Cerrar posiciones con verificación de precio
-    int posicionesCerradas = 0;
-    int intentosFallidos = 0;
-    double gananciaRealTotal = 0;
-    double comisionTotal = 0;
-    
-    // Array para almacenar posiciones a cerrar
-    struct PosicionInfo {
-        ulong ticket;
-        double volumen;
-        double precioApertura;
-        ENUM_POSITION_TYPE tipo;
-        double comision;
-    };
-    
-    PosicionInfo posiciones[];
+    // 1. Guardar todos los tickets de órdenes primero para intentar cerrarlos después
     int numPosiciones = 0;
+    ulong posicionesTickets[50];  // Array para guardar tickets de posiciones
+    int numOrdenes = 0;
+    ulong ordenesTickets[50];     // Array para guardar tickets de órdenes pendientes
     
-    // Recolectar información de posiciones
+    // Obtener todos los tickets de posiciones abiertas de esta secuencia
     for(int i = 0; i < PositionsTotal(); i++)
     {
         ulong ticket = PositionGetTicket(i);
@@ -3163,125 +3124,236 @@ void CerrarSecuenciaVirtual(int indiceSecuencia)
         string comentario = PositionGetString(POSITION_COMMENT);
         if(StringFind(comentario, secPrefix) == 0)
         {
-            ArrayResize(posiciones, numPosiciones + 1);
-            posiciones[numPosiciones].ticket = ticket;
-            posiciones[numPosiciones].volumen = PositionGetDouble(POSITION_VOLUME);
-            posiciones[numPosiciones].precioApertura = PositionGetDouble(POSITION_PRICE_OPEN);
-            posiciones[numPosiciones].tipo = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
-            posiciones[numPosiciones].comision = CalcularComisionPepperstone(posiciones[numPosiciones].volumen);
-            numPosiciones++;
+            posicionesTickets[numPosiciones++] = ticket;
         }
     }
     
-    // PASO 5: Cerrar posiciones con múltiples intentos si es necesario
-    for(int intento = 1; intento <= 3 && posicionesCerradas < numPosiciones; intento++)
+    // Obtener todos los tickets de órdenes pendientes de esta secuencia
+    for(int i = 0; i < OrdersTotal(); i++)
     {
-        Print("Intento de cierre #", intento);
+        ulong ticket = OrderGetTicket(i);
+        if(!OrderSelect(ticket)) continue;
         
-        // Ajustar slippage progresivamente si es necesario
-        if(intento == 2) trade.SetDeviationInPoints(5);  // 0.5 pips
-        if(intento == 3) trade.SetDeviationInPoints(10); // 1 pip
-        
-        for(int i = 0; i < numPosiciones; i++)
+        string comentario = OrderGetString(ORDER_COMMENT);
+        if(StringFind(comentario, secPrefix) == 0)
         {
-            if(!PositionSelectByTicket(posiciones[i].ticket)) 
+            ordenesTickets[numOrdenes++] = ticket;
+        }
+    }
+    
+    // Añadir las órdenes específicas de entrada 1 y 2 si están registradas
+    if(secuencias[indice].ticketEntrada1 > 0)
+    {
+        bool encontrado = false;
+        for(int i = 0; i < numOrdenes; i++)
+        {
+            if(ordenesTickets[i] == secuencias[indice].ticketEntrada1)
             {
-                posicionesCerradas++; // Ya fue cerrada
-                continue;
+                encontrado = true;
+                break;
             }
-            
-            // Verificar precio actual antes de cerrar
-            MqlTick tick;
-            if(!SymbolInfoTick(_Symbol, tick)) continue;
-            
-            double precioCierre = 0;
-            if(posiciones[i].tipo == POSITION_TYPE_BUY)
-                precioCierre = tick.bid; // BUY cierra al BID
-            else
-                precioCierre = tick.ask; // SELL cierra al ASK
-            
-            // Calcular ganancia esperada si cerramos ahora
-            double gananciaEsperada = 0;
-            if(posiciones[i].tipo == POSITION_TYPE_BUY)
+        }
+        if(!encontrado)
+        {
+            ordenesTickets[numOrdenes++] = secuencias[indice].ticketEntrada1;
+            Print("??? Añadida ENTRADA #1 específica ticket #", secuencias[indice].ticketEntrada1, " a la lista para cierre");
+        }
+    }
+    
+    if(secuencias[indice].ticketEntrada2 > 0)
+    {
+        bool encontrado = false;
+        for(int i = 0; i < numOrdenes; i++)
+        {
+            if(ordenesTickets[i] == secuencias[indice].ticketEntrada2)
             {
-                gananciaEsperada = (precioCierre - posiciones[i].precioApertura) / _Point * posiciones[i].volumen;
+                encontrado = true;
+                break;
             }
-            else
-            {
-                gananciaEsperada = (posiciones[i].precioApertura - precioCierre) / _Point * posiciones[i].volumen;
-            }
+        }
+        if(!encontrado)
+        {
+            ordenesTickets[numOrdenes++] = secuencias[indice].ticketEntrada2;
+            Print("??? Añadida ENTRADA #2 específica ticket #", secuencias[indice].ticketEntrada2, " a la lista para cierre");
+        }
+    }
+    // 2. Eliminar todas las órdenes pendientes primero (para evitar que se activen durante el cierre)
+    for(int i = 0; i < numOrdenes; i++)
+    {
+        ulong ticket = ordenesTickets[i];
+        if(!OrderSelect(ticket)) continue;
+        
+        Print("?? Eliminando orden pendiente #", ticket, " de secuencia #", secuencias[indice].id);
+        if(!trade.OrderDelete(ticket))
+        {
+            Print("? Error al eliminar orden #", ticket, ": ", GetLastError());
+            errorEnCierre = true;
+        }
+        else
+        {
+            Print("? Orden #", ticket, " eliminada exitosamente");
+        }
+        
+        // Pausa más corta en modo rápido
+        if(cierreRapido)
+            Sleep(10); // Pausa muy breve
+        else
+            Sleep(50); // Pausa estándar
+    }
+    
+    // 3. Cerrar todas las posiciones abiertas
+    for(int i = 0; i < numPosiciones; i++)
+    {
+        ulong ticket = posicionesTickets[i];
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        Print("?? Cerrando posición #", ticket, " de secuencia #", secuencias[indice].id);
+        if(!trade.PositionClose(ticket))
+        {
+            Print("? Error al cerrar posición #", ticket, ": ", GetLastError());
+            errorEnCierre = true;
+        }
+        else
+        {
+            Print("? Posición #", ticket, " cerrada exitosamente");
+        }
+        
+        // Pausa más corta en modo rápido
+        if(cierreRapido)
+            Sleep(10); // Pausa muy breve
+        else
+            Sleep(50); // Pausa estándar
+    }
+    
+    // Si hubo errores, un segundo intento más agresivo
+    if(errorEnCierre)
+    {
+        // Pausa más corta en modo rápido
+        if(cierreRapido)
+            Sleep(50); // Pausa breve
+        else
+            Sleep(200); // Pausa estándar
+        
+        // Segundo intento para órdenes pendientes
+        for(int i = 0; i < OrdersTotal(); i++)
+        {
+            ulong ticket = OrderGetTicket(i);
+            if(!OrderSelect(ticket)) continue;
             
-            Print("Cerrando ", (posiciones[i].tipo == POSITION_TYPE_BUY ? "BUY" : "SELL"), 
-                  " ", DoubleToString(posiciones[i].volumen, 2),
-                  " @ ", DoubleToString(precioCierre, _Digits),
-                  " | P&L esperado: €", DoubleToString(gananciaEsperada, 2));
-            
-            // Intentar cerrar
-            if(trade.PositionClose(posiciones[i].ticket))
+            string comentario = OrderGetString(ORDER_COMMENT);
+            if(StringFind(comentario, secPrefix) == 0)
             {
-                posicionesCerradas++;
-                gananciaRealTotal += gananciaEsperada;
-                comisionTotal += posiciones[i].comision;
-                Print("✓ Posición #", posiciones[i].ticket, " cerrada exitosamente");
-            }
-            else
-            {
-                intentosFallidos++;
-                Print("✗ Error cerrando posición #", posiciones[i].ticket, ": ", GetLastError());
-                Sleep(10); // Pequeña pausa antes de reintentar
+                trade.OrderDelete(ticket);
+                if(cierreRapido)
+                    Sleep(5);
+                else
+                    Sleep(50);
             }
         }
         
-        if(posicionesCerradas >= numPosiciones) break;
-        
-        Sleep(50); // Pausa entre intentos
+        // Segundo intento de cierre de posiciones
+        for(int i = 0; i < PositionsTotal(); i++)
+        {
+            ulong ticket = PositionGetTicket(i);
+            if(!PositionSelectByTicket(ticket)) continue;
+            
+            string comentario = PositionGetString(POSITION_COMMENT);
+            if(StringFind(comentario, secPrefix) == 0)
+            {
+                trade.PositionClose(ticket);
+                if(cierreRapido)
+                    Sleep(5);
+                else
+                    Sleep(50);
+            }
+        }
     }
     
-    // PASO 6: Verificación final y reporte
-    double gananciaNetaReal = gananciaRealTotal - comisionTotal;
-    double gananciaObjetivo = StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT));
+    // Verificación final
+    bool quedanOrdenes = false;
     
-    Print("\n=== RESUMEN DE CIERRE VIRTUAL ===");
-    Print("Posiciones cerradas: ", posicionesCerradas, "/", numPosiciones);
-    Print("Órdenes pendientes eliminadas: ", ordenesPendientesEliminadas);
-    Print("Intentos fallidos: ", intentosFallidos);
-    Print("P&L Bruto Real: €", DoubleToString(gananciaRealTotal, 2));
-    Print("Comisiones: €", DoubleToString(comisionTotal, 2));
-    Print("Ganancia Neta Real: €", DoubleToString(gananciaNetaReal, 2));
-    Print("Ganancia Objetivo: €", DoubleToString(gananciaObjetivo, 2));
-    Print("Diferencia: €", DoubleToString(gananciaNetaReal - gananciaObjetivo, 2));
-    
-    // PASO 7: Limpiar y resetear
-    // Eliminar línea virtual del gráfico
-    ObjectDelete(0, nombreLinea);
-    ObjectDelete(0, nombreLinea + "_Label");
-    
-    // Resetear secuencia
-    secuencias[indiceSecuencia].activa = false;
-    secuencias[indiceSecuencia].tpAlcanzado = true;
-    secuencias[indiceSecuencia].cerradaCompletamente = true;
-    
-    // Actualizar contador
-    if(totalSecuencias > 0) totalSecuencias--;
-    
-    // Guardar estado
-    GuardarEstadoSecuencias();
-    
-    // Restaurar configuración de trading
-    trade.SetDeviationInPoints(10); // Restaurar valor por defecto
-    trade.SetTypeFilling(ORDER_FILLING_FOK); // Restaurar filling por defecto
-    
-    // Actualizar interfaz
-    ActualizarInformacionSecuencias();
-    ChartRedraw();
-    
-    Print("✓ Secuencia #", secuencias[indiceSecuencia].id, " cerrada completamente");
-    
-    // Alerta si la diferencia es significativa
-    if(MathAbs(gananciaNetaReal - gananciaObjetivo) > 0.05)
+    // Verificar si quedan órdenes pendientes
+    for(int i = 0; i < OrdersTotal(); i++)
     {
-        Print("⚠️ ADVERTENCIA: Diferencia significativa entre ganancia real y objetivo!");
-        Print("   Considerar ajustar el precio virtual o reducir el slippage");
+        ulong ticket = OrderGetTicket(i);
+        if(OrderSelect(ticket))
+        {
+            string comentario = OrderGetString(ORDER_COMMENT);
+            if(StringFind(comentario, secPrefix) == 0)
+            {
+                quedanOrdenes = true;
+                trade.OrderDelete(ticket); // Último intento
+            }
+        }
+    }
+    
+    // Verificar si quedan posiciones abiertas
+    for(int i = 0; i < PositionsTotal(); i++)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(PositionSelectByTicket(ticket))
+        {
+            string comentario = PositionGetString(POSITION_COMMENT);
+            if(StringFind(comentario, secPrefix) == 0)
+            {
+                quedanOrdenes = true;
+                trade.PositionClose(ticket); // Último intento
+            }
+        }
+    }
+    
+    // Restaurar slippage original si se modificó
+    if(cierreRapido) {
+        trade.SetDeviationInPoints(10); // Restaurar al valor predeterminado
+    }
+    
+    if(!quedanOrdenes)
+    {
+        secuencias[indice].cerradaCompletamente = true;
+        Print("? Secuencia #", secuencias[indice].id, " cerrada completamente");
+    }
+    else if(cierreRapido)
+    {
+        // En modo rápido, intentar un cierre agresivo con retardos mínimos
+        Print("? Realizando último intento de cierre agresivo para secuencia #", secuencias[indice].id);
+        
+        // Cerrar todas las posiciones restantes con máxima prioridad
+        for(int i = 0; i < PositionsTotal(); i++)
+        {
+            ulong ticket = PositionGetTicket(i);
+            if(PositionSelectByTicket(ticket))
+            {
+                string comentario = PositionGetString(POSITION_COMMENT);
+                if(StringFind(comentario, secPrefix) == 0)
+                {
+                    trade.SetDeviationInPoints(100); // Máximo slippage para forzar cierre
+                    trade.PositionClose(ticket);
+                    trade.SetDeviationInPoints(10); // Restaurar al valor predeterminado
+                }
+            }
+        }
+        
+        // Verificar una última vez
+        quedanOrdenes = false;
+        for(int i = 0; i < PositionsTotal(); i++)
+        {
+            ulong ticket = PositionGetTicket(i);
+            if(PositionSelectByTicket(ticket))
+            {
+                string comentario = PositionGetString(POSITION_COMMENT);
+                if(StringFind(comentario, secPrefix) == 0)
+                {
+                    quedanOrdenes = true;
+                    break;
+                }
+            }
+        }
+        
+        if(!quedanOrdenes)
+        {
+            secuencias[indice].cerradaCompletamente = true;
+            Print("? Secuencia #", secuencias[indice].id, " cerrada completamente después de intento agresivo");
+        }
     }
 }
 
@@ -3413,7 +3485,7 @@ void CerrarSecuencia(int indice)
     Print("?? Cerrando secuencia #", secuencias[indice].id, " (", tipoSecuencia, ")");
     
     // Usar cierre rápido para acelerar el proceso
-    CerrarSecuenciaVirtual(indice, true);
+    CerrarTodasLasOrdenesDeSecuencia(indice, true);
     
     // Si se logró cerrar completamente
     if(secuencias[indice].cerradaCompletamente)
@@ -3824,7 +3896,7 @@ void OnTick()
                           " - Intento #", ++secuencias[i].intentosCierre);
                     secuencias[i].ultimoCierreIntentado = TimeCurrent();
                     
-                    CerrarSecuenciaVirtual(i);
+                    CerrarTodasLasOrdenesDeSecuencia(i);
                     
                     // Si ya se intentó cerrar muchas veces, marcarla como cerrada de todos modos
                     if(secuencias[i].intentosCierre >= 5)
@@ -3916,7 +3988,7 @@ void OnTick()
             Print("?? TAKE PROFIT ALCANZADO - Secuencia #", secuencias[i].id, " (", tipoSecuencia, ") - CERRANDO TODAS LAS ÓRDENES");
             
             // Forzar cierre agresivo de todas las órdenes inmediatamente usando el modo rápido
-            CerrarSecuenciaVirtual(i, true);
+            CerrarTodasLasOrdenesDeSecuencia(i, true);
             CerrarSecuencia(i);
             
             // Actualizar el estado de las secuencias cuando se cierra una
