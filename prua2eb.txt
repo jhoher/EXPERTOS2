@@ -1,0 +1,117 @@
+2025.09.15 19:25:40.215	Monedita de Oro - Coberturas (EURUSD,M1)	Botón COMPRA presionado
+2025.09.15 19:25:40.215	Monedita de Oro - Coberturas (EURUSD,M1)	?? Corrigiendo contador de secuencias: de 16 a 0
+2025.09.15 19:25:40.350	Monedita de Oro - Coberturas (EURUSD,M1)	?? Registrada ENTRADA #1 con ticket #180321976 para secuencia #1224
+2025.09.15 19:25:40.350	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #180321976 registrada en secuencia #1224
+2025.09.15 19:25:40.459	Monedita de Oro - Coberturas (EURUSD,M1)	?? Registrada ENTRADA #2 con ticket #180321978 para secuencia #1224
+2025.09.15 19:25:40.459	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #180321978 registrada en secuencia #1224
+2025.09.15 19:25:40.459	Monedita de Oro - Coberturas (EURUSD,M1)	?? Nueva secuencia #1224 iniciada en modo COMPRA - ENTRADA #1 (TP:1.17715) y #2 (TP:1.17505) programadas
+2025.09.15 19:25:40.464	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #1224 porque fue cerrada manualmente
+2025.09.15 19:33:12.251	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #1224 porque fue cerrada manualmente
+2025.09.15 19:33:12.319	Monedita de Oro - Coberturas (EURUSD,M1)	? Activación muy reciente en secuencia #1224 - Esperando...
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	?? ACTIVANDO SISTEMA DE CIERRE VIRTUAL
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	?? Secuencia #1224
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	?? Entradas activas: 2
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	?? Activado en entrada #2
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	===== CÁLCULO DE PRECIO VIRTUAL =====
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Secuencia #1224
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	  BUY 0.01 @ 1.17613 | Comisión: €0.06
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	  SELL 0.02 @ 1.17605 | Comisión: €0.10
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	BID: 1.17605 / ASK: 1.17611
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Spread: 5 puntos
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Comisiones totales: €0.16
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Swaps: €0.00
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Objetivo: €0.03
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Volumen Buy: 0.01 @ 1.17613
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Volumen Sell: 0.02 @ 1.17605
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Volumen neto: -0.01 lotes
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Ganancia requerida (con comisiones): €0.19
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	=== Verificación por posición ===
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	  BUY 0.01: Entrada=1.17613 Salida=1.17566 Puntos=-47 P&L=€-0.47
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	  SELL 0.02: Entrada=1.17605 Salida=1.17572 Puntos=33 P&L=€0.66
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	=== RESULTADO FINAL ===
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	PRECIO VIRTUAL CALCULADO: 1.17566
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Dirección: CORTA (precio debe bajar)
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	P&L Bruto: €0.19
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Comisiones: €0.16
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Swaps: €0.00
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Ganancia Neta Final: €0.03
+2025.09.15 19:33:12.320	Monedita de Oro - Coberturas (EURUSD,M1)	Diferencia con objetivo: €0.0000
+2025.09.15 19:33:12.342	Monedita de Oro - Coberturas (EURUSD,M1)	? Precio virtual: 1.17566
+2025.09.15 19:33:12.343	Monedita de Oro - Coberturas (EURUSD,M1)	?? Objetivo: €0.03
+2025.09.15 19:33:12.343	Monedita de Oro - Coberturas (EURUSD,M1)	?? La secuencia continúa activa hasta tocar el precio virtual
+2025.09.15 19:33:12.343	Monedita de Oro - Coberturas (EURUSD,M1)	?? ENTRADA #2 activada - Secuencia #1224
+2025.09.15 19:33:12.343	Monedita de Oro - Coberturas (EURUSD,M1)	?? ENTRADA #2 ACTIVADA - SE DEBE REUBICAR TPs
+2025.09.15 19:33:12.343	Monedita de Oro - Coberturas (EURUSD,M1)	?? Activación detectada - Programando siguiente entrada
+2025.09.15 19:33:12.475	Monedita de Oro - Coberturas (EURUSD,M1)	?? Programando BUY STOP SEC1224_ENT3 con TP individual: 1.17715
+2025.09.15 19:33:12.475	Monedita de Oro - Coberturas (EURUSD,M1)	?? Registrada ENTRADA #2 con ticket #180322904 para secuencia #1224
+2025.09.15 19:33:12.475	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #180322904 registrada en secuencia #1224
+2025.09.15 19:33:12.475	Monedita de Oro - Coberturas (EURUSD,M1)	? SEC1224_ENT3 programada exitosamente - Ticket: 180322904 - TP: 1.17715
+2025.09.15 19:33:12.475	Monedita de Oro - Coberturas (EURUSD,M1)	?? Nota: Sistema de cierre virtual activo - Se cerrará TODO al alcanzar ganancia objetivo
+2025.09.15 19:57:38.520	Monedita de Oro - Coberturas (EURUSD,M1)	? Activación muy reciente en secuencia #1224 - Esperando...
+2025.09.15 19:57:38.521	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.09.15 19:57:38.521	Monedita de Oro - Coberturas (EURUSD,M1)	?? RECALCULANDO PRECIO VIRTUAL - Nueva entrada detectada
+2025.09.15 19:57:38.521	Monedita de Oro - Coberturas (EURUSD,M1)	?? Secuencia #1224
+2025.09.15 19:57:38.521	Monedita de Oro - Coberturas (EURUSD,M1)	?? Entradas anteriores: 2
+2025.09.15 19:57:38.521	Monedita de Oro - Coberturas (EURUSD,M1)	?? Entradas actuales: 3
+2025.09.15 19:57:38.521	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.09.15 19:57:38.521	Monedita de Oro - Coberturas (EURUSD,M1)	===== CÁLCULO DE PRECIO VIRTUAL =====
+2025.09.15 19:57:38.521	Monedita de Oro - Coberturas (EURUSD,M1)	Secuencia #1224
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	  BUY 0.01 @ 1.17613 | Comisión: €0.06
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	  SELL 0.02 @ 1.17605 | Comisión: €0.10
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	  BUY 0.04 @ 1.17615 | Comisión: €0.20
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	BID: 1.17613 / ASK: 1.17615
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Spread: 1 puntos
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Comisiones totales: €0.36
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Swaps: €0.00
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Objetivo: €0.03
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Volumen Buy: 0.05 @ 1.17615
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Volumen Sell: 0.02 @ 1.17605
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Volumen neto: 0.03 lotes
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Ganancia requerida (con comisiones): €0.39
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	=== Verificación por posición ===
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	  BUY 0.01: Entrada=1.17613 Salida=1.17635 Puntos=21 P&L=€0.22
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	  SELL 0.02: Entrada=1.17605 Salida=1.17637 Puntos=-31 P&L=€-0.64
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	  BUY 0.04: Entrada=1.17615 Salida=1.17635 Puntos=19 P&L=€0.80
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	=== RESULTADO FINAL ===
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	PRECIO VIRTUAL CALCULADO: 1.17635
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Dirección: LARGA (precio debe subir)
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	P&L Bruto: €0.38
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Comisiones: €0.36
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Swaps: €0.00
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Ganancia Neta Final: €0.02
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Diferencia con objetivo: €0.0100
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	?? Aplicando ajuste fino adicional...
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Precio final ajustado: 1.17635
+2025.09.15 19:57:38.523	Monedita de Oro - Coberturas (EURUSD,M1)	Ganancia final después del ajuste: €0.02
+2025.09.15 19:57:38.525	Monedita de Oro - Coberturas (EURUSD,M1)	? Precio virtual: 1.17635
+2025.09.15 19:57:38.525	Monedita de Oro - Coberturas (EURUSD,M1)	?? Objetivo: €0.03
+2025.09.15 19:57:38.525	Monedita de Oro - Coberturas (EURUSD,M1)	?? La secuencia continúa activa hasta tocar el precio virtual
+2025.09.15 19:57:38.525	Monedita de Oro - Coberturas (EURUSD,M1)	?? Activación detectada - Programando siguiente entrada
+2025.09.15 19:57:38.648	Monedita de Oro - Coberturas (EURUSD,M1)	?? Programando SELL STOP SEC1224_ENT4 con TP individual: 1.17505
+2025.09.15 19:57:38.648	Monedita de Oro - Coberturas (EURUSD,M1)	Orden #180325064 registrada en secuencia #1224
+2025.09.15 19:57:38.648	Monedita de Oro - Coberturas (EURUSD,M1)	? SEC1224_ENT4 programada exitosamente - Ticket: 180325064 - TP: 1.17505
+2025.09.15 19:57:38.648	Monedita de Oro - Coberturas (EURUSD,M1)	?? Nota: Sistema de cierre virtual activo - Se cerrará TODO al alcanzar ganancia objetivo
+2025.09.15 20:01:03.201	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #1186 porque fue cerrada manualmente
+2025.09.15 20:01:03.385	Monedita de Oro - Coberturas (EURUSD,M1)	?? No se recrea orden pendiente ENTRADA #2 para secuencia #1186 porque fue cerrada manualmente
+2025.09.15 20:01:03.654	Monedita de Oro - Coberturas (EURUSD,M1)	?? PRECIO VIRTUAL ALCANZADO (Posición LARGA)
+2025.09.15 20:01:03.654	Monedita de Oro - Coberturas (EURUSD,M1)	   BID actual: 1.17635
+2025.09.15 20:01:03.654	Monedita de Oro - Coberturas (EURUSD,M1)	   Precio virtual: 1.17635
+2025.09.15 20:01:03.654	Monedita de Oro - Coberturas (EURUSD,M1)	?? EJECUTANDO CIERRE VIRTUAL - Secuencia #1224
+2025.09.15 20:01:03.654	Monedita de Oro - Coberturas (EURUSD,M1)	? Modo cierre rápido activado para secuencia #1224 - Slippage aumentado
+2025.09.15 20:01:03.656	Monedita de Oro - Coberturas (EURUSD,M1)	??? Añadida ENTRADA #1 específica ticket #180321976 a la lista para cierre
+2025.09.15 20:01:03.656	Monedita de Oro - Coberturas (EURUSD,M1)	??? Añadida ENTRADA #2 específica ticket #180322904 a la lista para cierre
+2025.09.15 20:01:03.656	Monedita de Oro - Coberturas (EURUSD,M1)	?? Eliminando orden pendiente #180325064 de secuencia #1224
+2025.09.15 20:01:03.765	Monedita de Oro - Coberturas (EURUSD,M1)	? Orden #180325064 eliminada exitosamente
+2025.09.15 20:01:03.784	Monedita de Oro - Coberturas (EURUSD,M1)	?? Cerrando posición #180321976 de secuencia #1224
+2025.09.15 20:01:03.903	Monedita de Oro - Coberturas (EURUSD,M1)	? Posición #180321976 cerrada exitosamente
+2025.09.15 20:01:03.914	Monedita de Oro - Coberturas (EURUSD,M1)	?? Cerrando posición #180321978 de secuencia #1224
+2025.09.15 20:01:04.028	Monedita de Oro - Coberturas (EURUSD,M1)	? Posición #180321978 cerrada exitosamente
+2025.09.15 20:01:04.046	Monedita de Oro - Coberturas (EURUSD,M1)	?? Cerrando posición #180322904 de secuencia #1224
+2025.09.15 20:01:04.156	Monedita de Oro - Coberturas (EURUSD,M1)	? Posición #180322904 cerrada exitosamente
+2025.09.15 20:01:04.175	Monedita de Oro - Coberturas (EURUSD,M1)	? Secuencia #1224 cerrada completamente
