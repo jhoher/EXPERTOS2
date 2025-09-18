@@ -1,0 +1,54 @@
+2025.09.18 00:23:13.176	CoberturaEspecial (EURUSD,M1)	Iniciando sistema con COMPRA
+2025.09.18 00:23:13.189	CoberturaEspecial (EURUSD,M1)	=== INICIANDO SISTEMA ===
+2025.09.18 00:23:13.189	CoberturaEspecial (EURUSD,M1)	Tipo inicial: COMPRA
+2025.09.18 00:23:13.189	CoberturaEspecial (EURUSD,M1)	Nivel activación cierre virtual: 3
+2025.09.18 00:23:13.189	CoberturaEspecial (EURUSD,M1)	Ganancia objetivo: 5.0
+2025.09.18 00:23:13.292	CoberturaEspecial (EURUSD,M1)	Orden de mercado abierta: Nivel 1 Tipo: COMPRA Precio: 1.17937 Lote: 0.02 TP: 1.18037
+2025.09.18 00:23:13.394	CoberturaEspecial (EURUSD,M1)	Orden pendiente colocada: Nivel 2 Tipo: ORDER_TYPE_SELL_STOP Dirección: VENTA Precio: 1.17923 Lote: 0.04 TP: 1.17823
+2025.09.18 00:23:13.394	CoberturaEspecial (EURUSD,M1)	Sistema iniciado - Entrada#1: 1.17937 Entrada#2: 1.17923
+2025.09.18 00:23:13.394	CoberturaEspecial (EURUSD,M1)	Secuencia de tipos: BUY-SELL-BUY-SELL...
+2025.09.18 00:23:13.394	CoberturaEspecial (EURUSD,M1)	Sistema de cobertura iniciado con COMPRA
+2025.09.18 00:23:18.677	CoberturaEspecial (EURUSD,M1)	No hay órdenes pendientes activas - Cerrando secuencia
+2025.09.18 00:23:18.677	CoberturaEspecial (EURUSD,M1)	>>> CERRANDO TODAS LAS ÓRDENES DE LA SECUENCIA <<<
+2025.09.18 00:23:18.782	CoberturaEspecial (EURUSD,M1)	Sistema de cobertura cerrado completamente
+2025.09.18 00:23:41.682	CoberturaEspecial (EURUSD,M1)	Iniciando sistema con COMPRA
+2025.09.18 00:23:41.691	CoberturaEspecial (EURUSD,M1)	=== INICIANDO SISTEMA ===
+2025.09.18 00:23:41.691	CoberturaEspecial (EURUSD,M1)	Tipo inicial: COMPRA
+2025.09.18 00:23:41.691	CoberturaEspecial (EURUSD,M1)	Nivel activación cierre virtual: 2
+2025.09.18 00:23:41.691	CoberturaEspecial (EURUSD,M1)	Ganancia objetivo: 0.03
+2025.09.18 00:23:41.798	CoberturaEspecial (EURUSD,M1)	Orden de mercado abierta: Nivel 1 Tipo: COMPRA Precio: 1.1794 Lote: 0.02 TP: 1.1804
+2025.09.18 00:23:41.901	CoberturaEspecial (EURUSD,M1)	Orden pendiente colocada: Nivel 2 Tipo: ORDER_TYPE_SELL_STOP Dirección: VENTA Precio: 1.17926 Lote: 0.04 TP: 1.17826
+2025.09.18 00:23:41.901	CoberturaEspecial (EURUSD,M1)	Sistema iniciado - Entrada#1: 1.1794 Entrada#2: 1.17926
+2025.09.18 00:23:41.901	CoberturaEspecial (EURUSD,M1)	Secuencia de tipos: BUY-SELL-BUY-SELL...
+2025.09.18 00:23:41.901	CoberturaEspecial (EURUSD,M1)	Sistema de cobertura iniciado con COMPRA
+2025.09.18 00:41:52.316	CoberturaEspecial (EURUSD,M1)	>>> CIERRE VIRTUAL ACTIVADO en nivel 2
+2025.09.18 00:41:52.320	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.02 lotes: 0.11871851839289047 EUR
+2025.09.18 00:41:52.320	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.04 lotes: 0.23743703678578093 EUR
+2025.09.18 00:41:52.320	CoberturaEspecial (EURUSD,M1)	Comisión total acumulada: 0.35615555517867137
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	=== CÁLCULO CIERRE VIRTUAL ===
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Posiciones activas: 2
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Última dirección: BUY
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Lotes BUY: 0.06 | Lotes SELL: 0.0
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Ganancia objetivo: 0.03 | Comisión total: 0.35615555517867137
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Ganancia requerida (con comisión): 0.3861555551786714
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Spread actual: 0.00001
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Precio cierre virtual (BUY): 1.1793458969435926 (7.589694359259196 puntos + spread)
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Línea de cierre virtual dibujada en: 1.1793458969435926
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.02 lotes: 0.11871851839289047 EUR
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.04 lotes: 0.23743703678578093 EUR
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Comisión total acumulada: 0.35615555517867137
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	=== CÁLCULO CIERRE VIRTUAL ===
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Posiciones activas: 2
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Última dirección: BUY
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Lotes BUY: 0.06 | Lotes SELL: 0.0
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Ganancia objetivo: 0.03 | Comisión total: 0.35615555517867137
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Ganancia requerida (con comisión): 0.3861555551786714
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Spread actual: 0.00001
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Precio cierre virtual (BUY): 1.1793458969435926 (7.589694359259196 puntos + spread)
+2025.09.18 00:41:52.321	CoberturaEspecial (EURUSD,M1)	Línea de cierre virtual dibujada en: 1.1793458969435926
+2025.09.18 00:41:52.439	CoberturaEspecial (EURUSD,M1)	Orden pendiente colocada: Nivel 3 Tipo: ORDER_TYPE_BUY_STOP Dirección: COMPRA Precio: 1.1794 Lote: 0.08 TP: 1.1804
+2025.09.18 00:41:52.440	CoberturaEspecial (EURUSD,M1)	Programando Nivel 3 - Tipo: COMPRA - Precio: 1.1794 - Lote: 0.08
+2025.09.18 01:00:37.554	CoberturaEspecial (EURUSD,M1)	CIERRE VIRTUAL ALCANZADO - BID: 1.17935 >= Objetivo: 1.1793458969435926
+2025.09.18 01:00:37.555	CoberturaEspecial (EURUSD,M1)	>>> CIERRE VIRTUAL EJECUTADO <<<
+2025.09.18 01:00:37.555	CoberturaEspecial (EURUSD,M1)	>>> CERRANDO TODAS LAS ÓRDENES DE LA SECUENCIA <<<
+2025.09.18 01:00:37.864	CoberturaEspecial (EURUSD,M1)	Sistema de cobertura cerrado completamente
