@@ -1,0 +1,302 @@
+//+------------------------------------------------------------------+
+//| FUNCIÓN DEFINITIVA: CalcularPrecioCierreVirtualMejorado()       |
+//| Versión 7.0 - Cálculo exacto para 0.03 EUR                      |
+//+------------------------------------------------------------------+
+double CalcularPrecioCierreVirtualMejorado(int indiceSecuencia)
+{
+    if(!secuencias[indiceSecuencia].activa) return 0;
+    
+    // Estructuras para almacenar datos
+    struct DatosPosicion {
+        double volumen;
+        double precioApertura;
+        ENUM_POSITION_TYPE tipo;
+        double swap;
+        double comisionReal;
+    };
+    
+    DatosPosicion posiciones[];
+    int numPosiciones = 0;
+    double totalComisiones = 0;
+    double totalSwaps = 0;
+    
+    string secPrefix = "SEC" + IntegerToString(secuencias[indiceSecuencia].id) + "_";
+    
+    Print("\n===== CÁLCULO DE PRECIO VIRTUAL =====");
+    Print("Secuencia #", secuencias[indiceSecuencia].id);
+    
+    // Contar posiciones activas
+    for(int i = 0; i < PositionsTotal(); i++)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        string comentario = PositionGetString(POSITION_COMMENT);
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            numPosiciones++;
+        }
+    }
+    
+    if(numPosiciones == 0) return 0;
+    
+    ArrayResize(posiciones, numPosiciones);
+    int index = 0;
+    
+    // Capturar datos de cada posición
+    for(int i = 0; i < PositionsTotal(); i++)
+    {
+        ulong ticket = PositionGetTicket(i);
+        if(!PositionSelectByTicket(ticket)) continue;
+        
+        string comentario = PositionGetString(POSITION_COMMENT);
+        if(StringFind(comentario, secPrefix) == 0)
+        {
+            posiciones[index].volumen = PositionGetDouble(POSITION_VOLUME);
+            posiciones[index].precioApertura = PositionGetDouble(POSITION_PRICE_OPEN);
+            posiciones[index].tipo = (ENUM_POSITION_TYPE)PositionGetInteger(POSITION_TYPE);
+            posiciones[index].swap = PositionGetDouble(POSITION_SWAP);
+            
+            // Comisión correcta
+            double comisionTotal = CalcularComisionPepperstone(posiciones[index].volumen);
+            posiciones[index].comisionReal = comisionTotal;
+            totalComisiones += comisionTotal;
+            
+            totalSwaps += posiciones[index].swap;
+            
+            string tipoStr = (posiciones[index].tipo == POSITION_TYPE_BUY) ? "BUY" : "SELL";
+            Print("  ", tipoStr, " ", DoubleToString(posiciones[index].volumen, 2), 
+                  " @ ", DoubleToString(posiciones[index].precioApertura, _Digits),
+                  " | Comisión: €", DoubleToString(comisionTotal, 2));
+            
+            index++;
+        }
+    }
+    
+    // Obtener datos del mercado
+    double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+    double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+    double spread = ask - bid;
+    double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+    
+    Print("BID: ", DoubleToString(bid, _Digits), " / ASK: ", DoubleToString(ask, _Digits));
+    Print("Spread: ", (int)(spread / point), " puntos");
+    Print("Comisiones totales: €", DoubleToString(totalComisiones, 2));
+    Print("Swaps: €", DoubleToString(totalSwaps, 2));
+    
+    // Obtener ganancia objetivo
+    double gananciaObjetivo = StringToDouble(ObjectGetString(0, EA_OBJ_PREFIX + editMinimaGID, OBJPROP_TEXT));
+    if(gananciaObjetivo < 0.01) gananciaObjetivo = 0.10;
+    Print("Objetivo: €", DoubleToString(gananciaObjetivo, 2));
+    
+    // Calcular volúmenes y precios promedio
+    double sumaBuyVolumen = 0;
+    double sumaSellVolumen = 0;
+    double sumaBuyCosto = 0;
+    double sumaSellCosto = 0;
+    
+    for(int i = 0; i < numPosiciones; i++)
+    {
+        if(posiciones[i].tipo == POSITION_TYPE_BUY)
+        {
+            sumaBuyVolumen += posiciones[i].volumen;
+            sumaBuyCosto += posiciones[i].volumen * posiciones[i].precioApertura;
+        }
+        else
+        {
+            sumaSellVolumen += posiciones[i].volumen;
+            sumaSellCosto += posiciones[i].volumen * posiciones[i].precioApertura;
+        }
+    }
+    
+    double volumenNeto = sumaBuyVolumen - sumaSellVolumen;
+    double precioPromedioBuy = (sumaBuyVolumen > 0) ? sumaBuyCosto / sumaBuyVolumen : 0;
+    double precioPromedioSell = (sumaSellVolumen > 0) ? sumaSellCosto / sumaSellVolumen : 0;
+    
+    // CONSTANTE CORRECTA: 1 punto mueve 1 EUR por lote estándar en EURUSD con cuenta EUR
+    double valorPorPunto = 1.0; // EUR por lote estándar por punto
+    
+    // Ganancia requerida (objetivo + comisiones - swaps)
+    double gananciaRequerida = gananciaObjetivo + totalComisiones - totalSwaps;
+    
+    Print("Volumen Buy: ", DoubleToString(sumaBuyVolumen, 2), " @ ", DoubleToString(precioPromedioBuy, _Digits));
+    Print("Volumen Sell: ", DoubleToString(sumaSellVolumen, 2), " @ ", DoubleToString(precioPromedioSell, _Digits));
+    Print("Volumen neto: ", DoubleToString(volumenNeto, 2), " lotes");
+    Print("Ganancia requerida (con comisiones): €", DoubleToString(gananciaRequerida, 2));
+    
+    // ALGORITMO DE BÚSQUEDA BINARIA PARA PRECIO EXACTO
+    double precioVirtual = 0;
+    double precioMin = bid - 100 * point;
+    double precioMax = bid + 100 * point;
+    double tolerancia = 0.001; // 0.001 EUR de tolerancia
+    
+    // Búsqueda binaria
+    for(int iter = 0; iter < 50; iter++)
+    {
+        double precioTest = (precioMin + precioMax) / 2;
+        double plTotal = 0;
+        
+        // Calcular P&L con precio de prueba
+        for(int i = 0; i < numPosiciones; i++)
+        {
+            if(posiciones[i].tipo == POSITION_TYPE_BUY)
+            {
+                // BUY cierra al precio virtual (BID)
+                double movimiento = precioTest - posiciones[i].precioApertura;
+                double puntos = movimiento / point;
+                plTotal += puntos * posiciones[i].volumen * valorPorPunto;
+            }
+            else
+            {
+                // SELL cierra al precio virtual + spread (ASK)
+                double precioCierreSell = precioTest + spread;
+                double movimiento = posiciones[i].precioApertura - precioCierreSell;
+                double puntos = movimiento / point;
+                plTotal += puntos * posiciones[i].volumen * valorPorPunto;
+            }
+        }
+        
+        // Calcular ganancia neta
+        double gananciaNetaTest = plTotal - totalComisiones + totalSwaps;
+        double error = gananciaNetaTest - gananciaObjetivo;
+        
+        // Si encontramos el precio exacto
+        if(MathAbs(error) < tolerancia)
+        {
+            precioVirtual = precioTest;
+            break;
+        }
+        
+        // Ajustar rango de búsqueda
+        if(error < 0) // Ganancia menor al objetivo
+        {
+            if(volumenNeto > 0) // Posición larga
+                precioMin = precioTest; // Necesitamos precio más alto
+            else if(volumenNeto < 0) // Posición corta
+                precioMax = precioTest; // Necesitamos precio más bajo
+            else // Balanceada
+            {
+                if(precioPromedioBuy < precioPromedioSell)
+                    precioMin = precioTest;
+                else
+                    precioMax = precioTest;
+            }
+        }
+        else // Ganancia mayor al objetivo
+        {
+            if(volumenNeto > 0) // Posición larga
+                precioMax = precioTest; // Reducir precio
+            else if(volumenNeto < 0) // Posición corta
+                precioMin = precioTest; // Aumentar precio
+            else // Balanceada
+            {
+                if(precioPromedioBuy < precioPromedioSell)
+                    precioMax = precioTest;
+                else
+                    precioMin = precioTest;
+            }
+        }
+        
+        // Si es la última iteración, tomar el mejor valor
+        if(iter == 49)
+            precioVirtual = precioTest;
+    }
+    
+    // Normalizar
+    precioVirtual = NormalizeDouble(precioVirtual, _Digits);
+    
+    // VERIFICACIÓN FINAL Y DEBUG
+    double plVerificacion = 0;
+    Print("\n=== Verificación por posición ===");
+    
+    for(int i = 0; i < numPosiciones; i++)
+    {
+        double pl = 0;
+        
+        if(posiciones[i].tipo == POSITION_TYPE_BUY)
+        {
+            double movimiento = precioVirtual - posiciones[i].precioApertura;
+            double puntos = movimiento / point;
+            pl = puntos * posiciones[i].volumen * valorPorPunto;
+            
+            Print("  BUY ", DoubleToString(posiciones[i].volumen, 2),
+                  ": Entrada=", DoubleToString(posiciones[i].precioApertura, _Digits),
+                  " Salida=", DoubleToString(precioVirtual, _Digits),
+                  " Puntos=", (int)puntos,
+                  " P&L=€", DoubleToString(pl, 2));
+        }
+        else
+        {
+            double precioCierreSell = precioVirtual + spread;
+            double movimiento = posiciones[i].precioApertura - precioCierreSell;
+            double puntos = movimiento / point;
+            pl = puntos * posiciones[i].volumen * valorPorPunto;
+            
+            Print("  SELL ", DoubleToString(posiciones[i].volumen, 2),
+                  ": Entrada=", DoubleToString(posiciones[i].precioApertura, _Digits),
+                  " Salida=", DoubleToString(precioCierreSell, _Digits),
+                  " Puntos=", (int)puntos,
+                  " P&L=€", DoubleToString(pl, 2));
+        }
+        
+        plVerificacion += pl;
+    }
+    
+    double gananciaNetaFinal = plVerificacion - totalComisiones + totalSwaps;
+    
+    Print("\n=== RESULTADO FINAL ===");
+    Print("PRECIO VIRTUAL CALCULADO: ", DoubleToString(precioVirtual, _Digits));
+    
+    string direccion = "";
+    if(MathAbs(volumenNeto) < 0.001)
+        direccion = "BALANCEADA";
+    else if(volumenNeto > 0)
+        direccion = "LARGA (precio debe subir)";
+    else
+        direccion = "CORTA (precio debe bajar)";
+    
+    Print("Dirección: ", direccion);
+    Print("P&L Bruto: €", DoubleToString(plVerificacion, 2));
+    Print("Comisiones: €", DoubleToString(totalComisiones, 2));
+    Print("Swaps: €", DoubleToString(totalSwaps, 2));
+    Print("Ganancia Neta Final: €", DoubleToString(gananciaNetaFinal, 2));
+    Print("Diferencia con objetivo: €", DoubleToString(MathAbs(gananciaNetaFinal - gananciaObjetivo), 4));
+    
+    // Ajuste fino si es necesario (solo si la diferencia es significativa)
+    if(MathAbs(gananciaNetaFinal - gananciaObjetivo) > 0.005 && MathAbs(volumenNeto) > 0.001)
+    {
+        Print("?? Aplicando ajuste fino adicional...");
+        
+        double errorEUR = gananciaObjetivo - gananciaNetaFinal;
+        double ajustePuntos = errorEUR / (MathAbs(volumenNeto) * valorPorPunto);
+        
+        if(volumenNeto > 0)
+            precioVirtual += ajustePuntos * point;
+        else
+            precioVirtual -= ajustePuntos * point;
+        
+        precioVirtual = NormalizeDouble(precioVirtual, _Digits);
+        
+        // Recalcular para verificación
+        plVerificacion = 0;
+        for(int i = 0; i < numPosiciones; i++)
+        {
+            if(posiciones[i].tipo == POSITION_TYPE_BUY)
+            {
+                double movimiento = precioVirtual - posiciones[i].precioApertura;
+                plVerificacion += (movimiento / point) * posiciones[i].volumen * valorPorPunto;
+            }
+            else
+            {
+                double movimiento = posiciones[i].precioApertura - (precioVirtual + spread);
+                plVerificacion += (movimiento / point) * posiciones[i].volumen * valorPorPunto;
+            }
+        }
+        
+        double gananciaFinalAjustada = plVerificacion - totalComisiones + totalSwaps;
+        Print("Precio final ajustado: ", DoubleToString(precioVirtual, _Digits));
+        Print("Ganancia final después del ajuste: €", DoubleToString(gananciaFinalAjustada, 2));
+    }
+    
+    return precioVirtual;
+}
