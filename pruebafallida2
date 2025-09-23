@@ -1,63 +1,63 @@
-2025.09.23 08:43:51.824	CoberturaEspecial (EURUSD,M1)	Iniciando sistema con VENTA
-2025.09.23 08:43:51.857	CoberturaEspecial (EURUSD,M1)	=== INICIANDO SISTEMA ===
-2025.09.23 08:43:51.857	CoberturaEspecial (EURUSD,M1)	Tipo inicial: VENTA
-2025.09.23 08:43:51.857	CoberturaEspecial (EURUSD,M1)	Nivel activación cierre virtual: 2
-2025.09.23 08:43:51.857	CoberturaEspecial (EURUSD,M1)	Ganancia objetivo: 0.03
-2025.09.23 08:43:51.980	CoberturaEspecial (EURUSD,M1)	Orden de mercado abierta: Nivel 1 Tipo: VENTA Precio: 1.17935 Lote: 0.01 TP: 1.17835
-2025.09.23 08:43:52.092	CoberturaEspecial (EURUSD,M1)	Orden pendiente colocada: Nivel 2 Tipo: ORDER_TYPE_BUY_STOP Dirección: COMPRA Precio: 1.17952 Lote: 0.02 TP: 1.1805199999999998
-2025.09.23 08:43:52.092	CoberturaEspecial (EURUSD,M1)	Sistema iniciado - Entrada#1: 1.17935 Entrada#2: 1.17952
-2025.09.23 08:43:52.092	CoberturaEspecial (EURUSD,M1)	Secuencia de tipos: SELL-BUY-SELL-BUY...
-2025.09.23 08:43:52.092	CoberturaEspecial (EURUSD,M1)	Sistema de cobertura iniciado con VENTA
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	>>> CIERRE VIRTUAL ACTIVADO en nivel 2
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	BUY: 0.01 lotes @ 1.17935
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	BUY: 0.02 lotes @ 1.1795200000000001
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.01 lotes: $0.05 EUR
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.02 lotes: $0.08 EUR
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	Comisión total acumulada: $0.14
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	BUY: 0.03 lotes | Suma precio*lotes: 0.0353839
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	SELL: 0.0 lotes | Suma precio*lotes: 0.0
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	Ganancia objetivo: $0.03
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	Comisión total: $0.13564724932812222
-2025.09.23 08:44:39.773	CoberturaEspecial (EURUSD,M1)	Ganancia total requerida: $0.16564724932812222
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia en puntos: 0.19538589999999997 puntos
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	=== RESULTADO FINAL ===
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Precio cierre virtual: 1.1795284619666668
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Dirección: LONG - precio debe SUBIR
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Precio BUY promedio: 1.1794633333333335
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Distancia desde BUY: 6.512863333330009 puntos arriba
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia BUY: $0.16564724932803768
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia SELL: $nan
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia total calculada: $nan
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia neta (menos comisión): $nan
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Objetivo era: $0.03
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Línea de cierre virtual dibujada en: 1.1795284619666668
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	BUY: 0.01 lotes @ 1.17935
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	BUY: 0.02 lotes @ 1.1795200000000001
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.01 lotes: $0.05 EUR
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.02 lotes: $0.08 EUR
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Comisión total acumulada: $0.14
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	BUY: 0.03 lotes | Suma precio*lotes: 0.0353839
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	SELL: 0.0 lotes | Suma precio*lotes: 0.0
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia objetivo: $0.03
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Comisión total: $0.13564724932812222
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia total requerida: $0.16564724932812222
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia en puntos: 0.19538589999999997 puntos
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	=== RESULTADO FINAL ===
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Precio cierre virtual: 1.1795284619666668
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Dirección: LONG - precio debe SUBIR
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Precio BUY promedio: 1.1794633333333335
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Distancia desde BUY: 6.512863333330009 puntos arriba
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia BUY: $0.16564724932803768
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia SELL: $nan
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia total calculada: $nan
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Ganancia neta (menos comisión): $nan
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Objetivo era: $0.03
-2025.09.23 08:44:39.774	CoberturaEspecial (EURUSD,M1)	Línea de cierre virtual dibujada en: 1.1795284619666668
-2025.09.23 08:44:39.911	CoberturaEspecial (EURUSD,M1)	Orden pendiente colocada: Nivel 3 Tipo: ORDER_TYPE_SELL_STOP Dirección: VENTA Precio: 1.17935 Lote: 0.04 TP: 1.17835
-2025.09.23 08:44:39.911	CoberturaEspecial (EURUSD,M1)	Programando Nivel 3 - Tipo: VENTA - Precio: 1.17935 - Lote: 0.04
-2025.09.23 08:44:40.001	CoberturaEspecial (EURUSD,M1)	CIERRE VIRTUAL ALCANZADO - BID: 1.1795499999999999 >= Objetivo: 1.1795284619666668
-2025.09.23 08:44:40.001	CoberturaEspecial (EURUSD,M1)	>>> CIERRE VIRTUAL EJECUTADO <<<
-2025.09.23 08:44:40.001	CoberturaEspecial (EURUSD,M1)	>>> CERRANDO TODAS LAS ÓRDENES DE LA SECUENCIA <<<
-2025.09.23 08:44:40.430	CoberturaEspecial (EURUSD,M1)	Sistema de cobertura cerrado completamente
+2025.09.23 11:01:39.587	CoberturaEspecial (EURUSD,M1)	Iniciando sistema con COMPRA
+2025.09.23 11:01:39.602	CoberturaEspecial (EURUSD,M1)	=== INICIANDO SISTEMA ===
+2025.09.23 11:01:39.602	CoberturaEspecial (EURUSD,M1)	Tipo inicial: COMPRA
+2025.09.23 11:01:39.602	CoberturaEspecial (EURUSD,M1)	Nivel activación cierre virtual: 2
+2025.09.23 11:01:39.602	CoberturaEspecial (EURUSD,M1)	Ganancia objetivo: 0.03
+2025.09.23 11:01:39.712	CoberturaEspecial (EURUSD,M1)	Orden de mercado abierta: Nivel 1 Tipo: COMPRA Precio: 1.17986 Lote: 0.01 TP: 1.1808599999999998
+2025.09.23 11:01:39.822	CoberturaEspecial (EURUSD,M1)	Orden pendiente colocada: Nivel 2 Tipo: ORDER_TYPE_SELL_STOP Dirección: VENTA Precio: 1.17969 Lote: 0.02 TP: 1.17869
+2025.09.23 11:01:39.822	CoberturaEspecial (EURUSD,M1)	Sistema iniciado - Entrada#1: 1.17986 Entrada#2: 1.17969
+2025.09.23 11:01:39.822	CoberturaEspecial (EURUSD,M1)	Secuencia de tipos: BUY-SELL-BUY-SELL...
+2025.09.23 11:01:39.822	CoberturaEspecial (EURUSD,M1)	Sistema de cobertura iniciado con COMPRA
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	>>> CIERRE VIRTUAL ACTIVADO en nivel 2
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	BUY: 0.01 lotes @ 1.17986
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	BUY: 0.02 lotes @ 1.17969
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.01 lotes: $0.05 EUR
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.02 lotes: $0.08 EUR
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Comisión total acumulada: $0.14
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	BUY: 0.03 lotes, total precio*lotes: 0.0353924
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	SELL: 0.0 lotes, total precio*lotes: 0.0
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia objetivo: $0.03
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Comisión: $0.1356288516474667
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia total necesaria: $0.1656288516474667
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Posición LONG neta (0.03 lotes)
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Fórmula: PC = (0.1656288516474667 * 0.0000117969 + 0.0353924 - 0.0) / 0.03
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	=== VERIFICACIÓN ===
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Precio cierre virtual: 1.17981
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Precio BUY promedio: 1.1797466666666667
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Distancia: 6.3333333333304145 puntos
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia BUY: $0.1610592613312925
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia SELL: $0.0
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia total: $0.16
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia neta: $0.03
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Objetivo: $0.03
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Línea de cierre virtual dibujada en: 1.17981
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	BUY: 0.01 lotes @ 1.17986
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	BUY: 0.02 lotes @ 1.17969
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.01 lotes: $0.05 EUR
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Comisión calculada para 0.02 lotes: $0.08 EUR
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Comisión total acumulada: $0.14
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	BUY: 0.03 lotes, total precio*lotes: 0.0353924
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	SELL: 0.0 lotes, total precio*lotes: 0.0
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia objetivo: $0.03
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Comisión: $0.1356288516474667
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia total necesaria: $0.1656288516474667
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Posición LONG neta (0.03 lotes)
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Fórmula: PC = (0.1656288516474667 * 0.0000117969 + 0.0353924 - 0.0) / 0.03
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	=== VERIFICACIÓN ===
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Precio cierre virtual: 1.17981
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Precio BUY promedio: 1.1797466666666667
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Distancia: 6.3333333333304145 puntos
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia BUY: $0.1610592613312925
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia SELL: $0.0
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia total: $0.16
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Ganancia neta: $0.03
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Objetivo: $0.03
+2025.09.23 11:02:27.918	CoberturaEspecial (EURUSD,M1)	Línea de cierre virtual dibujada en: 1.17981
+2025.09.23 11:02:28.028	CoberturaEspecial (EURUSD,M1)	Orden pendiente colocada: Nivel 3 Tipo: ORDER_TYPE_BUY_STOP Dirección: COMPRA Precio: 1.17986 Lote: 0.04 TP: 1.1808599999999998
+2025.09.23 11:02:28.028	CoberturaEspecial (EURUSD,M1)	Programando Nivel 3 - Tipo: COMPRA - Precio: 1.17986 - Lote: 0.04
+2025.09.23 11:08:35.202	CoberturaEspecial (EURUSD,M1)	CIERRE VIRTUAL ALCANZADO - BID: 1.17982 >= Objetivo: 1.17981
+2025.09.23 11:08:35.203	CoberturaEspecial (EURUSD,M1)	>>> CIERRE VIRTUAL EJECUTADO <<<
+2025.09.23 11:08:35.203	CoberturaEspecial (EURUSD,M1)	>>> CERRANDO TODAS LAS ÓRDENES DE LA SECUENCIA <<<
+2025.09.23 11:08:35.547	CoberturaEspecial (EURUSD,M1)	Sistema de cobertura cerrado completamente
