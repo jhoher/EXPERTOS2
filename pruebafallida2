@@ -51,3 +51,7 @@
 2025.09.23 19:50:50.223	CoberturaEspecial (EURUSD,M1)	Línea de cierre virtual dibujada en: 1.18075
 2025.09.23 19:50:50.330	CoberturaEspecial (EURUSD,M1)	Orden pendiente colocada: Nivel 3 Tipo: ORDER_TYPE_BUY_STOP Dirección: COMPRA Precio: 1.18076 Lote: 0.04 TP: 1.18176
 2025.09.23 19:50:50.330	CoberturaEspecial (EURUSD,M1)	Programando Nivel 3 - Tipo: COMPRA - Precio: 1.18076 - Lote: 0.04
+2025.09.23 19:52:37.093	CoberturaEspecial (EURUSD,M1)	CIERRE VIRTUAL ALCANZADO - BID: 1.18075 >= Objetivo: 1.18075
+2025.09.23 19:52:37.101	CoberturaEspecial (EURUSD,M1)	>>> CIERRE VIRTUAL EJECUTADO <<<
+2025.09.23 19:52:37.101	CoberturaEspecial (EURUSD,M1)	>>> CERRANDO TODAS LAS ÓRDENES DE LA SECUENCIA <<<
+2025.09.23 19:52:37.423	CoberturaEspecial (EURUSD,M1)	Sistema de cobertura cerrado completamente
