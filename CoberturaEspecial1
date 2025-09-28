@@ -1,0 +1,708 @@
+//+------------------------------------------------------------------+
+//|                                            CoberturaEspecial.mq5 |
+//|                                      Copyright 2024, YourCompany |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright "Copyright 2024"
+#property link      "https://www.mql5.com"
+#property version   "1.00"
+#property strict
+
+#include <Controls\Dialog.mqh>
+#include <Controls\Button.mqh>
+#include <Controls\Edit.mqh>
+#include <Controls\Label.mqh>
+#include <Controls\Panel.mqh>
+#include <Trade\Trade.mqh>
+#include <Trade\PositionInfo.mqh>
+#include <Trade\OrderInfo.mqh>
+
+//+------------------------------------------------------------------+
+//| Variables globales para el sistema de trading                    |
+//+------------------------------------------------------------------+
+CTrade trade;
+CPositionInfo posicionInfo;
+COrderInfo ordenInfo;
+
+// Variables del sistema de cobertura
+double g_precio_entrada1 = 0;      // Precio de entrada 1
+double g_precio_entrada2 = 0;      // Precio de entrada 2
+double g_lote_inicial = 0;         // Lotaje inicial
+double g_tp1_ticks = 0;            // TP de entrada 1 en ticks
+double g_tp2_ticks = 0;            // TP de entrada 2 en ticks
+double g_distancia_ticks = 0;      // Distancia entre entrada 1 y 2 en ticks
+int g_numero_magico = 12345;       // Número mágico para identificar las operaciones
+bool g_sistema_activo = false;     // Sistema activo
+ENUM_ORDER_TYPE g_tipo_inicial;    // Tipo de orden inicial (BUY o SELL)
+int g_nivel_actual = 0;            // Nivel actual de la secuencia
+
+//+------------------------------------------------------------------+
+//| Definición de la clase del panel                                 |
+//+------------------------------------------------------------------+
+class CPanelTrading : public CAppDialog
+{
+private:
+   // Panel de fondo personalizado
+   CPanel            m_panel_principal;
+   // Labels (textos)
+   CLabel            m_etiqueta_lote;
+   CLabel            m_etiqueta_tp1;
+   CLabel            m_etiqueta_tp2;
+   CLabel            m_etiqueta_dist;
+   CLabel            m_etiqueta_cierre;
+   CLabel            m_etiqueta_ganancia;
+   
+   // Edit boxes (rectángulos de entrada)
+   CEdit             m_entrada_lote;
+   CEdit             m_entrada_tp1;
+   CEdit             m_entrada_tp2;
+   CEdit             m_entrada_dist;
+   CEdit             m_entrada_cierre;
+   CEdit             m_entrada_ganancia;
+   
+   // Botones
+   CButton           m_boton_venta;
+   CButton           m_boton_compra;
+
+public:
+                     CPanelTrading(void);
+                    ~CPanelTrading(void);
+   
+   // Métodos principales
+   virtual bool      Create(const long chart, const string name, const int subwin, const int x1, const int y1, const int x2, const int y2);
+   virtual bool      OnEvent(const int id, const long &lparam, const double &dparam, const string &sparam);
+   
+   // Función pública para verificar órdenes
+   void              VerificarYGestionarOrdenes();
+
+protected:
+   // Creación de controles
+   bool              CrearEtiqueta(CLabel &etiqueta, const int x, const int y, const string texto);
+   bool              CrearCampoEntrada(CEdit &entrada, const int x, const int y);
+   bool              CrearBoton(CButton &boton, const int x, const int y, const int ancho, const int alto, const string texto, const color clr);
+   
+   // Manejadores de eventos
+   void              AlHacerClickVenta(void);
+   void              AlHacerClickCompra(void);
+   
+   // Funciones de trading
+   bool              IniciarSistemaTrading(ENUM_ORDER_TYPE tipoOrden);
+   bool              ColocarOrdenMercado(ENUM_ORDER_TYPE tipoOrden, double lotes, double tp_ticks, int nivel);
+   bool              ColocarOrdenPendiente(ENUM_ORDER_TYPE tipoOrden, double precio, double lotes, double tp_ticks, int nivel);
+   void              CancelarTodasLasOrdenesPendientes();
+   void              CerrarOrdenesDeSecuencia();
+   double            CalcularTP(double precio_entrada, double tp_ticks, ENUM_ORDER_TYPE tipoOrden);
+   ENUM_ORDER_TYPE   DeterminarTipoOrdenPorNivel(int nivel);
+   bool              VerificarTPAlcanzado();
+   bool              VerificarOrdenPendienteActiva();
+};
+
+// Constructor
+CPanelTrading::CPanelTrading(void)
+{
+}
+
+// Destructor
+CPanelTrading::~CPanelTrading(void)
+{
+}
+
+//+------------------------------------------------------------------+
+//| Crear el panel de trading                                        |
+//+------------------------------------------------------------------+
+bool CPanelTrading::Create(const long chart, const string name, const int subwin, const int x1, const int y1, const int x2, const int y2)
+{
+   // Crear el diálogo base con fondo negro
+   if(!CAppDialog::Create(chart, "Cobertura Especial", subwin, x1, y1, x2, y2))
+      return(false);
+   
+   // Crear panel de fondo negro
+   if(!m_panel_principal.Create(m_chart_id, m_name+"PanelPrincipal", m_subwin, 0, 0, ClientAreaWidth(), ClientAreaHeight()))
+      return(false);
+   m_panel_principal.ColorBackground(clrBlack);
+   m_panel_principal.ColorBorder(clrDarkGray);
+   if(!Add(m_panel_principal))
+      return(false);
+   
+   int desplazamiento_y = 10;
+   int etiqueta_x = 10;
+   int entrada_x = 120;
+   int altura_fila = 30;
+   
+   // Crear etiquetas y campos de entrada
+   CrearEtiqueta(m_etiqueta_lote, etiqueta_x, desplazamiento_y, "Lote Inicial:");
+   CrearCampoEntrada(m_entrada_lote, entrada_x, desplazamiento_y);
+   m_entrada_lote.Text("0.01");
+   
+   desplazamiento_y += altura_fila;
+   CrearEtiqueta(m_etiqueta_tp1, etiqueta_x, desplazamiento_y, "TP E1:");
+   CrearCampoEntrada(m_entrada_tp1, entrada_x, desplazamiento_y);
+   m_entrada_tp1.Text("50");
+   
+   desplazamiento_y += altura_fila;
+   CrearEtiqueta(m_etiqueta_tp2, etiqueta_x, desplazamiento_y, "TP E2:");
+   CrearCampoEntrada(m_entrada_tp2, entrada_x, desplazamiento_y);
+   m_entrada_tp2.Text("100");
+   
+   desplazamiento_y += altura_fila;
+   CrearEtiqueta(m_etiqueta_dist, etiqueta_x, desplazamiento_y, "Dist. E1/E2:");
+   CrearCampoEntrada(m_entrada_dist, entrada_x, desplazamiento_y);
+   m_entrada_dist.Text("20");
+   
+   desplazamiento_y += altura_fila;
+   CrearEtiqueta(m_etiqueta_cierre, etiqueta_x, desplazamiento_y, "Cierre virtual:");
+   CrearCampoEntrada(m_entrada_cierre, entrada_x, desplazamiento_y);
+   m_entrada_cierre.Text("Si");
+   
+   desplazamiento_y += altura_fila;
+   CrearEtiqueta(m_etiqueta_ganancia, etiqueta_x, desplazamiento_y, "GananciaM:");
+   CrearCampoEntrada(m_entrada_ganancia, entrada_x, desplazamiento_y);
+   m_entrada_ganancia.Text("0.00");
+   
+   // Crear botones alineados con los elementos superiores
+   desplazamiento_y += altura_fila + 20;
+   int altura_boton = 35;
+   int espacio_botones = 10;
+   
+   // Calcular el ancho de cada botón
+   int ancho_total = (entrada_x + 100) - etiqueta_x;
+   int ancho_boton = (ancho_total - espacio_botones) / 2;
+   
+   // Botón VENTA (izquierda)
+   CrearBoton(m_boton_venta, etiqueta_x, desplazamiento_y, ancho_boton, altura_boton, "VENTA", clrRed);
+   
+   // Botón COMPRA (derecha)
+   int compra_boton_x = etiqueta_x + ancho_boton + espacio_botones;
+   CrearBoton(m_boton_compra, compra_boton_x, desplazamiento_y, ancho_boton, altura_boton, "COMPRA", clrBlue);
+   
+   return(true);
+}
+
+//+------------------------------------------------------------------+
+//| Crear etiqueta                                                   |
+//+------------------------------------------------------------------+
+bool CPanelTrading::CrearEtiqueta(CLabel &etiqueta, const int x, const int y, const string texto)
+{
+   if(!etiqueta.Create(m_chart_id, m_name + texto, m_subwin, x, y, x + 100, y + 20))
+      return(false);
+   etiqueta.Text(texto);
+   etiqueta.Color(clrWhite);
+   if(!Add(etiqueta))
+      return(false);
+   return(true);
+}
+
+//+------------------------------------------------------------------+
+//| Crear campo de entrada                                           |
+//+------------------------------------------------------------------+
+bool CPanelTrading::CrearCampoEntrada(CEdit &entrada, const int x, const int y)
+{
+   if(!entrada.Create(m_chart_id, m_name + "Entrada" + IntegerToString(x) + IntegerToString(y), m_subwin, x, y, x + 100, y + 20))
+      return(false);
+   entrada.TextAlign(ALIGN_CENTER);
+   entrada.ColorBackground(clrDarkGray);
+   entrada.ColorBorder(clrGray);
+   entrada.Color(clrWhite);
+   if(!Add(entrada))
+      return(false);
+   return(true);
+}
+
+//+------------------------------------------------------------------+
+//| Crear botón                                                      |
+//+------------------------------------------------------------------+
+bool CPanelTrading::CrearBoton(CButton &boton, const int x, const int y, const int ancho, const int alto, const string texto, const color clr)
+{
+   if(!boton.Create(m_chart_id, m_name + texto, m_subwin, x, y, x + ancho, y + alto))
+      return(false);
+   boton.Text(texto);
+   boton.ColorBackground(clr);
+   boton.Color(clrWhite);
+   boton.ColorBorder(clr);
+   boton.FontSize(10);
+   if(!Add(boton))
+      return(false);
+   return(true);
+}
+
+//+------------------------------------------------------------------+
+//| Calcular TP basado en ticks                                      |
+//+------------------------------------------------------------------+
+double CPanelTrading::CalcularTP(double precio_entrada, double tp_ticks, ENUM_ORDER_TYPE tipoOrden)
+{
+   double punto = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+   
+   if(tipoOrden == ORDER_TYPE_BUY || tipoOrden == ORDER_TYPE_BUY_LIMIT || tipoOrden == ORDER_TYPE_BUY_STOP)
+      return precio_entrada + (tp_ticks * punto);
+   else
+      return precio_entrada - (tp_ticks * punto);
+}
+
+//+------------------------------------------------------------------+
+//| Determinar tipo de orden según el nivel                          |
+//+------------------------------------------------------------------+
+ENUM_ORDER_TYPE CPanelTrading::DeterminarTipoOrdenPorNivel(int nivel)
+{
+   // Patrón: BUY-SELL-BUY-SELL o SELL-BUY-SELL-BUY
+   // Nivel 1: tipo inicial
+   // Nivel 2: opuesto
+   // Nivel 3: igual que 1
+   // Nivel 4: igual que 2
+   // ...
+   
+   if(nivel % 2 == 1) // Niveles impares (1,3,5,7...)
+   {
+      return g_tipo_inicial;
+   }
+   else // Niveles pares (2,4,6,8...)
+   {
+      return (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Colocar orden de mercado                                         |
+//+------------------------------------------------------------------+
+bool CPanelTrading::ColocarOrdenMercado(ENUM_ORDER_TYPE tipoOrden, double lotes, double tp_ticks, int nivel)
+{
+   double precio = (tipoOrden == ORDER_TYPE_BUY) ? SymbolInfoDouble(_Symbol, SYMBOL_ASK) : SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   double tp = CalcularTP(precio, tp_ticks, tipoOrden);
+   
+   trade.SetExpertMagicNumber(g_numero_magico);
+   string comentario = "Nivel_" + IntegerToString(nivel);
+   
+   if(trade.PositionOpen(_Symbol, tipoOrden, lotes, precio, 0, tp, comentario))
+   {
+      Print("Orden de mercado abierta: Nivel ", nivel, " Tipo: ", 
+            (tipoOrden == ORDER_TYPE_BUY ? "COMPRA" : "VENTA"),
+            " Precio: ", precio, " Lote: ", lotes, " TP: ", tp);
+      return true;
+   }
+   else
+   {
+      Print("Error al abrir orden de mercado: ", trade.ResultRetcode());
+      return false;
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Colocar orden pendiente                                          |
+//+------------------------------------------------------------------+
+bool CPanelTrading::ColocarOrdenPendiente(ENUM_ORDER_TYPE tipoOrden, double precio, double lotes, double tp_ticks, int nivel)
+{
+   double tp = CalcularTP(precio, tp_ticks, tipoOrden);
+   ENUM_ORDER_TYPE tipoPendiente;
+   
+   // Obtener precio actual de mercado
+   double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+   double precioMedio = (bid + ask) / 2;
+   
+   // Determinar el tipo de orden pendiente según la dirección y posición del precio
+   if(tipoOrden == ORDER_TYPE_BUY)
+   {
+      // Para BUY: si el precio está debajo del mercado = LIMIT, si está arriba = STOP
+      tipoPendiente = (precio < precioMedio) ? ORDER_TYPE_BUY_LIMIT : ORDER_TYPE_BUY_STOP;
+   }
+   else // ORDER_TYPE_SELL
+   {
+      // Para SELL: si el precio está arriba del mercado = LIMIT, si está abajo = STOP
+      tipoPendiente = (precio > precioMedio) ? ORDER_TYPE_SELL_LIMIT : ORDER_TYPE_SELL_STOP;
+   }
+   
+   trade.SetExpertMagicNumber(g_numero_magico);
+   string comentario = "Nivel_" + IntegerToString(nivel);
+   
+   if(trade.OrderOpen(_Symbol, tipoPendiente, lotes, 0, precio, 0, tp, ORDER_TIME_GTC, 0, comentario))
+   {
+      Print("Orden pendiente colocada: Nivel ", nivel, 
+            " Tipo: ", EnumToString(tipoPendiente),
+            " Dirección: ", (tipoOrden == ORDER_TYPE_BUY ? "COMPRA" : "VENTA"),
+            " Precio: ", precio, " Lote: ", lotes, " TP: ", tp);
+      return true;
+   }
+   else
+   {
+      Print("Error al colocar orden pendiente: ", trade.ResultRetcode());
+      return false;
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Iniciar sistema de trading                                       |
+//+------------------------------------------------------------------+
+bool CPanelTrading::IniciarSistemaTrading(ENUM_ORDER_TYPE tipoOrden)
+{
+   // Leer valores del panel
+   g_lote_inicial = StringToDouble(m_entrada_lote.Text());
+   g_tp1_ticks = StringToDouble(m_entrada_tp1.Text());
+   g_tp2_ticks = StringToDouble(m_entrada_tp2.Text());
+   g_distancia_ticks = StringToDouble(m_entrada_dist.Text());
+   
+   // Validar valores
+   if(g_lote_inicial <= 0 || g_tp1_ticks <= 0 || g_tp2_ticks <= 0 || g_distancia_ticks <= 0)
+   {
+      Print("Error: Valores inválidos en el panel");
+      return false;
+   }
+   
+   // Cancelar órdenes pendientes anteriores
+   CancelarTodasLasOrdenesPendientes();
+   
+   // Establecer tipo de orden inicial
+   g_tipo_inicial = tipoOrden;
+   g_nivel_actual = 1;
+   g_sistema_activo = true;
+   
+   // Colocar Entrada#1 (orden de mercado)
+   double precio = (tipoOrden == ORDER_TYPE_BUY) ? SymbolInfoDouble(_Symbol, SYMBOL_ASK) : SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   g_precio_entrada1 = precio;
+   
+   if(!ColocarOrdenMercado(tipoOrden, g_lote_inicial, g_tp1_ticks, 1))
+   {
+      g_sistema_activo = false;
+      return false;
+   }
+   
+   // Calcular precio de Entrada#2
+   double punto = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+   if(tipoOrden == ORDER_TYPE_BUY)
+   {
+      g_precio_entrada2 = g_precio_entrada1 - (g_distancia_ticks * punto);
+   }
+   else
+   {
+      g_precio_entrada2 = g_precio_entrada1 + (g_distancia_ticks * punto);
+   }
+   
+   // Colocar Entrada#2 (orden pendiente opuesta con doble lotaje)
+   ENUM_ORDER_TYPE tipoNivel2 = DeterminarTipoOrdenPorNivel(2);
+   ColocarOrdenPendiente(tipoNivel2, g_precio_entrada2, g_lote_inicial * 2, g_tp2_ticks, 2);
+   
+   Print("Sistema iniciado - Entrada#1: ", g_precio_entrada1, " Entrada#2: ", g_precio_entrada2);
+   Print("Secuencia de tipos: ", (tipoOrden == ORDER_TYPE_BUY ? "BUY-SELL-BUY-SELL..." : "SELL-BUY-SELL-BUY..."));
+   
+   return true;
+}
+
+//+------------------------------------------------------------------+
+//| Cerrar todas las órdenes de la secuencia                         |
+//+------------------------------------------------------------------+
+void CPanelTrading::CerrarOrdenesDeSecuencia()
+{
+   if(!g_sistema_activo) return;
+   
+   Print("Cerrando todas las órdenes de la secuencia...");
+   
+   // Primero cancelar todas las órdenes pendientes
+   CancelarTodasLasOrdenesPendientes();
+   
+   // Cerrar todas las posiciones abiertas simultáneamente
+   int totalPosiciones = PositionsTotal();
+   for(int i = totalPosiciones - 1; i >= 0; i--)
+   {
+      if(posicionInfo.SelectByIndex(i))
+      {
+         if(posicionInfo.Magic() == g_numero_magico && posicionInfo.Symbol() == _Symbol)
+         {
+            trade.PositionClose(posicionInfo.Ticket());
+         }
+      }
+   }
+   
+   // Resetear el sistema
+   g_sistema_activo = false;
+   g_nivel_actual = 0;
+   g_precio_entrada1 = 0;
+   g_precio_entrada2 = 0;
+   
+   Print("Sistema de cobertura cerrado completamente");
+}
+
+//+------------------------------------------------------------------+
+//| Verificar si algún TP fue alcanzado                              |
+//+------------------------------------------------------------------+
+bool CPanelTrading::VerificarTPAlcanzado()
+{
+   // Verificar todas las posiciones para ver si alguna cerró por TP
+   static int posicionesAnterior = 0;
+   int posicionesActual = 0;
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posicionInfo.SelectByIndex(i))
+      {
+         if(posicionInfo.Magic() == g_numero_magico && posicionInfo.Symbol() == _Symbol)
+         {
+            posicionesActual++;
+         }
+      }
+   }
+   
+   // Si teníamos posiciones y ahora hay menos, verificar si fue por TP
+   if(g_sistema_activo && posicionesAnterior > posicionesActual && posicionesActual >= 0)
+   {
+      posicionesAnterior = posicionesActual;
+      // Revisar el historial para confirmar cierre por TP
+      if(HistorySelect(TimeCurrent() - 60, TimeCurrent()))
+      {
+         int total = HistoryDealsTotal();
+         for(int i = total - 1; i >= 0; i--)
+         {
+            ulong ticket = HistoryDealGetTicket(i);
+            if(HistoryDealGetInteger(ticket, DEAL_MAGIC) == g_numero_magico)
+            {
+               double profit = HistoryDealGetDouble(ticket, DEAL_PROFIT);
+               if(profit > 0) // Si cerró con ganancia, probablemente fue por TP
+               {
+                  Print("TP alcanzado - Cerrando todas las órdenes");
+                  return true;
+               }
+            }
+         }
+      }
+   }
+   
+   posicionesAnterior = posicionesActual;
+   return false;
+}
+
+//+------------------------------------------------------------------+
+//| Verificar si hay orden pendiente activa                          |
+//+------------------------------------------------------------------+
+bool CPanelTrading::VerificarOrdenPendienteActiva()
+{
+   for(int i = 0; i < OrdersTotal(); i++)
+   {
+      if(ordenInfo.SelectByIndex(i))
+      {
+         if(ordenInfo.Magic() == g_numero_magico && ordenInfo.Symbol() == _Symbol)
+         {
+            return true; // Hay al menos una orden pendiente
+         }
+      }
+   }
+   return false; // No hay órdenes pendientes
+}
+
+//+------------------------------------------------------------------+
+//| Verificar y gestionar órdenes                                    |
+//+------------------------------------------------------------------+
+void CPanelTrading::VerificarYGestionarOrdenes()
+{
+   if(!g_sistema_activo) return;
+   
+   // Verificar si se alcanzó algún TP
+   if(VerificarTPAlcanzado())
+   {
+      CerrarOrdenesDeSecuencia();
+      return;
+   }
+   
+   // Buscar la última posición abierta
+   int ultimoNivel = 0;
+   double ultimoLote = 0;
+   bool hayPosiciones = false;
+   
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      if(posicionInfo.SelectByIndex(i))
+      {
+         if(posicionInfo.Magic() == g_numero_magico && posicionInfo.Symbol() == _Symbol)
+         {
+            hayPosiciones = true;
+            string comentario = posicionInfo.Comment();
+            if(StringFind(comentario, "Nivel_") >= 0)
+            {
+               int nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+               if(nivel > ultimoNivel)
+               {
+                  ultimoNivel = nivel;
+                  ultimoLote = posicionInfo.Volume();
+               }
+            }
+         }
+      }
+   }
+   
+   // Si hay una nueva posición abierta, crear la siguiente orden pendiente
+   if(ultimoNivel > g_nivel_actual)
+   {
+      g_nivel_actual = ultimoNivel;
+      
+      // Cancelar órdenes pendientes anteriores
+      CancelarTodasLasOrdenesPendientes();
+      
+      // Calcular parámetros para el siguiente nivel
+      int siguienteNivel = ultimoNivel + 1;
+      double siguienteLote = ultimoLote * 2;
+      
+      // Determinar el tipo de orden según el patrón establecido
+      ENUM_ORDER_TYPE siguienteTipo = DeterminarTipoOrdenPorNivel(siguienteNivel);
+      
+      // Determinar precio y TP según el patrón
+      double siguientePrecio;
+      double siguienteTP;
+      
+      if(siguienteNivel % 2 == 1) // Nivel impar (como entrada#1)
+      {
+         siguientePrecio = g_precio_entrada1;
+         siguienteTP = g_tp1_ticks;
+      }
+      else // Nivel par (como entrada#2)
+      {
+         siguientePrecio = g_precio_entrada2;
+         siguienteTP = g_tp2_ticks;
+      }
+      
+      // Intentar colocar la nueva orden pendiente
+      if(!ColocarOrdenPendiente(siguienteTipo, siguientePrecio, siguienteLote, siguienteTP, siguienteNivel))
+      {
+         // Si no se pudo colocar la orden (posiblemente por falta de margen)
+         Print("No se pudo colocar orden pendiente - Verificando margen...");
+         
+         // Esperar un tick para confirmar
+         static int intentosFallidos = 0;
+         intentosFallidos++;
+         
+         if(intentosFallidos >= 3) // Después de 3 intentos fallidos
+         {
+            Print("Imposible colocar nueva orden - Cerrando secuencia por falta de margen");
+            CerrarOrdenesDeSecuencia();
+            intentosFallidos = 0;
+            return;
+         }
+      }
+      else
+      {
+         Print("Programando Nivel ", siguienteNivel, 
+               " - Tipo: ", (siguienteTipo == ORDER_TYPE_BUY ? "COMPRA" : "VENTA"),
+               " - Precio: ", siguientePrecio, " - Lote: ", siguienteLote);
+      }
+   }
+   
+   // Verificar si no hay órdenes pendientes cuando debería haberlas
+   if(hayPosiciones && g_nivel_actual > 0 && !VerificarOrdenPendienteActiva())
+   {
+      static int ticksSinOrdenPendiente = 0;
+      ticksSinOrdenPendiente++;
+      
+      if(ticksSinOrdenPendiente >= 5) // Después de 5 ticks sin orden pendiente
+      {
+         Print("No hay órdenes pendientes activas - Cerrando secuencia");
+         CerrarOrdenesDeSecuencia();
+         ticksSinOrdenPendiente = 0;
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Cancelar todas las órdenes pendientes                            |
+//+------------------------------------------------------------------+
+void CPanelTrading::CancelarTodasLasOrdenesPendientes()
+{
+   for(int i = OrdersTotal() - 1; i >= 0; i--)
+   {
+      if(ordenInfo.SelectByIndex(i))
+      {
+         if(ordenInfo.Magic() == g_numero_magico && ordenInfo.Symbol() == _Symbol)
+         {
+            trade.OrderDelete(ordenInfo.Ticket());
+         }
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Manejador de eventos                                             |
+//+------------------------------------------------------------------+
+EVENT_MAP_BEGIN(CPanelTrading)
+   ON_EVENT(ON_CLICK, m_boton_venta, AlHacerClickVenta)
+   ON_EVENT(ON_CLICK, m_boton_compra, AlHacerClickCompra)
+EVENT_MAP_END(CAppDialog)
+
+//+------------------------------------------------------------------+
+//| Evento click botón VENTA                                         |
+//+------------------------------------------------------------------+
+void CPanelTrading::AlHacerClickVenta(void)
+{
+   Print("Iniciando sistema con VENTA");
+   if(IniciarSistemaTrading(ORDER_TYPE_SELL))
+   {
+      Print("Sistema de cobertura iniciado con VENTA");
+   }
+   else
+   {
+      Print("Error al iniciar el sistema");
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Evento click botón COMPRA                                        |
+//+------------------------------------------------------------------+
+void CPanelTrading::AlHacerClickCompra(void)
+{
+   Print("Iniciando sistema con COMPRA");
+   if(IniciarSistemaTrading(ORDER_TYPE_BUY))
+   {
+      Print("Sistema de cobertura iniciado con COMPRA");
+   }
+   else
+   {
+      Print("Error al iniciar el sistema");
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Variables globales                                               |
+//+------------------------------------------------------------------+
+CPanelTrading DialogoExterno;
+
+//+------------------------------------------------------------------+
+//| Función de inicialización del Expert Advisor                     |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   // Configurar el número mágico
+   trade.SetExpertMagicNumber(g_numero_magico);
+   
+   // Crear el panel
+   if(!DialogoExterno.Create(0, "CoberturaEspecial", 0, 50, 50, 300, 350))
+      return(INIT_FAILED);
+   
+   // Ejecutar el panel
+   if(!DialogoExterno.Run())
+      return(INIT_FAILED);
+   
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Función de desinicialización del Expert Advisor                  |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+   // Destruir el diálogo
+   DialogoExterno.Destroy(reason);
+}
+
+//+------------------------------------------------------------------+
+//| Función OnTick                                                   |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   // Verificar y gestionar las órdenes del sistema
+   DialogoExterno.VerificarYGestionarOrdenes();
+}
+
+//+------------------------------------------------------------------+
+//| Función OnChartEvent                                             |
+//+------------------------------------------------------------------+
+void OnChartEvent(const int id,
+                  const long &lparam,
+                  const double &dparam,
+                  const string &sparam)
+{
+   DialogoExterno.ChartEvent(id, lparam, dparam, sparam);
+}
+//+------------------------------------------------------------------+
