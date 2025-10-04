@@ -1,0 +1,187 @@
+2025.10.03 10:49:26.451	CoberturaEspecial (EURUSD,M2)	=== INICIANDO SISTEMA ===
+2025.10.03 10:49:26.451	CoberturaEspecial (EURUSD,M2)	Tipo inicial: COMPRA
+2025.10.03 10:49:26.451	CoberturaEspecial (EURUSD,M2)	Nivel activación cierre virtual: 2
+2025.10.03 10:49:26.451	CoberturaEspecial (EURUSD,M2)	Ganancia objetivo: 0.03
+2025.10.03 10:49:26.558	CoberturaEspecial (EURUSD,M2)	Orden de mercado abierta: Nivel 1 Tipo: COMPRA Precio: 1.17416 Lote: 0.01 TP: 1.17516
+2025.10.03 10:49:26.660	CoberturaEspecial (EURUSD,M2)	Orden pendiente colocada: Nivel 2 Tipo: ORDER_TYPE_SELL_STOP Dirección: VENTA Precio: 1.1739600000000001 Lote: 0.02 TP: 1.1729600000000002
+2025.10.03 10:49:26.660	CoberturaEspecial (EURUSD,M2)	Sistema iniciado - Entrada#1: 1.17416 Entrada#2: 1.1739600000000001
+2025.10.03 10:49:26.660	CoberturaEspecial (EURUSD,M2)	Secuencia de tipos: BUY-SELL-BUY-SELL...
+2025.10.03 10:49:26.660	CoberturaEspecial (EURUSD,M2)	Sistema de cobertura iniciado con COMPRA
+2025.10.03 11:20:16.068	CoberturaEspecial (EURUSD,M2)	>>> CIERRE VIRTUAL ACTIVADO en nivel 2
+2025.10.03 11:20:16.068	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.17416
+2025.10.03 11:20:16.069	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.1739600000000001
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	BUY: 0.01 @ 1.17416
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 @ 1.1739600000000001
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Última: sell
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Spread actual: 0.0 puntos
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.16
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.19
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Valor por pip por lote: €8.52
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Volumen neto: -0.01
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	>>> Calculando para última SELL (precio debe BAJAR)
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Precio cierre (BID): 1.17354
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	BUY cierra al BID (1.17354): -62.0 puntos, Ganancia = €-0.53
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	SELL cierra al ASK (1.17354): 42.0 puntos, Ganancia = €0.72
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	------------------------
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.19
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.16
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.03
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	✓ CÁLCULO CORRECTO - Diferencia: €0.003
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.17354
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.17416
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.1739600000000001
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	BUY: 0.01 @ 1.17416
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 @ 1.1739600000000001
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Última: sell
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Spread actual: 0.0 puntos
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.16
+2025.10.03 11:20:16.070	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.19
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	Valor por pip por lote: €8.52
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	Volumen neto: -0.01
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	>>> Calculando para última SELL (precio debe BAJAR)
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	Precio cierre (BID): 1.17354
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	BUY cierra al BID (1.17354): -62.0 puntos, Ganancia = €-0.53
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	SELL cierra al ASK (1.17354): 42.0 puntos, Ganancia = €0.72
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	------------------------
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.19
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.16
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.03
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	✓ CÁLCULO CORRECTO - Diferencia: €0.003
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.03 11:20:16.071	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.17354
+2025.10.03 11:20:16.183	CoberturaEspecial (EURUSD,M2)	Orden pendiente colocada: Nivel 3 Tipo: ORDER_TYPE_BUY_STOP Dirección: COMPRA Precio: 1.17416 Lote: 0.04 TP: 1.17516
+2025.10.03 11:20:16.183	CoberturaEspecial (EURUSD,M2)	Programando Nivel 3 - Tipo: COMPRA - Precio: 1.17416 - Lote: 0.04
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.17416
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.1739600000000001
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.17416
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 @ 1.17416
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 @ 1.1739600000000001
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Última: buy
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Spread actual: 0.0 puntos
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Valor por pip por lote: €8.52
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Volumen neto: 0.030000000000000002
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	>>> Calculando para última BUY (precio debe SUBIR)
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Precio cierre (BID): 1.17445
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	BUY cierra al BID (1.17445): 29.0 puntos, Ganancia = €1.24
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	SELL cierra al ASK (1.17445): -49.0 puntos, Ganancia = €-0.83
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	------------------------
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.40
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.04
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	⚠ Diferencia final: €0.010
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.03 12:14:04.566	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.17445
+2025.10.03 12:14:04.678	CoberturaEspecial (EURUSD,M2)	Orden pendiente colocada: Nivel 4 Tipo: ORDER_TYPE_SELL_STOP Dirección: VENTA Precio: 1.1739600000000001 Lote: 0.08 TP: 1.1729600000000002
+2025.10.03 12:14:04.678	CoberturaEspecial (EURUSD,M2)	Programando Nivel 4 - Tipo: VENTA - Precio: 1.1739600000000001 - Lote: 0.08
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.17416
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.1739600000000001
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.17416
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Nivel 4 SELL: 0.08 @ 1.1739600000000001
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 @ 1.17416
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	SELL: 0.1 @ 1.1739600000000001
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Última: sell
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Spread actual: 0.0 puntos
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.78
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.81
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Valor por pip por lote: €8.52
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Volumen neto: -0.05
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	>>> Calculando para última SELL (precio debe BAJAR)
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Precio cierre (BID): 1.17357
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	BUY cierra al BID (1.17357): -59.0 puntos, Ganancia = €-2.51
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	SELL cierra al ASK (1.17357): 39.0 puntos, Ganancia = €3.32
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	------------------------
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.81
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.78
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.03
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	✓ CÁLCULO CORRECTO - Diferencia: €0.001
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.03 12:17:42.148	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.17357
+2025.10.03 12:17:42.247	CoberturaEspecial (EURUSD,M2)	Orden pendiente colocada: Nivel 5 Tipo: ORDER_TYPE_BUY_STOP Dirección: COMPRA Precio: 1.17416 Lote: 0.16 TP: 1.17516
+2025.10.03 12:17:42.247	CoberturaEspecial (EURUSD,M2)	Programando Nivel 5 - Tipo: COMPRA - Precio: 1.17416 - Lote: 0.16
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.17416
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.1739600000000001
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.17416
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Nivel 4 SELL: 0.08 @ 1.1739600000000001
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Nivel 5 BUY: 0.16 @ 1.17416
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	BUY: 0.21000000000000002 @ 1.17416
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	SELL: 0.1 @ 1.1739600000000001
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Última: buy
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Spread actual: 0.0 puntos
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Comisiones: €1.62
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €1.6500000000000001
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Valor por pip por lote: €8.52
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Volumen neto: 0.11000000000000001
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	>>> Calculando para última BUY (precio debe SUBIR)
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Precio cierre (BID): 1.17452
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	BUY cierra al BID (1.17452): 36.0 puntos, Ganancia = €6.44
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	SELL cierra al ASK (1.17452): -56.0 puntos, Ganancia = €-4.77
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	------------------------
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €1.67
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Comisiones: -€1.62
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.05
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	⚠ Diferencia final: €0.020
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.03 12:37:59.273	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.17452
+2025.10.03 12:37:59.378	CoberturaEspecial (EURUSD,M2)	Orden pendiente colocada: Nivel 6 Tipo: ORDER_TYPE_SELL_STOP Dirección: VENTA Precio: 1.1739600000000001 Lote: 0.32 TP: 1.1729600000000002
+2025.10.03 12:37:59.378	CoberturaEspecial (EURUSD,M2)	Programando Nivel 6 - Tipo: VENTA - Precio: 1.1739600000000001 - Lote: 0.32
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.17416
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.1739600000000001
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.17416
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Nivel 4 SELL: 0.08 @ 1.1739600000000001
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Nivel 5 BUY: 0.16 @ 1.17416
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Nivel 6 SELL: 0.32 @ 1.1739600000000001
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	BUY: 0.21000000000000002 @ 1.17416
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	SELL: 0.42000000000000004 @ 1.17396
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Última: sell
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Spread actual: 0.0 puntos
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Comisiones: €3.2840000000000003
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €3.314
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Valor por pip por lote: €8.52
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Volumen neto: -0.21000000000000002
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	>>> Calculando para última SELL (precio debe BAJAR)
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Precio cierre (BID): 1.17357
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	BUY cierra al BID (1.17357): -59.0 puntos, Ganancia = €-10.56
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	SELL cierra al ASK (1.17357): 39.0 puntos, Ganancia = €13.96
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	------------------------
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €3.40
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Comisiones: -€3.28
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.12
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	⚠ Diferencia final: €0.085
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.03 12:41:13.753	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.17357
+2025.10.03 12:41:13.863	CoberturaEspecial (EURUSD,M2)	Orden pendiente colocada: Nivel 7 Tipo: ORDER_TYPE_BUY_STOP Dirección: COMPRA Precio: 1.17416 Lote: 0.64 TP: 1.17516
+2025.10.03 12:41:13.863	CoberturaEspecial (EURUSD,M2)	Programando Nivel 7 - Tipo: COMPRA - Precio: 1.17416 - Lote: 0.64
+2025.10.03 12:52:29.598	CoberturaEspecial (EURUSD,M2)	CIERRE VIRTUAL ALCANZADO - ASK: 1.17357 <= Objetivo: 1.17357
+2025.10.03 12:52:29.598	CoberturaEspecial (EURUSD,M2)	>>> CIERRE VIRTUAL EJECUTADO <<<
+2025.10.03 12:52:29.599	CoberturaEspecial (EURUSD,M2)	>>> CERRANDO TODAS LAS ÓRDENES DE LA SECUENCIA <<<
+2025.10.03 12:52:29.732	CoberturaEspecial (EURUSD,M2)	Cerrando en BID: 1.17354 ASK: 1.17354
+2025.10.03 12:52:29.732	CoberturaEspecial (EURUSD,M2)	Precio objetivo era: 1.17357
+2025.10.03 12:52:30.493	CoberturaEspecial (EURUSD,M2)	Sistema de cobertura cerrado completamente
+2025.10.03 12:52:30.493	CoberturaEspecial (EURUSD,M2)	Total órdenes cerradas: 6
