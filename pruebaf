@@ -1,0 +1,1733 @@
+2025.10.13 08:01:32.186	CoberturaEspecial (EURUSD,M2)	Iniciando sistema con COMPRA
+2025.10.13 08:01:32.251	CoberturaEspecial (EURUSD,M2)	=== INICIANDO SISTEMA ===
+2025.10.13 08:01:32.251	CoberturaEspecial (EURUSD,M2)	Tipo inicial: COMPRA
+2025.10.13 08:01:32.252	CoberturaEspecial (EURUSD,M2)	Nivel activación cierre virtual: 2
+2025.10.13 08:01:32.252	CoberturaEspecial (EURUSD,M2)	Ganancia objetivo: 0.03
+2025.10.13 08:01:32.414	CoberturaEspecial (EURUSD,M2)	Orden de mercado abierta: Nivel 1 Tipo: COMPRA Precio: 1.15676 Lote: 0.01 TP: 1.15776
+2025.10.13 08:01:32.526	CoberturaEspecial (EURUSD,M2)	Orden pendiente colocada: Nivel 2 Tipo: ORDER_TYPE_SELL_STOP Dirección: VENTA Precio: 1.15656 Lote: 0.02 TP: 1.1555600000000001
+2025.10.13 08:01:32.526	CoberturaEspecial (EURUSD,M2)	Sistema iniciado - Entrada#1: 1.15676 Entrada#2: 1.15656
+2025.10.13 08:01:32.526	CoberturaEspecial (EURUSD,M2)	Secuencia de tipos: BUY-SELL-BUY-SELL...
+2025.10.13 08:01:32.526	CoberturaEspecial (EURUSD,M2)	Sistema de cobertura iniciado con COMPRA
+2025.10.13 08:07:36.046	CoberturaEspecial (EURUSD,M15)	>>> CIERRE VIRTUAL ACTIVADO en nivel 2
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15654
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15654
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	BUY: 0.01 lotes @ 1.15678
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Última dirección: SELL
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.16
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.19
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	>>> Última SELL - Fórmula BAJADA (spread incluido)
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15612
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15612
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15612): -66.0 pts = €-0.56
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15612): 44.0 pts = €0.75
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.19
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.16
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.003
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:36.047	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → SL: 1.15612 (pérdida)
+2025.10.13 08:07:36.158	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:36.158	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → TP: 1.15612 (ganancia)
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 2/2
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15612
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15646
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15646
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	BUY: 0.01 lotes @ 1.15678
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Última dirección: SELL
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.16
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.19
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	>>> Última SELL - Fórmula BAJADA (spread incluido)
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15612
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15612
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15612): -66.0 pts = €-0.56
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15612): 44.0 pts = €0.75
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.19
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.16
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.003
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:36.268	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → SL: 1.15612 (pérdida)
+2025.10.13 08:07:36.270	CoberturaEspecial (EURUSD,M15)	CTrade::OrderSend: modify position #187295049 EURUSD (sl: 1.15612, tp: 0.00000) [no changes]
+2025.10.13 08:07:36.270	CoberturaEspecial (EURUSD,M15)	    ⚠ Error: no changes
+2025.10.13 08:07:36.270	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → TP: 1.15612 (ganancia)
+2025.10.13 08:07:36.270	CoberturaEspecial (EURUSD,M15)	CTrade::OrderSend: modify position #187295052 EURUSD (sl: 0.00000, tp: 1.15612) [no changes]
+2025.10.13 08:07:36.270	CoberturaEspecial (EURUSD,M15)	    ⚠ Error: no changes
+2025.10.13 08:07:36.270	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 0/2
+2025.10.13 08:07:36.270	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:36.270	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15612
+2025.10.13 08:07:36.379	CoberturaEspecial (EURUSD,M15)	Orden pendiente colocada: Nivel 3 Tipo: ORDER_TYPE_BUY_STOP Dirección: COMPRA Precio: 1.15676 Lote: 0.04 TP: 1.15776
+2025.10.13 08:07:36.379	CoberturaEspecial (EURUSD,M15)	Programando Nivel 3 - Tipo: COMPRA - Precio: 1.15676 - Lote: 0.04
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15650
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15651
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	BUY: 0.01 lotes @ 1.15678
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Última dirección: SELL
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.16
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.19
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	>>> Última SELL - Fórmula BAJADA (spread incluido)
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15610
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15611
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15610): -68.0 pts = €-0.58
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15611): 45.0 pts = €0.77
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.19
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.16
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.003
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:36.785	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → SL: 1.15610 (pérdida)
+2025.10.13 08:07:36.895	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:36.895	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → TP: 1.15611 (ganancia)
+2025.10.13 08:07:37.007	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:37.007	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 2/2
+2025.10.13 08:07:37.007	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:37.007	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.1561
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15651
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15651
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	BUY: 0.01 lotes @ 1.15678
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Última dirección: SELL
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.16
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.19
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	>>> Última SELL - Fórmula BAJADA (spread incluido)
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15612
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15612
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15612): -66.0 pts = €-0.56
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15612): 44.0 pts = €0.75
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.19
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.16
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.003
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:37.025	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → SL: 1.15612 (pérdida)
+2025.10.13 08:07:37.134	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:37.134	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → TP: 1.15612 (ganancia)
+2025.10.13 08:07:37.243	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:37.243	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 2/2
+2025.10.13 08:07:37.243	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:37.243	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15612
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15652
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15653
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	BUY: 0.01 lotes @ 1.15678
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Última dirección: SELL
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.16
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.19
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	>>> Última SELL - Fórmula BAJADA (spread incluido)
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15610
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15611
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15610): -68.0 pts = €-0.58
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15611): 45.0 pts = €0.77
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.19
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.16
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.003
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:38.007	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → SL: 1.15610 (pérdida)
+2025.10.13 08:07:38.119	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:38.119	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → TP: 1.15611 (ganancia)
+2025.10.13 08:07:38.228	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:38.228	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 2/2
+2025.10.13 08:07:38.228	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:38.228	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.1561
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15652
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15652
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	BUY: 0.01 lotes @ 1.15678
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Última dirección: SELL
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.16
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.19
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	>>> Última SELL - Fórmula BAJADA (spread incluido)
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15612
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15612
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15612): -66.0 pts = €-0.56
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15612): 44.0 pts = €0.75
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.19
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.16
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.003
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:38.792	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → SL: 1.15612 (pérdida)
+2025.10.13 08:07:38.905	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:38.905	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → TP: 1.15612 (ganancia)
+2025.10.13 08:07:39.016	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:39.016	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 2/2
+2025.10.13 08:07:39.016	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:39.016	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15612
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15658
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15659
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	BUY: 0.01 lotes @ 1.15678
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Última dirección: SELL
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.16
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.19
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	>>> Última SELL - Fórmula BAJADA (spread incluido)
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15610
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15611
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15610): -68.0 pts = €-0.58
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15611): 45.0 pts = €0.77
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.19
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.16
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.003
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:39.243	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → SL: 1.15610 (pérdida)
+2025.10.13 08:07:39.352	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:39.352	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → TP: 1.15611 (ganancia)
+2025.10.13 08:07:39.476	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:39.476	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 2/2
+2025.10.13 08:07:39.476	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:39.476	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.1561
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15657
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15657
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	BUY: 0.01 lotes @ 1.15678
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Última dirección: SELL
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.16
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.19
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	>>> Última SELL - Fórmula BAJADA (spread incluido)
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15612
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15612
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15612): -66.0 pts = €-0.56
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15612): 44.0 pts = €0.75
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.19
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.16
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.003
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:39.681	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:39.682	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → SL: 1.15612 (pérdida)
+2025.10.13 08:07:39.790	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:39.790	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → TP: 1.15612 (ganancia)
+2025.10.13 08:07:39.904	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:39.904	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 2/2
+2025.10.13 08:07:39.904	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:39.904	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15612
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15662
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15663
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	BUY: 0.01 lotes @ 1.15678
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Última dirección: SELL
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.16
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.19
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	>>> Última SELL - Fórmula BAJADA (spread incluido)
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15610
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15611
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15610): -68.0 pts = €-0.58
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15611): 45.0 pts = €0.77
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.19
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.16
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.003
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:44.309	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → SL: 1.15610 (pérdida)
+2025.10.13 08:07:44.428	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:44.428	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → TP: 1.15611 (ganancia)
+2025.10.13 08:07:44.540	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:44.540	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 2/2
+2025.10.13 08:07:44.540	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:44.540	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.1561
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15663
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15663
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	BUY: 0.01 lotes @ 1.15678
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Última dirección: SELL
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.16
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.19
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	>>> Última SELL - Fórmula BAJADA (spread incluido)
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15612
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15612
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15612): -66.0 pts = €-0.56
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15612): 44.0 pts = €0.75
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.19
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.16
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.003
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:45.122	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → SL: 1.15612 (pérdida)
+2025.10.13 08:07:45.230	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:45.230	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → TP: 1.15612 (ganancia)
+2025.10.13 08:07:45.353	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:45.353	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 2/2
+2025.10.13 08:07:45.353	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:45.353	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15612
+2025.10.13 08:07:50.061	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:50.061	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:50.061	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:50.061	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:50.061	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15677
+2025.10.13 08:07:50.061	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15677
+2025.10.13 08:07:50.061	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15705
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15705
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.38
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.02
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:50.062	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:50.171	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:50.171	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:07:50.281	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:50.281	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:50.394	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:50.394	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:50.394	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:50.394	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:07:50.507	CoberturaEspecial (EURUSD,M15)	Orden pendiente colocada: Nivel 4 Tipo: ORDER_TYPE_SELL_STOP Dirección: VENTA Precio: 1.15656 Lote: 0.08 TP: 1.1555600000000001
+2025.10.13 08:07:50.507	CoberturaEspecial (EURUSD,M15)	Programando Nivel 4 - Tipo: VENTA - Precio: 1.15656 - Lote: 0.08
+2025.10.13 08:07:50.993	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:50.993	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:50.993	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:50.993	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:50.993	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:50.993	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15675
+2025.10.13 08:07:50.993	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15676
+2025.10.13 08:07:50.993	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15706
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15707
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.39
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:50.994	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:51.103	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:51.103	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:07:51.211	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:51.211	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:51.322	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:51.322	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:51.322	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:51.322	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15675
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15675
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:51.503	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15705
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15705
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.38
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.02
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:51.504	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:51.615	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:51.615	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:07:51.740	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:51.740	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:51.848	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:51.848	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:51.848	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:51.848	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15677
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15678
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15706
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15707
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.39
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:52.030	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:52.143	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:52.143	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:07:52.252	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:52.252	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:52.375	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:52.375	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:52.375	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:52.375	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15676
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15676
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15705
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15705
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.38
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.02
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:52.965	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:53.097	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:53.097	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:07:53.212	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:53.212	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:53.346	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:53.346	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:53.346	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:53.346	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15678
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15679
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15706
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15707
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.39
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:54.654	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:54.655	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:54.762	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:54.762	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:07:54.881	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:54.881	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:54.997	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:54.997	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:54.997	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:54.997	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15678
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15678
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15705
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15705
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.38
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.02
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:55.339	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:55.460	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:55.460	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:07:55.577	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:55.577	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:55.687	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:55.687	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:55.687	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:55.687	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15676
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15677
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15706
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15707
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.39
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:55.892	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:56.004	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:56.004	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:07:56.113	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:56.113	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:56.222	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:56.222	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:56.222	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:56.222	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15678
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15678
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15705
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15705
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.38
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.02
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:56.496	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:56.605	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:56.605	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:07:56.713	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:56.713	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:56.826	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:56.826	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:56.826	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:56.826	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15675
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15676
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15706
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15707
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.39
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:57.787	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:57.895	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:57.895	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:07:58.008	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:58.008	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:58.120	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:58.120	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:58.120	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:58.120	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15674
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15674
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15705
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15705
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.38
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.02
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:58.136	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:58.245	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:58.245	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:07:58.354	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:58.354	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:58.474	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:58.474	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:58.474	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:58.474	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15673
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15674
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15706
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15707
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.39
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:58.565	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:58.681	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:58.681	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:07:58.795	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:58.795	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:07:58.903	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:58.903	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:58.903	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:58.903	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15674
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15674
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15705
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15705
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.38
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.02
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:07:59.250	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:59.358	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:59.358	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:07:59.469	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:07:59.469	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:07:59.580	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:07:59.580	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:07:59.580	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:07:59.580	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:08:01.937	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:01.937	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:01.937	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:01.937	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:01.937	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:01.937	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15683
+2025.10.13 08:08:01.937	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15684
+2025.10.13 08:08:01.937	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:08:01.937	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:01.937	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15706
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15707
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.39
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:01.938	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:02.047	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:02.047	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:08:02.156	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:02.156	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:02.265	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:02.265	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:02.266	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:02.266	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15684
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15684
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15705
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15705
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.38
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.02
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:02.377	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:02.485	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:02.485	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:08:02.596	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:02.596	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:02.704	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:02.704	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:02.704	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:02.704	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15688
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15690
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	SPREAD: 2.0 puntos (0.00002)
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15707
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15709
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 2.0 puntos
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15707): 30.6 pts = €1.30
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15709): -53.0 pts = €-0.90
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.40
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.04
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.010
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:03.088	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15707 (ganancia)
+2025.10.13 08:08:03.197	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:03.198	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15709 (pérdida)
+2025.10.13 08:08:03.306	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:03.306	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15707 (ganancia)
+2025.10.13 08:08:03.414	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:03.414	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:03.414	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:03.414	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15707
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 2.0 → 0.0 puntos ║
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15688
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15688
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15705
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15705
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.38
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.02
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:03.479	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:03.590	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:03.590	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:08:03.697	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:03.697	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:03.809	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:03.810	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:03.810	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:03.810	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15690
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15691
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15706
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15707
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.39
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:04.835	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:04.946	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:04.946	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:08:05.054	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:05.054	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:05.166	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:05.166	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:05.166	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:05.166	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	╔═══════════════════════════════════════════╗
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	╚═══════════════════════════════════════════╝
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15689
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15689
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15705
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15705
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 0.0 puntos
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.38
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.02
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:05.249	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:05.363	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:05.363	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:08:05.472	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:05.472	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:05.581	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:05.581	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:05.581	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:05.581	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:08:08.625	CoberturaEspecial (EURUSD,M15)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:08.625	CoberturaEspecial (EURUSD,M15)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:08.625	CoberturaEspecial (EURUSD,M15)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:08.625	CoberturaEspecial (EURUSD,M15)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:08.625	CoberturaEspecial (EURUSD,M15)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:08.625	CoberturaEspecial (EURUSD,M15)	BID actual: 1.15689
+2025.10.13 08:08:08.625	CoberturaEspecial (EURUSD,M15)	ASK actual: 1.15690
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	Última dirección: BUY
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	Comisiones: €0.36
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	Objetivo neto: €0.03
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	Necesario bruto: €0.39
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	=== VERIFICACIÓN ===
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	Precio BID objetivo: 1.15706
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	Precio ASK objetivo: 1.15707
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	Spread aplicado: 1.0 puntos
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	Ganancia BRUTA: €0.39
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	Comisiones: -€0.36
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	Ganancia NETA: €0.03
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	Objetivo: €0.03
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	=======================================
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:08.626	CoberturaEspecial (EURUSD,M15)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:08.735	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:08.735	CoberturaEspecial (EURUSD,M15)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:08:08.844	CoberturaEspecial (EURUSD,M15)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:08.844	CoberturaEspecial (EURUSD,M15)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:08.978	CoberturaEspecial (EURUSD,M15)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:08.978	CoberturaEspecial (EURUSD,M15)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:08.978	CoberturaEspecial (EURUSD,M15)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:08.978	CoberturaEspecial (EURUSD,M15)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	╔═══════════════════════════════════════════╗
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	╚═══════════════════════════════════════════╝
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15694
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15694
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15705
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15705
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 0.0 puntos
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.38
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.02
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:10.632	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:10.743	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:10.743	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:08:10.853	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:10.853	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:10.961	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:10.961	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:10.961	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:10.961	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15693
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15694
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15706
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15707
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 1.0 puntos
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.39
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:15.107	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.03
+2025.10.13 08:08:15.108	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:15.108	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:08:15.108	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:15.108	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:15.108	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:15.108	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:15.216	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:15.216	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:08:15.328	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:15.328	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:15.436	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:15.436	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:15.436	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:15.436	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	╔═══════════════════════════════════════════╗
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	╚═══════════════════════════════════════════╝
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15693
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15693
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15705
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15705
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 0.0 puntos
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.38
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.02
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:15.860	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:15.971	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:15.971	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:08:16.080	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:16.080	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:16.191	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:16.191	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:16.191	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:16.191	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15693
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15694
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15706
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15707
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 1.0 puntos
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.39
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.03
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:16.751	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:16.862	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:16.862	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:08:16.973	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:16.973	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:17.083	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:17.083	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:17.083	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:17.083	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	╔═══════════════════════════════════════════╗
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	╚═══════════════════════════════════════════╝
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15692
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15692
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15705
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15705
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 0.0 puntos
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.38
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.02
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:17.188	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:17.299	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:17.299	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:08:17.411	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:17.411	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:17.521	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:17.521	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:17.521	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:17.521	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15693
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15694
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15706
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15707
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 1.0 puntos
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.39
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.03
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:18.696	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:18.805	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:18.805	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:08:18.914	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:18.914	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:19.028	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:19.028	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:19.028	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:19.029	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	╔═══════════════════════════════════════════╗
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	╚═══════════════════════════════════════════╝
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15693
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15693
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15705
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15705
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 0.0 puntos
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.38
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.02
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:19.454	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:08:19.455	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:19.455	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:19.455	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:19.455	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:19.565	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:19.566	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:08:19.674	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:19.674	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:19.785	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:19.785	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:19.785	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:19.785	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15693
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15694
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15706
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15707
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 1.0 puntos
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.39
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.03
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:20.142	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:20.251	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:20.251	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:08:20.359	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:20.359	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:20.470	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:20.470	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:20.470	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:20.470	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	╔═══════════════════════════════════════════╗
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	╚═══════════════════════════════════════════╝
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15698
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15698
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15705
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15705
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 0.0 puntos
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.38
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.02
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:20.522	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:20.630	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:20.630	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:08:20.739	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:20.740	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:20.850	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:20.850	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:20.850	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:20.850	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15698
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15699
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15706
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15707
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 1.0 puntos
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.39
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.03
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:24.840	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:24.951	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:24.951	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:08:25.062	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:25.062	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:25.172	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:25.172	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:25.172	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:25.172	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	╔═══════════════════════════════════════════╗
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	╚═══════════════════════════════════════════╝
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15697
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15697
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15705
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15705
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 0.0 puntos
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.38
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.02
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:25.307	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:25.419	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:25.419	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:08:25.527	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:25.527	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:25.637	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:25.637	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:25.637	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:25.637	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15702
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15703
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15706
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15707
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 1.0 puntos
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15706): 29.6 pts = €1.26
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15707): -51.0 pts = €-0.87
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.39
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.03
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.002
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:34.424	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:34.535	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:34.535	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15707 (pérdida)
+2025.10.13 08:08:34.646	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:34.646	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15706 (ganancia)
+2025.10.13 08:08:34.758	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:34.758	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:34.758	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:34.758	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15706
+2025.10.13 08:08:34.957	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Nivel 2 SELL: 0.02 @ 1.15656
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	╔═══════════════════════════════════════════╗
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	║ SPREAD CAMBIÓ: 1.0 → 0.0 puntos ║
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	╚═══════════════════════════════════════════╝
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15702
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15702
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	SPREAD: 0.0 puntos (0.00000)
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	SELL: 0.02 lotes @ 1.15656
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.36
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.39
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15705
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15705
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 0.0 puntos
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15705): 28.6 pts = €1.22
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	→ SELL cierra en ASK (1.15705): -49.0 pts = €-0.83
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.38
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.36
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.02
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.007
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:34.958	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:35.066	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:35.066	CoberturaEspecial (EURUSD,M2)	  SELL #187295052 → SL: 1.15705 (pérdida)
+2025.10.13 08:08:35.176	CoberturaEspecial (EURUSD,M2)	    ✓ SL aplicado correctamente
+2025.10.13 08:08:35.176	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15705 (ganancia)
+2025.10.13 08:08:35.287	CoberturaEspecial (EURUSD,M2)	    ✓ TP aplicado correctamente
+2025.10.13 08:08:35.287	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 3/3
+2025.10.13 08:08:35.287	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:35.287	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15705
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	>>> OnTick detectó cambio de spread - Recalculando...
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Nivel 1 BUY: 0.01 @ 1.15678
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Nivel 3 BUY: 0.04 @ 1.15676
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	=== CÁLCULO PRECIO CIERRE VIRTUAL ===
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15704
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15705
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	SPREAD: 1.0 puntos (0.00001)
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	BUY: 0.05 lotes @ 1.15676
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	SELL: 0.00 lotes @ 0.00000
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Última dirección: BUY
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Comisiones: €0.26
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Objetivo neto: €0.03
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Necesario bruto: €0.29
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	>>> Última BUY - Fórmula SUBIDA (spread incluido)
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	=== VERIFICACIÓN ===
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Precio BID objetivo: 1.15683
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Precio ASK objetivo: 1.15684
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Spread aplicado: 1.0 puntos
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	→ BUY cierra en BID (1.15683): 6.6 pts = €0.28
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Ganancia BRUTA: €0.28
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Comisiones: -€0.26
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Ganancia NETA: €0.02
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	Objetivo: €0.03
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	✓ CORRECTO - Diferencia: €0.009
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	=======================================
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	🔧 APLICANDO SL/TP A POSICIONES EXISTENTES
+2025.10.13 08:08:39.242	CoberturaEspecial (EURUSD,M2)	  BUY #187295049 → TP: 1.15683 (ganancia)
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	CTrade::OrderSend: modify position #187295049 EURUSD (sl: 0.00000, tp: 1.15683) [invalid stops]
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	    ⚠ Error: invalid stops
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	  BUY #187298263 → TP: 1.15683 (ganancia)
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	CTrade::OrderSend: modify position #187298263 EURUSD (sl: 0.00000, tp: 1.15683) [invalid stops]
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	    ⚠ Error: invalid stops
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	Total posiciones modificadas: 0/2
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	Línea de cierre virtual dibujada en: 1.15683
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	╔═══════════════════════════════════════════╗
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	║  CIERRE VIRTUAL ALCANZADO - Última BUY   ║
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	║  BID: 1.15704 >= Objetivo: 1.15683  ║
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	╚═══════════════════════════════════════════╝
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	>>> CIERRE VIRTUAL EJECUTADO <<<
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	╔═══════════════════════════════════════════════════════╗
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	║   CIERRE CON SL/TP EN PRECIO VIRTUAL                 ║
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	╚═══════════════════════════════════════════════════════╝
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	Precio VIRTUAL objetivo: 1.15683
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	BID actual: 1.15704
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	ASK actual: 1.15705
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	⚠ PRECIO YA ALCANZÓ: BID 1.15704 >= 1.15683
+2025.10.13 08:08:39.244	CoberturaEspecial (EURUSD,M2)	🎯 CERRANDO INMEDIATAMENTE (precio ya en objetivo)
+2025.10.13 08:08:39.572	CoberturaEspecial (EURUSD,M2)	╔═══════════════════════════════════════════════════════╗
+2025.10.13 08:08:39.572	CoberturaEspecial (EURUSD,M2)	║  🎯 CIERRE COMPLETADO - Precio virtual: 1.15683   ║
+2025.10.13 08:08:39.572	CoberturaEspecial (EURUSD,M2)	╚═══════════════════════════════════════════════════════╝
+2025.10.13 08:08:39.572	CoberturaEspecial (EURUSD,M2)	═══════════════════════════════════════════════════════
