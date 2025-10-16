@@ -1,0 +1,1467 @@
+//+------------------------------------------------------------------+
+//|                                            CoberturaEspecial.mq5 |
+//|                                      Copyright 2024, YourCompany |
+//|                                             https://www.mql5.com |
+//+------------------------------------------------------------------+
+#property copyright "Copyright 2024"
+#property link      "https://www.mql5.com"
+#property version   "1.00"
+#property strict
+
+#include <Controls\Dialog.mqh>
+#include <Controls\Button.mqh>
+#include <Controls\Edit.mqh>
+#include <Controls\Label.mqh>
+#include <Controls\Panel.mqh>
+#include <Trade\Trade.mqh>
+#include <Trade\PositionInfo.mqh>
+#include <Trade\OrderInfo.mqh>
+
+//+------------------------------------------------------------------+
+//| Variables globales para el sistema de trading                    |
+//+------------------------------------------------------------------+
+CTrade trade;
+CPositionInfo posicionInfo;
+COrderInfo ordenInfo;
+
+// Variables del sistema de cobertura
+double g_precio_entrada1 = 0;      // Precio de entrada 1
+double g_precio_entrada2 = 0;      // Precio de entrada 2
+double g_lote_inicial = 0;         // Lotaje inicial
+double g_tp1_ticks = 0;            // TP de entrada 1 en ticks
+double g_tp2_ticks = 0;            // TP de entrada 2 en ticks
+double g_distancia_ticks = 0;      // Distancia entre entrada 1 y 2 en ticks
+int g_numero_magico = 12345;       // Número mágico para identificar las operaciones
+bool g_sistema_activo = false;     // Sistema activo
+ENUM_ORDER_TYPE g_tipo_inicial;    // Tipo de orden inicial (BUY o SELL)
+int g_nivel_actual = 0;            // Nivel actual de la secuencia
+
+// Variables para cierre virtual
+bool g_cierre_virtual_activo = false;
+double g_precio_cierre_virtual = 0;
+int g_nivel_activacion_cierre = 0;
+double g_ganancia_objetivo = 0;
+string g_nombre_linea_cierre = "LineaCierreVirtual";
+double g_ultimo_spread_registrado = 0;  // Para detectar cambios de spread
+
+//+------------------------------------------------------------------+
+//| Calcular comisión exacta Pepperstone en moneda de cuenta         |
+//+------------------------------------------------------------------+
+double CalcularComisionPepperstone(double lotes, string simbolo)
+{
+   double comision = 0;
+   
+   // TABLA DE COMISIONES (valores aplicables tanto USD como EUR)
+   if(lotes <= 0.01) comision = 0.06;
+   else if(lotes <= 0.02) comision = 0.10;
+   else if(lotes <= 0.03) comision = 0.16;
+   else if(lotes <= 0.04) comision = 0.20;
+   else if(lotes <= 0.05) comision = 0.26;
+   else if(lotes <= 0.06) comision = 0.32;
+   else if(lotes <= 0.07) comision = 0.36;
+   else if(lotes <= 0.08) comision = 0.42;
+   else if(lotes <= 0.09) comision = 0.46;
+   else if(lotes <= 0.10) comision = 0.52;
+   else if(lotes <= 0.11) comision = 0.58;
+   else if(lotes <= 0.12) comision = 0.62;
+   else if(lotes <= 0.13) comision = 0.68;
+   else if(lotes <= 0.14) comision = 0.72;
+   else if(lotes <= 0.15) comision = 0.78;
+   else if(lotes <= 0.16) comision = 0.84;
+   else if(lotes <= 0.17) comision = 0.88;
+   else if(lotes <= 0.18) comision = 0.94;
+   else if(lotes <= 0.19) comision = 0.98;
+   else if(lotes <= 0.20) comision = 1.04;
+   else if(lotes <= 0.21) comision = 1.10;
+   else if(lotes <= 0.22) comision = 1.14;
+   else if(lotes <= 0.23) comision = 1.20;
+   else if(lotes <= 0.24) comision = 1.24;
+   else if(lotes <= 0.25) comision = 1.30;
+   else if(lotes <= 0.26) comision = 1.36;
+   else if(lotes <= 0.27) comision = 1.40;
+   else if(lotes <= 0.28) comision = 1.46;
+   else if(lotes <= 0.29) comision = 1.50;
+   else if(lotes <= 0.30) comision = 1.56;
+   else // Mayor a 0.30
+   {
+      comision = lotes * 5.2;
+   }
+   
+   // NO CONVERTIR - Pepperstone aplica el mismo valor numérico
+   // sin importar si la cuenta es USD o EUR
+   
+   return comision;
+}
+
+//+------------------------------------------------------------------+
+//| Definición de la clase del panel                                 |
+//+------------------------------------------------------------------+
+class CPanelTrading : public CAppDialog
+{
+private:
+   // Panel de fondo personalizado
+   CPanel            m_panel_principal;
+   // Labels (textos)
+   CLabel            m_etiqueta_lote;
+   CLabel            m_etiqueta_tp1;
+   CLabel            m_etiqueta_tp2;
+   CLabel            m_etiqueta_dist;
+   CLabel            m_etiqueta_cierre;
+   CLabel            m_etiqueta_ganancia;
+   
+   // Edit boxes (rectángulos de entrada)
+   CEdit             m_entrada_lote;
+   CEdit             m_entrada_tp1;
+   CEdit             m_entrada_tp2;
+   CEdit             m_entrada_dist;
+   CEdit             m_entrada_cierre;
+   CEdit             m_entrada_ganancia;
+   
+   // Botones
+   CButton           m_boton_venta;
+   CButton           m_boton_compra;
+
+public:
+                     CPanelTrading(void);
+                    ~CPanelTrading(void);
+   
+   // Métodos principales
+   virtual bool      Create(const long chart, const string name, const int subwin, const int x1, const int y1, const int x2, const int y2);
+   virtual bool      OnEvent(const int id, const long &lparam, const double &dparam, const string &sparam);
+   
+   // Función pública para verificar órdenes
+   void              VerificarYGestionarOrdenes();
+
+protected:
+   // Creación de controles
+   bool              CrearEtiqueta(CLabel &etiqueta, const int x, const int y, const string texto);
+   bool              CrearCampoEntrada(CEdit &entrada, const int x, const int y);
+   bool              CrearBoton(CButton &boton, const int x, const int y, const int ancho, const int alto, const string texto, const color clr);
+   
+   // Manejadores de eventos
+   void              AlHacerClickVenta(void);
+   void              AlHacerClickCompra(void);
+   
+   // Funciones de trading
+   bool              IniciarSistemaTrading(ENUM_ORDER_TYPE tipoOrden);
+   bool              ColocarOrdenMercado(ENUM_ORDER_TYPE tipoOrden, double lotes, double tp_ticks, int nivel);
+   bool              ColocarOrdenPendiente(ENUM_ORDER_TYPE tipoOrden, double precio, double lotes, double tp_ticks, int nivel);
+   void              CancelarTodasLasOrdenesPendientes();
+   void              CerrarOrdenesDeSecuencia();
+   double            CalcularTP(double precio_entrada, double tp_ticks, ENUM_ORDER_TYPE tipoOrden);
+   ENUM_ORDER_TYPE   DeterminarTipoOrdenPorNivel(int nivel);
+   bool              VerificarTPAlcanzado();
+   bool              VerificarOrdenPendienteActiva();
+   
+   // Funciones de cierre virtual
+   void              CalcularPrecioCierreVirtual();
+   bool              VerificarCierreVirtual();
+   void              DibujarLineaCierreVirtual();
+   void              EliminarLineaCierreVirtual();
+   double            CalcularComisionTotal();
+};
+
+// Constructor
+CPanelTrading::CPanelTrading(void)
+{
+}
+
+// Destructor
+CPanelTrading::~CPanelTrading(void)
+{
+}
+
+//+------------------------------------------------------------------+
+//| Crear el panel de trading                                        |
+//+------------------------------------------------------------------+
+bool CPanelTrading::Create(const long chart, const string name, const int subwin, const int x1, const int y1, const int x2, const int y2)
+{
+   // Crear el diálogo base con fondo negro
+   if(!CAppDialog::Create(chart, "Cobertura Especial", subwin, x1, y1, x2, y2))
+      return(false);
+   
+   // Crear panel de fondo negro
+   if(!m_panel_principal.Create(m_chart_id, m_name+"PanelPrincipal", m_subwin, 0, 0, ClientAreaWidth(), ClientAreaHeight()))
+      return(false);
+   m_panel_principal.ColorBackground(clrBlack);
+   m_panel_principal.ColorBorder(clrDarkGray);
+   if(!Add(m_panel_principal))
+      return(false);
+   
+   int desplazamiento_y = 10;
+   int etiqueta_x = 10;
+   int entrada_x = 120;
+   int altura_fila = 30;
+   
+   // Crear etiquetas y campos de entrada
+   CrearEtiqueta(m_etiqueta_lote, etiqueta_x, desplazamiento_y, "Lote Inicial:");
+   CrearCampoEntrada(m_entrada_lote, entrada_x, desplazamiento_y);
+   m_entrada_lote.Text("0.01");
+   
+   desplazamiento_y += altura_fila;
+   CrearEtiqueta(m_etiqueta_tp1, etiqueta_x, desplazamiento_y, "TP E1:");
+   CrearCampoEntrada(m_entrada_tp1, entrada_x, desplazamiento_y);
+   m_entrada_tp1.Text("100");
+   
+   desplazamiento_y += altura_fila;
+   CrearEtiqueta(m_etiqueta_tp2, etiqueta_x, desplazamiento_y, "TP E2:");
+   CrearCampoEntrada(m_entrada_tp2, entrada_x, desplazamiento_y);
+   m_entrada_tp2.Text("100");
+   
+   desplazamiento_y += altura_fila;
+   CrearEtiqueta(m_etiqueta_dist, etiqueta_x, desplazamiento_y, "Dist. E1/E2:");
+   CrearCampoEntrada(m_entrada_dist, entrada_x, desplazamiento_y);
+   m_entrada_dist.Text("20");
+   
+   desplazamiento_y += altura_fila;
+   CrearEtiqueta(m_etiqueta_cierre, etiqueta_x, desplazamiento_y, "Cierre virtual:");
+   CrearCampoEntrada(m_entrada_cierre, entrada_x, desplazamiento_y);
+   m_entrada_cierre.Text("2");
+   
+   desplazamiento_y += altura_fila;
+   CrearEtiqueta(m_etiqueta_ganancia, etiqueta_x, desplazamiento_y, "GananciaM:");
+   CrearCampoEntrada(m_entrada_ganancia, entrada_x, desplazamiento_y);
+   m_entrada_ganancia.Text("0.03");
+   
+   // Crear botones alineados con los elementos superiores
+   desplazamiento_y += altura_fila + 20;
+   int altura_boton = 35;
+   int espacio_botones = 10;
+   
+   // Calcular el ancho de cada botón
+   int ancho_total = (entrada_x + 100) - etiqueta_x;
+   int ancho_boton = (ancho_total - espacio_botones) / 2;
+   
+   // Botón VENTA (izquierda)
+   CrearBoton(m_boton_venta, etiqueta_x, desplazamiento_y, ancho_boton, altura_boton, "VENTA", clrRed);
+   
+   // Botón COMPRA (derecha)
+   int compra_boton_x = etiqueta_x + ancho_boton + espacio_botones;
+   CrearBoton(m_boton_compra, compra_boton_x, desplazamiento_y, ancho_boton, altura_boton, "COMPRA", clrBlue);
+   
+   return(true);
+}
+
+//+------------------------------------------------------------------+
+//| Crear etiqueta                                                   |
+//+------------------------------------------------------------------+
+bool CPanelTrading::CrearEtiqueta(CLabel &etiqueta, const int x, const int y, const string texto)
+{
+   if(!etiqueta.Create(m_chart_id, m_name + texto, m_subwin, x, y, x + 100, y + 20))
+      return(false);
+   etiqueta.Text(texto);
+   etiqueta.Color(clrWhite);
+   if(!Add(etiqueta))
+      return(false);
+   return(true);
+}
+
+//+------------------------------------------------------------------+
+//| Crear campo de entrada                                           |
+//+------------------------------------------------------------------+
+bool CPanelTrading::CrearCampoEntrada(CEdit &entrada, const int x, const int y)
+{
+   if(!entrada.Create(m_chart_id, m_name + "Entrada" + IntegerToString(x) + IntegerToString(y), m_subwin, x, y, x + 100, y + 20))
+      return(false);
+   entrada.TextAlign(ALIGN_CENTER);
+   entrada.ColorBackground(clrDarkGray);
+   entrada.ColorBorder(clrGray);
+   entrada.Color(clrWhite);
+   if(!Add(entrada))
+      return(false);
+   return(true);
+}
+
+//+------------------------------------------------------------------+
+//| Crear botón                                                      |
+//+------------------------------------------------------------------+
+bool CPanelTrading::CrearBoton(CButton &boton, const int x, const int y, const int ancho, const int alto, const string texto, const color clr)
+{
+   if(!boton.Create(m_chart_id, m_name + texto, m_subwin, x, y, x + ancho, y + alto))
+      return(false);
+   boton.Text(texto);
+   boton.ColorBackground(clr);
+   boton.Color(clrWhite);
+   boton.ColorBorder(clr);
+   boton.FontSize(10);
+   if(!Add(boton))
+      return(false);
+   return(true);
+}
+
+//+------------------------------------------------------------------+
+//| Calcular TP basado en ticks                                      |
+//+------------------------------------------------------------------+
+double CPanelTrading::CalcularTP(double precio_entrada, double tp_ticks, ENUM_ORDER_TYPE tipoOrden)
+{
+   double punto = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+   
+   if(tipoOrden == ORDER_TYPE_BUY || tipoOrden == ORDER_TYPE_BUY_LIMIT || tipoOrden == ORDER_TYPE_BUY_STOP)
+      return precio_entrada + (tp_ticks * punto);
+   else
+      return precio_entrada - (tp_ticks * punto);
+}
+
+//+------------------------------------------------------------------+
+//| Determinar tipo de orden según el nivel                          |
+//+------------------------------------------------------------------+
+ENUM_ORDER_TYPE CPanelTrading::DeterminarTipoOrdenPorNivel(int nivel)
+{
+   if(nivel % 2 == 1) // Niveles impares (1,3,5,7...)
+   {
+      return g_tipo_inicial;
+   }
+   else // Niveles pares (2,4,6,8...)
+   {
+      return (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Calcular comisión total de todas las posiciones                  |
+//+------------------------------------------------------------------+
+double CPanelTrading::CalcularComisionTotal()
+{
+   double comisionTotal = 0;
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posicionInfo.SelectByIndex(i))
+      {
+         if(posicionInfo.Magic() == g_numero_magico && posicionInfo.Symbol() == _Symbol)
+         {
+            double lotes = posicionInfo.Volume();
+            double comision = CalcularComisionPepperstone(lotes, _Symbol);
+            comisionTotal += comision;
+         }
+      }
+   }
+   
+   return comisionTotal;
+}
+
+//+------------------------------------------------------------------+
+//| Calcular precio de cierre virtual con monitoreo de SPREAD       |
+//+------------------------------------------------------------------+
+void CPanelTrading::CalcularPrecioCierreVirtual()
+{
+   if(!g_cierre_virtual_activo) return;
+   
+   // Variables para el cálculo
+   double volumenCompraTot = 0, volumenVentaTot = 0;
+   double precioCompraProm = 0, precioVentaProm = 0;
+   string ultimaDireccion = "";
+   int ultimoNivel = 0;
+   int totalPosiciones = 0;
+   
+   // Analizar posiciones
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posicionInfo.SelectByIndex(i))
+      {
+         if(posicionInfo.Magic() == g_numero_magico && posicionInfo.Symbol() == _Symbol)
+         {
+            double volumen = posicionInfo.Volume();
+            double precioApertura = posicionInfo.PriceOpen();
+            
+            string comentario = posicionInfo.Comment();
+            int nivel = 0;
+            if(StringFind(comentario, "Nivel_") >= 0)
+            {
+               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+            }
+            
+            ENUM_ORDER_TYPE tipoReal = DeterminarTipoOrdenPorNivel(nivel);
+            
+            if(tipoReal == ORDER_TYPE_BUY)
+            {
+               if(volumenCompraTot == 0)
+                  precioCompraProm = precioApertura;
+               else
+                  precioCompraProm = (precioCompraProm * volumenCompraTot + precioApertura * volumen) / (volumenCompraTot + volumen);
+               
+               volumenCompraTot += volumen;
+               Print("Nivel ", nivel, " BUY: ", volumen, " @ ", precioApertura);
+            }
+            else
+            {
+               if(volumenVentaTot == 0)
+                  precioVentaProm = precioApertura;
+               else
+                  precioVentaProm = (precioVentaProm * volumenVentaTot + precioApertura * volumen) / (volumenVentaTot + volumen);
+               
+               volumenVentaTot += volumen;
+               Print("Nivel ", nivel, " SELL: ", volumen, " @ ", precioApertura);
+            }
+            
+            if(nivel > ultimoNivel)
+            {
+               ultimoNivel = nivel;
+               ultimaDireccion = (tipoReal == ORDER_TYPE_BUY) ? "BUY" : "SELL";
+            }
+            totalPosiciones++;
+         }
+      }
+   }
+   
+   if(totalPosiciones == 0) return;
+   
+   // Calcular comisiones
+   double comisionTotal = CalcularComisionTotal();
+   double gananciaBrutaNecesaria = g_ganancia_objetivo + comisionTotal;
+   
+   // CRÍTICO: Obtener spread REAL actual
+   double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+   double spreadReal = NormalizeDouble(ask - bid, _Digits);
+   double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+   double spreadPuntos = spreadReal / point;
+   
+   // DETECTAR CAMBIO DE SPREAD
+   if(g_ultimo_spread_registrado == 0)
+   {
+      g_ultimo_spread_registrado = spreadReal;
+   }
+   
+   bool spreadCambio = (MathAbs(spreadReal - g_ultimo_spread_registrado) >= point);
+   if(spreadCambio)
+   {
+      double spreadAntPuntos = g_ultimo_spread_registrado / point;
+      Print("╔═══════════════════════════════════════════╗");
+      Print("║ SPREAD CAMBIÓ: ", DoubleToString(spreadAntPuntos, 1), 
+            " → ", DoubleToString(spreadPuntos, 1), " puntos ║");
+      Print("╚═══════════════════════════════════════════╝");
+      g_ultimo_spread_registrado = spreadReal;
+   }
+   
+   Print("=== CÁLCULO PRECIO CIERRE VIRTUAL ===");
+   Print("BID actual: ", DoubleToString(bid, _Digits));
+   Print("ASK actual: ", DoubleToString(ask, _Digits));
+   Print("SPREAD: ", DoubleToString(spreadPuntos, 1), " puntos (", DoubleToString(spreadReal, _Digits), ")");
+   Print("BUY: ", DoubleToString(volumenCompraTot, 2), " lotes @ ", DoubleToString(precioCompraProm, _Digits));
+   Print("SELL: ", DoubleToString(volumenVentaTot, 2), " lotes @ ", DoubleToString(precioVentaProm, _Digits));
+   Print("Última dirección: ", ultimaDireccion);
+   Print("Comisiones: €", DoubleToString(comisionTotal, 2));
+   Print("Objetivo neto: €", DoubleToString(g_ganancia_objetivo, 2));
+   Print("Necesario bruto: €", DoubleToString(gananciaBrutaNecesaria, 2));
+   
+   double valorPorPipPorLote = 8.52;
+   double factor = valorPorPipPorLote / 0.0001;
+   
+   double precioCierreBID = 0;
+   
+   // FÓRMULA SEGÚN ÚLTIMA DIRECCIÓN CON SPREAD INCLUIDO
+   if(ultimaDireccion == "BUY")
+   {
+      Print(">>> Última BUY - Fórmula SUBIDA (spread incluido)");
+      
+      double numerador = gananciaBrutaNecesaria + 
+                        (precioCompraProm * volumenCompraTot * factor) - 
+                        (precioVentaProm * volumenVentaTot * factor) + 
+                        (spreadReal * volumenVentaTot * factor);
+      
+      double denominador = (volumenCompraTot - volumenVentaTot) * factor;
+      
+      if(MathAbs(denominador) > 0.001)
+      {
+         precioCierreBID = numerador / denominador;
+      }
+      else
+      {
+         double movimientoPips = gananciaBrutaNecesaria / (volumenCompraTot * valorPorPipPorLote);
+         precioCierreBID = precioCompraProm + (movimientoPips * 0.0001);
+      }
+   }
+   else // "SELL"
+   {
+      Print(">>> Última SELL - Fórmula BAJADA (spread incluido)");
+      
+      double numerador = (precioVentaProm * volumenVentaTot * factor) - 
+                        gananciaBrutaNecesaria - 
+                        (spreadReal * volumenVentaTot * factor) - 
+                        (precioCompraProm * volumenCompraTot * factor);
+      
+      double denominador = (volumenVentaTot - volumenCompraTot) * factor;
+      
+      if(MathAbs(denominador) > 0.001)
+      {
+         precioCierreBID = numerador / denominador;
+         
+         if(precioCierreBID <= 0 || precioCierreBID > 2.0)
+         {
+            Print("⚠ Precio fuera de rango: ", precioCierreBID, " - usando método alternativo");
+            double movimientoPips = gananciaBrutaNecesaria / (volumenVentaTot * valorPorPipPorLote);
+            precioCierreBID = precioVentaProm - (movimientoPips * 0.0001) - spreadReal;
+         }
+      }
+      else
+      {
+         double movimientoPips = gananciaBrutaNecesaria / (volumenVentaTot * valorPorPipPorLote);
+         precioCierreBID = precioVentaProm - (movimientoPips * 0.0001) - spreadReal;
+      }
+   }
+   
+   // Normalizar precio BID
+   g_precio_cierre_virtual = NormalizeDouble(precioCierreBID, _Digits);
+   
+   // VERIFICACIÓN CON SPREAD REAL
+   double precioCierreASK = NormalizeDouble(g_precio_cierre_virtual + spreadReal, _Digits);
+   
+   double gananciaBuy = 0, gananciaSell = 0;
+   
+   if(volumenCompraTot > 0)
+   {
+      double movimientoPips = (g_precio_cierre_virtual - precioCompraProm) / 0.0001;
+      gananciaBuy = movimientoPips * volumenCompraTot * valorPorPipPorLote;
+   }
+   
+   if(volumenVentaTot > 0)
+   {
+      double movimientoPips = (precioVentaProm - precioCierreASK) / 0.0001;
+      gananciaSell = movimientoPips * volumenVentaTot * valorPorPipPorLote;
+   }
+   
+   double gananciaBruta = gananciaBuy + gananciaSell;
+   double gananciaNeta = gananciaBruta - comisionTotal;
+   
+   Print("=== VERIFICACIÓN ===");
+   Print("Precio BID objetivo: ", DoubleToString(g_precio_cierre_virtual, _Digits));
+   Print("Precio ASK objetivo: ", DoubleToString(precioCierreASK, _Digits));
+   Print("Spread aplicado: ", DoubleToString(spreadPuntos, 1), " puntos");
+   
+   if(volumenCompraTot > 0)
+   {
+      double puntos = (g_precio_cierre_virtual - precioCompraProm) / point;
+      Print("→ BUY cierra en BID (", DoubleToString(g_precio_cierre_virtual, _Digits), "): ", 
+            DoubleToString(puntos, 1), " pts = €", DoubleToString(gananciaBuy, 2));
+   }
+   
+   if(volumenVentaTot > 0)
+   {
+      double puntos = (precioVentaProm - precioCierreASK) / point;
+      Print("→ SELL cierra en ASK (", DoubleToString(precioCierreASK, _Digits), "): ", 
+            DoubleToString(puntos, 1), " pts = €", DoubleToString(gananciaSell, 2));
+   }
+   
+   Print("Ganancia BRUTA: €", DoubleToString(gananciaBruta, 2));
+   Print("Comisiones: -€", DoubleToString(comisionTotal, 2));
+   Print("Ganancia NETA: €", DoubleToString(gananciaNeta, 2));
+   Print("Objetivo: €", DoubleToString(g_ganancia_objetivo, 2));
+   
+   double diferencia = MathAbs(gananciaNeta - g_ganancia_objetivo);
+   
+   if(diferencia <= 0.02)
+   {
+      Print("✓ CORRECTO - Diferencia: €", DoubleToString(diferencia, 3));
+   }
+   else
+   {
+      Print("⚠ Diferencia: €", DoubleToString(diferencia, 3));
+   }
+   
+   Print("=======================================");
+   
+   // ════════════════════════════════════════════════════════════════
+   // MODIFICAR SL/TP DE POSICIONES EXISTENTES INMEDIATAMENTE
+   // ════════════════════════════════════════════════════════════════
+   
+   Print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+   Print("🔧 APLICANDO SL/TP A POSICIONES EXISTENTES");
+   
+   int posModificadas = 0;
+   int stopsLevel = (int)SymbolInfoInteger(_Symbol, SYMBOL_TRADE_STOPS_LEVEL);
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posicionInfo.SelectByIndex(i))
+      {
+         if(posicionInfo.Magic() == g_numero_magico && posicionInfo.Symbol() == _Symbol)
+         {
+            ulong ticket = posicionInfo.Ticket();
+            double precioApertura = posicionInfo.PriceOpen();
+            ENUM_POSITION_TYPE tipo = posicionInfo.PositionType();
+            
+            double nuevoSL = 0;
+            double nuevoTP = 0;
+            string accion = "";
+            
+            if(tipo == POSITION_TYPE_BUY)
+            {
+               // BUY cierra cuando BID toca el precio virtual
+               if(g_precio_cierre_virtual > precioApertura)
+               {
+                  // Ganancia - colocar TP
+                  nuevoTP = g_precio_cierre_virtual;
+                  accion = "TP";
+                  Print("  BUY #", ticket, " → TP: ", DoubleToString(nuevoTP, _Digits), " (ganancia)");
+               }
+               else
+               {
+                  // Pérdida - colocar SL
+                  nuevoSL = g_precio_cierre_virtual;
+                  accion = "SL";
+                  Print("  BUY #", ticket, " → SL: ", DoubleToString(nuevoSL, _Digits), " (pérdida)");
+               }
+            }
+            else // SELL
+            {
+               // SELL cierra cuando ASK toca el precio virtual + spread
+               double precioSELLObjetivo = NormalizeDouble(g_precio_cierre_virtual + spreadReal, _Digits);
+               
+               if(precioSELLObjetivo < precioApertura)
+               {
+                  // Ganancia - colocar TP
+                  nuevoTP = precioSELLObjetivo;
+                  accion = "TP";
+                  Print("  SELL #", ticket, " → TP: ", DoubleToString(nuevoTP, _Digits), " (ganancia)");
+               }
+               else
+               {
+                  // Pérdida - colocar SL
+                  nuevoSL = precioSELLObjetivo;
+                  accion = "SL";
+                  Print("  SELL #", ticket, " → SL: ", DoubleToString(nuevoSL, _Digits), " (pérdida)");
+               }
+            }
+            
+            // APLICAR modificación
+            if(trade.PositionModify(ticket, nuevoSL, nuevoTP))
+            {
+               posModificadas++;
+               Print("    ✓ ", accion, " aplicado correctamente");
+            }
+            else
+            {
+               Print("    ⚠ Error: ", trade.ResultRetcodeDescription());
+            }
+         }
+      }
+   }
+   
+   Print("Total posiciones modificadas: ", posModificadas, "/", totalPosiciones);
+   Print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+   
+   // DIBUJAR línea amarilla
+   DibujarLineaCierreVirtual();
+}
+
+//+------------------------------------------------------------------+
+//| Dibujar línea de cierre virtual                                  |
+//+------------------------------------------------------------------+
+void CPanelTrading::DibujarLineaCierreVirtual()
+{
+   // Eliminar línea anterior si existe
+   ObjectDelete(0, g_nombre_linea_cierre);
+   
+   if(g_precio_cierre_virtual > 0)
+   {
+      // Crear línea horizontal
+      ObjectCreate(0, g_nombre_linea_cierre, OBJ_HLINE, 0, 0, g_precio_cierre_virtual);
+      ObjectSetInteger(0, g_nombre_linea_cierre, OBJPROP_COLOR, clrYellow);
+      ObjectSetInteger(0, g_nombre_linea_cierre, OBJPROP_WIDTH, 2);
+      ObjectSetInteger(0, g_nombre_linea_cierre, OBJPROP_STYLE, STYLE_DASH);
+      ObjectSetString(0, g_nombre_linea_cierre, OBJPROP_TEXT, 
+                      "Cierre Virtual - Ganancia: " + DoubleToString(g_ganancia_objetivo, 2));
+      ObjectSetInteger(0, g_nombre_linea_cierre, OBJPROP_SELECTABLE, false);
+      
+      Print("Línea de cierre virtual dibujada en: ", g_precio_cierre_virtual);
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Eliminar línea de cierre virtual                                 |
+//+------------------------------------------------------------------+
+void CPanelTrading::EliminarLineaCierreVirtual()
+{
+   ObjectDelete(0, g_nombre_linea_cierre);
+   g_precio_cierre_virtual = 0;
+   g_cierre_virtual_activo = false;
+}
+
+//+------------------------------------------------------------------+
+//| Verificar si se alcanzó el precio de cierre virtual CON SPREAD  |
+//+------------------------------------------------------------------+
+bool CPanelTrading::VerificarCierreVirtual()
+{
+   if(!g_cierre_virtual_activo || g_precio_cierre_virtual == 0) return false;
+   
+   double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+   double spreadReal = NormalizeDouble(ask - bid, _Digits);
+   
+   ENUM_ORDER_TYPE ultimoTipo = DeterminarTipoOrdenPorNivel(g_nivel_actual);
+   
+   bool cierreAlcanzado = false;
+   
+   if(ultimoTipo == ORDER_TYPE_BUY)
+   {
+      // Para última BUY: el BID debe alcanzar o superar el objetivo
+      if(bid >= g_precio_cierre_virtual)
+      {
+         Print("╔═══════════════════════════════════════════╗");
+         Print("║  CIERRE VIRTUAL ALCANZADO - Última BUY   ║");
+         Print("║  BID: ", DoubleToString(bid, _Digits), " >= Objetivo: ", DoubleToString(g_precio_cierre_virtual, _Digits), "  ║");
+         Print("╚═══════════════════════════════════════════╝");
+         cierreAlcanzado = true;
+      }
+   }
+   else // ORDER_TYPE_SELL
+   {
+      // Para última SELL: el ASK debe alcanzar o ser menor al objetivo
+      // ASK objetivo = BID objetivo + spread
+      double askObjetivo = NormalizeDouble(g_precio_cierre_virtual + spreadReal, _Digits);
+      
+      if(ask <= askObjetivo)
+      {
+         Print("╔═══════════════════════════════════════════╗");
+         Print("║ CIERRE VIRTUAL ALCANZADO - Última SELL   ║");
+         Print("║ ASK: ", DoubleToString(ask, _Digits), " <= Objetivo: ", DoubleToString(askObjetivo, _Digits), "    ║");
+         Print("║ (BID objetivo: ", DoubleToString(g_precio_cierre_virtual, _Digits), " + Spread: ", DoubleToString(spreadReal, _Digits), ") ║");
+         Print("╚═══════════════════════════════════════════╝");
+         cierreAlcanzado = true;
+      }
+   }
+   
+   return cierreAlcanzado;
+}
+
+//+------------------------------------------------------------------+
+//| Colocar orden de mercado                                         |
+//+------------------------------------------------------------------+
+bool CPanelTrading::ColocarOrdenMercado(ENUM_ORDER_TYPE tipoOrden, double lotes, double tp_ticks, int nivel)
+{
+   double precio = (tipoOrden == ORDER_TYPE_BUY) ? SymbolInfoDouble(_Symbol, SYMBOL_ASK) : SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   double tp = CalcularTP(precio, tp_ticks, tipoOrden);
+   
+   trade.SetExpertMagicNumber(g_numero_magico);
+   string comentario = "Nivel_" + IntegerToString(nivel);
+   
+   if(trade.PositionOpen(_Symbol, tipoOrden, lotes, precio, 0, tp, comentario))
+   {
+      Print("Orden de mercado abierta: Nivel ", nivel, " Tipo: ", 
+            (tipoOrden == ORDER_TYPE_BUY ? "COMPRA" : "VENTA"),
+            " Precio: ", precio, " Lote: ", lotes, " TP: ", tp);
+      
+      // Verificar si se activa el cierre virtual
+      if(nivel == g_nivel_activacion_cierre && !g_cierre_virtual_activo)
+      {
+         g_cierre_virtual_activo = true;
+         Print(">>> CIERRE VIRTUAL ACTIVADO en nivel ", nivel);
+         CalcularPrecioCierreVirtual();
+      }
+      
+      return true;
+   }
+   else
+   {
+      Print("Error al abrir orden de mercado: ", trade.ResultRetcode());
+      return false;
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Colocar orden pendiente                                          |
+//+------------------------------------------------------------------+
+bool CPanelTrading::ColocarOrdenPendiente(ENUM_ORDER_TYPE tipoOrden, double precio, double lotes, double tp_ticks, int nivel)
+{
+   double tp = CalcularTP(precio, tp_ticks, tipoOrden);
+   ENUM_ORDER_TYPE tipoPendiente;
+   
+   // Obtener precio actual de mercado
+   double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+   double precioMedio = (bid + ask) / 2;
+   
+   // Determinar el tipo de orden pendiente según la dirección y posición del precio
+   if(tipoOrden == ORDER_TYPE_BUY)
+   {
+      tipoPendiente = (precio < precioMedio) ? ORDER_TYPE_BUY_LIMIT : ORDER_TYPE_BUY_STOP;
+   }
+   else // ORDER_TYPE_SELL
+   {
+      tipoPendiente = (precio > precioMedio) ? ORDER_TYPE_SELL_LIMIT : ORDER_TYPE_SELL_STOP;
+   }
+   
+   trade.SetExpertMagicNumber(g_numero_magico);
+   string comentario = "Nivel_" + IntegerToString(nivel);
+   
+   if(trade.OrderOpen(_Symbol, tipoPendiente, lotes, 0, precio, 0, tp, ORDER_TIME_GTC, 0, comentario))
+   {
+      Print("Orden pendiente colocada: Nivel ", nivel, 
+            " Tipo: ", EnumToString(tipoPendiente),
+            " Dirección: ", (tipoOrden == ORDER_TYPE_BUY ? "COMPRA" : "VENTA"),
+            " Precio: ", precio, " Lote: ", lotes, " TP: ", tp);
+      return true;
+   }
+   else
+   {
+      Print("Error al colocar orden pendiente: ", trade.ResultRetcode());
+      return false;
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Iniciar sistema de trading                                       |
+//+------------------------------------------------------------------+
+bool CPanelTrading::IniciarSistemaTrading(ENUM_ORDER_TYPE tipoOrden)
+{
+   // Leer valores del panel
+   g_lote_inicial = StringToDouble(m_entrada_lote.Text());
+   g_tp1_ticks = StringToDouble(m_entrada_tp1.Text());
+   g_tp2_ticks = StringToDouble(m_entrada_tp2.Text());
+   g_distancia_ticks = StringToDouble(m_entrada_dist.Text());
+   g_nivel_activacion_cierre = (int)StringToInteger(m_entrada_cierre.Text());
+   g_ganancia_objetivo = StringToDouble(m_entrada_ganancia.Text());
+   
+   // Validar valores
+   if(g_lote_inicial <= 0 || g_tp1_ticks <= 0 || g_tp2_ticks <= 0 || g_distancia_ticks <= 0)
+   {
+      Print("Error: Valores inválidos en el panel");
+      return false;
+   }
+   
+   // Resetear sistema de cierre virtual
+   g_cierre_virtual_activo = false;
+   g_precio_cierre_virtual = 0;
+   EliminarLineaCierreVirtual();
+   
+   // Cancelar órdenes pendientes anteriores
+   CancelarTodasLasOrdenesPendientes();
+   
+   // Establecer tipo de orden inicial
+   g_tipo_inicial = tipoOrden;
+   g_nivel_actual = 1;
+   g_sistema_activo = true;
+   
+   Print("=== INICIANDO SISTEMA ===");
+   Print("Tipo inicial: ", (tipoOrden == ORDER_TYPE_BUY ? "COMPRA" : "VENTA"));
+   Print("Nivel activación cierre virtual: ", g_nivel_activacion_cierre);
+   Print("Ganancia objetivo: ", g_ganancia_objetivo);
+   
+   // Colocar Entrada#1 (orden de mercado)
+   double precio = (tipoOrden == ORDER_TYPE_BUY) ? SymbolInfoDouble(_Symbol, SYMBOL_ASK) : SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   g_precio_entrada1 = precio;
+   
+   if(!ColocarOrdenMercado(tipoOrden, g_lote_inicial, g_tp1_ticks, 1))
+   {
+      g_sistema_activo = false;
+      return false;
+   }
+   
+   // Calcular precio de Entrada#2
+   double punto = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+   if(tipoOrden == ORDER_TYPE_BUY)
+   {
+      g_precio_entrada2 = g_precio_entrada1 - (g_distancia_ticks * punto);
+   }
+   else
+   {
+      g_precio_entrada2 = g_precio_entrada1 + (g_distancia_ticks * punto);
+   }
+   
+   // Colocar Entrada#2 (orden pendiente opuesta con doble lotaje)
+   ENUM_ORDER_TYPE tipoNivel2 = DeterminarTipoOrdenPorNivel(2);
+   ColocarOrdenPendiente(tipoNivel2, g_precio_entrada2, g_lote_inicial * 2, g_tp2_ticks, 2);
+   
+   Print("Sistema iniciado - Entrada#1: ", g_precio_entrada1, " Entrada#2: ", g_precio_entrada2);
+   Print("Secuencia de tipos: ", (tipoOrden == ORDER_TYPE_BUY ? "BUY-SELL-BUY-SELL..." : "SELL-BUY-SELL-BUY..."));
+   
+   return true;
+}
+
+//+------------------------------------------------------------------+
+//| Verificar si algún TP fue alcanzado                              |
+//+------------------------------------------------------------------+
+bool CPanelTrading::VerificarTPAlcanzado()
+{
+   static int posicionesAnterior = 0;
+   int posicionesActual = 0;
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posicionInfo.SelectByIndex(i))
+      {
+         if(posicionInfo.Magic() == g_numero_magico && posicionInfo.Symbol() == _Symbol)
+         {
+            posicionesActual++;
+         }
+      }
+   }
+   
+   if(g_sistema_activo && posicionesAnterior > posicionesActual && posicionesActual >= 0)
+   {
+      posicionesAnterior = posicionesActual;
+      if(HistorySelect(TimeCurrent() - 60, TimeCurrent()))
+      {
+         int total = HistoryDealsTotal();
+         for(int i = total - 1; i >= 0; i--)
+         {
+            ulong ticket = HistoryDealGetTicket(i);
+            if(HistoryDealGetInteger(ticket, DEAL_MAGIC) == g_numero_magico)
+            {
+               double profit = HistoryDealGetDouble(ticket, DEAL_PROFIT);
+               if(profit > 0)
+               {
+                  Print("TP alcanzado - Cerrando todas las órdenes");
+                  return true;
+               }
+            }
+         }
+      }
+   }
+   
+   posicionesAnterior = posicionesActual;
+   return false;
+}
+
+//+------------------------------------------------------------------+
+//| Verificar si hay orden pendiente activa                          |
+//+------------------------------------------------------------------+
+bool CPanelTrading::VerificarOrdenPendienteActiva()
+{
+   for(int i = 0; i < OrdersTotal(); i++)
+   {
+      if(ordenInfo.SelectByIndex(i))
+      {
+         if(ordenInfo.Magic() == g_numero_magico && ordenInfo.Symbol() == _Symbol)
+         {
+            return true;
+         }
+      }
+   }
+   return false;
+}
+
+//+------------------------------------------------------------------+
+//| Cerrar con SL/TP visible en plataforma - VERSIÓN FINAL          |
+//+------------------------------------------------------------------+
+void CPanelTrading::CerrarOrdenesDeSecuencia()
+{
+   if(!g_sistema_activo) return;
+   
+   Print("╔═══════════════════════════════════════════════════════╗");
+   Print("║   CIERRE CON SL/TP EN PRECIO VIRTUAL                 ║");
+   Print("╚═══════════════════════════════════════════════════════╝");
+   
+   // Obtener precios actuales
+   double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+   double spreadReal = NormalizeDouble(ask - bid, _Digits);
+   double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+   
+   // Precio virtual objetivo (solo uno, el BID)
+   double precioObjetivo = g_precio_cierre_virtual;
+   
+   Print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+   Print("Precio VIRTUAL objetivo: ", DoubleToString(precioObjetivo, _Digits));
+   Print("BID actual: ", DoubleToString(bid, _Digits));
+   Print("ASK actual: ", DoubleToString(ask, _Digits));
+   Print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+   
+   // Verificar si el precio YA alcanzó el objetivo
+   bool precioYaAlcanzo = false;
+   ENUM_ORDER_TYPE ultimoTipo = DeterminarTipoOrdenPorNivel(g_nivel_actual);
+   
+   if(ultimoTipo == ORDER_TYPE_BUY)
+   {
+      if(bid >= precioObjetivo)
+      {
+         precioYaAlcanzo = true;
+         Print("⚠ PRECIO YA ALCANZÓ: BID ", DoubleToString(bid, _Digits), " >= ", DoubleToString(precioObjetivo, _Digits));
+      }
+   }
+   else // SELL
+   {
+      // Para SELL, consideramos el spread
+      double precioASKObjetivo = NormalizeDouble(precioObjetivo + spreadReal, _Digits);
+      if(ask <= precioASKObjetivo)
+      {
+         precioYaAlcanzo = true;
+         Print("⚠ PRECIO YA ALCANZÓ: ASK ", DoubleToString(ask, _Digits), " <= ", DoubleToString(precioASKObjetivo, _Digits));
+      }
+   }
+   
+   // Si ya alcanzó, cerrar inmediatamente
+   if(precioYaAlcanzo)
+   {
+      Print("🎯 CERRANDO INMEDIATAMENTE (precio ya en objetivo)");
+      
+      for(int i = PositionsTotal() - 1; i >= 0; i--)
+      {
+         if(posicionInfo.SelectByIndex(i))
+         {
+            if(posicionInfo.Symbol() == _Symbol && posicionInfo.Magic() == g_numero_magico)
+            {
+               trade.PositionClose(posicionInfo.Ticket());
+            }
+         }
+      }
+   }
+   else
+   {
+      // Colocar SL/TP en precio virtual
+      Print("📍 Colocando SL/TP en precio virtual");
+      
+      int posicionesModificadas = 0;
+      int posicionesTotales = 0;
+      int stopsLevel = (int)SymbolInfoInteger(_Symbol, SYMBOL_TRADE_STOPS_LEVEL);
+      double distanciaMinima = stopsLevel * point;
+      
+      if(stopsLevel > 0)
+      {
+         Print("Stops Level: ", stopsLevel, " puntos (", DoubleToString(distanciaMinima, _Digits), ")");
+      }
+      
+      for(int i = 0; i < PositionsTotal(); i++)
+      {
+         if(posicionInfo.SelectByIndex(i))
+         {
+            if(posicionInfo.Symbol() == _Symbol && posicionInfo.Magic() == g_numero_magico)
+            {
+               posicionesTotales++;
+               
+               ulong ticket = posicionInfo.Ticket();
+               double precioApertura = posicionInfo.PriceOpen();
+               ENUM_POSITION_TYPE tipo = posicionInfo.PositionType();
+               
+               double nuevoSL = 0;
+               double nuevoTP = 0;
+               bool modificar = true;
+               
+               Print("─────────────────────────────────────────────────");
+               
+               if(tipo == POSITION_TYPE_BUY)
+               {
+                  // BUY cierra cuando BID alcanza precio virtual
+                  // → Colocar TP en precio virtual (se ve en columna T/P)
+                  
+                  Print("BUY #", ticket, " (", DoubleToString(precioApertura, _Digits), ")");
+                  
+                  double distancia = MathAbs(precioObjetivo - bid);
+                  
+                  if(distancia < distanciaMinima && distanciaMinima > 0)
+                  {
+                     Print("  ⚠ Muy cerca del objetivo - Cerrar a mercado");
+                     trade.PositionClose(ticket);
+                     modificar = false;
+                  }
+                  else if(precioObjetivo > precioApertura)
+                  {
+                     // Objetivo arriba = ganancia
+                     nuevoTP = precioObjetivo; // TP visible en columna T/P ✓
+                     nuevoSL = 0;
+                     Print("  → TP: ", DoubleToString(nuevoTP, _Digits), " (ganancia)");
+                  }
+                  else
+                  {
+                     // Objetivo abajo = pérdida  
+                     nuevoSL = precioObjetivo; // SL visible en columna S/L ✓
+                     nuevoTP = 0;
+                     Print("  → SL: ", DoubleToString(nuevoSL, _Digits), " (pérdida)");
+                  }
+               }
+               else // SELL
+               {
+                  // SELL cierra cuando ASK alcanza precio virtual + spread
+                  // → Colocar SL en precio virtual + spread (se ve en columna S/L)
+                  
+                  Print("SELL #", ticket, " (", DoubleToString(precioApertura, _Digits), ")");
+                  
+                  double precioSELLObjetivo = NormalizeDouble(precioObjetivo + spreadReal, _Digits);
+                  double distancia = MathAbs(precioSELLObjetivo - ask);
+                  
+                  if(distancia < distanciaMinima && distanciaMinima > 0)
+                  {
+                     Print("  ⚠ Muy cerca del objetivo - Cerrar a mercado");
+                     trade.PositionClose(ticket);
+                     modificar = false;
+                  }
+                  else if(precioSELLObjetivo < precioApertura)
+                  {
+                     // Objetivo abajo = ganancia
+                     nuevoTP = precioSELLObjetivo; // TP visible en columna T/P ✓
+                     nuevoSL = 0;
+                     Print("  → TP: ", DoubleToString(nuevoTP, _Digits), " (ganancia)");
+                  }
+                  else
+                  {
+                     // Objetivo arriba = pérdida
+                     nuevoSL = precioSELLObjetivo; // SL visible en columna S/L ✓
+                     nuevoTP = 0;
+                     Print("  → SL: ", DoubleToString(nuevoSL, _Digits), " (pérdida)");
+                  }
+               }
+               
+               // Aplicar modificación
+               if(modificar)
+               {
+                  if(trade.PositionModify(ticket, nuevoSL, nuevoTP))
+                  {
+                     posicionesModificadas++;
+                     Print("  ✓ Modificado correctamente");
+                  }
+                  else
+                  {
+                     Print("  ⚠ Error: ", trade.ResultRetcodeDescription());
+                     Print("  → Cerrando a mercado");
+                     trade.PositionClose(ticket);
+                  }
+               }
+            }
+         }
+      }
+      
+      Print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      Print("Modificadas: ", posicionesModificadas, "/", posicionesTotales);
+      
+      // Esperar ejecución automática (máximo 5 segundos)
+      if(posicionesModificadas > 0)
+      {
+         Print("⏳ Esperando ejecución automática de SL/TP...");
+         
+         datetime inicio = TimeCurrent();
+         bool cerradas = false;
+         
+         while((TimeCurrent() - inicio) < 5)
+         {
+            int pos = 0;
+            for(int i = 0; i < PositionsTotal(); i++)
+            {
+               if(posicionInfo.SelectByIndex(i))
+               {
+                  if(posicionInfo.Symbol() == _Symbol && posicionInfo.Magic() == g_numero_magico)
+                     pos++;
+               }
+            }
+            
+            if(pos == 0)
+            {
+               cerradas = true;
+               Print("✓✓✓ Todas cerraron automáticamente en precio virtual ✓✓✓");
+               break;
+            }
+            
+            Sleep(100);
+         }
+         
+         if(!cerradas)
+         {
+            Print("⏱ Timeout - Cerrando remanentes a mercado");
+         }
+      }
+      
+      // Cerrar cualquier remanente
+      for(int i = PositionsTotal() - 1; i >= 0; i--)
+      {
+         if(posicionInfo.SelectByIndex(i))
+         {
+            if(posicionInfo.Symbol() == _Symbol && posicionInfo.Magic() == g_numero_magico)
+            {
+               trade.PositionClose(posicionInfo.Ticket());
+            }
+         }
+      }
+   }
+   
+   // Cancelar órdenes pendientes
+   for(int i = OrdersTotal() - 1; i >= 0; i--)
+   {
+      if(ordenInfo.SelectByIndex(i))
+      {
+         if(ordenInfo.Symbol() == _Symbol && ordenInfo.Magic() == g_numero_magico)
+         {
+            trade.OrderDelete(ordenInfo.Ticket());
+         }
+      }
+   }
+   
+   Print("╔═══════════════════════════════════════════════════════╗");
+   Print("║  🎯 CIERRE COMPLETADO - Precio virtual: ", DoubleToString(precioObjetivo, _Digits), "   ║");
+   Print("╚═══════════════════════════════════════════════════════╝");
+   
+   // Limpiar sistema
+   EliminarLineaCierreVirtual();
+   g_sistema_activo = false;
+   g_nivel_actual = 0;
+   g_precio_entrada1 = 0;
+   g_precio_entrada2 = 0;
+   g_cierre_virtual_activo = false;
+   g_precio_cierre_virtual = 0;
+   
+   Print("═══════════════════════════════════════════════════════");
+}
+
+//+------------------------------------------------------------------+
+//| Cancelar todas las órdenes pendientes                            |
+//+------------------------------------------------------------------+
+void CPanelTrading::CancelarTodasLasOrdenesPendientes()
+{
+   for(int i = OrdersTotal() - 1; i >= 0; i--)
+   {
+      if(ordenInfo.SelectByIndex(i))
+      {
+         if(ordenInfo.Magic() == g_numero_magico && ordenInfo.Symbol() == _Symbol)
+         {
+            trade.OrderDelete(ordenInfo.Ticket());
+         }
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Verificar y gestionar órdenes                                    |
+//+------------------------------------------------------------------+
+void CPanelTrading::VerificarYGestionarOrdenes()
+{
+   if(!g_sistema_activo) return;
+   
+    // FORZAR RECÁLCULO si el spread cambió
+   if(g_cierre_virtual_activo && g_precio_cierre_virtual > 0)
+   {
+      double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+      double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+      double spreadActual = NormalizeDouble(ask - bid, _Digits);
+      double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+      
+      if(MathAbs(spreadActual - g_ultimo_spread_registrado) >= point)
+      {
+         CalcularPrecioCierreVirtual(); // RECALCULAR INMEDIATAMENTE
+      }
+   }
+   
+   // Verificar cierre virtual primero (mayor prioridad)
+   if(VerificarCierreVirtual())
+   {
+      Print(">>> CIERRE VIRTUAL EJECUTADO <<<");
+      CerrarOrdenesDeSecuencia();
+      return;
+   }
+   
+   // Verificar si se alcanzó algún TP
+   if(VerificarTPAlcanzado())
+   {
+      CerrarOrdenesDeSecuencia();
+      return;
+   }
+   
+   // Buscar la última posición abierta
+   int ultimoNivel = 0;
+   double ultimoLote = 0;
+   bool hayPosiciones = false;
+   
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      if(posicionInfo.SelectByIndex(i))
+      {
+         if(posicionInfo.Magic() == g_numero_magico && posicionInfo.Symbol() == _Symbol)
+         {
+            hayPosiciones = true;
+            string comentario = posicionInfo.Comment();
+            if(StringFind(comentario, "Nivel_") >= 0)
+            {
+               int nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+               if(nivel > ultimoNivel)
+               {
+                  ultimoNivel = nivel;
+                  ultimoLote = posicionInfo.Volume();
+               }
+            }
+         }
+      }
+   }
+   
+   // Si hay una nueva posición abierta, crear la siguiente orden pendiente
+   if(ultimoNivel > g_nivel_actual)
+   {
+      g_nivel_actual = ultimoNivel;
+      
+      // Verificar activación de cierre virtual
+      if(ultimoNivel == g_nivel_activacion_cierre && !g_cierre_virtual_activo)
+      {
+         g_cierre_virtual_activo = true;
+         Print(">>> CIERRE VIRTUAL ACTIVADO en nivel ", ultimoNivel);
+         CalcularPrecioCierreVirtual();
+      }
+      
+      // Si el cierre virtual está activo, recalcular precio
+      if(g_cierre_virtual_activo)
+      {
+         CalcularPrecioCierreVirtual();
+      }
+      
+      // Cancelar órdenes pendientes anteriores
+      CancelarTodasLasOrdenesPendientes();
+      
+      // Calcular parámetros para el siguiente nivel
+      int siguienteNivel = ultimoNivel + 1;
+      double siguienteLote = ultimoLote * 2;
+      
+      // Determinar el tipo de orden según el patrón establecido
+      ENUM_ORDER_TYPE siguienteTipo = DeterminarTipoOrdenPorNivel(siguienteNivel);
+      
+      // Determinar precio y TP según el patrón
+      double siguientePrecio;
+      double siguienteTP;
+      
+      if(siguienteNivel % 2 == 1) // Nivel impar (como entrada#1)
+      {
+         siguientePrecio = g_precio_entrada1;
+         siguienteTP = g_tp1_ticks;
+      }
+      else // Nivel par (como entrada#2)
+      {
+         siguientePrecio = g_precio_entrada2;
+         siguienteTP = g_tp2_ticks;
+      }
+      
+      // Intentar colocar la nueva orden pendiente
+      if(!ColocarOrdenPendiente(siguienteTipo, siguientePrecio, siguienteLote, siguienteTP, siguienteNivel))
+      {
+         static int intentosFallidos = 0;
+         intentosFallidos++;
+         
+         if(intentosFallidos >= 3)
+         {
+            Print("Imposible colocar nueva orden - Cerrando secuencia por falta de margen");
+            CerrarOrdenesDeSecuencia();
+            intentosFallidos = 0;
+            return;
+         }
+      }
+      else
+      {
+         Print("Programando Nivel ", siguienteNivel, 
+               " - Tipo: ", (siguienteTipo == ORDER_TYPE_BUY ? "COMPRA" : "VENTA"),
+               " - Precio: ", siguientePrecio, " - Lote: ", siguienteLote);
+      }
+   }
+   
+   // Verificar si no hay órdenes pendientes cuando debería haberlas
+   if(hayPosiciones && g_nivel_actual > 0 && !VerificarOrdenPendienteActiva())
+   {
+      static int ticksSinOrdenPendiente = 0;
+      ticksSinOrdenPendiente++;
+      
+      if(ticksSinOrdenPendiente >= 5)
+      {
+         Print("No hay órdenes pendientes activas - Cerrando secuencia");
+         CerrarOrdenesDeSecuencia();
+         ticksSinOrdenPendiente = 0;
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Manejador de eventos                                             |
+//+------------------------------------------------------------------+
+EVENT_MAP_BEGIN(CPanelTrading)
+   ON_EVENT(ON_CLICK, m_boton_venta, AlHacerClickVenta)
+   ON_EVENT(ON_CLICK, m_boton_compra, AlHacerClickCompra)
+EVENT_MAP_END(CAppDialog)
+
+//+------------------------------------------------------------------+
+//| Evento click botón VENTA                                         |
+//+------------------------------------------------------------------+
+void CPanelTrading::AlHacerClickVenta(void)
+{
+   Print("Iniciando sistema con VENTA");
+   if(IniciarSistemaTrading(ORDER_TYPE_SELL))
+   {
+      Print("Sistema de cobertura iniciado con VENTA");
+   }
+   else
+   {
+      Print("Error al iniciar el sistema");
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Evento click botón COMPRA                                        |
+//+------------------------------------------------------------------+
+void CPanelTrading::AlHacerClickCompra(void)
+{
+   Print("Iniciando sistema con COMPRA");
+   if(IniciarSistemaTrading(ORDER_TYPE_BUY))
+   {
+      Print("Sistema de cobertura iniciado con COMPRA");
+   }
+   else
+   {
+      Print("Error al iniciar el sistema");
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Variables globales                                               |
+//+------------------------------------------------------------------+
+CPanelTrading DialogoExterno;
+
+//+------------------------------------------------------------------+
+//| Función de inicialización del Expert Advisor                     |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   // Configurar el número mágico
+   trade.SetExpertMagicNumber(g_numero_magico);
+   
+   // Crear el panel
+   if(!DialogoExterno.Create(0, "CoberturaEspecial", 0, 50, 50, 300, 350))
+      return(INIT_FAILED);
+   
+   // Ejecutar el panel
+   if(!DialogoExterno.Run())
+      return(INIT_FAILED);
+   
+   ChartRedraw();
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Función de desinicialización del Expert Advisor                  |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+   // Destruir el diálogo
+   DialogoExterno.Destroy(reason);
+   
+   // Eliminar objetos gráficos
+   ObjectDelete(0, g_nombre_linea_cierre);
+}
+
+//+------------------------------------------------------------------+
+//| Función OnTick - MONITOREO CONTINUO DE SPREAD                   |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   // MONITOREO DE SPREAD PRIMERO (antes de gestionar órdenes)
+   if(g_cierre_virtual_activo && g_precio_cierre_virtual > 0)
+   {
+      double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+      double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+      double spreadActual = NormalizeDouble(ask - bid, _Digits);
+      double point = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+      
+      // Si el spread cambió significativamente, recalcular
+      if(MathAbs(spreadActual - g_ultimo_spread_registrado) >= point)
+      {
+         Print(">>> OnTick detectó cambio de spread - Recalculando...");
+         // Forzar recálculo llamando directamente a la función de cálculo
+         // Esto se hace a través de VerificarYGestionarOrdenes que llama a CalcularPrecioCierreVirtual
+      }
+   }
+   
+   // Verificar y gestionar las órdenes del sistema
+   DialogoExterno.VerificarYGestionarOrdenes();
+}
+
+//+------------------------------------------------------------------+
+//| Función OnChartEvent                                             |
+//+------------------------------------------------------------------+
+void OnChartEvent(const int id,
+                  const long &lparam,
+                  const double &dparam,
+                  const string &sparam)
+{
+   DialogoExterno.ChartEvent(id, lparam, dparam, sparam);
+}
+//+------------------------------------------------------------------+
