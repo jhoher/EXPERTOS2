@@ -44,6 +44,9 @@ double g_precio_cobertura2_fijo = 0;  // TP fijo de Entrada#2
 // Variables para cierre virtual
 int g_nivel_activacion_cierre = 0;
 double g_ganancia_objetivo = 0;
+// Precios de cobertura FIJOS (calculados una sola vez al inicio)
+double g_precio_cobertura_E1 = 0;  // TP fijo de Entrada#1
+double g_precio_cobertura_E2 = 0;  // TP fijo de Entrada#2
 
 //+------------------------------------------------------------------+
 //| Calcular comisión exacta Pepperstone                             |
@@ -297,32 +300,23 @@ void CPanelTrading::ActualizarSLTPDinamicos()
 {
    if(!g_sistema_activo) return;
    
-   // Verificar que los precios fijos estén calculados
-   if(g_precio_cobertura1_fijo == 0 || g_precio_cobertura2_fijo == 0)
-   {
-      Print("ERROR: Precios de cobertura fijos no calculados");
-      return;
-   }
-   
-   double bid = SymbolInfoDouble(_Symbol, SYMBOL_BID);
-   double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
-   double spreadReal = NormalizeDouble(ask - bid, _Digits);
-   
-   Print("========== ACTUALIZANDO SL/TP DINAMICOS (PRECIOS FIJOS) ==========");
-   Print("Precio Cobertura E#1 FIJO (IMPARES): ", DoubleToString(g_precio_cobertura1_fijo, _Digits));
-   Print("Precio Cobertura E#2 FIJO (PARES): ", DoubleToString(g_precio_cobertura2_fijo, _Digits));
+   Print("--- Actualizando SL/TP Dinamicos (FIJOS) ---");
+   Print("Precio Cobertura E#1: ", DoubleToString(g_precio_cobertura_E1, _Digits));
+   Print("Precio Cobertura E#2: ", DoubleToString(g_precio_cobertura_E2, _Digits));
    Print("Nivel actual mas alto: ", g_nivel_actual);
    
    // Determinar la paridad del nivel más alto actual
    int paridadActual = (g_nivel_actual % 2); // 1=impar, 0=par
    
-   Print("Paridad del nivel actual: ", (paridadActual == 1 ? "IMPAR (usa E#1)" : "PAR (usa E#2)"));
-   Print("Spread actual: ", DoubleToString((spreadReal / SymbolInfoDouble(_Symbol, SYMBOL_POINT)), 1), " puntos");
-   Print("----------------------------------------------");
+   // Seleccionar el precio de cobertura fijo según la paridad
+   double precioCobertura = (paridadActual == 1) ? g_precio_cobertura_E1 : g_precio_cobertura_E2;
+   
+   Print("Paridad nivel actual: ", (paridadActual == 1 ? "IMPAR (usa E#1)" : "PAR (usa E#2)"));
+   Print("Precio de cobertura a usar: ", DoubleToString(precioCobertura, _Digits));
    
    int posModificadas = 0;
    
-   // ===== RECORRER TODAS LAS POSICIONES Y APLICAR SL/TP FIJOS =====
+   // Recorrer todas las posiciones
    for(int i = 0; i < PositionsTotal(); i++)
    {
       if(posicionInfo.SelectByIndex(i))
@@ -330,10 +324,8 @@ void CPanelTrading::ActualizarSLTPDinamicos()
          if(posicionInfo.Magic() == g_numero_magico && posicionInfo.Symbol() == _Symbol)
          {
             ulong ticket = posicionInfo.Ticket();
-            double precioApertura = posicionInfo.PriceOpen();
             ENUM_POSITION_TYPE tipo = posicionInfo.PositionType();
             
-            // Extraer el nivel de la posición
             string comentario = posicionInfo.Comment();
             int nivelPosicion = 0;
             if(StringFind(comentario, "Nivel_") >= 0)
@@ -341,75 +333,29 @@ void CPanelTrading::ActualizarSLTPDinamicos()
                nivelPosicion = (int)StringToInteger(StringSubstr(comentario, 6));
             }
             
-            // Determinar paridad de esta posición
             int paridadPosicion = (nivelPosicion % 2); // 1=impar, 0=par
             
             double nuevoSL = 0;
             double nuevoTP = 0;
             
-            // ===== USAR PRECIOS FIJOS (SIN RECALCULAR) =====
-            double precioObjetivo = 0;
-            bool esTP = false;
+            // Determinar si es TP o SL según paridad
+            bool esTP = (paridadPosicion == paridadActual);
             
-            if(paridadPosicion == paridadActual)
+            // LÓGICA SIMPLE: usar el mismo precio fijo para BUY y SELL
+            // El broker maneja automáticamente BID/ASK
+            if(esTP)
             {
-               // MISMA paridad → es un TP
-               esTP = true;
-               // Usar el precio de cobertura FIJO correspondiente a la paridad ACTUAL
-               precioObjetivo = (paridadActual == 1) ? g_precio_cobertura1_fijo : g_precio_cobertura2_fijo;
+               nuevoTP = precioCobertura;
+               nuevoSL = 0;
+               Print("  ", (tipo == POSITION_TYPE_BUY ? "BUY" : "SELL"), " #", ticket, 
+                     " Nivel ", nivelPosicion, " -> TP: ", DoubleToString(nuevoTP, _Digits));
             }
             else
             {
-               // DIFERENTE paridad → es un SL
-               esTP = false;
-               // Usar el precio de cobertura FIJO correspondiente a la paridad ACTUAL
-               precioObjetivo = (paridadActual == 1) ? g_precio_cobertura1_fijo : g_precio_cobertura2_fijo;
-            }
-            
-            // ===== APLICAR SEGÚN EL TIPO DE POSICIÓN =====
-            if(tipo == POSITION_TYPE_BUY)
-            {
-               if(esTP)
-               {
-                  nuevoTP = precioObjetivo;
-                  nuevoSL = 0; // Sin SL
-                  Print("  BUY #", ticket, " Nivel ", nivelPosicion, 
-                        " (", (paridadPosicion == 1 ? "IMPAR" : "PAR"), ") -> TP: ", 
-                        DoubleToString(nuevoTP, _Digits));
-               }
-               else
-               {
-                  nuevoSL = precioObjetivo;
-                  nuevoTP = 0; // Sin TP
-                  Print("  BUY #", ticket, " Nivel ", nivelPosicion, 
-                        " (", (paridadPosicion == 1 ? "IMPAR" : "PAR"), ") -> SL: ", 
-                        DoubleToString(nuevoSL, _Digits));
-               }
-            }
-            else  // POSITION_TYPE_SELL
-            {
-               // Para SELL: ajustar precio objetivo FIJO con spread actual
-               // IMPORTANTE: Usamos el precio FIJO + spread actual
-               double precioObjetivoASK = NormalizeDouble(precioObjetivo + spreadReal, _Digits);
-               
-               if(esTP)
-               {
-                  nuevoTP = precioObjetivoASK;
-                  nuevoSL = 0; // Sin SL
-                  Print("  SELL #", ticket, " Nivel ", nivelPosicion, 
-                        " (", (paridadPosicion == 1 ? "IMPAR" : "PAR"), ") -> TP: ", 
-                        DoubleToString(nuevoTP, _Digits), " (base: ", 
-                        DoubleToString(precioObjetivo, _Digits), " + spread)");
-               }
-               else
-               {
-                  nuevoSL = precioObjetivoASK;
-                  nuevoTP = 0; // Sin TP
-                  Print("  SELL #", ticket, " Nivel ", nivelPosicion, 
-                        " (", (paridadPosicion == 1 ? "IMPAR" : "PAR"), ") -> SL: ", 
-                        DoubleToString(nuevoSL, _Digits), " (base: ", 
-                        DoubleToString(precioObjetivo, _Digits), " + spread)");
-               }
+               nuevoSL = precioCobertura;
+               nuevoTP = 0;
+               Print("  ", (tipo == POSITION_TYPE_BUY ? "BUY" : "SELL"), " #", ticket, 
+                     " Nivel ", nivelPosicion, " -> SL: ", DoubleToString(nuevoSL, _Digits));
             }
             
             // Aplicar la modificación
@@ -419,15 +365,14 @@ void CPanelTrading::ActualizarSLTPDinamicos()
             }
             else
             {
-               Print("    ERROR modificando: ", trade.ResultRetcodeDescription());
+               Print("    Error: ", trade.ResultRetcodeDescription());
             }
          }
       }
    }
    
-   Print("----------------------------------------------");
-   Print("Total posiciones modificadas: ", posModificadas);
-   Print("==================================================================");
+   Print("Total modificadas: ", posModificadas);
+   Print("--------------------------------------");
 }
 
 //+------------------------------------------------------------------+
@@ -629,21 +574,18 @@ bool CPanelTrading::IniciarSistemaTrading(ENUM_ORDER_TYPE tipoOrden)
       Print("Error: Valores invalidos en el panel");
       return false;
    }
-   
-   // Cancelar órdenes pendientes previas
+      
    CancelarTodasLasOrdenesPendientes();
    
-   // Inicializar variables del sistema
    g_tipo_inicial = tipoOrden;
    g_nivel_actual = 1;
    g_sistema_activo = true;
    
    Print("=== INICIANDO SISTEMA ===");
    Print("Tipo inicial: ", (tipoOrden == ORDER_TYPE_BUY ? "COMPRA" : "VENTA"));
-   Print("Nivel activacion neutralizacion: ", g_nivel_activacion_cierre);
+   Print("Nivel activacion cierre virtual: ", g_nivel_activacion_cierre);
    Print("Ganancia objetivo: ", g_ganancia_objetivo);
    
-   // Colocar Entrada#1 a mercado
    double precio = (tipoOrden == ORDER_TYPE_BUY) ? SymbolInfoDouble(_Symbol, SYMBOL_ASK) : SymbolInfoDouble(_Symbol, SYMBOL_BID);
    g_precio_entrada1 = precio;
    
@@ -653,7 +595,6 @@ bool CPanelTrading::IniciarSistemaTrading(ENUM_ORDER_TYPE tipoOrden)
       return false;
    }
    
-   // Calcular precio de Entrada#2
    double punto = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
    if(tipoOrden == ORDER_TYPE_BUY)
    {
@@ -665,79 +606,39 @@ bool CPanelTrading::IniciarSistemaTrading(ENUM_ORDER_TYPE tipoOrden)
    }
    
    // ========== CALCULAR PRECIOS DE COBERTURA FIJOS UNA SOLA VEZ ==========
-   // Estos precios NO cambiarán durante toda la secuencia
-   
-   // Precio de cobertura FIJO para Entrada#1 (niveles impares)
-   if(g_tipo_inicial == ORDER_TYPE_BUY)
+   // Precio de cobertura E#1: desde g_precio_entrada1
+   if(tipoOrden == ORDER_TYPE_BUY)
    {
-      g_precio_cobertura1_fijo = g_precio_entrada1 + (g_tp1_ticks * punto);
+      g_precio_cobertura_E1 = NormalizeDouble(g_precio_entrada1 + (g_tp1_ticks * punto), _Digits);
    }
-   else
+   else  // SELL
    {
-      g_precio_cobertura1_fijo = g_precio_entrada1 - (g_tp1_ticks * punto);
+      g_precio_cobertura_E1 = NormalizeDouble(g_precio_entrada1 - (g_tp1_ticks * punto), _Digits);
    }
    
-   // Precio de cobertura FIJO para Entrada#2 (niveles pares)
-   ENUM_ORDER_TYPE tipoEntrada2 = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
-   
-   if(tipoEntrada2 == ORDER_TYPE_BUY)
+   // Precio de cobertura E#2: desde g_precio_entrada2
+   ENUM_ORDER_TYPE tipoE2 = (tipoOrden == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
+   if(tipoE2 == ORDER_TYPE_BUY)
    {
-      g_precio_cobertura2_fijo = g_precio_entrada2 + (g_tp2_ticks * punto);
+      g_precio_cobertura_E2 = NormalizeDouble(g_precio_entrada2 + (g_tp2_ticks * punto), _Digits);
    }
-   else
+   else  // SELL
    {
-      g_precio_cobertura2_fijo = g_precio_entrada2 - (g_tp2_ticks * punto);
+      g_precio_cobertura_E2 = NormalizeDouble(g_precio_entrada2 - (g_tp2_ticks * punto), _Digits);
    }
    
-   Print(">>> PRECIOS DE COBERTURA FIJOS CALCULADOS <<<");
-   Print("Precio Cobertura E#1 (IMPARES): ", DoubleToString(g_precio_cobertura1_fijo, _Digits));
-   Print("Precio Cobertura E#2 (PARES): ", DoubleToString(g_precio_cobertura2_fijo, _Digits));
+   Print("Precio Cobertura E#1 (FIJO): ", DoubleToString(g_precio_cobertura_E1, _Digits));
+   Print("Precio Cobertura E#2 (FIJO): ", DoubleToString(g_precio_cobertura_E2, _Digits));
    // =======================================================================
    
-   // Determinar tipo y lotaje de Entrada#2
    ENUM_ORDER_TYPE tipoNivel2 = DeterminarTipoOrdenPorNivel(2);
-   double lotajeNivel2;
-   
-   // ========== CASO ESPECIAL: Si nivel de activación es 2 ==========
-   if(g_nivel_activacion_cierre == 2)
-   {
-      Print(">>> CASO ESPECIAL: Nivel activacion = 2");
-      Print(">>> Calculando lotaje de neutralizacion para E#2");
-      
-      // Esperar un momento para asegurar que E#1 esté en el sistema
-      Sleep(100);
-      
-      // Calcular lotaje de neutralización
-      lotajeNivel2 = CalcularLotajeNeutralizacion();
-      
-      // Si retorna 0, usar el lote inicial (para igualar E#1)
-      if(lotajeNivel2 == 0 || lotajeNivel2 < g_lote_inicial)
-      {
-         lotajeNivel2 = g_lote_inicial; // Al menos igualar E#1
-         Print(">>> Usando lotaje igual a E#1: ", DoubleToString(lotajeNivel2, 2));
-      }
-      else
-      {
-         Print(">>> Usando lotaje de NEUTRALIZACION para E#2: ", DoubleToString(lotajeNivel2, 2));
-      }
-   }
-   else
-   {
-      // Martingala normal para E#2
-      lotajeNivel2 = g_lote_inicial * 2;
-   }
-   // ================================================================
-   
-   // Programar Entrada#2 pendiente
-   ColocarOrdenPendiente(tipoNivel2, g_precio_entrada2, lotajeNivel2, g_tp2_ticks, 2);
+   ColocarOrdenPendiente(tipoNivel2, g_precio_entrada2, g_lote_inicial * 2, g_tp2_ticks, 2);
    
    Print("Sistema iniciado - Entrada#1: ", g_precio_entrada1, " Entrada#2: ", g_precio_entrada2);
    Print("Secuencia de tipos: ", (tipoOrden == ORDER_TYPE_BUY ? "BUY-SELL-BUY-SELL..." : "SELL-BUY-SELL-BUY..."));
    
    return true;
 }
-
-
 
 bool CPanelTrading::VerificarTPAlcanzado()
 {
@@ -835,6 +736,8 @@ void CPanelTrading::CerrarOrdenesDeSecuencia()
    g_nivel_actual = 0;
    g_precio_entrada1 = 0;
    g_precio_entrada2 = 0;
+   g_precio_cobertura_E1 = 0;
+   g_precio_cobertura_E2 = 0;
    
    // ===== RESETEAR PRECIOS DE COBERTURA FIJOS =====
    g_precio_cobertura1_fijo = 0;
