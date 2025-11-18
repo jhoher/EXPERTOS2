@@ -1,73 +1,110 @@
-2025.11.17 18:56:02.166	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
-2025.11.17 18:56:02.166	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
-2025.11.17 18:56:02.166	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
-2025.11.17 18:56:02.166	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
-2025.11.17 18:56:02.166	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
-2025.11.17 18:56:02.166	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
-2025.11.17 18:56:02.166	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205101910 Nivel 1 -> TP: 0.00000
-2025.11.17 18:56:02.167	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205101910 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
-2025.11.17 18:56:02.167	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
-2025.11.17 18:56:02.167	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
-2025.11.17 18:56:02.167	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
-2025.11.17 18:56:04.587	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
-2025.11.17 18:56:04.587	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
-2025.11.17 18:56:04.587	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
-2025.11.17 18:56:04.587	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
-2025.11.17 18:56:04.587	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
-2025.11.17 18:56:04.587	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
-2025.11.17 18:56:04.587	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205101910 Nivel 1 -> TP: 0.00000
-2025.11.17 18:56:04.587	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205101910 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
-2025.11.17 18:56:04.587	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
-2025.11.17 18:56:04.587	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
-2025.11.17 18:56:04.587	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
-2025.11.17 18:56:09.384	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
-2025.11.17 18:56:09.384	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
-2025.11.17 18:56:09.384	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
-2025.11.17 18:56:09.384	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
-2025.11.17 18:56:09.384	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
-2025.11.17 18:56:09.384	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
-2025.11.17 18:56:09.384	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205101910 Nivel 1 -> TP: 0.00000
-2025.11.17 18:56:09.384	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205101910 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
-2025.11.17 18:56:09.384	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
-2025.11.17 18:56:09.384	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
-2025.11.17 18:56:09.384	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
-2025.11.17 18:56:27.336	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
-2025.11.17 18:56:27.336	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
-2025.11.17 18:56:27.336	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
-2025.11.17 18:56:27.336	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
-2025.11.17 18:56:27.336	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
-2025.11.17 18:56:27.336	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
-2025.11.17 18:56:27.336	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205101910 Nivel 1 -> TP: 0.00000
-2025.11.17 18:56:27.336	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205101910 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
-2025.11.17 18:56:27.336	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
-2025.11.17 18:56:27.336	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
-2025.11.17 18:56:27.336	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
-2025.11.17 18:56:30.559	CoberturaEspecial prueba1 (GBPUSD,M2)	Iniciando sistema con COMPRA
-2025.11.17 18:56:30.584	CoberturaEspecial prueba1 (GBPUSD,M2)	=== INICIANDO SISTEMA ===
-2025.11.17 18:56:30.584	CoberturaEspecial prueba1 (GBPUSD,M2)	Tipo inicial: COMPRA
-2025.11.17 18:56:30.584	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel activacion cierre virtual: 4
-2025.11.17 18:56:30.584	CoberturaEspecial prueba1 (GBPUSD,M2)	Ganancia objetivo: 0.05
-2025.11.17 18:56:30.698	CoberturaEspecial prueba1 (GBPUSD,M2)	Orden de mercado abierta: Nivel 1 Tipo: COMPRA Precio: 1.31537 Lote: 0.01 TP: 1.3187
-2025.11.17 18:56:30.811	CoberturaEspecial prueba1 (GBPUSD,M2)	Orden pendiente colocada: Nivel 2 Tipo: ORDER_TYPE_SELL_STOP Direccion: VENTA Precio: 1.31517 Lote: 0.02 TP: 1.31184
-2025.11.17 18:56:30.811	CoberturaEspecial prueba1 (GBPUSD,M2)	Sistema iniciado - Entrada#1: 1.31537 Entrada#2: 1.31517
-2025.11.17 18:56:30.811	CoberturaEspecial prueba1 (GBPUSD,M2)	Secuencia de tipos: BUY-SELL-BUY-SELL...
-2025.11.17 18:56:30.811	CoberturaEspecial prueba1 (GBPUSD,M2)	Sistema de cobertura iniciado con COMPRA
-2025.11.17 18:56:37.611	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
-2025.11.17 18:56:37.611	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
-2025.11.17 18:56:37.611	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
-2025.11.17 18:56:37.611	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
-2025.11.17 18:56:37.611	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
-2025.11.17 18:56:37.611	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
-2025.11.17 18:56:37.611	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205102237 Nivel 1 -> TP: 0.00000
-2025.11.17 18:56:37.719	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 1
-2025.11.17 18:56:37.719	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
-2025.11.17 18:56:51.846	CoberturaEspecial prueba1 (GBPUSD,M2)	Iniciando sistema con COMPRA
-2025.11.17 18:56:51.865	CoberturaEspecial prueba1 (GBPUSD,M2)	=== INICIANDO SISTEMA ===
-2025.11.17 18:56:51.865	CoberturaEspecial prueba1 (GBPUSD,M2)	Tipo inicial: COMPRA
-2025.11.17 18:56:51.865	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel activacion cierre virtual: 4
-2025.11.17 18:56:51.865	CoberturaEspecial prueba1 (GBPUSD,M2)	Ganancia objetivo: 0.05
-2025.11.17 18:56:51.984	CoberturaEspecial prueba1 (GBPUSD,M2)	Orden de mercado abierta: Nivel 1 Tipo: COMPRA Precio: 1.31539 Lote: 0.01 TP: 1.3187200000000001
-2025.11.17 18:56:52.099	CoberturaEspecial prueba1 (GBPUSD,M2)	Orden pendiente colocada: Nivel 2 Tipo: ORDER_TYPE_SELL_STOP Direccion: VENTA Precio: 1.31519 Lote: 0.02 TP: 1.31186
-2025.11.17 18:56:52.099	CoberturaEspecial prueba1 (GBPUSD,M2)	Sistema iniciado - Entrada#1: 1.31539 Entrada#2: 1.31519
-2025.11.17 18:56:52.099	CoberturaEspecial prueba1 (GBPUSD,M2)	Secuencia de tipos: BUY-SELL-BUY-SELL...
-2025.11.17 18:56:52.099	CoberturaEspecial prueba1 (GBPUSD,M2)	Sistema de cobertura iniciado con COMPRA
+2025.11.17 21:11:00.522	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.17 21:11:00.522	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
+2025.11.17 21:11:00.522	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
+2025.11.17 21:11:00.522	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
+2025.11.17 21:11:00.522	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
+2025.11.17 21:11:00.522	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
+2025.11.17 21:11:00.522	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205150475 Nivel 1 -> TP: 0.00000
+2025.11.17 21:11:00.522	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205150475 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
+2025.11.17 21:11:00.522	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
+2025.11.17 21:11:00.522	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
+2025.11.17 21:11:00.522	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
+2025.11.17 21:11:02.534	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.17 21:11:02.534	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
+2025.11.17 21:11:02.534	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
+2025.11.17 21:11:02.534	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
+2025.11.17 21:11:02.534	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
+2025.11.17 21:11:02.534	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
+2025.11.17 21:11:02.534	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205150475 Nivel 1 -> TP: 0.00000
+2025.11.17 21:11:02.534	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205150475 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
+2025.11.17 21:11:02.534	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
+2025.11.17 21:11:02.534	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
+2025.11.17 21:11:02.534	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
+2025.11.17 21:11:17.115	CoberturaEspecial prueba1 (GBPUSD,M2)	Iniciando sistema con COMPRA
+2025.11.17 21:11:17.155	CoberturaEspecial prueba1 (GBPUSD,M2)	=== INICIANDO SISTEMA ===
+2025.11.17 21:11:17.155	CoberturaEspecial prueba1 (GBPUSD,M2)	Tipo inicial: COMPRA
+2025.11.17 21:11:17.155	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel activacion cierre virtual: 2
+2025.11.17 21:11:17.155	CoberturaEspecial prueba1 (GBPUSD,M2)	Ganancia objetivo: 0.05
+2025.11.17 21:11:17.284	CoberturaEspecial prueba1 (GBPUSD,M2)	Orden de mercado abierta: Nivel 1 Tipo: COMPRA Precio: 1.315 Lote: 0.01 TP: 1.31833
+2025.11.17 21:11:17.284	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> CIERRE VIRTUAL = 2: Entrada#2 se programa con lotaje de NEUTRALIZACION
+2025.11.17 21:11:17.284	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Lotaje Entrada#1: 0.01
+2025.11.17 21:11:17.284	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Lotaje Entrada#2: 0.01 (IGUALANDO)
+2025.11.17 21:11:17.398	CoberturaEspecial prueba1 (GBPUSD,M2)	Orden pendiente colocada: Nivel 2 Tipo: ORDER_TYPE_SELL_STOP Direccion: VENTA Precio: 1.31489 Lote: 0.01 TP: 1.3115599999999998
+2025.11.17 21:11:17.398	CoberturaEspecial prueba1 (GBPUSD,M2)	Sistema iniciado - Entrada#1: 1.315 Entrada#2: 1.31489
+2025.11.17 21:11:17.398	CoberturaEspecial prueba1 (GBPUSD,M2)	Secuencia de tipos: BUY-SELL-BUY-SELL...
+2025.11.17 21:11:17.398	CoberturaEspecial prueba1 (GBPUSD,M2)	Sistema de cobertura iniciado con COMPRA
+2025.11.17 21:11:21.244	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.17 21:11:21.244	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
+2025.11.17 21:11:21.244	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
+2025.11.17 21:11:21.244	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
+2025.11.17 21:11:21.244	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
+2025.11.17 21:11:21.244	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
+2025.11.17 21:11:21.244	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205150655 Nivel 1 -> TP: 0.00000
+2025.11.17 21:11:21.355	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 1
+2025.11.17 21:11:21.355	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
+2025.11.17 21:11:25.273	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.17 21:11:25.273	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
+2025.11.17 21:11:25.273	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
+2025.11.17 21:11:25.273	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
+2025.11.17 21:11:25.273	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
+2025.11.17 21:11:25.273	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
+2025.11.17 21:11:25.273	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205150655 Nivel 1 -> TP: 0.00000
+2025.11.17 21:11:25.273	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205150655 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
+2025.11.17 21:11:25.273	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
+2025.11.17 21:11:25.274	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
+2025.11.17 21:11:25.274	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
+2025.11.17 21:11:27.195	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.17 21:11:27.195	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
+2025.11.17 21:11:27.195	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
+2025.11.17 21:11:27.195	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
+2025.11.17 21:11:27.195	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
+2025.11.17 21:11:27.195	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
+2025.11.17 21:11:27.195	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205150655 Nivel 1 -> TP: 0.00000
+2025.11.17 21:11:27.195	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205150655 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
+2025.11.17 21:11:27.195	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
+2025.11.17 21:11:27.195	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
+2025.11.17 21:11:27.195	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
+2025.11.17 21:11:28.697	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.17 21:11:28.697	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
+2025.11.17 21:11:28.697	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
+2025.11.17 21:11:28.697	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
+2025.11.17 21:11:28.697	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
+2025.11.17 21:11:28.697	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
+2025.11.17 21:11:28.697	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205150655 Nivel 1 -> TP: 0.00000
+2025.11.17 21:11:28.698	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205150655 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
+2025.11.17 21:11:28.698	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
+2025.11.17 21:11:28.698	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
+2025.11.17 21:11:28.698	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
+2025.11.17 21:11:30.913	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.17 21:11:30.913	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
+2025.11.17 21:11:30.913	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
+2025.11.17 21:11:30.913	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
+2025.11.17 21:11:30.913	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
+2025.11.17 21:11:30.913	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
+2025.11.17 21:11:30.913	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205150655 Nivel 1 -> TP: 0.00000
+2025.11.17 21:11:30.913	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205150655 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
+2025.11.17 21:11:30.913	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
+2025.11.17 21:11:30.913	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
+2025.11.17 21:11:30.913	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
+2025.11.17 21:11:40.935	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.17 21:11:40.936	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
+2025.11.17 21:11:40.936	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
+2025.11.17 21:11:40.936	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
+2025.11.17 21:11:40.936	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
+2025.11.17 21:11:40.936	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
+2025.11.17 21:11:40.936	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205150655 Nivel 1 -> TP: 0.00000
+2025.11.17 21:11:40.936	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205150655 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
+2025.11.17 21:11:40.936	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
+2025.11.17 21:11:40.936	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
+2025.11.17 21:11:40.936	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
+2025.11.17 21:11:54.668	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.17 21:11:54.668	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 0.00000
+2025.11.17 21:11:54.668	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 0.00000
+2025.11.17 21:11:54.668	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
+2025.11.17 21:11:54.668	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
+2025.11.17 21:11:54.668	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 0.00000
+2025.11.17 21:11:54.668	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205150655 Nivel 1 -> TP: 0.00000
+2025.11.17 21:11:54.668	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205150655 GBPUSD (sl: 0.00000, tp: 0.00000) [no changes]
+2025.11.17 21:11:54.668	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
+2025.11.17 21:11:54.668	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
+2025.11.17 21:11:54.668	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
