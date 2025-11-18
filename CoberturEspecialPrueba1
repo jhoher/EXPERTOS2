@@ -380,10 +380,8 @@ void CPanelTrading::ActualizarSLTPDinamicos()
 //+------------------------------------------------------------------+
 double CPanelTrading::CalcularLotajeNeutralizacion()
 {
-   double volumenCompraTot = 0;
-   double volumenVentaTot = 0;
-   double precioCompraProm = 0;
-   double precioVentaProm = 0;
+   double volumenBuyTotal = 0;
+   double volumenSellTotal = 0;
    
    Print("========== CALCULANDO LOTAJE DE NEUTRALIZACION ==========");
    
@@ -408,22 +406,12 @@ double CPanelTrading::CalcularLotajeNeutralizacion()
             
             if(tipoReal == ORDER_TYPE_BUY)
             {
-               if(volumenCompraTot == 0)
-                  precioCompraProm = precioApertura;
-               else
-                  precioCompraProm = (precioCompraProm * volumenCompraTot + precioApertura * volumen) / (volumenCompraTot + volumen);
-               
-               volumenCompraTot += volumen;
+               volumenBuyTotal += volumen;
                Print("  Nivel ", nivel, " BUY: ", DoubleToString(volumen, 2), " @ ", DoubleToString(precioApertura, _Digits));
             }
             else
             {
-               if(volumenVentaTot == 0)
-                  precioVentaProm = precioApertura;
-               else
-                  precioVentaProm = (precioVentaProm * volumenVentaTot + precioApertura * volumen) / (volumenVentaTot + volumen);
-               
-               volumenVentaTot += volumen;
+               volumenSellTotal += volumen;
                Print("  Nivel ", nivel, " SELL: ", DoubleToString(volumen, 2), " @ ", DoubleToString(precioApertura, _Digits));
             }
          }
@@ -431,48 +419,29 @@ double CPanelTrading::CalcularLotajeNeutralizacion()
    }
    
    Print("----------------------------------------------");
-   Print("BUY acumulado: ", DoubleToString(volumenCompraTot, 2), " lotes @ ", DoubleToString(precioCompraProm, _Digits));
-   Print("SELL acumulado: ", DoubleToString(volumenVentaTot, 2), " lotes @ ", DoubleToString(precioVentaProm, _Digits));
+   Print("BUY acumulado: ", DoubleToString(volumenBuyTotal, 2), " lotes");
+   Print("SELL acumulado: ", DoubleToString(volumenSellTotal, 2), " lotes");
+   Print("Nivel de activacion: ", g_nivel_activacion_cierre);
    
-   // Determinar el tipo de la entrada del nivel de activación
-   int nivelActivacion = g_nivel_activacion_cierre;
-   ENUM_ORDER_TYPE tipoActivacion = DeterminarTipoOrdenPorNivel(nivelActivacion);
+   // Determinar el tipo de la próxima entrada
+   ENUM_ORDER_TYPE tipoActivacion = DeterminarTipoOrdenPorNivel(g_nivel_activacion_cierre);
    
-   Print("Nivel de activacion: ", nivelActivacion);
-   Print("Tipo de entrada neutralizadora: ", (tipoActivacion == ORDER_TYPE_BUY ? "BUY" : "SELL"));
-   
-   // LÓGICA CENTRAL: Calcular el lotaje necesario para IGUALAR volúmenes
+   // Calcular lotaje para igualar volúmenes
    double lotajeNecesario = 0;
    
    if(tipoActivacion == ORDER_TYPE_BUY)
    {
-      // Si la entrada es BUY, necesitamos igualar con el volumen SELL
-      if(volumenVentaTot > volumenCompraTot)
-      {
-         lotajeNecesario = volumenVentaTot - volumenCompraTot;
-         Print(">>> Se necesita BUY de ", DoubleToString(lotajeNecesario, 2), 
-               " lotes para igualar con SELL");
-      }
-      else
-      {
-         Print(">>> BUY ya es mayor o igual a SELL, usando lotaje normal");
-         return 0; // Usar martingala normal
-      }
+      // Si vamos a abrir BUY, necesitamos igualar con SELL
+      lotajeNecesario = volumenSellTotal - volumenBuyTotal;
+      Print("Tipo de entrada neutralizadora: BUY");
+      Print(">>> Se necesita BUY de ", DoubleToString(lotajeNecesario, 2), " lotes para igualar con SELL");
    }
-   else // ORDER_TYPE_SELL
+   else
    {
-      // Si la entrada es SELL, necesitamos igualar con el volumen BUY
-      if(volumenCompraTot > volumenVentaTot)
-      {
-         lotajeNecesario = volumenCompraTot - volumenVentaTot;
-         Print(">>> Se necesita SELL de ", DoubleToString(lotajeNecesario, 2), 
-               " lotes para igualar con BUY");
-      }
-      else
-      {
-         Print(">>> SELL ya es mayor o igual a BUY, usando lotaje normal");
-         return 0; // Usar martingala normal
-      }
+      // Si vamos a abrir SELL, necesitamos igualar con BUY
+      lotajeNecesario = volumenBuyTotal - volumenSellTotal;
+      Print("Tipo de entrada neutralizadora: SELL");
+      Print(">>> Se necesita SELL de ", DoubleToString(lotajeNecesario, 2), " lotes para igualar con BUY");
    }
    
    // Normalizar el lotaje a los límites del símbolo
@@ -487,13 +456,20 @@ double CPanelTrading::CalcularLotajeNeutralizacion()
    Print("----------------------------------------------");
    Print("Lotaje calculado (normalizado): ", DoubleToString(lotajeNecesario, 2));
    
-   // Verificación final
-   double volumenFinalBuy = (tipoActivacion == ORDER_TYPE_BUY) ? volumenCompraTot + lotajeNecesario : volumenCompraTot;
-   double volumenFinalSell = (tipoActivacion == ORDER_TYPE_SELL) ? volumenVentaTot + lotajeNecesario : volumenVentaTot;
+   // Verificar resultado final
+   if(tipoActivacion == ORDER_TYPE_BUY)
+   {
+      Print("Volumen final BUY: ", DoubleToString(volumenBuyTotal + lotajeNecesario, 2));
+      Print("Volumen final SELL: ", DoubleToString(volumenSellTotal, 2));
+      Print("Diferencia: ", DoubleToString(MathAbs((volumenBuyTotal + lotajeNecesario) - volumenSellTotal), 2));
+   }
+   else
+   {
+      Print("Volumen final BUY: ", DoubleToString(volumenBuyTotal, 2));
+      Print("Volumen final SELL: ", DoubleToString(volumenSellTotal + lotajeNecesario, 2));
+      Print("Diferencia: ", DoubleToString(MathAbs(volumenBuyTotal - (volumenSellTotal + lotajeNecesario)), 2));
+   }
    
-   Print("Volumen final BUY: ", DoubleToString(volumenFinalBuy, 2));
-   Print("Volumen final SELL: ", DoubleToString(volumenFinalSell, 2));
-   Print("Diferencia: ", DoubleToString(MathAbs(volumenFinalBuy - volumenFinalSell), 2));
    Print("==========================================================");
    
    return lotajeNecesario;
@@ -819,31 +795,35 @@ void CPanelTrading::VerificarYGestionarOrdenes()
       // Cancelar órdenes pendientes anteriores
       CancelarTodasLasOrdenesPendientes();
       
-      // ========== VERIFICAR SI YA SE ALCANZÓ EL NIVEL DE ACTIVACIÓN ==========
-      // Si ya estamos en el nivel de activación o superior, NO programar más entradas
+      // ========== MODIFICACIÓN: CIERRE VIRTUAL ==========
+      // Si ya se alcanzó el nivel de activación del cierre virtual,
+      // NO programar más órdenes
       if(ultimoNivel >= g_nivel_activacion_cierre)
       {
-         Print(">>> NIVEL DE ACTIVACION ALCANZADO - NO SE PROGRAMAN MAS ENTRADAS <<<");
-         Print("Nivel actual: ", ultimoNivel, " >= Nivel activacion: ", g_nivel_activacion_cierre);
-         return; // Salir sin programar más entradas
+         Print("=== CIERRE VIRTUAL ACTIVADO en nivel ", ultimoNivel, " ===");
+         Print(">>> NO se programaran mas ordenes pendientes");
+         Print(">>> Volúmenes BUY y SELL igualados");
+         Print(">>> Esperando que precio alcance TP o SL");
+         return; // Salir sin programar más órdenes
       }
-      // ========================================================================
+      // ========== FIN MODIFICACIÓN ==========
       
       // Calcular parámetros para el siguiente nivel
       int siguienteNivel = ultimoNivel + 1;
       double siguienteLote;
       
       // Si el siguiente nivel es el nivel de activación del cierre virtual,
-      // calcular lotaje que neutraliza pérdidas
+      // calcular lotaje que neutraliza pérdidas (iguala volúmenes)
       if(siguienteNivel == g_nivel_activacion_cierre)
       {
          siguienteLote = CalcularLotajeNeutralizacion();
          
-         // Si retorna 0, usar lotaje normal de martingala
-         if(siguienteLote == 0)
+         // Si retorna un valor muy pequeño, usar lotaje mínimo
+         double minLot = SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MIN);
+         if(siguienteLote < minLot)
          {
-            siguienteLote = ultimoLote * 2;
-            Print(">>> Usando lotaje normal de martingala: ", DoubleToString(siguienteLote, 2));
+            siguienteLote = minLot;
+            Print(">>> Lotaje muy pequeño, usando lotaje minimo: ", DoubleToString(siguienteLote, 2));
          }
          else
          {
@@ -908,21 +888,25 @@ void CPanelTrading::VerificarYGestionarOrdenes()
       }
    }
    
-   // MODIFICACIÓN: Solo verificar órdenes pendientes si NO hemos llegado al nivel de activación
-   if(g_nivel_actual < g_nivel_activacion_cierre)
+   // ========== MODIFICACIÓN: NO VERIFICAR ÓRDENES PENDIENTES SI CIERRE VIRTUAL ACTIVO ==========
+   // Si ya alcanzamos el nivel de cierre virtual, es NORMAL no tener órdenes pendientes
+   if(g_nivel_actual >= g_nivel_activacion_cierre)
    {
-      // Verificar si no hay órdenes pendientes cuando debería haberlas
-      if(hayPosiciones && g_nivel_actual > 0 && !VerificarOrdenPendienteActiva())
+      return; // No verificar órdenes pendientes
+   }
+   // ========== FIN MODIFICACIÓN ==========
+   
+   // Verificar si no hay órdenes pendientes cuando debería haberlas
+   if(hayPosiciones && g_nivel_actual > 0 && !VerificarOrdenPendienteActiva())
+   {
+      static int ticksSinOrdenPendiente = 0;
+      ticksSinOrdenPendiente++;
+      
+      if(ticksSinOrdenPendiente >= 5)
       {
-         static int ticksSinOrdenPendiente = 0;
-         ticksSinOrdenPendiente++;
-         
-         if(ticksSinOrdenPendiente >= 5)
-         {
-            Print("No hay ordenes pendientes activas - Cerrando secuencia");
-            CerrarOrdenesDeSecuencia();
-            ticksSinOrdenPendiente = 0;
-         }
+         Print("No hay ordenes pendientes activas - Cerrando secuencia");
+         CerrarOrdenesDeSecuencia();
+         ticksSinOrdenPendiente = 0;
       }
    }
 }
