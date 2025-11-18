@@ -581,34 +581,56 @@ bool CPanelTrading::IniciarSistemaTrading(ENUM_ORDER_TYPE tipoOrden)
       g_precio_entrada2 = g_precio_entrada1 + (g_distancia_ticks * punto);
    }
    
-   // ========== CALCULAR PRECIOS DE COBERTURA FIJOS UNA SOLA VEZ ==========
-   // Precio de cobertura E#1: desde g_precio_entrada1
+   // ========== CALCULAR PRECIOS DE COBERTURA FIJOS ==========
+   // Estos precios se calculan UNA SOLA VEZ al inicio
+   
+   // Precio de cobertura para Entrada#1 (niveles IMPARES)
    if(tipoOrden == ORDER_TYPE_BUY)
    {
-      g_precio_cobertura_E1 = NormalizeDouble(g_precio_entrada1 + (g_tp1_ticks * punto), _Digits);
+      g_precio_cobertura_E1 = g_precio_entrada1 + (g_tp1_ticks * punto);
    }
-   else  // SELL
+   else
    {
-      g_precio_cobertura_E1 = NormalizeDouble(g_precio_entrada1 - (g_tp1_ticks * punto), _Digits);
+      g_precio_cobertura_E1 = g_precio_entrada1 - (g_tp1_ticks * punto);
    }
    
-   // Precio de cobertura E#2: desde g_precio_entrada2
-   ENUM_ORDER_TYPE tipoE2 = (tipoOrden == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
-   if(tipoE2 == ORDER_TYPE_BUY)
-   {
-      g_precio_cobertura_E2 = NormalizeDouble(g_precio_entrada2 + (g_tp2_ticks * punto), _Digits);
-   }
-   else  // SELL
-   {
-      g_precio_cobertura_E2 = NormalizeDouble(g_precio_entrada2 - (g_tp2_ticks * punto), _Digits);
-   }
-   
-   Print("Precio Cobertura E#1 (FIJO): ", DoubleToString(g_precio_cobertura_E1, _Digits));
-   Print("Precio Cobertura E#2 (FIJO): ", DoubleToString(g_precio_cobertura_E2, _Digits));
-   // =======================================================================
-   
+   // Precio de cobertura para Entrada#2 (niveles PARES)
    ENUM_ORDER_TYPE tipoNivel2 = DeterminarTipoOrdenPorNivel(2);
-   ColocarOrdenPendiente(tipoNivel2, g_precio_entrada2, g_lote_inicial * 2, g_tp2_ticks, 2);
+   if(tipoNivel2 == ORDER_TYPE_BUY)
+   {
+      g_precio_cobertura_E2 = g_precio_entrada2 + (g_tp2_ticks * punto);
+   }
+   else
+   {
+      g_precio_cobertura_E2 = g_precio_entrada2 - (g_tp2_ticks * punto);
+   }
+   
+   Print(">>> Precio Cobertura E#1 (fijo): ", DoubleToString(g_precio_cobertura_E1, _Digits));
+   Print(">>> Precio Cobertura E#2 (fijo): ", DoubleToString(g_precio_cobertura_E2, _Digits));
+   // ========== FIN CÁLCULO PRECIOS DE COBERTURA ==========
+   
+   // ========== CALCULAR LOTAJE PARA ENTRADA#2 ==========
+   double lotajeNivel2;
+   
+   // Si el nivel de activación es 2, usar neutralización
+   if(g_nivel_activacion_cierre == 2)
+   {
+      // Para nivel 2, igualar con el lote inicial
+      lotajeNivel2 = g_lote_inicial;
+      
+      Print(">>> CIERRE VIRTUAL = 2: Entrada#2 se programa con NEUTRALIZACION");
+      Print(">>> Lotaje Entrada#1: ", DoubleToString(g_lote_inicial, 2));
+      Print(">>> Lotaje Entrada#2: ", DoubleToString(lotajeNivel2, 2), " (IGUALANDO)");
+   }
+   else
+   {
+      // Para otros niveles, usar martingala normal
+      lotajeNivel2 = g_lote_inicial * 2;
+      Print(">>> Entrada#2 se programa con martingala: ", DoubleToString(lotajeNivel2, 2));
+   }
+   // ========== FIN CÁLCULO LOTAJE ==========
+   
+   ColocarOrdenPendiente(tipoNivel2, g_precio_entrada2, lotajeNivel2, g_tp2_ticks, 2);
    
    Print("Sistema iniciado - Entrada#1: ", g_precio_entrada1, " Entrada#2: ", g_precio_entrada2);
    Print("Secuencia de tipos: ", (tipoOrden == ORDER_TYPE_BUY ? "BUY-SELL-BUY-SELL..." : "SELL-BUY-SELL-BUY..."));
@@ -795,20 +817,20 @@ void CPanelTrading::VerificarYGestionarOrdenes()
       // Cancelar órdenes pendientes anteriores
       CancelarTodasLasOrdenesPendientes();
       
-      // ========== MODIFICACIÓN: CIERRE VIRTUAL ==========
-      // Si ya se alcanzó el nivel de activación del cierre virtual,
+      // ========== VERIFICACIÓN CRÍTICA: ANTES DE PROGRAMAR SIGUIENTE ==========
+      // Si ya alcanzó el nivel de activación del cierre virtual,
       // NO programar más órdenes
       if(ultimoNivel >= g_nivel_activacion_cierre)
       {
          Print("=== CIERRE VIRTUAL ACTIVADO en nivel ", ultimoNivel, " ===");
          Print(">>> NO se programaran mas ordenes pendientes");
-         Print(">>> Volúmenes BUY y SELL igualados");
+         Print(">>> Volumenes BUY y SELL igualados");
          Print(">>> Esperando que precio alcance TP o SL");
-         return; // Salir sin programar más órdenes
+         return; // ← SALIR AQUÍ, ANTES DE PROGRAMAR SIGUIENTE
       }
-      // ========== FIN MODIFICACIÓN ==========
+      // ========== FIN VERIFICACIÓN ==========
       
-      // Calcular parámetros para el siguiente nivel
+      // Si NO alcanzó el nivel de cierre virtual, continuar con martingala normal
       int siguienteNivel = ultimoNivel + 1;
       double siguienteLote;
       
@@ -877,6 +899,12 @@ void CPanelTrading::VerificarYGestionarOrdenes()
    }
    else if(hayPosiciones && g_nivel_actual > 0)
    {
+      // Protección para NO actualizar SL/TP si Cierre virtual = 2 y solo hay Entrada#1
+      if(g_nivel_activacion_cierre == 2 && g_nivel_actual == 1)
+      {
+         return; // Mantener el TP original de Entrada#1
+      }
+      
       // Actualizar SL/TP en cada tick para ajustar al spread
       // Solo actualizar cada 10 ticks para no saturar
       static int contadorTicks = 0;
@@ -888,13 +916,11 @@ void CPanelTrading::VerificarYGestionarOrdenes()
       }
    }
    
-   // ========== MODIFICACIÓN: NO VERIFICAR ÓRDENES PENDIENTES SI CIERRE VIRTUAL ACTIVO ==========
    // Si ya alcanzamos el nivel de cierre virtual, es NORMAL no tener órdenes pendientes
    if(g_nivel_actual >= g_nivel_activacion_cierre)
    {
       return; // No verificar órdenes pendientes
    }
-   // ========== FIN MODIFICACIÓN ==========
    
    // Verificar si no hay órdenes pendientes cuando debería haberlas
    if(hayPosiciones && g_nivel_actual > 0 && !VerificarOrdenPendienteActiva())
