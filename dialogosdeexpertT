@@ -1,0 +1,75 @@
+2025.11.18 11:57:53.094	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.18 11:57:53.094	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 1.31150
+2025.11.18 11:57:53.094	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 1.31871
+2025.11.18 11:57:53.094	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 1
+2025.11.18 11:57:53.094	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
+2025.11.18 11:57:53.094	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 1.31150
+2025.11.18 11:57:53.094	CoberturaEspecial prueba1 (GBPUSD,M2)	  SELL #205517767 Nivel 1 -> TP: 1.31150
+2025.11.18 11:57:53.094	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205517767 GBPUSD (sl: 0.00000, tp: 1.31150) [no changes]
+2025.11.18 11:57:53.094	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
+2025.11.18 11:57:53.094	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 0
+2025.11.18 11:57:53.094	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
+2025.11.18 13:35:05.979	CoberturaEspecial prueba1 (GBPUSD,M2)	Nueva posición abierta - Nivel: 2
+2025.11.18 13:35:05.979	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.18 13:35:05.979	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 1.31150
+2025.11.18 13:35:05.979	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 1.31871
+2025.11.18 13:35:05.979	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 2
+2025.11.18 13:35:05.979	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: PAR (usa E#2)
+2025.11.18 13:35:05.979	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 1.31871
+2025.11.18 13:35:05.979	CoberturaEspecial prueba1 (GBPUSD,M2)	  SELL #205517767 Nivel 1 -> SL: 1.31871
+2025.11.18 13:35:06.201	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205517768 Nivel 2 -> TP: 1.31871
+2025.11.18 13:35:06.202	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205517768 GBPUSD (sl: 0.00000, tp: 1.31871) [no changes]
+2025.11.18 13:35:06.202	CoberturaEspecial prueba1 (GBPUSD,M2)	========== CALCULANDO LOTAJE DE NEUTRALIZACION ==========
+2025.11.18 13:35:06.202	CoberturaEspecial prueba1 (GBPUSD,M2)	  Nivel 1 SELL: 0.01 @ 1.31483
+2025.11.18 13:35:06.202	CoberturaEspecial prueba1 (GBPUSD,M2)	  Nivel 2 BUY: 0.02 @ 1.31538
+2025.11.18 13:35:06.203	CoberturaEspecial prueba1 (GBPUSD,M2)	----------------------------------------------
+2025.11.18 13:35:06.203	CoberturaEspecial prueba1 (GBPUSD,M2)	BUY acumulado: 0.02 lotes
+2025.11.18 13:35:06.203	CoberturaEspecial prueba1 (GBPUSD,M2)	SELL acumulado: 0.01 lotes
+2025.11.18 13:35:06.203	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel de activacion: 3
+2025.11.18 13:35:06.203	CoberturaEspecial prueba1 (GBPUSD,M2)	Tipo de entrada neutralizadora: SELL
+2025.11.18 13:35:06.203	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Se necesita SELL de 0.01 lotes para igualar con BUY
+2025.11.18 13:35:06.204	CoberturaEspecial prueba1 (GBPUSD,M2)	----------------------------------------------
+2025.11.18 13:35:06.204	CoberturaEspecial prueba1 (GBPUSD,M2)	Lotaje calculado (normalizado): 0.01
+2025.11.18 15:37:22.955	CoberturaEspecial prueba1 (GBPUSD,M2)	Nueva posición abierta - Nivel: 3
+2025.11.18 15:37:22.955	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Actualizando SL/TP Dinamicos (FIJOS) ---
+2025.11.18 15:37:22.955	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#1: 1.31150
+2025.11.18 15:37:22.955	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio Cobertura E#2: 1.31871
+2025.11.18 15:37:22.955	CoberturaEspecial prueba1 (GBPUSD,M2)	Nivel actual mas alto: 3
+2025.11.18 15:37:22.955	CoberturaEspecial prueba1 (GBPUSD,M2)	Paridad nivel actual: IMPAR (usa E#1)
+2025.11.18 15:37:22.955	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio de cobertura a usar: 1.31150
+2025.11.18 15:37:22.955	CoberturaEspecial prueba1 (GBPUSD,M2)	  SELL #205517767 Nivel 1 -> TP: 1.31150
+2025.11.18 15:37:23.043	CoberturaEspecial prueba1 (GBPUSD,M2)	  BUY #205517768 Nivel 2 -> SL: 1.31150
+2025.11.18 15:37:23.124	CoberturaEspecial prueba1 (GBPUSD,M2)	  SELL #205554094 Nivel 3 -> TP: 1.31150
+2025.11.18 15:37:23.124	CoberturaEspecial prueba1 (GBPUSD,M2)	CTrade::OrderSend: modify position #205554094 GBPUSD (sl: 0.00000, tp: 1.31150) [no changes]
+2025.11.18 15:37:23.124	CoberturaEspecial prueba1 (GBPUSD,M2)	    Error: no changes
+2025.11.18 15:37:23.124	CoberturaEspecial prueba1 (GBPUSD,M2)	Total modificadas: 2
+2025.11.18 15:37:23.124	CoberturaEspecial prueba1 (GBPUSD,M2)	--------------------------------------
+2025.11.18 15:37:23.124	CoberturaEspecial prueba1 (GBPUSD,M2)	=== CIERRE VIRTUAL ACTIVADO en nivel 3 ===
+2025.11.18 15:37:23.124	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> NO se programaran mas ordenes pendientes
+2025.11.18 15:37:23.124	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Sistema Roll-Off gestionara los cierres
+2025.11.18 15:37:23.175	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.11.18 15:37:23.175	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> SISTEMA ROLL-OFF ACTIVADO <<<
+2025.11.18 15:37:23.175	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Nivel: 3
+2025.11.18 15:37:23.175	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Precio activación: 1.31485
+2025.11.18 15:37:23.175	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Umbral movimiento: 100 ticks
+2025.11.18 15:37:23.175	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Ganancia objetivo: 0.05
+2025.11.18 20:05:06.360	Roll-Off activo | Movimiento: 89 ticks | P&L: -1.05 | Objetivo: 0.05
+2025.11.18 20:05:31.820	>>> UMBRAL ALCANZADO: 100 ticks
+2025.11.18 20:05:31.822	>>> Ejecutando Roll-Off...
+2025.11.18 20:05:31.822	========== EJECUTANDO ROLL-OFF ==========
+2025.11.18 20:05:31.825	P&L BUY: -2.72 | P&L SELL: 1.64
+2025.11.18 20:05:31.825	Lado ganador: SELL
+2025.11.18 20:05:31.825	Estrategia: Cerrar 100% ganadoras + 50% perdedoras
+2025.11.18 20:05:31.826	  Cerrando 100% GANADORA: Ticket #205554094 Tipo: SELL Vol: 0.01 P&L: 0.84
+2025.11.18 20:05:32.046	  Cerrando 100% GANADORA: Ticket #205517767 Tipo: SELL Vol: 0.01 P&L: 0.84
+2025.11.18 20:05:32.257	  Cerrando 50% PERDEDORA: Ticket #205517768 Tipo: BUY Vol Total: 0.02 Vol a Cerrar: 0.01 P&L: -2.68
+2025.11.18 20:05:32.463	----------------------------------------------
+2025.11.18 20:05:32.465	RESULTADO ROLL-OFF:
+2025.11.18 20:05:32.465	  Posiciones cerradas/reducidas: 3
+2025.11.18 20:05:32.465	  Ganancia bruta: 0.34
+2025.11.18 20:05:32.465	  Comisiones: 0.00
+2025.11.18 20:05:32.465	  GANANCIA NETA: 0.34
+2025.11.18 20:05:32.465	==========================================
+2025.11.18 20:05:32.465	>>> GANANCIA OBJETIVO ALCANZADA! Cerrando todas las posiciones restantes...
+2025.11.18 20:05:32.676	>>> TODAS LAS POSICIONES CERRADAS - OBJETIVO COMPLETADO!
+
