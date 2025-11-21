@@ -48,6 +48,539 @@ double g_ganancia_objetivo = 0;
 double g_precio_cobertura_E1 = 0;  // TP fijo de Entrada#1
 double g_precio_cobertura_E2 = 0;  // TP fijo de Entrada#2
 
+// ============== VARIABLES GLOBALES ADICIONALES PARA ROLL-OFF ==============
+bool g_roll_off_activo = false;           // Indica si el sistema Roll-Off está activo
+double g_precio_activacion_roll_off = 0;  // Precio donde se activó la neutralización
+int g_ticks_umbral_roll_off = 300;        // Umbral de movimiento favorable para Roll-Off (30 pips = 300 ticks)
+datetime g_ultimo_roll_off = 0;           // Timestamp del último Roll-Off ejecutado
+double g_perdidas_acumuladas_rolloff = 0;    // Acumula P&L de todas las órdenes cerradas en Roll-Off
+double g_comisiones_acumuladas_rolloff = 0;  // Acumula todas las comisiones de Roll-Off
+int g_ciclos_rolloff = 0;                    // Contador de ciclos de Roll-Off ejecutados
+
+
+//+------------------------------------------------------------------+
+//| Calcular volúmenes totales BUY y SELL                           |
+//+------------------------------------------------------------------+
+void CalcularVolumenesTotales(double &volumenBuyTotal, double &volumenSellTotal)
+{
+   volumenBuyTotal = 0;
+   volumenSellTotal = 0;
+   
+   CPositionInfo posInfo;
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            double volumen = posInfo.Volume();
+            string comentario = posInfo.Comment();
+            int nivel = 0;
+            
+            if(StringFind(comentario, "Nivel_") >= 0)
+            {
+               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+            }
+            
+            // Determinar tipo real según nivel
+            ENUM_ORDER_TYPE tipoReal;
+            if(nivel % 2 == 1)
+               tipoReal = g_tipo_inicial;
+            else
+               tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
+            
+            if(tipoReal == ORDER_TYPE_BUY)
+               volumenBuyTotal += volumen;
+            else
+               volumenSellTotal += volumen;
+         }
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Verificar si hay neutralización de volúmenes                     |
+//+------------------------------------------------------------------+
+bool VerificarNeutralizacion()
+{
+   double volBuy = 0, volSell = 0;
+   CalcularVolumenesTotales(volBuy, volSell);
+   
+   double diferencia = MathAbs(volBuy - volSell);
+   double minVol = SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MIN);
+   
+   // Se considera neutralizado si la diferencia es menor al volumen mínimo
+   return (diferencia < minVol * 2);
+}
+
+//+------------------------------------------------------------------+
+//| Calcular P&L actual de todas las posiciones                     |
+//+------------------------------------------------------------------+
+double CalcularPLTotal()
+{
+   double plTotal = 0;
+   CPositionInfo posInfo;
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            plTotal += posInfo.Profit() + posInfo.Swap() + posInfo.Commission();
+         }
+      }
+   }
+   
+   return plTotal;
+}
+
+//+------------------------------------------------------------------+
+//| Calcular P&L separado por tipo (BUY/SELL)                       |
+//+------------------------------------------------------------------+
+void CalcularPLPorTipo(double &plBuy, double &plSell)
+{
+   plBuy = 0;
+   plSell = 0;
+   
+   CPositionInfo posInfo;
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            double pl = posInfo.Profit() + posInfo.Swap() + posInfo.Commission();
+            string comentario = posInfo.Comment();
+            int nivel = 0;
+            
+            if(StringFind(comentario, "Nivel_") >= 0)
+            {
+               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+            }
+            
+            // Determinar tipo real según nivel
+            ENUM_ORDER_TYPE tipoReal;
+            if(nivel % 2 == 1)
+               tipoReal = g_tipo_inicial;
+            else
+               tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
+            
+            if(tipoReal == ORDER_TYPE_BUY)
+               plBuy += pl;
+            else
+               plSell += pl;
+         }
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Ejecutar Roll-Off: Cerrar ganadoras 100% y perdedoras 50%       |
+//+------------------------------------------------------------------+
+bool EjecutarRollOff()
+{
+   Print("========== EJECUTANDO ROLL-OFF ==========");
+   
+   CTrade trade;
+   CPositionInfo posInfo;
+   trade.SetExpertMagicNumber(g_numero_magico);
+   
+   // Calcular P&L por tipo
+   double plBuy = 0, plSell = 0;
+   CalcularPLPorTipo(plBuy, plSell);
+   
+   Print("P&L BUY: ", DoubleToString(plBuy, 2), " | P&L SELL: ", DoubleToString(plSell, 2));
+   
+   // Determinar qué lado es ganador
+   bool buyGanando = (plBuy > plSell);
+   
+   Print("Lado ganador: ", (buyGanando ? "BUY" : "SELL"));
+   Print("ESTRATEGIA: Cerrar 100% PERDEDORAS + Dejar correr 100% GANADORAS");
+   
+   double gananciaEsteCiclo = 0;
+   double comisionEsteCiclo = 0;
+   int posicionesCerradas = 0;
+   
+   // CERRAR 100% de las posiciones PERDEDORAS
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            string comentario = posInfo.Comment();
+            int nivel = 0;
+            
+            if(StringFind(comentario, "Nivel_") >= 0)
+            {
+               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+            }
+            
+            // Determinar tipo real según nivel
+            ENUM_ORDER_TYPE tipoReal;
+            if(nivel % 2 == 1)
+               tipoReal = g_tipo_inicial;
+            else
+               tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
+            
+            // Identificar PERDEDORAS
+            bool esPerdedora = (!buyGanando && tipoReal == ORDER_TYPE_BUY) || 
+                              (buyGanando && tipoReal == ORDER_TYPE_SELL);
+            
+            if(esPerdedora)
+            {
+               ulong ticket = posInfo.Ticket();
+               double volumen = posInfo.Volume();
+               double profit = posInfo.Profit();
+               double swap = posInfo.Swap();
+               double comisionActual = posInfo.Commission();
+               
+               double comisionCierre = CalcularComisionPepperstone(volumen, _Symbol);
+               
+               Print("  Cerrando 100% PERDEDORA: Ticket #", ticket, 
+                     " Tipo: ", (tipoReal == ORDER_TYPE_BUY ? "BUY" : "SELL"),
+                     " Vol: ", DoubleToString(volumen, 2),
+                     " P&L: ", DoubleToString(profit, 2),
+                     " Swap: ", DoubleToString(swap, 2),
+                     " Com.Apertura: ", DoubleToString(comisionActual, 2),
+                     " Com.Cierre: ", DoubleToString(comisionCierre, 2));
+               
+               if(trade.PositionClose(ticket))
+               {
+                  gananciaEsteCiclo += profit + swap + comisionActual;
+                  comisionEsteCiclo += comisionCierre;
+                  posicionesCerradas++;
+                  Sleep(100);
+               }
+               else
+               {
+                  Print("    ERROR al cerrar: ", trade.ResultRetcodeDescription());
+               }
+            }
+         }
+      }
+   }
+   
+   // NO cerrar ganadoras, solo reportarlas
+   Print("--- Posiciones GANADORAS que quedan abiertas ---");
+   int ganadorasAbiertas = 0;
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            string comentario = posInfo.Comment();
+            int nivel = 0;
+            
+            if(StringFind(comentario, "Nivel_") >= 0)
+            {
+               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+            }
+            
+            ENUM_ORDER_TYPE tipoReal;
+            if(nivel % 2 == 1)
+               tipoReal = g_tipo_inicial;
+            else
+               tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
+            
+            bool esGanadora = (buyGanando && tipoReal == ORDER_TYPE_BUY) || 
+                            (!buyGanando && tipoReal == ORDER_TYPE_SELL);
+            
+            if(esGanadora)
+            {
+               ulong ticket = posInfo.Ticket();
+               double volumen = posInfo.Volume();
+               double profit = posInfo.Profit();
+               
+               Print("  GANADORA ABIERTA: Ticket #", ticket,
+                     " Tipo: ", (tipoReal == ORDER_TYPE_BUY ? "BUY" : "SELL"),
+                     " Vol: ", DoubleToString(volumen, 2),
+                     " P&L actual: ", DoubleToString(profit, 2));
+               ganadorasAbiertas++;
+            }
+         }
+      }
+   }
+   
+   // Actualizar contabilidad acumulada global
+   g_perdidas_acumuladas_rolloff += gananciaEsteCiclo; // Será negativo si hay pérdidas
+   g_comisiones_acumuladas_rolloff += comisionEsteCiclo;
+   g_ciclos_rolloff++;
+   
+   Print("----------------------------------------------");
+   Print("RESULTADO DE ESTE CICLO #", g_ciclos_rolloff, ":");
+   Print("  Perdedoras cerradas: ", posicionesCerradas);
+   Print("  Ganadoras dejadas abiertas: ", ganadorasAbiertas);
+   Print("  P&L de cerradas: ", DoubleToString(gananciaEsteCiclo, 2));
+   Print("  Comisiones de cierre: ", DoubleToString(comisionEsteCiclo, 2));
+   Print("  Neto de este ciclo: ", DoubleToString(gananciaEsteCiclo - comisionEsteCiclo, 2));
+   Print("");
+   Print("CONTABILIDAD ACUMULADA (todos los ciclos):");
+   Print("  Total ciclos Roll-Off: ", g_ciclos_rolloff);
+   Print("  Pérdidas acumuladas: ", DoubleToString(g_perdidas_acumuladas_rolloff, 2));
+   Print("  Comisiones acumuladas: ", DoubleToString(g_comisiones_acumuladas_rolloff, 2));
+   Print("  SALDO NETO ACUMULADO: ", DoubleToString(g_perdidas_acumuladas_rolloff - g_comisiones_acumuladas_rolloff, 2));
+   Print("==========================================");
+   
+   g_ultimo_roll_off = TimeCurrent();
+   
+   // Calcular ganancia total considerando las ganadoras abiertas + saldo acumulado
+   double plTotalActual = 0;
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            plTotalActual += posInfo.Profit() + posInfo.Swap() + posInfo.Commission();
+         }
+      }
+   }
+   
+   // Calcular comisiones de cierre pendientes de las posiciones abiertas
+   double comisionesCierrePendientes = 0;
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            double vol = posInfo.Volume();
+            comisionesCierrePendientes += CalcularComisionPepperstone(vol, _Symbol);
+         }
+      }
+   }
+   
+   double gananciaProyectada = plTotalActual + g_perdidas_acumuladas_rolloff - g_comisiones_acumuladas_rolloff - comisionesCierrePendientes;
+   
+   Print("");
+   Print("PROYECCIÓN DE GANANCIA:");
+   Print("  P&L posiciones abiertas: ", DoubleToString(plTotalActual, 2));
+   Print("  Saldo acumulado ciclos: ", DoubleToString(g_perdidas_acumuladas_rolloff - g_comisiones_acumuladas_rolloff, 2));
+   Print("  Comisiones cierre pendientes: ", DoubleToString(comisionesCierrePendientes, 2));
+   Print("  GANANCIA PROYECTADA: ", DoubleToString(gananciaProyectada, 2));
+   Print("  Objetivo: ", DoubleToString(g_ganancia_objetivo, 2));
+   Print("");
+   
+   // Verificar si alcanzamos la ganancia objetivo
+   if(gananciaProyectada >= g_ganancia_objetivo)
+   {
+      Print(">>> GANANCIA OBJETIVO ALCANZADA!");
+      Print(">>> Cerrando todas las posiciones restantes...");
+      
+      double gananciaFinal = 0;
+      double comisionFinal = 0;
+      
+      for(int i = PositionsTotal() - 1; i >= 0; i--)
+      {
+         if(posInfo.SelectByIndex(i))
+         {
+            if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+            {
+               double volRestante = posInfo.Volume();
+               double profitRestante = posInfo.Profit();
+               double swapRestante = posInfo.Swap();
+               double comisionRestante = posInfo.Commission();
+               
+               double comisionCierreRestante = CalcularComisionPepperstone(volRestante, _Symbol);
+               
+               gananciaFinal += profitRestante + swapRestante + comisionRestante;
+               comisionFinal += comisionCierreRestante;
+               
+               Print("  Cerrando ganadora: Vol: ", DoubleToString(volRestante, 2),
+                     " P&L: ", DoubleToString(profitRestante, 2));
+               
+               trade.PositionClose(posInfo.Ticket());
+               Sleep(100);
+            }
+         }
+      }
+      
+      // Actualizar contabilidad final
+      g_perdidas_acumuladas_rolloff += gananciaFinal;
+      g_comisiones_acumuladas_rolloff += comisionFinal;
+      
+      Print("----------------------------------------------");
+      Print("CIERRE FINAL COMPLETO:");
+      Print("  Ganancia de posiciones cerradas: ", DoubleToString(gananciaFinal, 2));
+      Print("  Comisiones de cierre: ", DoubleToString(comisionFinal, 2));
+      Print("");
+      Print("RESULTADO TOTAL DEL SISTEMA:");
+      Print("  Total ciclos ejecutados: ", g_ciclos_rolloff);
+      Print("  Pérdidas acumuladas: ", DoubleToString(g_perdidas_acumuladas_rolloff, 2));
+      Print("  Comisiones totales: ", DoubleToString(g_comisiones_acumuladas_rolloff, 2));
+      Print("  GANANCIA NETA FINAL: ", DoubleToString(g_perdidas_acumuladas_rolloff - g_comisiones_acumuladas_rolloff, 2));
+      Print("==========================================");
+      
+      return true;
+   }
+   else
+   {
+      Print(">>> Ganancia proyectada (", DoubleToString(gananciaProyectada, 2), 
+            ") aún no alcanza objetivo (", DoubleToString(g_ganancia_objetivo, 2), ")");
+      
+      int posRestantes = 0;
+      for(int i = 0; i < PositionsTotal(); i++)
+      {
+         if(posInfo.SelectByIndex(i))
+         {
+            if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+               posRestantes++;
+         }
+      }
+      
+      if(posRestantes == 0)
+      {
+         Print(">>> NO QUEDAN POSICIONES ABIERTAS");
+         Print(">>> Cerrando sistema - Resultado final: ", DoubleToString(g_perdidas_acumuladas_rolloff - g_comisiones_acumuladas_rolloff, 2));
+         g_roll_off_activo = false;
+         g_sistema_activo = false;
+         g_nivel_actual = 0;
+         return true;
+      }
+      else
+      {
+         Print(">>> Quedan ", posRestantes, " posiciones ganadoras abiertas.");
+         Print(">>> Sistema continúa activo. Si el precio retrocede 77 ticks, se reactivará neutralización.");
+      }
+   }
+   
+   return (posicionesCerradas > 0);
+}
+
+//+------------------------------------------------------------------+
+//| Monitorear y gestionar sistema Roll-Off                         |
+//+------------------------------------------------------------------+
+void GestionarSistemaRollOff()
+{
+   if(!g_sistema_activo) return;
+   
+   // Verificar si alcanzamos el nivel de activación del cierre virtual
+   if(g_nivel_actual < g_nivel_activacion_cierre)
+      return;
+   
+   // Verificar si hay neutralización
+   bool hayNeutralizacion = VerificarNeutralizacion();
+   
+   if(!g_roll_off_activo && hayNeutralizacion)
+   {
+      // ACTIVAR sistema Roll-Off por primera vez
+      g_roll_off_activo = true;
+      g_precio_activacion_roll_off = (SymbolInfoDouble(_Symbol, SYMBOL_BID) + 
+                                      SymbolInfoDouble(_Symbol, SYMBOL_ASK)) / 2;
+      
+      Print("========================================");
+      Print(">>> SISTEMA ROLL-OFF ACTIVADO <<<");
+      Print(">>> Nivel: ", g_nivel_actual);
+      Print(">>> Precio activación: ", DoubleToString(g_precio_activacion_roll_off, _Digits));
+      Print(">>> Umbral avance: ", g_ticks_umbral_roll_off, " ticks");
+      Print(">>> Umbral retroceso: 77 ticks");
+      Print(">>> Ganancia objetivo: ", DoubleToString(g_ganancia_objetivo, 2));
+      Print("========================================");
+   }
+   
+   if(g_roll_off_activo)
+   {
+      double precioActual = (SymbolInfoDouble(_Symbol, SYMBOL_BID) + 
+                            SymbolInfoDouble(_Symbol, SYMBOL_ASK)) / 2;
+      
+      double punto = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+      double movimiento = precioActual - g_precio_activacion_roll_off;
+      int ticksMovidos = (int)MathRound(movimiento / punto);
+      
+      // Calcular P&L actual
+      double plTotal = CalcularPLTotal();
+      
+      // Mostrar estado cada 100 ticks
+      static int contadorTicks = 0;
+      contadorTicks++;
+      if(contadorTicks >= 100)
+      {
+         Print("Roll-Off activo | Movimiento: ", ticksMovidos, " ticks | P&L: ", 
+               DoubleToString(plTotal, 2), " | Objetivo: ", DoubleToString(g_ganancia_objetivo, 2));
+         contadorTicks = 0;
+      }
+      
+      // Verificar movimiento FAVORABLE (alcanza umbral de avance)
+      bool movimientoFavorable = (MathAbs(ticksMovidos) >= g_ticks_umbral_roll_off);
+      
+      // Verificar RETROCESO de 77 ticks (para reactivar neutralización)
+      bool hayRetroceso = (ticksMovidos < -77); // Negativo = retroceso
+      
+      if(movimientoFavorable && (TimeCurrent() - g_ultimo_roll_off) > 60)
+      {
+         Print(">>> UMBRAL DE AVANCE ALCANZADO: ", MathAbs(ticksMovidos), " ticks");
+         Print(">>> Ejecutando Roll-Off...");
+         
+         bool exito = EjecutarRollOff();
+         
+         if(exito)
+         {
+            // Actualizar precio de activación para el próximo Roll-Off
+            g_precio_activacion_roll_off = (SymbolInfoDouble(_Symbol, SYMBOL_BID) + 
+                                           SymbolInfoDouble(_Symbol, SYMBOL_ASK)) / 2;
+            
+            // Verificar si aún quedan posiciones
+            int posRestantes = 0;
+            CPositionInfo posInfo;
+            for(int i = 0; i < PositionsTotal(); i++)
+            {
+               if(posInfo.SelectByIndex(i))
+               {
+                  if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+                     posRestantes++;
+               }
+            }
+            
+            if(posRestantes == 0)
+            {
+               Print(">>> TODAS LAS POSICIONES CERRADAS - OBJETIVO COMPLETADO!");
+               g_roll_off_activo = false;
+               g_sistema_activo = false;
+               g_nivel_actual = 0;
+            }
+            else
+            {
+               Print(">>> Roll-Off completado. Quedan ", posRestantes, " posiciones.");
+               Print(">>> Nuevo precio referencia: ", DoubleToString(g_precio_activacion_roll_off, _Digits));
+            }
+         }
+      }
+      else if(hayRetroceso)
+      {
+         Print("========================================");
+         Print(">>> RETROCESO DE 77 TICKS DETECTADO <<<");
+         Print(">>> Precio actual: ", DoubleToString(precioActual, _Digits));
+         Print(">>> Precio referencia: ", DoubleToString(g_precio_activacion_roll_off, _Digits));
+         Print(">>> Retroceso: ", ticksMovidos, " ticks");
+         
+         // Verificar si hay desbalance (para reactivar neutralización)
+         double volBuy = 0, volSell = 0;
+         CalcularVolumenesTotales(volBuy, volSell);
+         
+         if(MathAbs(volBuy - volSell) > 0.005) // Si hay desbalance
+         {
+            Print(">>> Desbalance detectado - Sistema continuará activo");
+            Print(">>> Volumen BUY: ", DoubleToString(volBuy, 2));
+            Print(">>> Volumen SELL: ", DoubleToString(volSell, 2));
+            
+            // Actualizar precio de referencia al precio actual (resetear contador)
+            g_precio_activacion_roll_off = precioActual;
+            Print(">>> Precio de referencia actualizado: ", DoubleToString(g_precio_activacion_roll_off, _Digits));
+         }
+         else
+         {
+            Print(">>> Posiciones neutralizadas - Esperando movimiento favorable");
+         }
+         Print("========================================");
+      }
+   }
+}
+
 //+------------------------------------------------------------------+
 //| Calcular comisión exacta Pepperstone                             |
 //+------------------------------------------------------------------+
@@ -737,11 +1270,24 @@ void CPanelTrading::CerrarOrdenesDeSecuencia()
    g_precio_cobertura_E1 = 0;
    g_precio_cobertura_E2 = 0;
    
-   // ===== RESETEAR PRECIOS DE COBERTURA FIJOS =====
+   // Resetear precios de cobertura fijos
    g_precio_cobertura1_fijo = 0;
    g_precio_cobertura2_fijo = 0;
    Print(">>> Precios de cobertura fijos reseteados");
-   // ===============================================
+   
+   // ========== NUEVO: Resetear variables Roll-Off ==========
+   g_roll_off_activo = false;
+   g_precio_activacion_roll_off = 0;
+   g_ultimo_roll_off = 0;
+   
+    // Resetear contabilidad Roll-Off
+   g_perdidas_acumuladas_rolloff = 0;
+   g_comisiones_acumuladas_rolloff = 0;
+   g_ciclos_rolloff = 0;
+   Print(">>> Contabilidad Roll-Off reseteada");
+
+   Print(">>> Variables Roll-Off reseteadas");
+   // ========================================================
    
    Print("=== CIERRE COMPLETADO ===");
 }
@@ -770,6 +1316,10 @@ void CPanelTrading::CancelarTodasLasOrdenesPendientes()
 void CPanelTrading::VerificarYGestionarOrdenes()
 {
    if(!g_sistema_activo) return;
+   
+   // ========== NUEVA LÍNEA: Gestionar sistema Roll-Off ==========
+   GestionarSistemaRollOff();
+   // ==============================================================
    
    // Verificar si se alcanzó algún TP
    if(VerificarTPAlcanzado())
@@ -824,8 +1374,7 @@ void CPanelTrading::VerificarYGestionarOrdenes()
       {
          Print("=== CIERRE VIRTUAL ACTIVADO en nivel ", ultimoNivel, " ===");
          Print(">>> NO se programaran mas ordenes pendientes");
-         Print(">>> Volumenes BUY y SELL igualados");
-         Print(">>> Esperando que precio alcance TP o SL");
+         Print(">>> Sistema Roll-Off gestionara los cierres");
          return; // ← SALIR AQUÍ, ANTES DE PROGRAMAR SIGUIENTE
       }
       // ========== FIN VERIFICACIÓN ==========
@@ -905,6 +1454,13 @@ void CPanelTrading::VerificarYGestionarOrdenes()
          return; // Mantener el TP original de Entrada#1
       }
       
+      // ========== MODIFICACIÓN: NO actualizar SL/TP si Roll-Off activo ==========
+      if(g_roll_off_activo)
+      {
+         return; // El Roll-Off gestiona los cierres, no los SL/TP dinámicos
+      }
+      // ===========================================================================
+      
       // Actualizar SL/TP en cada tick para ajustar al spread
       // Solo actualizar cada 10 ticks para no saturar
       static int contadorTicks = 0;
@@ -982,6 +1538,19 @@ CPanelTrading DialogoExterno;
 int OnInit()
 {
    trade.SetExpertMagicNumber(g_numero_magico);
+   
+   // ========== NUEVO: Inicializar variables Roll-Off ==========
+   g_roll_off_activo = false;
+   g_precio_activacion_roll_off = 0;
+   g_ticks_umbral_roll_off = 100; // 10 pips por defecto
+   g_ultimo_roll_off = 0;
+   
+   Print("========================================");
+   Print("Sistema Roll-Off inicializado");
+   Print("Umbral movimiento: ", g_ticks_umbral_roll_off, " ticks (", 
+         g_ticks_umbral_roll_off/10, " pips)");
+   Print("========================================");
+   // ============================================================
    
    if(!DialogoExterno.Create(0, "CoberturaEspecial", 0, 50, 50, 300, 350))
       return(INIT_FAILED);
