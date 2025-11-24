@@ -1,0 +1,56 @@
+2025.11.24 06:59:58.694	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> NEUTRALIZACIÓN DETECTADA <<<
+2025.11.24 06:59:58.694	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> La orden de protección se activó
+2025.11.24 06:59:58.694	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> El sistema continuará con ciclo Roll-Off automáticamente
+2025.11.24 06:59:58.694	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.11.24 07:26:04.449	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> UMBRAL ALCANZADO: 100 ticks <<<
+2025.11.24 07:26:04.449	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Neutralización detectada
+2025.11.24 07:26:04.449	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Ejecutando nuevo ciclo Roll-Off...
+2025.11.24 07:26:04.449	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.11.24 07:26:04.449	CoberturaEspecial prueba1 (GBPUSD,M2)	========== EJECUTANDO ROLL-OFF ==========
+2025.11.24 07:26:04.451	CoberturaEspecial prueba1 (GBPUSD,M2)	P&L BUY: 1.40 | P&L SELL: -1.76
+2025.11.24 07:26:04.451	CoberturaEspecial prueba1 (GBPUSD,M2)	Lado ganador: BUY
+2025.11.24 07:26:04.451	CoberturaEspecial prueba1 (GBPUSD,M2)	ESTRATEGIA: Cerrar perdedoras + TP visible + Orden sin SL
+2025.11.24 07:26:04.451	CoberturaEspecial prueba1 (GBPUSD,M2)	  Cerrando 100% PERDEDORA: Ticket #207663139 Tipo: SELL Vol: 0.01 P&L: -0.88 Com.Cierre: 0.06
+2025.11.24 07:26:04.684	CoberturaEspecial prueba1 (GBPUSD,M2)	  Cerrando 100% PERDEDORA: Ticket #207662825 Tipo: SELL Vol: 0.01 P&L: -0.89 Com.Cierre: 0.06
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	----------------------------------------------
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	CICLO #1 COMPLETADO:
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	  Perdedoras cerradas: 2
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	  P&L cerradas: -1.77
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	  Comisiones: 0.12
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	CONTABILIDAD ACUMULADA:
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	  Pérdidas totales: -1.77
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	  Comisiones totales: 0.12
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	  SALDO: -1.89
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	==========================================
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> CONFIGURANDO GANADORAS <<<
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Ganancia necesaria: 1.94
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	  GANADORA: Ticket #207662826
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	    Tipo: BUY
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	    Vol: 0.02
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	    Precio apertura: 1.30931
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	    Precio actual: 1.31013
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	    P&L actual: 1.42
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	    Ganancia total necesaria: 2.04
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	    Pips necesarios desde actual: 10.2
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	    TP calculado: 1.31115
+2025.11.24 07:26:04.889	CoberturaEspecial prueba1 (GBPUSD,M2)	    Distancia al TP: 102.0 ticks
+2025.11.24 07:26:04.979	CoberturaEspecial prueba1 (GBPUSD,M2)	    ✓ TP configurado exitosamente en: 1.31115
+2025.11.24 07:26:04.979	CoberturaEspecial prueba1 (GBPUSD,M2)	    Orden neutralización: ORDER_TYPE_SELL_STOP
+2025.11.24 07:26:04.979	CoberturaEspecial prueba1 (GBPUSD,M2)	    Precio orden: 1.30936
+2025.11.24 07:26:04.979	CoberturaEspecial prueba1 (GBPUSD,M2)	    Vol: 0.02 (iguala ganadora)
+2025.11.24 07:26:04.979	CoberturaEspecial prueba1 (GBPUSD,M2)	    SL: NINGUNO (se neutraliza automáticamente)
+2025.11.24 07:26:05.072	CoberturaEspecial prueba1 (GBPUSD,M2)	    ✓ Orden de protección colocada: #207672681
+2025.11.24 07:37:04.550	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Estado Roll-Off (Ciclo #1) ---
+2025.11.24 07:37:04.550	CoberturaEspecial prueba1 (GBPUSD,M2)	P&L posiciones: 2.82
+2025.11.24 07:37:04.552	CoberturaEspecial prueba1 (GBPUSD,M2)	Saldo acumulado: -1.89
+2025.11.24 07:37:04.552	CoberturaEspecial prueba1 (GBPUSD,M2)	Ganancia proyectada: 0.83 / 0.05
+2025.11.24 07:37:07.305	CoberturaEspecial prueba1 (GBPUSD,M2)	Roll-Off activo | Movimiento: 84 ticks | P&L: 2.86
+2025.11.24 07:37:15.329	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Estado Roll-Off (Ciclo #1) ---
+2025.11.24 07:37:15.329	CoberturaEspecial prueba1 (GBPUSD,M2)	P&L posiciones: 3.00
+2025.11.24 07:37:15.329	CoberturaEspecial prueba1 (GBPUSD,M2)	Saldo acumulado: -1.89
+2025.11.24 07:37:15.329	CoberturaEspecial prueba1 (GBPUSD,M2)	Ganancia proyectada: 1.01 / 0.05
+2025.11.24 07:37:16.980	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.11.24 07:37:16.980	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> TP ALCANZADO - OBJETIVO COMPLETADO <<<
+2025.11.24 07:37:16.980	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Total ciclos ejecutados: 1
+2025.11.24 07:37:16.980	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Resultado final: -1.89
