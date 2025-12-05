@@ -1,0 +1,49 @@
+1.	Cuando las perdidas estan neutralizadas, para alcanzar el umbral de 100 ticks el bot utiliza el precio de apertura de la última entrada o la entrada neutralizadora. (BIEN): 
+2025.12.05 12:44:16.417  CoberturaEspecial prueba1 (GBPUSD,M15)  === CIERRE VIRTUAL ACTIVADO en nivel 4 ===
+2025.12.05 12:44:16.417  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> NO se programaran mas ordenes pendientes
+2025.12.05 12:44:16.417  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> Sistema Roll-Off gestionara los cierres
+2025.12.05 12:44:16.474  CoberturaEspecial prueba1 (GBPUSD,M15)  ========================================
+2025.12.05 12:44:16.474  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> SISTEMA ROLL-OFF ACTIVADO <<<
+2025.12.05 12:44:16.474  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> PRIMERA NEUTRALIZACIÓN DETECTADA
+2025.12.05 12:44:16.474  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> Nivel: 4
+2025.12.05 12:44:16.474  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> Precio referencia (última entrada): 1.33229
+2.	Detecta cuando se alcanza el umbral d 100ticks (BIEN)
+2025.12.05 13:04:44.689  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> UMBRAL ALCANZADO <<<
+2025.12.05 13:04:44.689  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> Movimiento: 101 ticks desde última entrada
+2025.12.05 13:04:44.689  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> Precio referencia: 1.33229
+2025.12.05 13:04:44.689  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> Precio actual: 1.33330
+2025.12.05 13:04:44.689  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> Ejecutando Roll-Off...
+3.	Lee correctamente el historial de MT5, (Profit y Swap) para las entradas cerradas (BIEN)
+3.  Las comisiones de las entradas cerradas son calculadas (BIEN)
+3.  No tuvo en cuenta las comisiones de las entradas abiertas (MAL)
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  --- Leyendo valores del historial ---
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)    Deal #170668032 Pos #211655155
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)      Profit(HISTORIAL MT5):-1.00
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)      Swap(HISTORIAL):0.00
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)      Comisión cierre (CALCULADA):0.06
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)      P&L neto:-1.00
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)    Deal #170668030 Pos #211655700
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)      Profit(HISTORIAL MT5):-3.98
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)      Swap(HISTORIAL):0.00
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)      Comisión cierre (CALCULADA):0.20
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)      P&L neto:-3.98
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  ----------------------------------------------
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  CICLO #1
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)    Perdedoras cerradas: 2
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)    P&L cerradas (HISTORIAL): -4.98
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)    Comisiones (CALCULADAS): 0.26
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)    Saldo acumulado: -5.24
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  ==========================================
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> CALCULANDO TP <<<
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  Objetivo: 0.05
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  Saldo: -5.24
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  Ganancia necesaria: 5.29
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  --- Analizando ganadoras ---
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)    Ganadora #211655156 Nivel:2 Vol:0.02
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)    Ganadora #211669250 Nivel:4 Vol:0.03
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  ----------------------------------------------
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  >>> RESUMEN GANADORAS <<<
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  Cantidad: 2
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  Volumen TOTAL: 0.05
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  Comisiones TOTAL: 0.26
+2025.12.05 13:04:45.291  CoberturaEspecial prueba1 (GBPUSD,M15)  TP: 1.33354
