@@ -571,7 +571,6 @@ bool EjecutarRollOff()
    return (posicionesCerradas > 0);
 }
 
-
 //+------------------------------------------------------------------+
 //| Monitorear ganadoras - GARANTIZAR QUITAR TPs SIEMPRE           |
 //| CORRECCIÓN 8: Quitar TPs en CADA neutralización sin excepción  |
@@ -877,11 +876,20 @@ void MonitorearGanadorasRollOff()
       {
          int spreadActual = (int)SymbolInfoInteger(_Symbol, SYMBOL_SPREAD);
          
+         // Calcular comisiones totales de la secuencia
+         double comisionesTotalSecuencia = g_comisiones_acumuladas_rolloff + comisionCierreTotalGanadoras;
+         
          Print("--- AJUSTE TP ---");
          Print("Spread: ", spreadActual);
          Print("TP anterior: ", DoubleToString(tpActual, digits));
          Print("TP nuevo: ", DoubleToString(nuevoTP, digits));
          Print("Posiciones: ", tpsAjustados);
+         
+         // CONFIRMACIÓN: Comisiones incluidas en recálculo
+         Print(">>> RECÁLCULO INCLUYE COMISIONES <<<");
+         Print("Comisiones cerradas: ", DoubleToString(g_comisiones_acumuladas_rolloff, 2));
+         Print("Comisiones abiertas: ", DoubleToString(comisionCierreTotalGanadoras, 2));
+         Print("TOTAL secuencia: ", DoubleToString(comisionesTotalSecuencia, 2));
          
          ultimoReporteAjuste = TimeCurrent();
       }
@@ -2025,7 +2033,7 @@ int OnInit()
    // ========== NUEVO: Inicializar variables Roll-Off ==========
    g_roll_off_activo = false;
    g_precio_activacion_roll_off = 0;
-   g_ticks_umbral_roll_off = 100; // 10 pips por defecto
+   g_ticks_umbral_roll_off = 77; // 7.7 pips por defecto
    g_ultimo_roll_off = 0;
    
    Print("========================================");
