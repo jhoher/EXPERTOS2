@@ -366,6 +366,7 @@ bool EjecutarRollOff()
    
    double volumenTotalGanadoras = 0;
    double plNetoTotalGanadoras = 0;
+   double comisionAperturaTotalGanadoras = 0;  // NUEVO: comisiones de apertura
    double comisionCierreTotalGanadoras = 0;
    ENUM_ORDER_TYPE tipoGanadoras = ORDER_TYPE_BUY;
    int contadorGanadoras = 0;
@@ -408,13 +409,16 @@ bool EjecutarRollOff()
                double comisionReal = posInfo.Commission();
                double plNeto = profitReal + swapReal + comisionReal;
                
-               double comisionCierre = CalcularComisionPepperstone(volumen, _Symbol);
+               // CORREGIDO: calcular ambas comisiones
+               double comisionApertura = MathAbs(comisionReal);  // Ya pagada
+               double comisionCierre = CalcularComisionPepperstone(volumen, _Symbol);  // Por pagar
                
                Print("  Ganadora #", ticket, " Nivel:", nivel, " Vol:", DoubleToString(volumen, 2));
                
                volumenTotalGanadoras += volumen;
                plNetoTotalGanadoras += plNeto;
-               comisionCierreTotalGanadoras += comisionCierre;
+               comisionAperturaTotalGanadoras += comisionApertura;  // ACUMULAR apertura
+               comisionCierreTotalGanadoras += comisionCierre;      // ACUMULAR cierre
                tipoGanadoras = tipoReal;
                contadorGanadoras++;
                
@@ -428,11 +432,20 @@ bool EjecutarRollOff()
       }
    }
    
+   // Comisiones totales de TODA la secuencia
+   double comisionesTotalSecuencia = g_comisiones_acumuladas_rolloff + comisionCierreTotalGanadoras;
+   
    Print("----------------------------------------------");
    Print(">>> RESUMEN GANADORAS <<<");
    Print("Cantidad: ", contadorGanadoras);
    Print("Volumen TOTAL: ", DoubleToString(volumenTotalGanadoras, 2));
-   Print("Comisiones TOTAL: ", DoubleToString(comisionCierreTotalGanadoras, 2));
+   Print("Comisiones apertura (pagadas): ", DoubleToString(comisionAperturaTotalGanadoras, 2));
+   Print("Comisiones cierre (por pagar): ", DoubleToString(comisionCierreTotalGanadoras, 2));
+   
+   Print(">>> COMISIONES SECUENCIA COMPLETA <<<");
+   Print("Comisiones cerradas: ", DoubleToString(g_comisiones_acumuladas_rolloff, 2));
+   Print("Comisiones abiertas: ", DoubleToString(comisionCierreTotalGanadoras, 2));
+   Print("TOTAL secuencia: ", DoubleToString(comisionesTotalSecuencia, 2));
    
    if(contadorGanadoras == 0)
    {
@@ -557,6 +570,7 @@ bool EjecutarRollOff()
    
    return (posicionesCerradas > 0);
 }
+
 
 //+------------------------------------------------------------------+
 //| Monitorear ganadoras - GARANTIZAR QUITAR TPs SIEMPRE           |
