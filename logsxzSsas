@@ -1,0 +1,189 @@
+2025.12.15 12:43:55.849	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> UMBRAL ALCANZADO <<<
+2025.12.15 12:43:55.849	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Movimiento: 77 ticks desde última entrada
+2025.12.15 12:43:55.850	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Precio referencia: 1.33760
+2025.12.15 12:43:55.850	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Precio actual: 1.33684
+2025.12.15 12:43:55.850	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Ejecutando Roll-Off...
+2025.12.15 12:43:55.850	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:43:55.850	CoberturaEspecial prueba1 (GBPUSD,M2)	========== EJECUTANDO ROLL-OFF ==========
+2025.12.15 12:43:55.851	CoberturaEspecial prueba1 (GBPUSD,M2)	P&L BUY: -3.79 | P&L SELL: 3.23
+2025.12.15 12:43:55.851	CoberturaEspecial prueba1 (GBPUSD,M2)	Lado ganador: SELL
+2025.12.15 12:43:55.851	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:43:55.851	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 1: CERRANDO PERDEDORAS <<<
+2025.12.15 12:43:55.851	CoberturaEspecial prueba1 (GBPUSD,M2)	  Identificada #214831430 Vol:0.04
+2025.12.15 12:43:55.851	CoberturaEspecial prueba1 (GBPUSD,M2)	  Identificada #214831143 Vol:0.01
+2025.12.15 12:43:55.958	CoberturaEspecial prueba1 (GBPUSD,M2)	  ✓ Cerrada #214831430
+2025.12.15 12:43:56.162	CoberturaEspecial prueba1 (GBPUSD,M2)	  ✓ Cerrada #214831143
+2025.12.15 12:43:56.477	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Leyendo historial ---
+2025.12.15 12:43:56.487	CoberturaEspecial prueba1 (GBPUSD,M2)	  Deal #173133156 Pos #214831143
+2025.12.15 12:43:56.487	CoberturaEspecial prueba1 (GBPUSD,M2)	    Profit: -0.82
+2025.12.15 12:43:56.487	CoberturaEspecial prueba1 (GBPUSD,M2)	    Swap: 0.00
+2025.12.15 12:43:56.487	CoberturaEspecial prueba1 (GBPUSD,M2)	  Deal #173133154 Pos #214831430
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	    Profit: -3.06
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	    Swap: 0.00
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	----------------------------------------------
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	PROFIT PERDEDORAS: -3.88
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 2: COMISIONES TOTALES <<<
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	  Comisión perdedora #214831430: 0.20
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	  Comisión perdedora #214831143: 0.06
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	  Comisión ganadora #214831144: 0.10
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	  Comisión ganadora #214831810: 0.16
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	----------------------------------------------
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	COMISIONES TOTALES: 0.52
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 3: CICLO #1 <<<
+2025.12.15 12:43:56.488	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 4: P&L ACUMULADO <<<
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	Ciclo #1 - P&L acumulado: 0.00
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 5: P&L TOTAL <<<
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	PROFIT PERDEDORAS: -3.88
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	COMISIONES TOTALES: -0.52
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	P&L ACUMULADO: 0.00
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	----------------------------------------------
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	P&L TOTAL: -4.40
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Analizando ganadoras ---
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	  Ganadora #214831144 Nivel:2 Vol:0.02
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	    Precio apertura: 1.33760
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	  Ganadora #214831810 Nivel:4 Vol:0.03
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	    Precio apertura: 1.33760
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 6: CALCULAR TP <<<
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	P&L TOTAL: -4.40
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	GananciaM: 0.05
+2025.12.15 12:43:56.489	CoberturaEspecial prueba1 (GBPUSD,M2)	Ganancia BRUTA necesaria: 4.45
+2025.12.15 12:43:56.490	CoberturaEspecial prueba1 (GBPUSD,M2)	Tick value: 0.85135
+2025.12.15 12:43:56.490	CoberturaEspecial prueba1 (GBPUSD,M2)	Tick size: 0.00001
+2025.12.15 12:43:56.490	CoberturaEspecial prueba1 (GBPUSD,M2)	Valor 1 pip (1 lote): 0.85
+2025.12.15 12:43:56.490	CoberturaEspecial prueba1 (GBPUSD,M2)	Volumen total ganadoras: 0.05
+2025.12.15 12:43:56.490	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio promedio apertura: 1.33760
+2025.12.15 12:43:56.490	CoberturaEspecial prueba1 (GBPUSD,M2)	Pips necesarios: 104.5
+2025.12.15 12:43:56.490	CoberturaEspecial prueba1 (GBPUSD,M2)	Diferencia necesaria (precio): 0.00105
+2025.12.15 12:43:56.490	CoberturaEspecial prueba1 (GBPUSD,M2)	TP calculado: 1.33655
+2025.12.15 12:43:56.490	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio actual: 1.33682
+2025.12.15 12:43:56.490	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:43:56.490	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 7: CONFIGURAR TP <<<
+2025.12.15 12:43:56.577	CoberturaEspecial prueba1 (GBPUSD,M2)	  ✓ TP configurado #214831144
+2025.12.15 12:43:56.662	CoberturaEspecial prueba1 (GBPUSD,M2)	  ✓ TP configurado #214831810
+2025.12.15 12:43:56.662	CoberturaEspecial prueba1 (GBPUSD,M2)	TPs configurados: 2
+2025.12.15 12:43:56.662	CoberturaEspecial prueba1 (GBPUSD,M2)	----------------------------------------------
+2025.12.15 12:43:56.662	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> ORDEN PROTECCIÓN NEUTRALIZADORA <<<
+2025.12.15 12:43:56.662	CoberturaEspecial prueba1 (GBPUSD,M2)	Tipo: BUY STOP
+2025.12.15 12:43:56.662	CoberturaEspecial prueba1 (GBPUSD,M2)	Volumen: 0.05
+2025.12.15 12:43:56.662	CoberturaEspecial prueba1 (GBPUSD,M2)	Precio: 1.33759
+2025.12.15 12:43:56.751	CoberturaEspecial prueba1 (GBPUSD,M2)	✓ Orden protección #214839722
+2025.12.15 12:43:56.751	CoberturaEspecial prueba1 (GBPUSD,M2)	----------------------------------------------
+2025.12.15 12:43:56.751	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PRECIO REFERENCIA <<<
+2025.12.15 12:43:56.751	CoberturaEspecial prueba1 (GBPUSD,M2)	✓ MANTIENE: 1.33760
+2025.12.15 12:43:56.751	CoberturaEspecial prueba1 (GBPUSD,M2)	==========================================
+2025.12.15 12:43:56.751	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Roll-Off completado exitosamente
+2025.12.15 12:43:56.751	CoberturaEspecial prueba1 (GBPUSD,M2)	==========================================
+2025.12.15 12:43:56.751	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Roll-Off completado
+2025.12.15 12:43:56.751	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Nuevo precio referencia establecido en última entrada
+2025.12.15 12:43:56.833	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:43:56.833	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> TP INICIAL LEÍDO <<<
+2025.12.15 12:43:56.833	CoberturaEspecial prueba1 (GBPUSD,M2)	TP base: 1.33655
+2025.12.15 12:43:56.833	CoberturaEspecial prueba1 (GBPUSD,M2)	Spread base: 0
+2025.12.15 12:43:56.834	CoberturaEspecial prueba1 (GBPUSD,M2)	Tipo: SELL
+2025.12.15 12:43:56.834	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:43:56.834	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Roll-Off Ciclo #1 ---
+2025.12.15 12:43:56.834	CoberturaEspecial prueba1 (GBPUSD,M2)	Posiciones: 2
+2025.12.15 12:43:56.834	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Roll-Off activo ---
+2025.12.15 12:43:56.834	CoberturaEspecial prueba1 (GBPUSD,M2)	Estado: NO neutralizado
+2025.12.15 12:43:56.834	CoberturaEspecial prueba1 (GBPUSD,M2)	Acción: Esperando TP o activación orden protección
+2025.12.15 12:43:56.834	CoberturaEspecial prueba1 (GBPUSD,M2)	NO se cuentan ticks en este estado
+2025.12.15 12:54:12.641	CoberturaEspecial prueba1 (GBPUSD,M2)	--- AJUSTE TP POR SPREAD ---
+2025.12.15 12:54:12.641	CoberturaEspecial prueba1 (GBPUSD,M2)	Spread base: 0
+2025.12.15 12:54:12.641	CoberturaEspecial prueba1 (GBPUSD,M2)	Spread actual: 1
+2025.12.15 12:54:12.641	CoberturaEspecial prueba1 (GBPUSD,M2)	Diferencia: 1 ticks
+2025.12.15 12:54:12.641	CoberturaEspecial prueba1 (GBPUSD,M2)	TP anterior: 1.33656
+2025.12.15 12:54:12.646	CoberturaEspecial prueba1 (GBPUSD,M2)	TP nuevo: 1.33654
+2025.12.15 12:54:12.646	CoberturaEspecial prueba1 (GBPUSD,M2)	Posiciones ajustadas: 2
+2025.12.15 12:54:12.646	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> COMISIONES EN CÁLCULO <<<
+2025.12.15 12:54:12.646	CoberturaEspecial prueba1 (GBPUSD,M2)	TOTAL secuencia: 0.78
+2025.12.15 12:54:13.884	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Roll-Off Ciclo #1 ---
+2025.12.15 12:54:13.884	CoberturaEspecial prueba1 (GBPUSD,M2)	Posiciones: 2
+2025.12.15 12:54:18.820	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Roll-Off activo ---
+2025.12.15 12:54:18.820	CoberturaEspecial prueba1 (GBPUSD,M2)	Estado: NO neutralizado
+2025.12.15 12:54:18.820	CoberturaEspecial prueba1 (GBPUSD,M2)	Acción: Esperando TP o activación orden protección
+2025.12.15 12:54:18.820	CoberturaEspecial prueba1 (GBPUSD,M2)	NO se cuentan ticks en este estado
+2025.12.15 12:54:19.851	CoberturaEspecial prueba1 (GBPUSD,M2)	--- AJUSTE TP POR SPREAD ---
+2025.12.15 12:54:19.851	CoberturaEspecial prueba1 (GBPUSD,M2)	Spread base: 1
+2025.12.15 12:54:19.851	CoberturaEspecial prueba1 (GBPUSD,M2)	Spread actual: 2
+2025.12.15 12:54:19.851	CoberturaEspecial prueba1 (GBPUSD,M2)	Diferencia: 1 ticks
+2025.12.15 12:54:19.851	CoberturaEspecial prueba1 (GBPUSD,M2)	TP anterior: 1.33656
+2025.12.15 12:54:19.851	CoberturaEspecial prueba1 (GBPUSD,M2)	TP nuevo: 1.33654
+2025.12.15 12:54:19.851	CoberturaEspecial prueba1 (GBPUSD,M2)	Posiciones ajustadas: 2
+2025.12.15 12:54:19.851	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> COMISIONES EN CÁLCULO <<<
+2025.12.15 12:54:19.851	CoberturaEspecial prueba1 (GBPUSD,M2)	TOTAL secuencia: 0.78
+2025.12.15 12:54:25.695	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Roll-Off Ciclo #1 ---
+2025.12.15 12:54:25.695	CoberturaEspecial prueba1 (GBPUSD,M2)	Posiciones: 2
+2025.12.15 12:54:27.215	CoberturaEspecial prueba1 (GBPUSD,M2)	--- AJUSTE TP POR SPREAD ---
+2025.12.15 12:54:27.216	CoberturaEspecial prueba1 (GBPUSD,M2)	Spread base: 1
+2025.12.15 12:54:27.216	CoberturaEspecial prueba1 (GBPUSD,M2)	Spread actual: 0
+2025.12.15 12:54:27.216	CoberturaEspecial prueba1 (GBPUSD,M2)	Diferencia: -1 ticks
+2025.12.15 12:54:27.216	CoberturaEspecial prueba1 (GBPUSD,M2)	TP anterior: 1.33654
+2025.12.15 12:54:27.216	CoberturaEspecial prueba1 (GBPUSD,M2)	TP nuevo: 1.33656
+2025.12.15 12:54:27.216	CoberturaEspecial prueba1 (GBPUSD,M2)	Posiciones ajustadas: 2
+2025.12.15 12:54:27.216	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> COMISIONES EN CÁLCULO <<<
+2025.12.15 12:54:27.216	CoberturaEspecial prueba1 (GBPUSD,M2)	TOTAL secuencia: 0.78
+2025.12.15 12:54:33.435	CoberturaEspecial prueba1 (GBPUSD,M2)	--- AJUSTE TP POR SPREAD ---
+2025.12.15 12:54:33.435	CoberturaEspecial prueba1 (GBPUSD,M2)	Spread base: 0
+2025.12.15 12:54:33.436	CoberturaEspecial prueba1 (GBPUSD,M2)	Spread actual: 1
+2025.12.15 12:54:33.436	CoberturaEspecial prueba1 (GBPUSD,M2)	Diferencia: 1 ticks
+2025.12.15 12:54:33.436	CoberturaEspecial prueba1 (GBPUSD,M2)	TP anterior: 1.33656
+2025.12.15 12:54:33.436	CoberturaEspecial prueba1 (GBPUSD,M2)	TP nuevo: 1.33654
+2025.12.15 12:54:33.436	CoberturaEspecial prueba1 (GBPUSD,M2)	Posiciones ajustadas: 2
+2025.12.15 12:54:33.436	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> COMISIONES EN CÁLCULO <<<
+2025.12.15 12:54:33.436	CoberturaEspecial prueba1 (GBPUSD,M2)	TOTAL secuencia: 0.78
+2025.12.15 12:54:39.585	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:54:39.585	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> TP ALCANZADO <<<
+2025.12.15 12:54:39.585	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Ciclos: 1
+2025.12.15 12:54:39.585	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:54:39.697	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Variables globales reseteadas <<<
+2025.12.15 12:54:39.699	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:54:39.699	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> UMBRAL ALCANZADO <<<
+2025.12.15 12:54:39.699	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Movimiento: 101 ticks desde última entrada
+2025.12.15 12:54:39.699	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Precio referencia: 1.33760
+2025.12.15 12:54:39.699	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Precio actual: 1.33660
+2025.12.15 12:54:39.699	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> Ejecutando Roll-Off...
+2025.12.15 12:54:39.699	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:54:39.699	CoberturaEspecial prueba1 (GBPUSD,M2)	========== EJECUTANDO ROLL-OFF ==========
+2025.12.15 12:54:39.699	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Verificando cierres por TP ---
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	  Posición cerrada por TP #214831144
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	    Volumen: 0.02
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	    Profit: 1.72
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	    Swap: 0.00
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	    Comisión cierre (CALCULADA): 0.10
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	  ✓ Acumulado en contabilidad Roll-Off
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	  Posición cerrada por TP #214831810
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	    Volumen: 0.03
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	    Profit: 2.58
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	    Swap: 0.00
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	    Comisión cierre (CALCULADA): 0.16
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	  ✓ Acumulado en contabilidad Roll-Off
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	P&L BUY: 0.00 | P&L SELL: 0.00
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	Lado ganador: SELL
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:54:39.703	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 1: CERRANDO PERDEDORAS <<<
+2025.12.15 12:54:39.912	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Leyendo historial ---
+2025.12.15 12:54:39.912	CoberturaEspecial prueba1 (GBPUSD,M2)	----------------------------------------------
+2025.12.15 12:54:39.912	CoberturaEspecial prueba1 (GBPUSD,M2)	PROFIT PERDEDORAS: 0.00
+2025.12.15 12:54:39.912	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:54:39.912	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 2: COMISIONES TOTALES <<<
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	----------------------------------------------
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	COMISIONES TOTALES: 0.00
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 3: CICLO #1 <<<
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 4: P&L ACUMULADO <<<
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	Ciclo #1 - P&L acumulado: 0.00
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	========================================
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	>>> PASO 5: P&L TOTAL <<<
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	PROFIT PERDEDORAS: 0.00
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	COMISIONES TOTALES: -0.00
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	P&L ACUMULADO: 0.00
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	----------------------------------------------
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	P&L TOTAL: 0.00
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	--- Analizando ganadoras ---
+2025.12.15 12:54:39.913	CoberturaEspecial prueba1 (GBPUSD,M2)	✗ ERROR: No hay ganadoras
