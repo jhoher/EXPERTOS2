@@ -694,9 +694,15 @@ bool EjecutarRollOff()
    
    Print("TPs configurados: ", tpsConfigurados);
    
+ //+------------------------------------------------------------------+
+//| PASO 6: AFINAR TP - VERSIÓN FINAL SIN RESTRICCIÓN               |
+//| Recalcula TP completo para precisión exacta                     |
+//| Permite ajustes fraccionarios                                   |
 //+------------------------------------------------------------------+
-//| PASO 6: AFINAR TP - VERSIÓN CORREGIDA                           |
-//| Corrige la lógica de ajuste y verifica cambio mínimo            |
+//+------------------------------------------------------------------+
+//| PASO 6: AFINAR TP - VERSIÓN DEFINITIVA                          |
+//| Usa SYMBOL_TRADE_TICK_VALUE para precisión exacta               |
+//| Búsqueda iterativa del TP perfecto                              |
 //+------------------------------------------------------------------+
 
    // ========== PASO 6: AFINAR TP ==========
@@ -704,7 +710,14 @@ bool EjecutarRollOff()
    Print(">>> PASO 6: AFINAR TP <<<");
    Print("Ganancia BRUTA necesaria: ", DoubleToString(gananciaBrutaNecesaria, 2));
    
-   // Leer profit esperado de TODAS las ganadoras con TP configurado
+   // Obtener valor del punto EXACTO de MT5
+   double tickSize = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_SIZE);
+   double tickValue = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_VALUE);
+   double valorPuntoExacto = (punto / tickSize) * tickValue;
+   
+   Print("Valor punto EXACTO (MT5): ", DoubleToString(valorPuntoExacto, 4));
+   
+   // Calcular profit esperado usando VALOR EXACTO del punto
    double profitTotalEsperado = 0;
    int posicionesConTP = 0;
    
@@ -736,22 +749,25 @@ bool EjecutarRollOff()
                double tp = posInfo.TakeProfit();
                if(tp != 0)
                {
-                  // Calcular profit esperado al alcanzar TP
                   double precioApertura = posInfo.PriceOpen();
                   double volumen = posInfo.Volume();
                   
-                  double diferenciaPrecio;
+                  // Calcular distancia hasta TP
+                  double diferenciaTP;
                   if(tipoReal == ORDER_TYPE_BUY)
-                     diferenciaPrecio = tp - precioApertura;
+                     diferenciaTP = tp - precioApertura;
                   else
-                     diferenciaPrecio = precioApertura - tp;
+                     diferenciaTP = precioApertura - tp;
                   
-                  double puntos = diferenciaPrecio / punto;
-                  double profitEsperado = puntos * volumen * valorPuntoPorLote;
+                  double puntosTP = diferenciaTP / punto;
+                  
+                  // Calcular profit usando valor EXACTO
+                  double profitEsperado = puntosTP * volumen * valorPuntoExacto;
                   
                   Print("  Pos #", posInfo.Ticket(), " Vol:", DoubleToString(volumen, 2));
-                  Print("    TP: ", DoubleToString(tp, digits), " Puntos: ", DoubleToString(puntos, 1));
-                  Print("    Profit esperado: ", DoubleToString(profitEsperado, 2));
+                  Print("    Precio apertura: ", DoubleToString(precioApertura, digits));
+                  Print("    TP: ", DoubleToString(tp, digits), " Puntos: ", DoubleToString(puntosTP, 1));
+                  Print("    Profit esperado (directo): ", DoubleToString(profitEsperado, 2));
                   
                   profitTotalEsperado += profitEsperado;
                   posicionesConTP++;
@@ -773,47 +789,107 @@ bool EjecutarRollOff()
    else if(diferencia > 0)
       Print("  → Exceso profit, TP debe acercarse");
    
-   // Si la diferencia es mayor a 0.01, ajustar TP
-   if(MathAbs(diferencia) > 0.01)
+   // Ajustar si diferencia > €0.005
+   if(MathAbs(diferencia) > 0.005)
    {
-      Print(">>> Ajustando TP para mayor precisión...");
+      Print(">>> Buscando TP exacto mediante iteración...");
       
-      // Calcular cuántos puntos necesitamos ajustar
-      double puntosAjuste = diferencia / (volumenTotalGanadoras * valorPuntoPorLote);
-      double ajustePrecio = puntosAjuste * punto;
+      // BÚSQUEDA ITERATIVA del TP perfecto
+      double mejorTP = precioTP;
+      double menorDiferencia = MathAbs(diferencia);
       
-      Print("Puntos a ajustar: ", DoubleToString(puntosAjuste, 2));
-      Print("Ajuste en precio: ", DoubleToString(ajustePrecio, digits));
+      // Calcular rango de búsqueda (±20 puntos)
+      int rangoInicio = -20;
+      int rangoFin = 20;
       
-      // LÓGICA CORREGIDA: El signo de ajustePrecio ya indica la dirección
-      double nuevoTP;
-      if(tipoGanadoras == ORDER_TYPE_BUY)
+      Print("Probando TPs desde ", rangoInicio, " hasta ", rangoFin, " puntos...");
+      
+      for(int i = rangoInicio; i <= rangoFin; i++)
       {
-         // BUY: Si falta profit (diferencia < 0), ajustePrecio será negativo
-         //      y restarlo hace que TP suba (correcto)
-         nuevoTP = precioTP - ajustePrecio;
-      }
-      else // SELL
-      {
-         // SELL: Si falta profit (diferencia < 0), ajustePrecio será negativo
-         //       y sumarlo hace que TP baje (correcto)
-         nuevoTP = precioTP + ajustePrecio;
-      }
-      
-      nuevoTP = NormalizeDouble(nuevoTP, digits);
-      
-      Print("TP anterior: ", DoubleToString(precioTP, digits));
-      Print("TP ajustado: ", DoubleToString(nuevoTP, digits));
-      
-      // Verificar que el cambio sea significativo (al menos 1 punto completo)
-      double cambio = MathAbs(nuevoTP - precioTP);
-      Print("Cambio real: ", DoubleToString(cambio / punto, 1), " puntos");
-      
-      if(cambio >= punto)
-      {
-         Print(">>> Cambio significativo, aplicando ajuste...");
+         double tpPrueba;
+         if(tipoGanadoras == ORDER_TYPE_BUY)
+            tpPrueba = precioTP + (i * punto);
+         else
+            tpPrueba = precioTP - (i * punto);
          
-         // Aplicar nuevo TP a TODAS las ganadoras
+         tpPrueba = NormalizeDouble(tpPrueba, digits);
+         
+         // Calcular profit con este TP
+         double profitConEstTP = 0;
+         
+         for(int j = 0; j < PositionsTotal(); j++)
+         {
+            if(posInfo.SelectByIndex(j))
+            {
+               if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+               {
+                  string comentario = posInfo.Comment();
+                  int nivel = 0;
+                  
+                  if(StringFind(comentario, "Nivel_") >= 0)
+                  {
+                     nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+                  }
+                  
+                  ENUM_ORDER_TYPE tipoReal;
+                  if(nivel % 2 == 1)
+                     tipoReal = g_tipo_inicial;
+                  else
+                     tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
+                  
+                  bool esGanadora = (buyGanando && tipoReal == ORDER_TYPE_BUY) || 
+                                  (!buyGanando && tipoReal == ORDER_TYPE_SELL);
+                  
+                  if(esGanadora)
+                  {
+                     double precioApertura = posInfo.PriceOpen();
+                     double volumen = posInfo.Volume();
+                     
+                     double diferenciaTP;
+                     if(tipoReal == ORDER_TYPE_BUY)
+                        diferenciaTP = tpPrueba - precioApertura;
+                     else
+                        diferenciaTP = precioApertura - tpPrueba;
+                     
+                     double puntosTP = diferenciaTP / punto;
+                     double profitEsperado = puntosTP * volumen * valorPuntoExacto;
+                     
+                     profitConEstTP += profitEsperado;
+                  }
+               }
+            }
+         }
+         
+         double diferenciaConEstTP = MathAbs(profitConEstTP - gananciaBrutaNecesaria);
+         
+         if(diferenciaConEstTP < menorDiferencia)
+         {
+            menorDiferencia = diferenciaConEstTP;
+            mejorTP = tpPrueba;
+            
+            // Si encontramos diferencia < €0.01, es suficiente
+            if(menorDiferencia < 0.01)
+            {
+               Print("  TP óptimo encontrado en iteración ", i, ": ", DoubleToString(mejorTP, digits));
+               Print("  Diferencia: ", DoubleToString(menorDiferencia, 2));
+               break;
+            }
+         }
+      }
+      
+      Print("----------------------------------------------");
+      Print("TP anterior: ", DoubleToString(precioTP, digits));
+      Print("TP óptimo encontrado: ", DoubleToString(mejorTP, digits));
+      
+      double cambio = MathAbs(mejorTP - precioTP);
+      double cambioEnPuntos = cambio / punto;
+      Print("Cambio: ", DoubleToString(cambioEnPuntos, 1), " puntos");
+      
+      // APLICAR si es diferente
+      if(mejorTP != precioTP)
+      {
+         Print(">>> Aplicando TP óptimo...");
+         
          int tpsAjustados = 0;
          for(int i = 0; i < PositionsTotal(); i++)
          {
@@ -842,10 +918,14 @@ bool EjecutarRollOff()
                   {
                      ulong ticket = posInfo.Ticket();
                      
-                     if(tradeRollOff.PositionModify(ticket, 0, nuevoTP))
+                     if(tradeRollOff.PositionModify(ticket, 0, mejorTP))
                      {
-                        Print("  ✓ TP ajustado #", ticket);
+                        Print("  ✓ TP ajustado #", ticket, " → ", DoubleToString(mejorTP, digits));
                         tpsAjustados++;
+                     }
+                     else
+                     {
+                        Print("  ✗ Error ajustando #", ticket);
                      }
                   }
                }
@@ -854,10 +934,10 @@ bool EjecutarRollOff()
          
          Print("TPs ajustados: ", tpsAjustados);
          
-         // Actualizar precioTP para la orden protección
-         precioTP = nuevoTP;
+         // Actualizar para orden protección
+         precioTP = mejorTP;
          
-         // VERIFICAR profit después del ajuste
+         // VERIFICACIÓN FINAL
          Sleep(100);
          
          double profitVerificado = 0;
@@ -892,14 +972,14 @@ bool EjecutarRollOff()
                         double precioApertura = posInfo.PriceOpen();
                         double volumen = posInfo.Volume();
                         
-                        double diferenciaPrecio;
+                        double diferenciaTP;
                         if(tipoReal == ORDER_TYPE_BUY)
-                           diferenciaPrecio = tp - precioApertura;
+                           diferenciaTP = tp - precioApertura;
                         else
-                           diferenciaPrecio = precioApertura - tp;
+                           diferenciaTP = precioApertura - tp;
                         
-                        double puntos = diferenciaPrecio / punto;
-                        double profitEsperado = puntos * volumen * valorPuntoPorLote;
+                        double puntosTP = diferenciaTP / punto;
+                        double profitEsperado = puntosTP * volumen * valorPuntoExacto;
                         
                         profitVerificado += profitEsperado;
                      }
@@ -909,23 +989,25 @@ bool EjecutarRollOff()
          }
          
          Print("----------------------------------------------");
-         Print(">>> VERIFICACIÓN POST-AJUSTE <<<");
+         Print(">>> VERIFICACIÓN FINAL <<<");
          Print("Profit VERIFICADO: ", DoubleToString(profitVerificado, 2));
          Print("Ganancia BRUTA necesaria: ", DoubleToString(gananciaBrutaNecesaria, 2));
-         Print("Nueva diferencia: ", DoubleToString(profitVerificado - gananciaBrutaNecesaria, 2));
+         Print("Diferencia final: ", DoubleToString(profitVerificado - gananciaBrutaNecesaria, 2));
       }
       else
       {
-         Print(">>> Ajuste muy pequeño (< 1 punto), no se aplica");
-         Print(">>> Precisión aceptable con TP actual");
+         Print(">>> TP actual es óptimo, no requiere cambio");
       }
    }
    else
    {
-      Print(">>> Diferencia aceptable (< €0.01), no se requiere ajuste");
+      Print(">>> Diferencia aceptable (< €0.005), no se requiere ajuste");
    }
    
    Print("========================================");
+
+
+
 
    // ORDEN PROTECCIÓN
    Print("----------------------------------------------");
