@@ -694,15 +694,10 @@ bool EjecutarRollOff()
    
    Print("TPs configurados: ", tpsConfigurados);
    
- //+------------------------------------------------------------------+
-//| PASO 6: AFINAR TP - VERSIÓN FINAL SIN RESTRICCIÓN               |
-//| Recalcula TP completo para precisión exacta                     |
-//| Permite ajustes fraccionarios                                   |
+
 //+------------------------------------------------------------------+
-//+------------------------------------------------------------------+
-//| PASO 6: AFINAR TP - VERSIÓN DEFINITIVA                          |
-//| Usa SYMBOL_TRADE_TICK_VALUE para precisión exacta               |
-//| Búsqueda iterativa del TP perfecto                              |
+//| PASO 6: AFINAR TP - VERSIÓN FINAL CON BÚSQUEDA AMPLIADA        |
+//| Búsqueda hasta ±50 puntos con logs detallados                  |
 //+------------------------------------------------------------------+
 
    // ========== PASO 6: AFINAR TP ==========
@@ -794,15 +789,16 @@ bool EjecutarRollOff()
    {
       Print(">>> Buscando TP exacto mediante iteración...");
       
-      // BÚSQUEDA ITERATIVA del TP perfecto
+      // BÚSQUEDA AMPLIADA: ±50 puntos con logs detallados cada 5 iteraciones
       double mejorTP = precioTP;
       double menorDiferencia = MathAbs(diferencia);
+      int iteracionMejor = 0;
       
-      // Calcular rango de búsqueda (±20 puntos)
-      int rangoInicio = -20;
-      int rangoFin = 20;
+      int rangoInicio = -50;
+      int rangoFin = 50;
       
       Print("Probando TPs desde ", rangoInicio, " hasta ", rangoFin, " puntos...");
+      Print("Mostrando cada 5 iteraciones:");
       
       for(int i = rangoInicio; i <= rangoFin; i++)
       {
@@ -862,24 +858,36 @@ bool EjecutarRollOff()
          
          double diferenciaConEstTP = MathAbs(profitConEstTP - gananciaBrutaNecesaria);
          
+         // Log cada 5 iteraciones o si es mejor
+         if((i % 5 == 0) || (diferenciaConEstTP < menorDiferencia))
+         {
+            Print("  i=", i, " TP:", DoubleToString(tpPrueba, digits), 
+                  " Profit:", DoubleToString(profitConEstTP, 2),
+                  " Dif:", DoubleToString(diferenciaConEstTP, 3));
+         }
+         
          if(diferenciaConEstTP < menorDiferencia)
          {
             menorDiferencia = diferenciaConEstTP;
             mejorTP = tpPrueba;
+            iteracionMejor = i;
             
             // Si encontramos diferencia < €0.01, es suficiente
             if(menorDiferencia < 0.01)
             {
-               Print("  TP óptimo encontrado en iteración ", i, ": ", DoubleToString(mejorTP, digits));
-               Print("  Diferencia: ", DoubleToString(menorDiferencia, 2));
+               Print("  ✓ TP óptimo encontrado en iteración ", i);
+               Print("  ✓ Diferencia mínima: ", DoubleToString(menorDiferencia, 3));
                break;
             }
          }
       }
       
       Print("----------------------------------------------");
+      Print(">>> RESULTADO DE BÚSQUEDA <<<");
       Print("TP anterior: ", DoubleToString(precioTP, digits));
       Print("TP óptimo encontrado: ", DoubleToString(mejorTP, digits));
+      Print("Iteración óptima: ", iteracionMejor);
+      Print("Diferencia mínima alcanzada: €", DoubleToString(menorDiferencia, 3));
       
       double cambio = MathAbs(mejorTP - precioTP);
       double cambioEnPuntos = cambio / punto;
@@ -925,7 +933,7 @@ bool EjecutarRollOff()
                      }
                      else
                      {
-                        Print("  ✗ Error ajustando #", ticket);
+                        Print("  ✗ Error ajustando #", ticket, " Error:", GetLastError());
                      }
                   }
                }
@@ -992,11 +1000,12 @@ bool EjecutarRollOff()
          Print(">>> VERIFICACIÓN FINAL <<<");
          Print("Profit VERIFICADO: ", DoubleToString(profitVerificado, 2));
          Print("Ganancia BRUTA necesaria: ", DoubleToString(gananciaBrutaNecesaria, 2));
-         Print("Diferencia final: ", DoubleToString(profitVerificado - gananciaBrutaNecesaria, 2));
+         Print("Diferencia final: €", DoubleToString(MathAbs(profitVerificado - gananciaBrutaNecesaria), 3));
       }
       else
       {
-         Print(">>> TP actual es óptimo, no requiere cambio");
+         Print(">>> TP actual es óptimo en rango ±50 puntos");
+         Print(">>> Diferencia mínima alcanzable: €", DoubleToString(menorDiferencia, 3));
       }
    }
    else
@@ -1005,8 +1014,6 @@ bool EjecutarRollOff()
    }
    
    Print("========================================");
-
-
 
 
    // ORDEN PROTECCIÓN
