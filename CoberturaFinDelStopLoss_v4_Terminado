@@ -1589,7 +1589,7 @@ CPanelTrading::~CPanelTrading(void)
 //+------------------------------------------------------------------+
 bool CPanelTrading::Create(const long chart, const string name, const int subwin, const int x1, const int y1, const int x2, const int y2)
 {
-   if(!CAppDialog::Create(chart, "Cobertura-FIN DEL STOP LOSS", subwin, x1, y1, x2, y2))
+   if(!CAppDialog::Create(chart, "Cobertura->FIN DEL STOP LOSS", subwin, x1, y1, x2, y2))
       return(false);
    
    if(!m_panel_principal.Create(m_chart_id, m_name+"PanelPrincipal", m_subwin, 0, 0, ClientAreaWidth(), ClientAreaHeight()))
