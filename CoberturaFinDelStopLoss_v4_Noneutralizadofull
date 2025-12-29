@@ -1088,10 +1088,10 @@ bool EjecutarRollOff()
 }
 
 //+------------------------------------------------------------------+
-//| Monitorear ganadoras - VERSIÓN SIMPLIFICADA                      |
-//| - TP FIJO (no se ajusta)                                         |
-//| - QUITA TPs al neutralizar (funciona en ciclo 2+)              |
-//| - Sin variables estáticas problemáticas                         |
+//| Monitorear ganadoras - VERSIÓN CORREGIDA                         |
+//| - DETECTA NEUTRALIZACIÓN SIEMPRE (cada tick)                    |
+//| - QUITA TPs INMEDIATAMENTE al detectar neutralización           |
+//| - TP FIJO cuando NO neutralizado                                |
 //+------------------------------------------------------------------+
 void MonitorearGanadorasRollOff()
 {
@@ -1143,23 +1143,45 @@ void MonitorearGanadorasRollOff()
       g_roll_off_activo = false;
       g_sistema_activo = false;
       g_nivel_actual = 0;
-      g_tiempo_primera_entrada = 0;  // Resetear inicio de secuencia
+      g_tiempo_primera_entrada = 0;
       
       Print(">>> Variables reseteadas - Sistema listo");
       
       return;
    }
    
-   // DETECTAR NEUTRALIZACIÓN
+   // ========== DETECCIÓN DE NEUTRALIZACIÓN - CRÍTICO ==========
+   
+   // Variable estática para detectar INCREMENTO de posiciones
+   static int posicionesAnteriores = 0;
+   
+   // Detectar si hubo un INCREMENTO de posiciones (orden neutralizadora activada)
+   bool ordenNeutralizadoraActivada = (posicionesAbiertas > posicionesAnteriores);
+   
+   // Verificar neutralización por volúmenes
    bool hayNeutralizacion = VerificarNeutralizacion();
    
-   // Variable para detectar cambio de estado
-   static bool neutralizacionAnterior = false;
+   // DETECTAR NEUTRALIZACIÓN por dos métodos:
+   // 1. Incremento de posiciones (orden neutralizadora se activó)
+   // 2. Verificación de volúmenes igualados
+   bool debeQuitarTPs = (ordenNeutralizadoraActivada || hayNeutralizacion);
    
-   // SIEMPRE quitar TPs cuando detecta neutralización (NUEVO o mantenido)
-   if(hayNeutralizacion)
+   if(ordenNeutralizadoraActivada)
    {
-      // Verificar si hay algún TP configurado
+      Print("========================================");
+      Print(">>> ORDEN NEUTRALIZADORA ACTIVADA <<<");
+      Print("Posiciones anteriores: ", posicionesAnteriores);
+      Print("Posiciones actuales: ", posicionesAbiertas);
+      Print("========================================");
+   }
+   
+   // Actualizar contador
+   posicionesAnteriores = posicionesAbiertas;
+   
+   // Si HAY neutralización O se activó orden, verificar y quitar TPs INMEDIATAMENTE
+   if(debeQuitarTPs)
+   {
+      // Verificar si hay TPs configurados
       bool hayTPs = false;
       for(int i = 0; i < PositionsTotal(); i++)
       {
@@ -1167,7 +1189,8 @@ void MonitorearGanadorasRollOff()
          {
             if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
             {
-               if(posInfo.TakeProfit() != 0)
+               double tp = posInfo.TakeProfit();
+               if(tp != 0)
                {
                   hayTPs = true;
                   break;
@@ -1176,7 +1199,7 @@ void MonitorearGanadorasRollOff()
          }
       }
       
-      // Si hay TPs, quitarlos
+      // Si hay TPs, QUITARLOS INMEDIATAMENTE
       if(hayTPs)
       {
          Print("========================================");
@@ -1187,7 +1210,7 @@ void MonitorearGanadorasRollOff()
          int tpSlQuitados = 0;
          int intentos = 0;
          
-         // Intentar hasta 3 veces
+         // Intentar hasta 3 veces para asegurar que se quiten TODOS
          while(intentos < 3)
          {
             tpSlQuitados = 0;
@@ -1209,6 +1232,10 @@ void MonitorearGanadorasRollOff()
                            Print("  ✓ TP/SL quitados #", ticket);
                            tpSlQuitados++;
                            Sleep(50);
+                        }
+                        else
+                        {
+                           Print("  ✗ Error quitando TP/SL #", ticket, " Error:", GetLastError());
                         }
                      }
                   }
@@ -1250,6 +1277,7 @@ void MonitorearGanadorasRollOff()
          
          // Cancelar órdenes protección
          COrderInfo ordInfo;
+         int ordenesCanceladas = 0;
          for(int i = OrdersTotal() - 1; i >= 0; i--)
          {
             if(ordInfo.SelectByIndex(i))
@@ -1259,22 +1287,24 @@ void MonitorearGanadorasRollOff()
                   string com = ordInfo.Comment();
                   if(StringFind(com, "RollOff_Proteccion") >= 0)
                   {
-                     tradeMonitor.OrderDelete(ordInfo.Ticket());
-                     Print("  ✓ Orden cancelada #", ordInfo.Ticket());
+                     if(tradeMonitor.OrderDelete(ordInfo.Ticket()))
+                     {
+                        Print("  ✓ Orden cancelada #", ordInfo.Ticket());
+                        ordenesCanceladas++;
+                     }
                   }
                }
             }
          }
          
+         Print(">>> Órdenes protección canceladas: ", ordenesCanceladas);
          Print("========================================");
       }
    }
    
-   neutralizacionAnterior = hayNeutralizacion;
-   
-   // NO HACER NADA MÁS - el TP se mantiene fijo como lo calculó EjecutarRollOff
-   // Cuando se alcance nuevo umbral de 77 ticks, EjecutarRollOff se ejecutará
-   // y recalculará todo leyendo la secuencia completa
+   // NO HACER NADA MÁS - el TP se mantiene fijo
+   // GestionarSistemaRollOff se encargará de contar ticks cuando neutralizado
+   // y ejecutar nuevo Roll-Off cuando alcance umbral
    
    // Reportar estado cada 10 segundos
    static datetime ultimoReporte = 0;
@@ -1284,11 +1314,15 @@ void MonitorearGanadorasRollOff()
       
       Print("--- Roll-Off activo ---");
       Print("Posiciones: ", posicionesAbiertas);
-      Print("Estado: ", (hayNeutralizacion ? "NEUTRALIZADO" : "NO neutralizado"));
       
-      if(hayNeutralizacion)
+      // Usar la variable correcta para mostrar el estado
+      bool estadoNeutralizado = VerificarNeutralizacion();
+      Print("Estado: ", (estadoNeutralizado ? "NEUTRALIZADO" : "NO neutralizado"));
+      
+      if(estadoNeutralizado)
       {
-         Print("Acción: Esperando nuevo umbral de 77 ticks");
+         Print("Acción: Esperando nuevo umbral de ", g_ticks_umbral_roll_off, " ticks");
+         Print("Precio referencia: ", DoubleToString(g_precio_activacion_roll_off, digits));
       }
       else
       {
@@ -1308,12 +1342,12 @@ void MonitorearGanadorasRollOff()
                }
             }
          }
+         Print("Acción: Esperando TP o activación orden protección");
       }
       
       ultimoReporte = TimeCurrent();
    }
 }
-
 
 //+------------------------------------------------------------------+
 //| Gestionar sistema Roll-Off                                      |
