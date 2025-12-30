@@ -1299,6 +1299,10 @@ void MonitorearGanadorasRollOff()
          
          Print(">>> Órdenes protección canceladas: ", ordenesCanceladas);
          Print("========================================");
+         
+         // FORZAR salida inmediata después de quitar TPs
+         // para que el siguiente tick reporte el estado correcto
+         return;
       }
    }
    
@@ -1348,6 +1352,7 @@ void MonitorearGanadorasRollOff()
       ultimoReporte = TimeCurrent();
    }
 }
+
 
 //+------------------------------------------------------------------+
 //| Gestionar sistema Roll-Off                                      |
