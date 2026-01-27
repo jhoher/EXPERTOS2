@@ -1,0 +1,189 @@
+//+------------------------------------------------------------------+
+//| Monitorear ganadoras Roll-Off                                   |
+//| VERSIÓN FINAL: Activa variable global al detectar orden         |
+//+------------------------------------------------------------------+
+void MonitorearGanadorasRollOff()
+{
+   if(!g_roll_off_activo) return;
+   if(!g_sistema_activo) return;
+   
+   // ========== PROTECCIÓN: No ejecutar en mismo tick que Roll-Off ==========
+   static datetime ultimoRollOffMonitor = 0;
+   
+   if(g_ultimo_roll_off > ultimoRollOffMonitor)
+   {
+      ultimoRollOffMonitor = g_ultimo_roll_off;
+      Print(">>> MonitorearGanadoras: Esperando siguiente tick después de Roll-Off");
+      return;
+   }
+   // ========================================================================
+   
+   CPositionInfo posInfo;
+   CTrade tradeMonitor;
+   tradeMonitor.SetExpertMagicNumber(g_numero_magico);
+   
+   // Contar posiciones actuales
+   int posicionesAbiertas = 0;
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            posicionesAbiertas++;
+         }
+      }
+   }
+   
+   // Si no hay posiciones, objetivo alcanzado
+   if(posicionesAbiertas == 0)
+   {
+      Print("========================================");
+      Print(">>> TP ALCANZADO - OBJETIVO CUMPLIDO <<<");
+      Print("========================================");
+      
+      // Cancelar órdenes pendientes
+      COrderInfo ordInfo;
+      for(int i = OrdersTotal() - 1; i >= 0; i--)
+      {
+         if(ordInfo.SelectByIndex(i))
+         {
+            if(ordInfo.Magic() == g_numero_magico && ordInfo.Symbol() == _Symbol)
+            {
+               string com = ordInfo.Comment();
+               if(StringFind(com, "RollOff_Proteccion") >= 0)
+               {
+                  tradeMonitor.OrderDelete(ordInfo.Ticket());
+               }
+            }
+         }
+      }
+      
+      // Resetear variables
+      g_roll_off_activo = false;
+      g_sistema_activo = false;
+      g_nivel_actual = 0;
+      g_tiempo_primera_entrada = 0;
+      g_orden_neutralizadora_activada = false;  // ← RESETEAR
+      
+      Print(">>> Variables reseteadas - Sistema listo");
+      return;
+   }
+   
+   // ========== DETECCIÓN DE ORDEN NEUTRALIZADORA ACTIVADA ==========
+   
+   static int posicionesAnteriores = 0;
+   
+   bool ordenNeutralizadoraActivada = (posicionesAbiertas > posicionesAnteriores);
+   
+   if(ordenNeutralizadoraActivada)
+   {
+      Print("========================================");
+      Print(">>> ORDEN NEUTRALIZADORA ACTIVADA <<<");
+      Print("Posiciones anteriores: ", posicionesAnteriores);
+      Print("Posiciones actuales: ", posicionesAbiertas);
+      Print("========================================");
+      
+      // ✅ ACTIVAR VARIABLE GLOBAL INMEDIATAMENTE
+      g_orden_neutralizadora_activada = true;
+      
+      Print(">>> NEUTRALIZACIÓN ACTIVADA POR ORDEN <<<");
+      Print(">>> QUITANDO TODOS LOS TP/SL <<<");
+      
+      int tpSlQuitados = 0;
+      
+      for(int i = 0; i < PositionsTotal(); i++)
+      {
+         if(posInfo.SelectByIndex(i))
+         {
+            if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+            {
+               ulong ticket = posInfo.Ticket();
+               double tp = posInfo.TakeProfit();
+               double sl = posInfo.StopLoss();
+               
+               if(tp != 0 || sl != 0)
+               {
+                  if(tradeMonitor.PositionModify(ticket, 0, 0))
+                  {
+                     Print("  ✓ TP/SL quitados #", ticket);
+                     tpSlQuitados++;
+                     Sleep(50);
+                  }
+               }
+            }
+         }
+      }
+      
+      Print(">>> TPs quitados: ", tpSlQuitados);
+      
+      // Cancelar órdenes protección
+      COrderInfo ordInfo;
+      int ordenesCanceladas = 0;
+      for(int i = OrdersTotal() - 1; i >= 0; i--)
+      {
+         if(ordInfo.SelectByIndex(i))
+         {
+            if(ordInfo.Magic() == g_numero_magico && ordInfo.Symbol() == _Symbol)
+            {
+               string com = ordInfo.Comment();
+               if(StringFind(com, "RollOff_Proteccion") >= 0)
+               {
+                  if(tradeMonitor.OrderDelete(ordInfo.Ticket()))
+                  {
+                     Print("  ✓ Orden cancelada #", ordInfo.Ticket());
+                     ordenesCanceladas++;
+                  }
+               }
+            }
+         }
+      }
+      
+      Print(">>> Órdenes canceladas: ", ordenesCanceladas);
+      Print("========================================");
+   }
+   
+   // SIEMPRE actualizar contador
+   posicionesAnteriores = posicionesAbiertas;
+   
+   // Reportar estado cada 10 segundos
+   static datetime ultimoReporte = 0;
+   if(TimeCurrent() - ultimoReporte > 10)
+   {
+      int digits = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+      
+      Print("--- Roll-Off activo ---");
+      Print("Posiciones: ", posicionesAbiertas);
+      
+      // Verificar estado usando VARIABLE GLOBAL O función
+      bool estadoNeutralizado = g_orden_neutralizadora_activada || VerificarNeutralizacion();
+      Print("Estado: ", (estadoNeutralizado ? "NEUTRALIZADO" : "NO neutralizado"));
+      
+      if(estadoNeutralizado)
+      {
+         Print("Acción: Esperando nuevo umbral de ", g_ticks_umbral_roll_off, " ticks");
+         Print("Precio referencia: ", DoubleToString(g_precio_activacion_roll_off, digits));
+      }
+      else
+      {
+         for(int i = 0; i < PositionsTotal(); i++)
+         {
+            if(posInfo.SelectByIndex(i))
+            {
+               if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+               {
+                  double tp = posInfo.TakeProfit();
+                  if(tp != 0)
+                  {
+                     Print("TP fijo: ", DoubleToString(tp, digits));
+                     break;
+                  }
+               }
+            }
+         }
+         Print("Acción: Esperando TP o activación orden protección");
+      }
+      
+      ultimoReporte = TimeCurrent();
+   }
+}
