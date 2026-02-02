@@ -1,0 +1,912 @@
+//+------------------------------------------------------------------+
+//| EjecutarRollOff - VERSIÓN CORREGIDA                             |
+//| CORRECCIÓN CRÍTICA: Usa PositionType() de MT5 para identificar  |
+//|                     ganadoras/perdedoras en lugar de nivel      |
+//| PROBLEMA: Las posiciones de "RollOff_Proteccion" no tienen      |
+//|           "Nivel_" en el comentario, causando clasificación     |
+//|           incorrecta y cierre de TODAS las posiciones           |
+//+------------------------------------------------------------------+
+
+bool EjecutarRollOff()
+{
+   Print("========================================");
+   Print("========== EJECUTANDO ROLL-OFF ==========");
+   
+   CTrade tradeRollOff;
+   CPositionInfo posInfo;
+   tradeRollOff.SetExpertMagicNumber(g_numero_magico);
+   
+   // Calcular P&L por tipo
+   double plBuy = 0, plSell = 0;
+   CalcularPLPorTipo(plBuy, plSell);
+   
+   Print("P&L BUY: ", DoubleToString(plBuy, 2), " | P&L SELL: ", DoubleToString(plSell, 2));
+   
+   bool buyGanando = (plBuy > plSell);
+   Print("Lado ganador: ", (buyGanando ? "BUY" : "SELL"));
+   
+   // ========== PASO 1: CERRAR PERDEDORAS Y LEER TODA LA SECUENCIA ==========
+   Print("========================================");
+   Print(">>> PASO 1: CERRANDO PERDEDORAS <<<");
+   
+   ulong ticketsCerrar[];
+   int contadorTickets = 0;
+   
+   // ========== CORRECCIÓN CRÍTICA ==========
+   // Usar PositionType() de MT5 directamente en lugar de calcular por nivel
+   // Esto funciona correctamente para posiciones con comentario "RollOff_Proteccion"
+   // =========================================
+   
+   for(int i = PositionsTotal() - 1; i >= 0; i--)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            // ========== CORRECCIÓN: Usar tipo REAL de MT5 ==========
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
+            
+            // Determinar si es perdedora basándose en el tipo REAL
+            bool esPerdedora = false;
+            
+            if(buyGanando)
+            {
+               // Si BUY está ganando, las SELL son perdedoras
+               esPerdedora = (tipoPosicion == POSITION_TYPE_SELL);
+            }
+            else
+            {
+               // Si SELL está ganando, las BUY son perdedoras
+               esPerdedora = (tipoPosicion == POSITION_TYPE_BUY);
+            }
+            // ========== FIN CORRECCIÓN ==========
+            
+            if(esPerdedora)
+            {
+               ulong ticket = posInfo.Ticket();
+               double volumen = posInfo.Volume();
+               string comentario = posInfo.Comment();
+               
+               Print("  Identificada PERDEDORA #", ticket, 
+                     " Vol:", DoubleToString(volumen, 2),
+                     " Tipo:", (tipoPosicion == POSITION_TYPE_BUY ? "BUY" : "SELL"),
+                     " Com:", comentario);
+               
+               ArrayResize(ticketsCerrar, contadorTickets + 1);
+               ticketsCerrar[contadorTickets] = ticket;
+               contadorTickets++;
+            }
+            else
+            {
+               // Debug: mostrar las ganadoras que NO se cierran
+               ulong ticket = posInfo.Ticket();
+               double volumen = posInfo.Volume();
+               string comentario = posInfo.Comment();
+               
+               Print("  Identificada GANADORA #", ticket, 
+                     " Vol:", DoubleToString(volumen, 2),
+                     " Tipo:", (tipoPosicion == POSITION_TYPE_BUY ? "BUY" : "SELL"),
+                     " Com:", comentario, " → NO SE CIERRA");
+            }
+         }
+      }
+   }
+   
+   Print("----------------------------------------------");
+   Print("Perdedoras a cerrar: ", contadorTickets);
+   
+   // CERRAR todas las perdedoras
+   for(int i = 0; i < contadorTickets; i++)
+   {
+      ulong ticket = ticketsCerrar[i];
+      
+      if(tradeRollOff.PositionClose(ticket))
+      {
+         Print("  ✓ Cerrada #", ticket);
+         Sleep(100);
+      }
+   }
+   
+   Sleep(200);
+   
+   // LEER TODAS LAS ENTRADAS CERRADAS DE LA SECUENCIA ACTUAL
+   Print("--- Leyendo TODA la secuencia desde inicio ---");
+   
+   double profitTodasCerradas = 0;
+   int cantidadCerradas = 0;
+   
+   datetime desde = g_tiempo_primera_entrada;
+   datetime hasta = TimeCurrent();
+   
+   if(HistorySelect(desde, hasta))
+   {
+      int totalDeals = HistoryDealsTotal();
+      
+      for(int i = totalDeals - 1; i >= 0; i--)
+      {
+         ulong dealTicket = HistoryDealGetTicket(i);
+         
+         if(dealTicket > 0)
+         {
+            long magic = HistoryDealGetInteger(dealTicket, DEAL_MAGIC);
+            string symbol = HistoryDealGetString(dealTicket, DEAL_SYMBOL);
+            long dealEntry = HistoryDealGetInteger(dealTicket, DEAL_ENTRY);
+            
+            if(magic == g_numero_magico && symbol == _Symbol && dealEntry == DEAL_ENTRY_OUT)
+            {
+               double profitReal = HistoryDealGetDouble(dealTicket, DEAL_PROFIT);
+               double swapReal = HistoryDealGetDouble(dealTicket, DEAL_SWAP);
+               double volumen = HistoryDealGetDouble(dealTicket, DEAL_VOLUME);
+               ulong positionTicket = HistoryDealGetInteger(dealTicket, DEAL_POSITION_ID);
+               
+               Print("  Deal #", dealTicket, " Pos #", positionTicket);
+               Print("    Profit: ", DoubleToString(profitReal, 2));
+               Print("    Swap: ", DoubleToString(swapReal, 2));
+               Print("    Volumen: ", DoubleToString(volumen, 2));
+               
+               profitTodasCerradas += profitReal + swapReal;
+               cantidadCerradas++;
+            }
+         }
+      }
+   }
+   
+   Print("----------------------------------------------");
+   Print("Total entradas cerradas: ", cantidadCerradas);
+   Print("PROFIT TODAS CERRADAS: ", DoubleToString(profitTodasCerradas, 2));
+   
+   // ========== LEER SWAP DE ENTRADAS ABIERTAS ==========
+   Print("--- Leyendo SWAP de todas las entradas abiertas ---");
+   
+   double swapTodasAbiertas = 0;
+   int cantidadAbiertas = 0;
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            double swapPos = posInfo.Swap();
+            ulong ticket = posInfo.Ticket();
+            
+            Print("  Swap abierta #", ticket, ": ", DoubleToString(swapPos, 2));
+            
+            swapTodasAbiertas += swapPos;
+            cantidadAbiertas++;
+         }
+      }
+   }
+   
+   Print("----------------------------------------------");
+   Print("Total entradas abiertas: ", cantidadAbiertas);
+   Print("SWAP TODAS ABIERTAS: ", DoubleToString(swapTodasAbiertas, 2));
+   
+   // ========== PASO 2: COMISIONES DE TODA LA SECUENCIA ==========
+   Print("========================================");
+   Print(">>> PASO 2: COMISIONES TOTALES <<<");
+   
+   double comisionesTotales = 0;
+   
+   // Comisiones de TODAS las cerradas
+   if(HistorySelect(desde, hasta))
+   {
+      int totalDeals = HistoryDealsTotal();
+      
+      for(int i = totalDeals - 1; i >= 0; i--)
+      {
+         ulong dealTicket = HistoryDealGetTicket(i);
+         
+         if(dealTicket > 0)
+         {
+            long magic = HistoryDealGetInteger(dealTicket, DEAL_MAGIC);
+            string symbol = HistoryDealGetString(dealTicket, DEAL_SYMBOL);
+            long dealEntry = HistoryDealGetInteger(dealTicket, DEAL_ENTRY);
+            
+            if(magic == g_numero_magico && symbol == _Symbol && dealEntry == DEAL_ENTRY_OUT)
+            {
+               double volumen = HistoryDealGetDouble(dealTicket, DEAL_VOLUME);
+               double comision = CalcularComisionPepperstone(volumen, _Symbol);
+               comisionesTotales += comision;
+               
+               ulong positionTicket = HistoryDealGetInteger(dealTicket, DEAL_POSITION_ID);
+               Print("  Comisión cerrada #", positionTicket, ": ", DoubleToString(comision, 2));
+            }
+         }
+      }
+   }
+   
+   // Comisiones de TODAS las abiertas
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            double volumen = posInfo.Volume();
+            double comision = CalcularComisionPepperstone(volumen, _Symbol);
+            comisionesTotales += comision;
+            Print("  Comisión abierta #", posInfo.Ticket(), ": ", DoubleToString(comision, 2));
+         }
+      }
+   }
+   
+   Print("----------------------------------------------");
+   Print("COMISIONES TOTALES: ", DoubleToString(comisionesTotales, 2));
+   
+   // ========== PASO 3: CALCULAR P&L TOTAL ==========
+   Print("========================================");
+   Print(">>> PASO 3: P&L TOTAL <<<");
+   
+   double plTotal = profitTodasCerradas + swapTodasAbiertas - comisionesTotales;
+   
+   Print("PROFIT TODAS CERRADAS: ", DoubleToString(profitTodasCerradas, 2));
+   Print("SWAP TODAS ABIERTAS: ", DoubleToString(swapTodasAbiertas, 2));
+   Print("COMISIONES TOTALES: -", DoubleToString(comisionesTotales, 2));
+   Print("----------------------------------------------");
+   Print("P&L TOTAL: ", DoubleToString(plTotal, 2));
+   
+   // ========== PASO 4: CALCULAR TP ==========
+   Print("========================================");
+   Print(">>> PASO 4: CALCULAR TP <<<");
+   
+   double gananciaBrutaNecesaria = MathAbs(plTotal) + g_ganancia_objetivo;
+   
+   Print("P&L TOTAL: ", DoubleToString(plTotal, 2));
+   Print("GananciaM: ", DoubleToString(g_ganancia_objetivo, 2));
+   Print("Ganancia BRUTA necesaria: ", DoubleToString(gananciaBrutaNecesaria, 2));
+   
+   // Cancelar órdenes anteriores
+   COrderInfo ordInfo;
+   for(int i = OrdersTotal() - 1; i >= 0; i--)
+   {
+      if(ordInfo.SelectByIndex(i))
+      {
+         if(ordInfo.Magic() == g_numero_magico && ordInfo.Symbol() == _Symbol)
+         {
+            string com = ordInfo.Comment();
+            if(StringFind(com, "RollOff_Proteccion") >= 0)
+            {
+               tradeRollOff.OrderDelete(ordInfo.Ticket());
+            }
+         }
+      }
+   }
+   
+   // ========== ANALIZAR GANADORAS ==========
+   // CORRECCIÓN: Usar PositionType() de MT5 directamente
+   double punto = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+   int digits = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+   
+   double volumenTotalGanadoras = 0;
+   ENUM_POSITION_TYPE tipoGanadorasMT5 = POSITION_TYPE_BUY;
+   ENUM_ORDER_TYPE tipoGanadoras = ORDER_TYPE_BUY;
+   int contadorGanadoras = 0;
+   int nivelMasAlto = 0;
+   double precioAperturaUltimaGanadora = 0;
+   datetime tiempoMasReciente = 0;
+   
+   Print("--- Analizando ganadoras ---");
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            // ========== CORRECCIÓN: Usar tipo REAL de MT5 ==========
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
+            
+            bool esGanadora = false;
+            
+            if(buyGanando)
+            {
+               esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
+            }
+            else
+            {
+               esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
+            }
+            // ========== FIN CORRECCIÓN ==========
+            
+            if(esGanadora)
+            {
+               ulong ticket = posInfo.Ticket();
+               double volumen = posInfo.Volume();
+               double precioApertura = posInfo.PriceOpen();
+               datetime tiempoApertura = posInfo.Time();
+               string comentario = posInfo.Comment();
+               
+               // Obtener nivel si existe
+               int nivel = 0;
+               if(StringFind(comentario, "Nivel_") >= 0)
+               {
+                  nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+               }
+               
+               Print("  Ganadora #", ticket, 
+                     " Tipo:", (tipoPosicion == POSITION_TYPE_BUY ? "BUY" : "SELL"),
+                     " Nivel:", nivel, 
+                     " Vol:", DoubleToString(volumen, 2));
+               Print("    Precio apertura: ", DoubleToString(precioApertura, digits));
+               
+               volumenTotalGanadoras += volumen;
+               tipoGanadorasMT5 = tipoPosicion;
+               tipoGanadoras = (tipoPosicion == POSITION_TYPE_BUY) ? ORDER_TYPE_BUY : ORDER_TYPE_SELL;
+               contadorGanadoras++;
+               
+               // Buscar la más reciente por tiempo (para precio de referencia)
+               if(tiempoApertura > tiempoMasReciente)
+               {
+                  tiempoMasReciente = tiempoApertura;
+                  precioAperturaUltimaGanadora = precioApertura;
+                  nivelMasAlto = nivel;
+               }
+            }
+         }
+      }
+   }
+   
+   if(contadorGanadoras == 0)
+   {
+      Print("✗ ERROR: No hay ganadoras");
+      return false;
+   }
+   
+   Print("----------------------------------------------");
+   Print("Total ganadoras: ", contadorGanadoras);
+   Print("Volumen total ganadoras: ", DoubleToString(volumenTotalGanadoras, 2));
+   
+   // Calcular precio promedio ponderado de apertura
+   double sumatoriaPrecioVolumen = 0;
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
+            
+            bool esGanadora = false;
+            if(buyGanando)
+               esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
+            else
+               esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
+            
+            if(esGanadora)
+            {
+               double volumen = posInfo.Volume();
+               double precioApertura = posInfo.PriceOpen();
+               sumatoriaPrecioVolumen += precioApertura * volumen;
+            }
+         }
+      }
+   }
+   
+   double precioPromedioApertura = sumatoriaPrecioVolumen / volumenTotalGanadoras;
+   
+   // ========== EXTRAER VALOR DEL PUNTO DESDE POSICIONES REALES ==========
+   double valorPuntoPorLote = 0;
+   bool valorObtenido = false;
+   
+   double precioActualCalculo;
+   if(tipoGanadoras == ORDER_TYPE_BUY)
+      precioActualCalculo = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   else
+      precioActualCalculo = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
+            
+            bool esGanadora = false;
+            if(buyGanando)
+               esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
+            else
+               esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
+            
+            if(esGanadora)
+            {
+               double volumen = posInfo.Volume();
+               double precioApertura = posInfo.PriceOpen();
+               double profit = posInfo.Profit();
+               
+               double diferenciaPrecio;
+               if(tipoPosicion == POSITION_TYPE_BUY)
+                  diferenciaPrecio = precioActualCalculo - precioApertura;
+               else
+                  diferenciaPrecio = precioApertura - precioActualCalculo;
+               
+               double puntos = diferenciaPrecio / punto;
+               
+               if(MathAbs(puntos) >= 1.0 && MathAbs(profit) >= 0.01)
+               {
+                  valorPuntoPorLote = profit / puntos / volumen;
+                  
+                  Print("Extrayendo valor del punto desde posición #", posInfo.Ticket());
+                  Print("  Precio apertura: ", DoubleToString(precioApertura, digits));
+                  Print("  Precio actual: ", DoubleToString(precioActualCalculo, digits));
+                  Print("  Diferencia puntos: ", DoubleToString(puntos, 1));
+                  Print("  Profit actual: ", DoubleToString(profit, 2));
+                  Print("  Volumen: ", DoubleToString(volumen, 2));
+                  Print("  → Valor 1 punto/lote: ", DoubleToString(valorPuntoPorLote, 2));
+                  
+                  valorObtenido = true;
+                  break;
+               }
+            }
+         }
+      }
+   }
+   
+   // Fallback
+   if(!valorObtenido || MathAbs(valorPuntoPorLote) < 0.1)
+   {
+      Print("⚠ WARNING: No se pudo extraer valor del punto");
+      Print("⚠ Usando valor aproximado: 8.5");
+      valorPuntoPorLote = 8.5;
+   }
+   
+   Print("----------------------------------------------");
+   Print(">>> VALOR DEL PUNTO <<<");
+   Print("Valor 1 punto (1 lote): ", DoubleToString(valorPuntoPorLote, 2));
+   
+   // Calcular puntos necesarios
+   double puntosNecesarios = gananciaBrutaNecesaria / (volumenTotalGanadoras * valorPuntoPorLote);
+   double diferenciaNecesaria = puntosNecesarios * punto;
+   
+   double precioTP;
+   if(tipoGanadoras == ORDER_TYPE_BUY)
+      precioTP = precioPromedioApertura + diferenciaNecesaria;
+   else
+      precioTP = precioPromedioApertura - diferenciaNecesaria;
+   
+   precioTP = NormalizeDouble(precioTP, digits);
+   
+   Print("Volumen total ganadoras: ", DoubleToString(volumenTotalGanadoras, 2));
+   Print("Precio promedio apertura: ", DoubleToString(precioPromedioApertura, digits));
+   Print("Puntos necesarios: ", DoubleToString(puntosNecesarios, 1));
+   Print("Diferencia necesaria: ", DoubleToString(diferenciaNecesaria, digits));
+   Print("TP calculado: ", DoubleToString(precioTP, digits));
+   
+   // Verificar si el precio actual ya superó el TP
+   Print("Precio actual: ", DoubleToString(precioActualCalculo, digits));
+   
+   bool tpYaSuperado = false;
+   if(tipoGanadoras == ORDER_TYPE_BUY)
+      tpYaSuperado = (precioActualCalculo >= precioTP);
+   else
+      tpYaSuperado = (precioActualCalculo <= precioTP);
+   
+   if(tpYaSuperado)
+   {
+      Print("========================================");
+      Print(">>> TP YA SUPERADO <<<");
+      Print(">>> Cerrando TODAS las posiciones");
+      Print("========================================");
+      
+      // Cerrar todas
+      for(int i = PositionsTotal() - 1; i >= 0; i--)
+      {
+         if(posInfo.SelectByIndex(i))
+         {
+            if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+            {
+               ulong ticket = posInfo.Ticket();
+               if(tradeRollOff.PositionClose(ticket))
+               {
+                  Print("  ✓ Cerrada #", ticket);
+                  Sleep(50);
+               }
+            }
+         }
+      }
+      
+      // Cancelar órdenes
+      for(int i = OrdersTotal() - 1; i >= 0; i--)
+      {
+         if(ordInfo.SelectByIndex(i))
+         {
+            if(ordInfo.Magic() == g_numero_magico && ordInfo.Symbol() == _Symbol)
+            {
+               tradeRollOff.OrderDelete(ordInfo.Ticket());
+            }
+         }
+      }
+      
+      Print(">>> OBJETIVO ALCANZADO");
+      return true;
+   }
+   
+   // ========== PASO 5: CONFIGURAR TP Y ORDEN PROTECCIÓN ==========
+   Print("========================================");
+   Print(">>> PASO 5: CONFIGURAR TP <<<");
+   
+   int tpsConfigurados = 0;
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
+            
+            bool esGanadora = false;
+            if(buyGanando)
+               esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
+            else
+               esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
+            
+            if(esGanadora)
+            {
+               ulong ticket = posInfo.Ticket();
+               
+               if(tradeRollOff.PositionModify(ticket, 0, precioTP))
+               {
+                  Print("  ✓ TP configurado #", ticket);
+                  tpsConfigurados++;
+               }
+               else
+               {
+                  Print("  ✗ Error TP #", ticket);
+               }
+            }
+         }
+      }
+   }
+   
+   Print("TPs configurados: ", tpsConfigurados);
+   
+   // ========== PASO 6: AFINAR TP ==========
+   Print("========================================");
+   Print(">>> PASO 6: AFINAR TP <<<");
+   Print("Ganancia BRUTA necesaria: ", DoubleToString(gananciaBrutaNecesaria, 2));
+   Print("GananciaM objetivo: ", DoubleToString(g_ganancia_objetivo, 2));
+   
+   // Obtener valor del punto EXACTO de MT5
+   double tickSize = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_SIZE);
+   double tickValue = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_VALUE);
+   double valorPuntoExacto = (punto / tickSize) * tickValue;
+   
+   Print("Valor punto EXACTO (MT5): ", DoubleToString(valorPuntoExacto, 4));
+   
+   // Calcular profit esperado usando VALOR EXACTO del punto
+   double profitTotalEsperado = 0;
+   int posicionesConTP = 0;
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
+            
+            bool esGanadora = false;
+            if(buyGanando)
+               esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
+            else
+               esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
+            
+            if(esGanadora)
+            {
+               double tp = posInfo.TakeProfit();
+               if(tp != 0)
+               {
+                  double precioApertura = posInfo.PriceOpen();
+                  double volumen = posInfo.Volume();
+                  
+                  double diferenciaTP;
+                  if(tipoPosicion == POSITION_TYPE_BUY)
+                     diferenciaTP = tp - precioApertura;
+                  else
+                     diferenciaTP = precioApertura - tp;
+                  
+                  double puntosTP = diferenciaTP / punto;
+                  double profitEsperado = puntosTP * volumen * valorPuntoExacto;
+                  
+                  Print("  Pos #", posInfo.Ticket(), " Vol:", DoubleToString(volumen, 2));
+                  Print("    TP: ", DoubleToString(tp, digits), " Puntos: ", DoubleToString(puntosTP, 1));
+                  Print("    Profit esperado: ", DoubleToString(profitEsperado, 2));
+                  
+                  profitTotalEsperado += profitEsperado;
+                  posicionesConTP++;
+               }
+            }
+         }
+      }
+   }
+   
+   Print("----------------------------------------------");
+   Print("PROFIT TOTAL esperado (TP actual): ", DoubleToString(profitTotalEsperado, 2));
+   Print("Ganancia BRUTA necesaria: ", DoubleToString(gananciaBrutaNecesaria, 2));
+   
+   double diferencia = profitTotalEsperado - gananciaBrutaNecesaria;
+   Print("Diferencia: ", DoubleToString(diferencia, 3));
+   
+   // CÁLCULO CRÍTICO: Resultado proyectado
+   double resultadoProyectado = g_ganancia_objetivo + diferencia;
+   Print("Resultado proyectado: ", DoubleToString(resultadoProyectado, 3));
+   
+   // ========== DECISIÓN CRÍTICA ==========
+   bool peligroCritico = (resultadoProyectado <= 0.005);
+   
+   if(peligroCritico)
+   {
+      Print("========================================");
+      Print("🚨 PELIGRO CRÍTICO DETECTADO");
+      Print("   Resultado proyectado: ", DoubleToString(resultadoProyectado, 3));
+      Print("   ¡Resultado sería NEGATIVO o CERO!");
+      Print("   MODO EMERGENCIA: Búsqueda exhaustiva");
+      Print("========================================");
+   }
+   
+   // Ajustar si: peligro crítico O diferencia > 0.015
+   if(peligroCritico || MathAbs(diferencia) > 0.015)
+   {
+      Print(">>> Iniciando búsqueda de TP óptimo...");
+      
+      double mejorTP = precioTP;
+      double mejorResultado = resultadoProyectado;
+      int iteracionMejor = 0;
+      bool tpSeguroEncontrado = false;
+      
+      int rangoInicio, rangoFin;
+      
+      if(peligroCritico)
+      {
+         rangoInicio = 1;
+         rangoFin = 100;
+         Print("MODO EMERGENCIA: Búsqueda de i=", rangoInicio, " a ", rangoFin);
+         Print("Objetivo: Encontrar resultado POSITIVO (> 0.01)");
+      }
+      else
+      {
+         rangoInicio = -10;
+         rangoFin = 10;
+         Print("Modo estándar: Búsqueda de i=", rangoInicio, " a ", rangoFin);
+      }
+      
+      for(int i = rangoInicio; i <= rangoFin; i++)
+      {
+         double tpPrueba;
+         if(tipoGanadoras == ORDER_TYPE_BUY)
+            tpPrueba = precioTP + (i * punto);
+         else
+            tpPrueba = precioTP - (i * punto);
+         
+         tpPrueba = NormalizeDouble(tpPrueba, digits);
+         
+         // Calcular profit con este TP
+         double profitConEstTP = 0;
+         
+         for(int j = 0; j < PositionsTotal(); j++)
+         {
+            if(posInfo.SelectByIndex(j))
+            {
+               if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+               {
+                  ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
+                  
+                  bool esGanadora = false;
+                  if(buyGanando)
+                     esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
+                  else
+                     esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
+                  
+                  if(esGanadora)
+                  {
+                     double precioApertura = posInfo.PriceOpen();
+                     double volumen = posInfo.Volume();
+                     
+                     double diferenciaTP;
+                     if(tipoPosicion == POSITION_TYPE_BUY)
+                        diferenciaTP = tpPrueba - precioApertura;
+                     else
+                        diferenciaTP = precioApertura - tpPrueba;
+                     
+                     double puntosTP = diferenciaTP / punto;
+                     double profitEsperado = puntosTP * volumen * valorPuntoExacto;
+                     
+                     profitConEstTP += profitEsperado;
+                  }
+               }
+            }
+         }
+         
+         double diferenciaConEstTP = profitConEstTP - gananciaBrutaNecesaria;
+         double resultadoConEstTP = g_ganancia_objetivo + diferenciaConEstTP;
+         
+         // Logs estratégicos
+         if(peligroCritico)
+         {
+            if(i <= 10 || i % 5 == 0)
+            {
+               Print("  i=", i, " TP:", DoubleToString(tpPrueba, digits),
+                     " Resultado:", DoubleToString(resultadoConEstTP, 3));
+            }
+         }
+         else
+         {
+            if(i % 5 == 0)
+            {
+               Print("  i=", i, " TP:", DoubleToString(tpPrueba, digits),
+                     " Dif:", DoubleToString(diferenciaConEstTP, 3),
+                     " Resultado:", DoubleToString(resultadoConEstTP, 3));
+            }
+         }
+         
+         // CRITERIOS DE SELECCIÓN
+         if(peligroCritico)
+         {
+            if(resultadoConEstTP >= 0.01 && !tpSeguroEncontrado)
+            {
+               mejorTP = tpPrueba;
+               mejorResultado = resultadoConEstTP;
+               iteracionMejor = i;
+               tpSeguroEncontrado = true;
+               
+               Print("========================================");
+               Print("✅ TP SEGURO ENCONTRADO");
+               Print("   Iteración: ", i);
+               Print("   TP: ", DoubleToString(mejorTP, digits));
+               Print("   Resultado proyectado: ", DoubleToString(mejorResultado, 3));
+               Print("========================================");
+               
+               break;
+            }
+         }
+         else
+         {
+            if(MathAbs(diferenciaConEstTP) < MathAbs(mejorResultado - g_ganancia_objetivo))
+            {
+               mejorTP = tpPrueba;
+               mejorResultado = resultadoConEstTP;
+               iteracionMejor = i;
+            }
+         }
+      }
+      
+      // VERIFICACIÓN FINAL
+      if(peligroCritico && !tpSeguroEncontrado)
+      {
+         Print("========================================");
+         Print("⚠️ ADVERTENCIA CRÍTICA");
+         Print("   No se encontró TP seguro en 100 puntos");
+         Print("   Usando TP extremo como último recurso");
+         
+         if(tipoGanadoras == ORDER_TYPE_BUY)
+            mejorTP = precioTP + (100 * punto);
+         else
+            mejorTP = precioTP - (100 * punto);
+         
+         mejorTP = NormalizeDouble(mejorTP, digits);
+         
+         Print("   TP último recurso: ", DoubleToString(mejorTP, digits));
+         Print("   Esto garantiza resultado muy positivo");
+         Print("========================================");
+      }
+      
+      Print("----------------------------------------------");
+      Print(">>> RESULTADO DE BÚSQUEDA <<<");
+      Print("TP anterior: ", DoubleToString(precioTP, digits));
+      Print("TP óptimo: ", DoubleToString(mejorTP, digits));
+      Print("Iteración: ", iteracionMejor);
+      Print("Resultado FINAL proyectado: ", DoubleToString(mejorResultado, 3));
+      
+      double cambio = MathAbs(mejorTP - precioTP);
+      double cambioEnPuntos = cambio / punto;
+      Print("Cambio: ", DoubleToString(cambioEnPuntos, 1), " puntos");
+      
+      // APLICAR si es diferente
+      if(mejorTP != precioTP)
+      {
+         Print(">>> Aplicando TP óptimo...");
+         
+         int tpsAjustados = 0;
+         for(int i = 0; i < PositionsTotal(); i++)
+         {
+            if(posInfo.SelectByIndex(i))
+            {
+               if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+               {
+                  ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
+                  
+                  bool esGanadora = false;
+                  if(buyGanando)
+                     esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
+                  else
+                     esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
+                  
+                  if(esGanadora)
+                  {
+                     ulong ticket = posInfo.Ticket();
+                     
+                     if(tradeRollOff.PositionModify(ticket, 0, mejorTP))
+                     {
+                        Print("  ✓ TP ajustado #", ticket, " → ", DoubleToString(mejorTP, digits));
+                        tpsAjustados++;
+                     }
+                     else
+                     {
+                        Print("  ✗ Error ajustando #", ticket, " Error:", GetLastError());
+                     }
+                  }
+               }
+            }
+         }
+         
+         Print("TPs ajustados: ", tpsAjustados);
+         precioTP = mejorTP;
+      }
+      else
+      {
+         Print(">>> TP actual es óptimo");
+      }
+   }
+   else
+   {
+      Print(">>> Diferencia aceptable, no se requiere ajuste");
+      Print(">>> Resultado proyectado: ", DoubleToString(resultadoProyectado, 3), " ✓");
+   }
+   
+   Print("========================================");
+   
+   // ORDEN PROTECCIÓN
+   Print("----------------------------------------------");
+   Print(">>> ORDEN PROTECCIÓN NEUTRALIZADORA <<<");
+   
+   double precioOrdenPendiente;
+   ENUM_ORDER_TYPE tipoOrdenPendiente;
+   
+   if(tipoGanadoras == ORDER_TYPE_BUY)
+   {
+      precioOrdenPendiente = precioActualCalculo - (77 * punto);
+      tipoOrdenPendiente = ORDER_TYPE_SELL_STOP;
+   }
+   else
+   {
+      precioOrdenPendiente = precioActualCalculo + (77 * punto);
+      tipoOrdenPendiente = ORDER_TYPE_BUY_STOP;
+   }
+   
+   precioOrdenPendiente = NormalizeDouble(precioOrdenPendiente, digits);
+   
+   Print("Tipo: ", (tipoOrdenPendiente == ORDER_TYPE_BUY_STOP ? "BUY STOP" : "SELL STOP"));
+   Print("Volumen: ", DoubleToString(volumenTotalGanadoras, 2));
+   Print("Precio: ", DoubleToString(precioOrdenPendiente, digits));
+   
+   if(tradeRollOff.OrderOpen(_Symbol, tipoOrdenPendiente, volumenTotalGanadoras, 0, 
+                      precioOrdenPendiente, 0, 0, 
+                      ORDER_TIME_GTC, 0, 
+                      "RollOff_Proteccion"))
+   {
+      Print("✓ Orden protección #", tradeRollOff.ResultOrder());
+   }
+   
+   // PRECIO REFERENCIA
+   Print("----------------------------------------------");
+   Print(">>> PRECIO REFERENCIA <<<");
+   
+   if(MathAbs(g_precio_activacion_roll_off - precioAperturaUltimaGanadora) > (punto * 2))
+   {
+      g_precio_activacion_roll_off = precioAperturaUltimaGanadora;
+      Print("✓ ACTUALIZADO: ", DoubleToString(g_precio_activacion_roll_off, digits));
+   }
+   else
+   {
+      Print("✓ MANTIENE: ", DoubleToString(g_precio_activacion_roll_off, digits));
+   }
+   
+   Print("==========================================");
+   Print(">>> Roll-Off completado");
+   Print("==========================================");
+   
+   g_ultimo_roll_off = TimeCurrent();
+   
+   return true;
+}
