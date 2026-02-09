@@ -803,6 +803,46 @@ bool EjecutarRollOff()
          }
          
          Print("TPs ajustados: ", tpsAjustados);
+         
+         // ========== LOG: PROFIT TOTAL esperado con TP Nuevo ==========
+         double profitTotalNuevoTP = 0;
+         for(int k = 0; k < PositionsTotal(); k++)
+         {
+            if(posInfo.SelectByIndex(k))
+            {
+               if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+               {
+                  ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
+                  
+                  bool esGanadora = false;
+                  if(buyGanando)
+                     esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
+                  else
+                     esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
+                  
+                  if(esGanadora)
+                  {
+                     double precioApertura = posInfo.PriceOpen();
+                     double volumen = posInfo.Volume();
+                     
+                     double diferenciaTP;
+                     if(tipoPosicion == POSITION_TYPE_BUY)
+                        diferenciaTP = mejorTP - precioApertura;
+                     else
+                        diferenciaTP = precioApertura - mejorTP;
+                     
+                     double puntosTP = diferenciaTP / punto;
+                     double profitEsperado = puntosTP * volumen * valorPuntoPorLote;
+                     
+                     profitTotalNuevoTP += profitEsperado;
+                  }
+               }
+            }
+         }
+         Print("----------------------------------------------");
+         Print("PROFIT TOTAL esperado (TP Nuevo): ", DoubleToString(profitTotalNuevoTP, 2));
+         // ============================================================
+         
          precioTP = mejorTP;
       }
       else
