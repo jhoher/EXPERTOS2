@@ -54,6 +54,8 @@ double g_precio_activacion_roll_off = 0;  // Precio donde se activó la neutrali
 int g_ticks_umbral_roll_off = 77;         // Umbral de movimiento favorable para Roll-Off (77 ticks = 7.7 pips)
 datetime g_ultimo_roll_off = 0;           // Timestamp del último Roll-Off ejecutado
 datetime g_tiempo_primera_entrada = 0;    // NUEVA: Marca el inicio de la secuencia actual
+// ============== NUEVA VARIABLE CRÍTICA ==============
+bool g_orden_neutralizadora_activada = false;  // Señal de neutralización por orden
 
 //+------------------------------------------------------------------+
 //| Calcular volúmenes totales BUY y SELL                           |
@@ -144,6 +146,7 @@ double CalcularPLTotal()
 
 //+------------------------------------------------------------------+
 //| Calcular P&L separado por tipo (BUY/SELL)                       |
+//| CORRECCIÓN CRÍTICA: Usa tipo REAL de la posición MT5            |
 //+------------------------------------------------------------------+
 void CalcularPLPorTipo(double &plBuy, double &plSell)
 {
@@ -159,36 +162,29 @@ void CalcularPLPorTipo(double &plBuy, double &plSell)
          if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
          {
             double pl = posInfo.Profit() + posInfo.Swap() + posInfo.Commission();
-            string comentario = posInfo.Comment();
-            int nivel = 0;
             
-            if(StringFind(comentario, "Nivel_") >= 0)
-            {
-               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
-            }
-            
-            // Determinar tipo real según nivel
-            ENUM_ORDER_TYPE tipoReal;
-            if(nivel % 2 == 1)
-               tipoReal = g_tipo_inicial;
-            else
-               tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
-            
-            if(tipoReal == ORDER_TYPE_BUY)
+            // ========== CORRECCIÓN CRÍTICA ==========
+            // SIEMPRE usar tipo REAL de la posición según MT5
+            // NO calcular por nivel ni patrón
+            if(posInfo.PositionType() == POSITION_TYPE_BUY)
                plBuy += pl;
             else
                plSell += pl;
+            // =========================================
          }
       }
    }
 }
 
 //+------------------------------------------------------------------+
-//| Ejecutar Roll-Off - CON SWAP INCLUIDO                           |
-//| Modificación: SWAP de entradas abiertas en PASO 1               |
-//| Modificación: SWAP incluido en P&L TOTAL (PASO 3)              |
-//| IMPORTANTE: Resto del código SIN CAMBIOS                        |
+//| EjecutarRollOff - VERSIÓN CORREGIDA                             |
+//| CORRECCIÓN CRÍTICA: Usa PositionType() de MT5 para identificar  |
+//|                     ganadoras/perdedoras en lugar de nivel      |
+//| PROBLEMA: Las posiciones de "RollOff_Proteccion" no tienen      |
+//|           "Nivel_" en el comentario, causando clasificación     |
+//|           incorrecta y cierre de TODAS las posiciones           |
 //+------------------------------------------------------------------+
+
 bool EjecutarRollOff()
 {
    Print("========================================");
@@ -214,46 +210,58 @@ bool EjecutarRollOff()
    ulong ticketsCerrar[];
    int contadorTickets = 0;
    
-   // Identificar perdedoras
    for(int i = PositionsTotal() - 1; i >= 0; i--)
    {
       if(posInfo.SelectByIndex(i))
       {
          if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
          {
-            string comentario = posInfo.Comment();
-            int nivel = 0;
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
             
-            if(StringFind(comentario, "Nivel_") >= 0)
+            bool esPerdedora = false;
+            
+            if(buyGanando)
             {
-               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+               esPerdedora = (tipoPosicion == POSITION_TYPE_SELL);
             }
-            
-            ENUM_ORDER_TYPE tipoReal;
-            if(nivel % 2 == 1)
-               tipoReal = g_tipo_inicial;
             else
-               tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
-            
-            bool esPerdedora = (!buyGanando && tipoReal == ORDER_TYPE_BUY) || 
-                              (buyGanando && tipoReal == ORDER_TYPE_SELL);
+            {
+               esPerdedora = (tipoPosicion == POSITION_TYPE_BUY);
+            }
             
             if(esPerdedora)
             {
                ulong ticket = posInfo.Ticket();
                double volumen = posInfo.Volume();
+               string comentario = posInfo.Comment();
                
-               Print("  Identificada #", ticket, " Vol:", DoubleToString(volumen, 2));
+               Print("  Identificada PERDEDORA #", ticket, 
+                     " Vol:", DoubleToString(volumen, 2),
+                     " Tipo:", (tipoPosicion == POSITION_TYPE_BUY ? "BUY" : "SELL"),
+                     " Com:", comentario);
                
                ArrayResize(ticketsCerrar, contadorTickets + 1);
                ticketsCerrar[contadorTickets] = ticket;
                contadorTickets++;
             }
+            else
+            {
+               ulong ticket = posInfo.Ticket();
+               double volumen = posInfo.Volume();
+               string comentario = posInfo.Comment();
+               
+               Print("  Identificada GANADORA #", ticket, 
+                     " Vol:", DoubleToString(volumen, 2),
+                     " Tipo:", (tipoPosicion == POSITION_TYPE_BUY ? "BUY" : "SELL"),
+                     " Com:", comentario, " → NO SE CIERRA");
+            }
          }
       }
    }
    
-   // CERRAR todas las perdedoras
+   Print("----------------------------------------------");
+   Print("Perdedoras a cerrar: ", contadorTickets);
+   
    for(int i = 0; i < contadorTickets; i++)
    {
       ulong ticket = ticketsCerrar[i];
@@ -267,13 +275,12 @@ bool EjecutarRollOff()
    
    Sleep(200);
    
-   // LEER TODAS LAS ENTRADAS CERRADAS DE LA SECUENCIA ACTUAL
    Print("--- Leyendo TODA la secuencia desde inicio ---");
    
    double profitTodasCerradas = 0;
    int cantidadCerradas = 0;
    
-   datetime desde = g_tiempo_primera_entrada; // Desde la primera entrada de la secuencia
+   datetime desde = g_tiempo_primera_entrada;
    datetime hasta = TimeCurrent();
    
    if(HistorySelect(desde, hasta))
@@ -313,7 +320,6 @@ bool EjecutarRollOff()
    Print("Total entradas cerradas: ", cantidadCerradas);
    Print("PROFIT TODAS CERRADAS: ", DoubleToString(profitTodasCerradas, 2));
    
-   // ========== MODIFICACIÓN 1: LEER SWAP DE ENTRADAS ABIERTAS ==========
    Print("--- Leyendo SWAP de todas las entradas abiertas ---");
    
    double swapTodasAbiertas = 0;
@@ -339,7 +345,6 @@ bool EjecutarRollOff()
    Print("----------------------------------------------");
    Print("Total entradas abiertas: ", cantidadAbiertas);
    Print("SWAP TODAS ABIERTAS: ", DoubleToString(swapTodasAbiertas, 2));
-   // =====================================================================
    
    // ========== PASO 2: COMISIONES DE TODA LA SECUENCIA ==========
    Print("========================================");
@@ -347,7 +352,6 @@ bool EjecutarRollOff()
    
    double comisionesTotales = 0;
    
-   // Comisiones de TODAS las cerradas
    if(HistorySelect(desde, hasta))
    {
       int totalDeals = HistoryDealsTotal();
@@ -375,7 +379,6 @@ bool EjecutarRollOff()
       }
    }
    
-   // Comisiones de TODAS las abiertas
    for(int i = 0; i < PositionsTotal(); i++)
    {
       if(posInfo.SelectByIndex(i))
@@ -397,7 +400,6 @@ bool EjecutarRollOff()
    Print("========================================");
    Print(">>> PASO 3: P&L TOTAL <<<");
    
-   // ========== MODIFICACIÓN 2: INCLUIR SWAP EN P&L TOTAL ==========
    double plTotal = profitTodasCerradas + swapTodasAbiertas - comisionesTotales;
    
    Print("PROFIT TODAS CERRADAS: ", DoubleToString(profitTodasCerradas, 2));
@@ -405,20 +407,17 @@ bool EjecutarRollOff()
    Print("COMISIONES TOTALES: -", DoubleToString(comisionesTotales, 2));
    Print("----------------------------------------------");
    Print("P&L TOTAL: ", DoubleToString(plTotal, 2));
-   // ================================================================
    
    // ========== PASO 4: CALCULAR TP ==========
    Print("========================================");
    Print(">>> PASO 4: CALCULAR TP <<<");
    
-   // Ganancia BRUTA necesaria
    double gananciaBrutaNecesaria = MathAbs(plTotal) + g_ganancia_objetivo;
    
    Print("P&L TOTAL: ", DoubleToString(plTotal, 2));
    Print("GananciaM: ", DoubleToString(g_ganancia_objetivo, 2));
    Print("Ganancia BRUTA necesaria: ", DoubleToString(gananciaBrutaNecesaria, 2));
    
-   // Cancelar órdenes anteriores
    COrderInfo ordInfo;
    for(int i = OrdersTotal() - 1; i >= 0; i--)
    {
@@ -435,15 +434,16 @@ bool EjecutarRollOff()
       }
    }
    
-   // ANALIZAR GANADORAS
    double punto = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
    int digits = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
    
    double volumenTotalGanadoras = 0;
+   ENUM_POSITION_TYPE tipoGanadorasMT5 = POSITION_TYPE_BUY;
    ENUM_ORDER_TYPE tipoGanadoras = ORDER_TYPE_BUY;
    int contadorGanadoras = 0;
    int nivelMasAlto = 0;
    double precioAperturaUltimaGanadora = 0;
+   datetime tiempoMasReciente = 0;
    
    Print("--- Analizando ganadoras ---");
    
@@ -453,40 +453,49 @@ bool EjecutarRollOff()
       {
          if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
          {
-            string comentario = posInfo.Comment();
-            int nivel = 0;
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
             
-            if(StringFind(comentario, "Nivel_") >= 0)
+            bool esGanadora = false;
+            
+            if(buyGanando)
             {
-               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+               esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
             }
-            
-            ENUM_ORDER_TYPE tipoReal;
-            if(nivel % 2 == 1)
-               tipoReal = g_tipo_inicial;
             else
-               tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
-            
-            bool esGanadora = (buyGanando && tipoReal == ORDER_TYPE_BUY) || 
-                            (!buyGanando && tipoReal == ORDER_TYPE_SELL);
+            {
+               esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
+            }
             
             if(esGanadora)
             {
                ulong ticket = posInfo.Ticket();
                double volumen = posInfo.Volume();
                double precioApertura = posInfo.PriceOpen();
+               datetime tiempoApertura = posInfo.Time();
+               string comentario = posInfo.Comment();
                
-               Print("  Ganadora #", ticket, " Nivel:", nivel, " Vol:", DoubleToString(volumen, 2));
+               int nivel = 0;
+               if(StringFind(comentario, "Nivel_") >= 0)
+               {
+                  nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+               }
+               
+               Print("  Ganadora #", ticket, 
+                     " Tipo:", (tipoPosicion == POSITION_TYPE_BUY ? "BUY" : "SELL"),
+                     " Nivel:", nivel, 
+                     " Vol:", DoubleToString(volumen, 2));
                Print("    Precio apertura: ", DoubleToString(precioApertura, digits));
                
                volumenTotalGanadoras += volumen;
-               tipoGanadoras = tipoReal;
+               tipoGanadorasMT5 = tipoPosicion;
+               tipoGanadoras = (tipoPosicion == POSITION_TYPE_BUY) ? ORDER_TYPE_BUY : ORDER_TYPE_SELL;
                contadorGanadoras++;
                
-               if(nivel > nivelMasAlto)
+               if(tiempoApertura > tiempoMasReciente)
                {
-                  nivelMasAlto = nivel;
+                  tiempoMasReciente = tiempoApertura;
                   precioAperturaUltimaGanadora = precioApertura;
+                  nivelMasAlto = nivel;
                }
             }
          }
@@ -499,7 +508,10 @@ bool EjecutarRollOff()
       return false;
    }
    
-   // Calcular precio promedio ponderado de apertura
+   Print("----------------------------------------------");
+   Print("Total ganadoras: ", contadorGanadoras);
+   Print("Volumen total ganadoras: ", DoubleToString(volumenTotalGanadoras, 2));
+   
    double sumatoriaPrecioVolumen = 0;
    for(int i = 0; i < PositionsTotal(); i++)
    {
@@ -507,22 +519,13 @@ bool EjecutarRollOff()
       {
          if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
          {
-            string comentario = posInfo.Comment();
-            int nivel = 0;
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
             
-            if(StringFind(comentario, "Nivel_") >= 0)
-            {
-               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
-            }
-            
-            ENUM_ORDER_TYPE tipoReal;
-            if(nivel % 2 == 1)
-               tipoReal = g_tipo_inicial;
+            bool esGanadora = false;
+            if(buyGanando)
+               esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
             else
-               tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
-            
-            bool esGanadora = (buyGanando && tipoReal == ORDER_TYPE_BUY) || 
-                            (!buyGanando && tipoReal == ORDER_TYPE_SELL);
+               esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
             
             if(esGanadora)
             {
@@ -552,22 +555,13 @@ bool EjecutarRollOff()
       {
          if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
          {
-            string comentario = posInfo.Comment();
-            int nivel = 0;
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
             
-            if(StringFind(comentario, "Nivel_") >= 0)
-            {
-               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
-            }
-            
-            ENUM_ORDER_TYPE tipoReal;
-            if(nivel % 2 == 1)
-               tipoReal = g_tipo_inicial;
+            bool esGanadora = false;
+            if(buyGanando)
+               esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
             else
-               tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
-            
-            bool esGanadora = (buyGanando && tipoReal == ORDER_TYPE_BUY) || 
-                            (!buyGanando && tipoReal == ORDER_TYPE_SELL);
+               esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
             
             if(esGanadora)
             {
@@ -575,17 +569,14 @@ bool EjecutarRollOff()
                double precioApertura = posInfo.PriceOpen();
                double profit = posInfo.Profit();
                
-               // Calcular diferencia en precio
                double diferenciaPrecio;
-               if(tipoReal == ORDER_TYPE_BUY)
+               if(tipoPosicion == POSITION_TYPE_BUY)
                   diferenciaPrecio = precioActualCalculo - precioApertura;
                else
                   diferenciaPrecio = precioApertura - precioActualCalculo;
                
-               // Calcular cuántos puntos hay
                double puntos = diferenciaPrecio / punto;
                
-               // Solo usar si hay movimiento significativo
                if(MathAbs(puntos) >= 1.0 && MathAbs(profit) >= 0.01)
                {
                   valorPuntoPorLote = profit / puntos / volumen;
@@ -606,7 +597,6 @@ bool EjecutarRollOff()
       }
    }
    
-   // Fallback
    if(!valorObtenido || MathAbs(valorPuntoPorLote) < 0.1)
    {
       Print("⚠ WARNING: No se pudo extraer valor del punto");
@@ -618,7 +608,6 @@ bool EjecutarRollOff()
    Print(">>> VALOR DEL PUNTO <<<");
    Print("Valor 1 punto (1 lote): ", DoubleToString(valorPuntoPorLote, 2));
    
-   // Calcular puntos necesarios
    double puntosNecesarios = gananciaBrutaNecesaria / (volumenTotalGanadoras * valorPuntoPorLote);
    double diferenciaNecesaria = puntosNecesarios * punto;
    
@@ -636,7 +625,6 @@ bool EjecutarRollOff()
    Print("Diferencia necesaria: ", DoubleToString(diferenciaNecesaria, digits));
    Print("TP calculado: ", DoubleToString(precioTP, digits));
    
-   // Verificar si el precio actual ya superó el TP
    Print("Precio actual: ", DoubleToString(precioActualCalculo, digits));
    
    bool tpYaSuperado = false;
@@ -652,7 +640,6 @@ bool EjecutarRollOff()
       Print(">>> Cerrando TODAS las posiciones");
       Print("========================================");
       
-      // Cerrar todas
       for(int i = PositionsTotal() - 1; i >= 0; i--)
       {
          if(posInfo.SelectByIndex(i))
@@ -669,7 +656,6 @@ bool EjecutarRollOff()
          }
       }
       
-      // Cancelar órdenes
       for(int i = OrdersTotal() - 1; i >= 0; i--)
       {
          if(ordInfo.SelectByIndex(i))
@@ -685,7 +671,7 @@ bool EjecutarRollOff()
       return true;
    }
    
-   // ========== PASO 5: CONFIGURAR TP Y ORDEN PROTECCIÓN ==========
+   // ========== PASO 5: CONFIGURAR TP ==========
    Print("========================================");
    Print(">>> PASO 5: CONFIGURAR TP <<<");
    
@@ -696,22 +682,13 @@ bool EjecutarRollOff()
       {
          if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
          {
-            string comentario = posInfo.Comment();
-            int nivel = 0;
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
             
-            if(StringFind(comentario, "Nivel_") >= 0)
-            {
-               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
-            }
-            
-            ENUM_ORDER_TYPE tipoReal;
-            if(nivel % 2 == 1)
-               tipoReal = g_tipo_inicial;
+            bool esGanadora = false;
+            if(buyGanando)
+               esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
             else
-               tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
-            
-            bool esGanadora = (buyGanando && tipoReal == ORDER_TYPE_BUY) || 
-                            (!buyGanando && tipoReal == ORDER_TYPE_SELL);
+               esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
             
             if(esGanadora)
             {
@@ -739,14 +716,80 @@ bool EjecutarRollOff()
    Print("Ganancia BRUTA necesaria: ", DoubleToString(gananciaBrutaNecesaria, 2));
    Print("GananciaM objetivo: ", DoubleToString(g_ganancia_objetivo, 2));
    
-   // Obtener valor del punto EXACTO de MT5
-   double tickSize = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_SIZE);
-   double tickValue = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_VALUE);
-   double valorPuntoExacto = (punto / tickSize) * tickValue;
+   // ========== RECALCULAR VALOR TICK EN TIEMPO REAL ==========
+   // El valor del TICK cambia constantemente con el tipo de cambio
+   // Lo recalculamos AHORA usando el profit ACTUAL de la posición ganadora
+   // Fórmula: Valor TICK = Profit actual / Puntos actuales / Volumen
+   // ==============================================================
+   double valorTickActual = 0;
+   bool tickRecalculado = false;
    
-   Print("Valor punto EXACTO (MT5): ", DoubleToString(valorPuntoExacto, 4));
+   // Obtener precio actual según tipo
+   double precioAhoraCalculo;
+   if(tipoGanadoras == ORDER_TYPE_BUY)
+      precioAhoraCalculo = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   else
+      precioAhoraCalculo = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
    
-   // Calcular profit esperado usando VALOR EXACTO del punto
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posInfo.SelectByIndex(i))
+      {
+         if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+         {
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
+            
+            bool esGanadora = false;
+            if(buyGanando)
+               esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
+            else
+               esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
+            
+            if(esGanadora)
+            {
+               double volumen = posInfo.Volume();
+               double precioApertura = posInfo.PriceOpen();
+               double profitActual = posInfo.Profit();
+               
+               double diferenciaPrecio;
+               if(tipoPosicion == POSITION_TYPE_BUY)
+                  diferenciaPrecio = precioAhoraCalculo - precioApertura;
+               else
+                  diferenciaPrecio = precioApertura - precioAhoraCalculo;
+               
+               double puntosActuales = diferenciaPrecio / punto;
+               
+               if(MathAbs(puntosActuales) >= 1.0 && MathAbs(profitActual) >= 0.01)
+               {
+                  valorTickActual = profitActual / puntosActuales / volumen;
+                  
+                  Print(">>> RECALCULANDO VALOR TICK EN TIEMPO REAL <<<");
+                  Print("  Posición #", posInfo.Ticket());
+                  Print("  Precio apertura: ", DoubleToString(precioApertura, digits));
+                  Print("  Precio AHORA: ", DoubleToString(precioAhoraCalculo, digits));
+                  Print("  Puntos actuales: ", DoubleToString(puntosActuales, 1));
+                  Print("  Profit AHORA: ", DoubleToString(profitActual, 2));
+                  Print("  Volumen: ", DoubleToString(volumen, 2));
+                  Print("  → Valor TICK ACTUAL: ", DoubleToString(valorTickActual, 6));
+                  
+                  tickRecalculado = true;
+                  break;
+               }
+            }
+         }
+      }
+   }
+   
+   // Si no se pudo recalcular, usar el del PASO 4
+   if(!tickRecalculado || MathAbs(valorTickActual) < 0.1)
+   {
+      Print("⚠ No se pudo recalcular, usando valor PASO 4: ", DoubleToString(valorPuntoPorLote, 6));
+      valorTickActual = valorPuntoPorLote;
+   }
+   
+   Print("Valor TICK para cálculos: ", DoubleToString(valorTickActual, 6));
+   
+   // Calcular profit esperado usando VALOR TICK ACTUAL
    double profitTotalEsperado = 0;
    int posicionesConTP = 0;
    
@@ -756,22 +799,13 @@ bool EjecutarRollOff()
       {
          if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
          {
-            string comentario = posInfo.Comment();
-            int nivel = 0;
+            ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
             
-            if(StringFind(comentario, "Nivel_") >= 0)
-            {
-               nivel = (int)StringToInteger(StringSubstr(comentario, 6));
-            }
-            
-            ENUM_ORDER_TYPE tipoReal;
-            if(nivel % 2 == 1)
-               tipoReal = g_tipo_inicial;
+            bool esGanadora = false;
+            if(buyGanando)
+               esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
             else
-               tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
-            
-            bool esGanadora = (buyGanando && tipoReal == ORDER_TYPE_BUY) || 
-                            (!buyGanando && tipoReal == ORDER_TYPE_SELL);
+               esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
             
             if(esGanadora)
             {
@@ -782,13 +816,13 @@ bool EjecutarRollOff()
                   double volumen = posInfo.Volume();
                   
                   double diferenciaTP;
-                  if(tipoReal == ORDER_TYPE_BUY)
+                  if(tipoPosicion == POSITION_TYPE_BUY)
                      diferenciaTP = tp - precioApertura;
                   else
                      diferenciaTP = precioApertura - tp;
                   
                   double puntosTP = diferenciaTP / punto;
-                  double profitEsperado = puntosTP * volumen * valorPuntoExacto;
+                  double profitEsperado = puntosTP * volumen * valorTickActual;
                   
                   Print("  Pos #", posInfo.Ticket(), " Vol:", DoubleToString(volumen, 2));
                   Print("    TP: ", DoubleToString(tp, digits), " Puntos: ", DoubleToString(puntosTP, 1));
@@ -809,11 +843,9 @@ bool EjecutarRollOff()
    double diferencia = profitTotalEsperado - gananciaBrutaNecesaria;
    Print("Diferencia: ", DoubleToString(diferencia, 3));
    
-   // CÁLCULO CRÍTICO: Resultado proyectado
    double resultadoProyectado = g_ganancia_objetivo + diferencia;
    Print("Resultado proyectado: ", DoubleToString(resultadoProyectado, 3));
    
-   // ========== DECISIÓN CRÍTICA ==========
    bool peligroCritico = (resultadoProyectado <= 0.005);
    
    if(peligroCritico)
@@ -826,7 +858,6 @@ bool EjecutarRollOff()
       Print("========================================");
    }
    
-   // Ajustar si: peligro crítico O diferencia > 0.015
    if(peligroCritico || MathAbs(diferencia) > 0.015)
    {
       Print(">>> Iniciando búsqueda de TP óptimo...");
@@ -840,15 +871,13 @@ bool EjecutarRollOff()
       
       if(peligroCritico)
       {
-         // MODO EMERGENCIA: Búsqueda exhaustiva
-         rangoInicio = 1;  // Solo hacia adelante (más profit)
-         rangoFin = 100;   // Hasta 100 puntos
+         rangoInicio = 1;
+         rangoFin = 100;
          Print("MODO EMERGENCIA: Búsqueda de i=", rangoInicio, " a ", rangoFin);
          Print("Objetivo: Encontrar resultado POSITIVO (> 0.01)");
       }
       else
       {
-         // Modo normal
          rangoInicio = -10;
          rangoFin = 10;
          Print("Modo estándar: Búsqueda de i=", rangoInicio, " a ", rangoFin);
@@ -864,7 +893,6 @@ bool EjecutarRollOff()
          
          tpPrueba = NormalizeDouble(tpPrueba, digits);
          
-         // Calcular profit con este TP
          double profitConEstTP = 0;
          
          for(int j = 0; j < PositionsTotal(); j++)
@@ -873,22 +901,13 @@ bool EjecutarRollOff()
             {
                if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
                {
-                  string comentario = posInfo.Comment();
-                  int nivel = 0;
+                  ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
                   
-                  if(StringFind(comentario, "Nivel_") >= 0)
-                  {
-                     nivel = (int)StringToInteger(StringSubstr(comentario, 6));
-                  }
-                  
-                  ENUM_ORDER_TYPE tipoReal;
-                  if(nivel % 2 == 1)
-                     tipoReal = g_tipo_inicial;
+                  bool esGanadora = false;
+                  if(buyGanando)
+                     esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
                   else
-                     tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
-                  
-                  bool esGanadora = (buyGanando && tipoReal == ORDER_TYPE_BUY) || 
-                                  (!buyGanando && tipoReal == ORDER_TYPE_SELL);
+                     esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
                   
                   if(esGanadora)
                   {
@@ -896,13 +915,13 @@ bool EjecutarRollOff()
                      double volumen = posInfo.Volume();
                      
                      double diferenciaTP;
-                     if(tipoReal == ORDER_TYPE_BUY)
+                     if(tipoPosicion == POSITION_TYPE_BUY)
                         diferenciaTP = tpPrueba - precioApertura;
                      else
                         diferenciaTP = precioApertura - tpPrueba;
                      
                      double puntosTP = diferenciaTP / punto;
-                     double profitEsperado = puntosTP * volumen * valorPuntoExacto;
+                     double profitEsperado = puntosTP * volumen * valorTickActual;
                      
                      profitConEstTP += profitEsperado;
                   }
@@ -913,10 +932,8 @@ bool EjecutarRollOff()
          double diferenciaConEstTP = profitConEstTP - gananciaBrutaNecesaria;
          double resultadoConEstTP = g_ganancia_objetivo + diferenciaConEstTP;
          
-         // Logs estratégicos
          if(peligroCritico)
          {
-            // En modo emergencia: mostrar cada 5 o primeros 10
             if(i <= 10 || i % 5 == 0)
             {
                Print("  i=", i, " TP:", DoubleToString(tpPrueba, digits),
@@ -925,7 +942,6 @@ bool EjecutarRollOff()
          }
          else
          {
-            // En modo normal: cada 5
             if(i % 5 == 0)
             {
                Print("  i=", i, " TP:", DoubleToString(tpPrueba, digits),
@@ -934,10 +950,8 @@ bool EjecutarRollOff()
             }
          }
          
-         // CRITERIOS DE SELECCIÓN
          if(peligroCritico)
          {
-            // MODO EMERGENCIA: Primera opción con resultado POSITIVO >= 0.01
             if(resultadoConEstTP >= 0.01 && !tpSeguroEncontrado)
             {
                mejorTP = tpPrueba;
@@ -952,12 +966,11 @@ bool EjecutarRollOff()
                Print("   Resultado proyectado: ", DoubleToString(mejorResultado, 3));
                Print("========================================");
                
-               break;  // Salir inmediatamente
+               break;
             }
          }
          else
          {
-            // MODO NORMAL: Buscar menor diferencia absoluta
             if(MathAbs(diferenciaConEstTP) < MathAbs(mejorResultado - g_ganancia_objetivo))
             {
                mejorTP = tpPrueba;
@@ -967,7 +980,6 @@ bool EjecutarRollOff()
          }
       }
       
-      // VERIFICACIÓN FINAL
       if(peligroCritico && !tpSeguroEncontrado)
       {
          Print("========================================");
@@ -975,7 +987,6 @@ bool EjecutarRollOff()
          Print("   No se encontró TP seguro en 100 puntos");
          Print("   Usando TP extremo como último recurso");
          
-         // Último recurso: TP MUY lejano (garantiza profit alto)
          if(tipoGanadoras == ORDER_TYPE_BUY)
             mejorTP = precioTP + (100 * punto);
          else
@@ -999,7 +1010,6 @@ bool EjecutarRollOff()
       double cambioEnPuntos = cambio / punto;
       Print("Cambio: ", DoubleToString(cambioEnPuntos, 1), " puntos");
       
-      // APLICAR si es diferente
       if(mejorTP != precioTP)
       {
          Print(">>> Aplicando TP óptimo...");
@@ -1011,22 +1021,13 @@ bool EjecutarRollOff()
             {
                if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
                {
-                  string comentario = posInfo.Comment();
-                  int nivel = 0;
+                  ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
                   
-                  if(StringFind(comentario, "Nivel_") >= 0)
-                  {
-                     nivel = (int)StringToInteger(StringSubstr(comentario, 6));
-                  }
-                  
-                  ENUM_ORDER_TYPE tipoReal;
-                  if(nivel % 2 == 1)
-                     tipoReal = g_tipo_inicial;
+                  bool esGanadora = false;
+                  if(buyGanando)
+                     esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
                   else
-                     tipoReal = (g_tipo_inicial == ORDER_TYPE_BUY) ? ORDER_TYPE_SELL : ORDER_TYPE_BUY;
-                  
-                  bool esGanadora = (buyGanando && tipoReal == ORDER_TYPE_BUY) || 
-                                  (!buyGanando && tipoReal == ORDER_TYPE_SELL);
+                     esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
                   
                   if(esGanadora)
                   {
@@ -1047,6 +1048,46 @@ bool EjecutarRollOff()
          }
          
          Print("TPs ajustados: ", tpsAjustados);
+         
+         // ========== LOG: PROFIT TOTAL esperado con TP Nuevo ==========
+         double profitTotalNuevoTP = 0;
+         for(int k = 0; k < PositionsTotal(); k++)
+         {
+            if(posInfo.SelectByIndex(k))
+            {
+               if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+               {
+                  ENUM_POSITION_TYPE tipoPosicion = posInfo.PositionType();
+                  
+                  bool esGanadora = false;
+                  if(buyGanando)
+                     esGanadora = (tipoPosicion == POSITION_TYPE_BUY);
+                  else
+                     esGanadora = (tipoPosicion == POSITION_TYPE_SELL);
+                  
+                  if(esGanadora)
+                  {
+                     double precioApertura = posInfo.PriceOpen();
+                     double volumen = posInfo.Volume();
+                     
+                     double diferenciaTP;
+                     if(tipoPosicion == POSITION_TYPE_BUY)
+                        diferenciaTP = mejorTP - precioApertura;
+                     else
+                        diferenciaTP = precioApertura - mejorTP;
+                     
+                     double puntosTP = diferenciaTP / punto;
+                     double profitEsperado = puntosTP * volumen * valorTickActual;
+                     
+                     profitTotalNuevoTP += profitEsperado;
+                  }
+               }
+            }
+         }
+         Print("----------------------------------------------");
+         Print("PROFIT TOTAL esperado (TP Nuevo): ", DoubleToString(profitTotalNuevoTP, 2));
+         // ============================================================
+         
          precioTP = mejorTP;
       }
       else
@@ -1068,23 +1109,26 @@ bool EjecutarRollOff()
    
    double precioOrdenPendiente;
    ENUM_ORDER_TYPE tipoOrdenPendiente;
+   int ticksProteccion = 3;
    
    if(tipoGanadoras == ORDER_TYPE_BUY)
    {
-      precioOrdenPendiente = precioActualCalculo - (77 * punto);
+      precioOrdenPendiente = precioPromedioApertura + (ticksProteccion * punto);
       tipoOrdenPendiente = ORDER_TYPE_SELL_STOP;
    }
    else
    {
-      precioOrdenPendiente = precioActualCalculo + (77 * punto);
+      precioOrdenPendiente = precioPromedioApertura - (ticksProteccion * punto);
       tipoOrdenPendiente = ORDER_TYPE_BUY_STOP;
    }
    
    precioOrdenPendiente = NormalizeDouble(precioOrdenPendiente, digits);
    
+   Print("Precio apertura ganadoras: ", DoubleToString(precioPromedioApertura, digits));
+   Print("Distancia protección: ", ticksProteccion, " ticks");
    Print("Tipo: ", (tipoOrdenPendiente == ORDER_TYPE_BUY_STOP ? "BUY STOP" : "SELL STOP"));
    Print("Volumen: ", DoubleToString(volumenTotalGanadoras, 2));
-   Print("Precio: ", DoubleToString(precioOrdenPendiente, digits));
+   Print("Precio orden: ", DoubleToString(precioOrdenPendiente, digits));
    
    if(tradeRollOff.OrderOpen(_Symbol, tipoOrdenPendiente, volumenTotalGanadoras, 0, 
                       precioOrdenPendiente, 0, 0, 
@@ -1094,7 +1138,6 @@ bool EjecutarRollOff()
       Print("✓ Orden protección #", tradeRollOff.ResultOrder());
    }
    
-   // PRECIO REFERENCIA
    Print("----------------------------------------------");
    Print(">>> PRECIO REFERENCIA <<<");
    
@@ -1117,9 +1160,11 @@ bool EjecutarRollOff()
    return true;
 }
 
+
 //+------------------------------------------------------------------+
-//| Monitorear ganadoras Roll-Off                                   |
-//| VERSIÓN DEFINITIVA: Orden neutralizadora → Estado NEUTRALIZADO  |
+//| MonitorearGanadorasRollOff - VERSIÓN CORREGIDA                  |
+//| CORRECCIÓN: Actualiza g_precio_activacion_roll_off cuando       |
+//|             se detecta activación de orden neutralizadora       |
 //+------------------------------------------------------------------+
 void MonitorearGanadorasRollOff()
 {
@@ -1133,7 +1178,7 @@ void MonitorearGanadorasRollOff()
    {
       ultimoRollOffMonitor = g_ultimo_roll_off;
       Print(">>> MonitorearGanadoras: Esperando siguiente tick después de Roll-Off");
-      return; // Esperar siguiente tick para que el TP se estabilice
+      return;
    }
    // ========================================================================
    
@@ -1183,6 +1228,7 @@ void MonitorearGanadorasRollOff()
       g_sistema_activo = false;
       g_nivel_actual = 0;
       g_tiempo_primera_entrada = 0;
+      g_orden_neutralizadora_activada = false;
       
       Print(">>> Variables reseteadas - Sistema listo");
       return;
@@ -1190,10 +1236,8 @@ void MonitorearGanadorasRollOff()
    
    // ========== DETECCIÓN DE ORDEN NEUTRALIZADORA ACTIVADA ==========
    
-   // Variable estática para detectar cambios
    static int posicionesAnteriores = 0;
    
-   // ✅ NUEVA LÓGICA: Detectar activación de orden neutralizadora
    bool ordenNeutralizadoraActivada = (posicionesAbiertas > posicionesAnteriores);
    
    if(ordenNeutralizadoraActivada)
@@ -1204,7 +1248,53 @@ void MonitorearGanadorasRollOff()
       Print("Posiciones actuales: ", posicionesAbiertas);
       Print("========================================");
       
-      // ✅ ACCIÓN INMEDIATA: Quitar TPs y cancelar órdenes
+      // ✅ ACTIVAR VARIABLE GLOBAL INMEDIATAMENTE
+      g_orden_neutralizadora_activada = true;
+      
+      // ========== CORRECCIÓN CRÍTICA: ACTUALIZAR PRECIO DE REFERENCIA ==========
+      // Buscar la posición más reciente (la que acaba de abrir - la neutralizadora)
+      datetime tiempoMasReciente = 0;
+      double precioUltimaEntrada = 0;
+      int nivelUltimaEntrada = 0;
+      
+      for(int i = 0; i < PositionsTotal(); i++)
+      {
+         if(posInfo.SelectByIndex(i))
+         {
+            if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+            {
+               datetime tiempoApertura = posInfo.Time();
+               
+               // Buscar la más reciente por tiempo de apertura
+               if(tiempoApertura > tiempoMasReciente)
+               {
+                  tiempoMasReciente = tiempoApertura;
+                  precioUltimaEntrada = posInfo.PriceOpen();
+                  
+                  // Obtener nivel del comentario
+                  string comentario = posInfo.Comment();
+                  if(StringFind(comentario, "Nivel_") >= 0)
+                  {
+                     nivelUltimaEntrada = (int)StringToInteger(StringSubstr(comentario, 6));
+                  }
+               }
+            }
+         }
+      }
+      
+      // Actualizar precio de referencia con la última entrada (neutralizadora)
+      if(precioUltimaEntrada > 0)
+      {
+         g_precio_activacion_roll_off = precioUltimaEntrada;
+         
+         Print(">>> PRECIO REFERENCIA ACTUALIZADO <<<");
+         Print(">>> Última entrada (Nivel ", nivelUltimaEntrada, "): ", 
+               DoubleToString(precioUltimaEntrada, _Digits));
+         Print(">>> g_precio_activacion_roll_off = ", 
+               DoubleToString(g_precio_activacion_roll_off, _Digits));
+      }
+      // ========== FIN CORRECCIÓN CRÍTICA ==========
+      
       Print(">>> NEUTRALIZACIÓN ACTIVADA POR ORDEN <<<");
       Print(">>> QUITANDO TODOS LOS TP/SL <<<");
       
@@ -1261,7 +1351,7 @@ void MonitorearGanadorasRollOff()
       Print("========================================");
    }
    
-   // SIEMPRE actualizar contador DESPUÉS de procesar
+   // SIEMPRE actualizar contador
    posicionesAnteriores = posicionesAbiertas;
    
    // Reportar estado cada 10 segundos
@@ -1273,8 +1363,8 @@ void MonitorearGanadorasRollOff()
       Print("--- Roll-Off activo ---");
       Print("Posiciones: ", posicionesAbiertas);
       
-      // Verificar estado REAL
-      bool estadoNeutralizado = VerificarNeutralizacion();
+      // Verificar estado usando VARIABLE GLOBAL O función
+      bool estadoNeutralizado = g_orden_neutralizadora_activada || VerificarNeutralizacion();
       Print("Estado: ", (estadoNeutralizado ? "NEUTRALIZADO" : "NO neutralizado"));
       
       if(estadoNeutralizado)
@@ -1284,7 +1374,6 @@ void MonitorearGanadorasRollOff()
       }
       else
       {
-         // Mostrar TP actual si existe
          for(int i = 0; i < PositionsTotal(); i++)
          {
             if(posInfo.SelectByIndex(i))
@@ -1307,10 +1396,9 @@ void MonitorearGanadorasRollOff()
    }
 }
 
-
 //+------------------------------------------------------------------+
 //| Gestionar sistema Roll-Off                                      |
-//| CORRECCIÓN CRÍTICA: PASO 7 no interrumpe detección de estado    |
+//| VERSIÓN FINAL: Usa variable global para detectar neutralización |
 //+------------------------------------------------------------------+
 void GestionarSistemaRollOff()
 {
@@ -1320,8 +1408,11 @@ void GestionarSistemaRollOff()
    if(g_nivel_actual < g_nivel_activacion_cierre)
       return;
    
-   // Verificar neutralización
-   bool hayNeutralizacion = VerificarNeutralizacion();
+   // ========== VERIFICAR NEUTRALIZACIÓN ==========
+   // PRIORIDAD 1: Variable global (más confiable)
+   // PRIORIDAD 2: Cálculo de volúmenes (fallback)
+   bool hayNeutralizacion = g_orden_neutralizadora_activada || VerificarNeutralizacion();
+   // ==============================================
    
    // PRIMERA ACTIVACIÓN
    if(!g_roll_off_activo && hayNeutralizacion)
@@ -1404,14 +1495,14 @@ void GestionarSistemaRollOff()
       MonitorearGanadorasRollOff();
       
       // ========== VERIFICAR ESTADO ACTUAL ==========
-      bool neutralizacionActiva = VerificarNeutralizacion();
+      // USAR VARIABLE GLOBAL PRIMERO
+      bool neutralizacionActiva = g_orden_neutralizadora_activada || VerificarNeutralizacion();
       
       // ========== LÓGICA POR ESTADO ==========
       
       if(neutralizacionActiva)
       {
          // ========== ESTADO: NEUTRALIZADO ==========
-         // Contar ticks y ejecutar Roll-Off cuando alcance umbral
          
          double precioActual = (SymbolInfoDouble(_Symbol, SYMBOL_BID) + 
                                SymbolInfoDouble(_Symbol, SYMBOL_ASK)) / 2;
@@ -1439,6 +1530,9 @@ void GestionarSistemaRollOff()
             {
                Print(">>> Roll-Off completado");
                Print(">>> Nuevo precio referencia establecido");
+               
+               // ✅ RESETEAR VARIABLE GLOBAL después de Roll-Off exitoso
+               g_orden_neutralizadora_activada = false;
             }
          }
          
@@ -1458,7 +1552,6 @@ void GestionarSistemaRollOff()
       else
       {
          // ========== ESTADO: NO NEUTRALIZADO ==========
-         // Tiene TP configurado, esperar TP o activación de orden
          
          // ========== PASO 7: RECALCULAR TP SI ESTÁ CERCA ==========
          double tpActual = 0;
@@ -1511,8 +1604,6 @@ void GestionarSistemaRollOff()
                   Print(">>> TP recalculado con swap actualizado");
                   ultimoRecalculo = TimeCurrent();
                }
-               
-               // NO hacer return aquí, continuar con el flujo normal
             }
             
             // Mostrar distancia cada 100 ticks
@@ -2198,6 +2289,7 @@ bool CPanelTrading::VerificarOrdenPendienteActiva()
 //+------------------------------------------------------------------+
 //| FUNCIÓN CORREGIDA: CerrarOrdenesDeSecuencia                     |
 //| Resetea variables - SIN ciclos ni acumulados                    |
+//| ACTUALIZACIÓN: Agregado reseteo de g_orden_neutralizadora_activada |
 //+------------------------------------------------------------------+
 void CPanelTrading::CerrarOrdenesDeSecuencia()
 {
@@ -2247,6 +2339,9 @@ void CPanelTrading::CerrarOrdenesDeSecuencia()
    g_precio_activacion_roll_off = 0;
    g_ultimo_roll_off = 0;
    g_tiempo_primera_entrada = 0;  // Resetear marca de inicio
+   
+   // ✅ NUEVO: Resetear variable global de neutralización
+   g_orden_neutralizadora_activada = false;
    
    Print(">>> Variables Roll-Off reseteadas");
    // ==================================================
