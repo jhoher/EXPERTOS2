@@ -1,0 +1,151 @@
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> PASO 7: RECALCULAR TP <<<
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> TP está cerca: 21 ticks
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> Ejecutando Roll-Off para recalcular
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	========================================
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	========================================
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	========== EJECUTANDO ROLL-OFF ==========
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	P&L BUY: 0.00 | P&L SELL: 2.30
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	Lado ganador: SELL
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	========================================
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> PASO 1: CERRANDO PERDEDORAS <<<
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Identificada GANADORA #241717823 Vol:0.03 Tipo:SELL Com:Nivel_2 → NO SE CIERRA
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	----------------------------------------------
+2026.02.10 12:46:18.444	Cobertura Fin del Stop Loss (GBPUSD,M1)	Perdedoras a cerrar: 0
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	--- Leyendo TODA la secuencia desde inicio ---
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Deal #192214726 Pos #241717821
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	    Profit: -2.50
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	    Swap: 0.00
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	    Volumen: 0.03
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	----------------------------------------------
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	Total entradas cerradas: 1
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	PROFIT TODAS CERRADAS: -2.50
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	--- Leyendo SWAP de todas las entradas abiertas ---
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Swap abierta #241717823: 0.00
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	----------------------------------------------
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	Total entradas abiertas: 1
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	SWAP TODAS ABIERTAS: 0.00
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	========================================
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> PASO 2: COMISIONES TOTALES <<<
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Comisión cerrada #241717821: 0.16
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Comisión abierta #241717823: 0.16
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	----------------------------------------------
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	COMISIONES TOTALES: 0.32
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	========================================
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> PASO 3: P&L TOTAL <<<
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	PROFIT TODAS CERRADAS: -2.50
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	SWAP TODAS ABIERTAS: 0.00
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	COMISIONES TOTALES: -0.32
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	----------------------------------------------
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	P&L TOTAL: -2.82
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	========================================
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> PASO 4: CALCULAR TP <<<
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	P&L TOTAL: -2.82
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	GananciaM: 0.01
+2026.02.10 12:46:18.647	Cobertura Fin del Stop Loss (GBPUSD,M1)	Ganancia BRUTA necesaria: 2.83
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	--- Analizando ganadoras ---
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Ganadora #241717823 Tipo:SELL Nivel:2 Vol:0.03
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	    Precio apertura: 1.36603
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	----------------------------------------------
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Total ganadoras: 1
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Volumen total ganadoras: 0.03
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Extrayendo valor del punto desde posición #241717823
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Precio apertura: 1.36603
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Precio actual: 1.36512
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Diferencia puntos: 91.0
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Profit actual: 2.30
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Volumen: 0.03
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  → Valor 1 punto/lote: 0.84
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	----------------------------------------------
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> VALOR DEL PUNTO <<<
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Valor 1 punto (1 lote): 0.84
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Volumen total ganadoras: 0.03
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Precio promedio apertura: 1.36603
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Puntos necesarios: 112.0
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Diferencia necesaria: 0.00112
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	TP calculado: 1.36491
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Precio actual: 1.36512
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	========================================
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> PASO 5: CONFIGURAR TP <<<
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	CTrade::OrderSend: modify position #241717823 GBPUSD (sl: 0.00000, tp: 1.36491) [no changes]
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  ✗ Error TP #241717823
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	TPs configurados: 0
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	========================================
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> PASO 6: AFINAR TP <<<
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Ganancia BRUTA necesaria: 2.83
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	GananciaM objetivo: 0.01
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> RECALCULANDO VALOR TICK EN TIEMPO REAL <<<
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Posición #241717823
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Precio apertura: 1.36603
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Precio AHORA: 1.36512
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Puntos actuales: 91.0
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Profit AHORA: 2.30
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Volumen: 0.03
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  → Valor TICK ACTUAL: 0.842491
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Valor TICK para cálculos: 0.842491
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	  Pos #241717823 Vol:0.03
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	    TP: 1.36491 Puntos: 112.0
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	    Profit esperado: 2.83
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	----------------------------------------------
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	PROFIT TOTAL esperado (TP actual): 2.83
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Ganancia BRUTA necesaria: 2.83
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Diferencia: 0.001
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Resultado proyectado: 0.011
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> Diferencia aceptable, no se requiere ajuste
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> Resultado proyectado: 0.011 ✓
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	========================================
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	----------------------------------------------
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> ORDEN PROTECCIÓN NEUTRALIZADORA <<<
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Precio apertura ganadoras: 1.36603
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Distancia protección: 3 ticks
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Tipo: BUY STOP
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Volumen: 0.03
+2026.02.10 12:46:18.737	Cobertura Fin del Stop Loss (GBPUSD,M1)	Precio orden: 1.36600
+2026.02.10 12:46:18.821	Cobertura Fin del Stop Loss (GBPUSD,M1)	✓ Orden protección #241735893
+2026.02.10 12:46:18.821	Cobertura Fin del Stop Loss (GBPUSD,M1)	----------------------------------------------
+2026.02.10 12:46:18.821	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> PRECIO REFERENCIA <<<
+2026.02.10 12:46:18.821	Cobertura Fin del Stop Loss (GBPUSD,M1)	✓ MANTIENE: 1.36603
+2026.02.10 12:46:18.821	Cobertura Fin del Stop Loss (GBPUSD,M1)	==========================================
+2026.02.10 12:46:18.821	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> Roll-Off completado
+2026.02.10 12:46:18.821	Cobertura Fin del Stop Loss (GBPUSD,M1)	==========================================
+2026.02.10 12:46:18.821	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> TP recalculado con swap actualizado
+2026.02.10 12:46:18.934	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> MonitorearGanadoras: Esperando siguiente tick después de Roll-Off
+2026.02.10 12:46:28.375	Cobertura Fin del Stop Loss (GBPUSD,M1)	--- Paso 7 ---
+2026.02.10 12:46:28.375	Cobertura Fin del Stop Loss (GBPUSD,M1)	Distancia al TP: 24 ticks
+2026.02.10 12:46:28.375	Cobertura Fin del Stop Loss (GBPUSD,M1)	Umbral recálculo: 21 ticks
+2026.02.10 12:46:29.392	Cobertura Fin del Stop Loss (GBPUSD,M1)	--- Roll-Off activo ---
+2026.02.10 12:46:29.392	Cobertura Fin del Stop Loss (GBPUSD,M1)	Posiciones: 1
+2026.02.10 12:46:29.392	Cobertura Fin del Stop Loss (GBPUSD,M1)	Estado: NO neutralizado
+2026.02.10 12:46:29.392	Cobertura Fin del Stop Loss (GBPUSD,M1)	TP fijo: 1.36491
+2026.02.10 12:46:29.392	Cobertura Fin del Stop Loss (GBPUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.02.10 12:46:40.394	Cobertura Fin del Stop Loss (GBPUSD,M1)	--- Roll-Off activo ---
+2026.02.10 12:46:40.394	Cobertura Fin del Stop Loss (GBPUSD,M1)	Posiciones: 1
+2026.02.10 12:46:40.394	Cobertura Fin del Stop Loss (GBPUSD,M1)	Estado: NO neutralizado
+2026.02.10 12:46:40.394	Cobertura Fin del Stop Loss (GBPUSD,M1)	TP fijo: 1.36491
+2026.02.10 12:46:40.394	Cobertura Fin del Stop Loss (GBPUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.02.10 12:46:44.471	Cobertura Fin del Stop Loss (GBPUSD,M1)	--- Roll-Off activo ---
+2026.02.10 12:46:44.471	Cobertura Fin del Stop Loss (GBPUSD,M1)	Estado: NO neutralizado
+2026.02.10 12:46:44.471	Cobertura Fin del Stop Loss (GBPUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.02.10 12:46:44.471	Cobertura Fin del Stop Loss (GBPUSD,M1)	NO se cuentan ticks en este estado
+2026.02.10 12:46:51.843	Cobertura Fin del Stop Loss (GBPUSD,M1)	--- Roll-Off activo ---
+2026.02.10 12:46:51.843	Cobertura Fin del Stop Loss (GBPUSD,M1)	Posiciones: 1
+2026.02.10 12:46:51.843	Cobertura Fin del Stop Loss (GBPUSD,M1)	Estado: NO neutralizado
+2026.02.10 12:46:51.843	Cobertura Fin del Stop Loss (GBPUSD,M1)	TP fijo: 1.36491
+2026.02.10 12:46:51.843	Cobertura Fin del Stop Loss (GBPUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.02.10 12:47:02.379	Cobertura Fin del Stop Loss (GBPUSD,M1)	--- Roll-Off activo ---
+2026.02.10 12:47:02.379	Cobertura Fin del Stop Loss (GBPUSD,M1)	Posiciones: 1
+2026.02.10 12:47:02.379	Cobertura Fin del Stop Loss (GBPUSD,M1)	Estado: NO neutralizado
+2026.02.10 12:47:02.379	Cobertura Fin del Stop Loss (GBPUSD,M1)	TP fijo: 1.36491
+2026.02.10 12:47:02.379	Cobertura Fin del Stop Loss (GBPUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.02.10 12:47:13.708	Cobertura Fin del Stop Loss (GBPUSD,M1)	--- Roll-Off activo ---
+2026.02.10 12:47:13.708	Cobertura Fin del Stop Loss (GBPUSD,M1)	Posiciones: 1
+2026.02.10 12:47:13.708	Cobertura Fin del Stop Loss (GBPUSD,M1)	Estado: NO neutralizado
+2026.02.10 12:47:13.708	Cobertura Fin del Stop Loss (GBPUSD,M1)	TP fijo: 1.36491
+2026.02.10 12:47:13.708	Cobertura Fin del Stop Loss (GBPUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.02.10 12:47:15.469	Cobertura Fin del Stop Loss (GBPUSD,M1)	--- Roll-Off activo ---
+2026.02.10 12:47:15.469	Cobertura Fin del Stop Loss (GBPUSD,M1)	Estado: NO neutralizado
+2026.02.10 12:47:15.469	Cobertura Fin del Stop Loss (GBPUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.02.10 12:47:15.469	Cobertura Fin del Stop Loss (GBPUSD,M1)	NO se cuentan ticks en este estado
+2026.02.10 12:47:15.788	Cobertura Fin del Stop Loss (GBPUSD,M1)	========================================
+2026.02.10 12:47:15.788	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> TP ALCANZADO - OBJETIVO CUMPLIDO <<<
+2026.02.10 12:47:15.788	Cobertura Fin del Stop Loss (GBPUSD,M1)	========================================
+2026.02.10 12:47:15.870	Cobertura Fin del Stop Loss (GBPUSD,M1)	>>> Variables reseteadas - Sistema listo
