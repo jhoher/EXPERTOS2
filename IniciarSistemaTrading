@@ -1,0 +1,109 @@
+//+------------------------------------------------------------------+
+//| FUNCIÓN CORREGIDA: IniciarSistemaTrading                        |
+//+------------------------------------------------------------------+
+bool CPanelTrading::IniciarSistemaTrading(ENUM_ORDER_TYPE tipoOrden)
+{
+   g_lote_inicial = StringToDouble(m_entrada_lote.Text());
+   g_tp1_ticks = StringToDouble(m_entrada_tp1.Text());
+   g_tp2_ticks = StringToDouble(m_entrada_tp2.Text());
+   g_distancia_ticks = StringToDouble(m_entrada_dist.Text());
+   g_nivel_activacion_cierre = (int)StringToInteger(m_entrada_cierre.Text());
+   g_ganancia_objetivo = StringToDouble(m_entrada_ganancia.Text());
+   
+   if(g_lote_inicial <= 0 || g_tp1_ticks <= 0 || g_tp2_ticks <= 0 || g_distancia_ticks <= 0)
+   {
+      Print("Error: Valores invalidos en el panel");
+      return false;
+   }
+      
+   CancelarTodasLasOrdenesPendientes();
+   
+   g_tipo_inicial = tipoOrden;
+   g_nivel_actual = 1;
+   g_sistema_activo = true;
+   
+   // ========== NUEVO: Marcar inicio de secuencia ==========
+   g_tiempo_primera_entrada = TimeCurrent();
+   Print(">>> Inicio de secuencia: ", TimeToString(g_tiempo_primera_entrada));
+   // ========================================================
+   
+   Print("=== INICIANDO SISTEMA ===");
+   Print("Tipo inicial: ", (tipoOrden == ORDER_TYPE_BUY ? "COMPRA" : "VENTA"));
+   Print("Nivel activacion cierre virtual: ", g_nivel_activacion_cierre);
+   Print("Ganancia objetivo: ", g_ganancia_objetivo);
+   
+   double precio = (tipoOrden == ORDER_TYPE_BUY) ? SymbolInfoDouble(_Symbol, SYMBOL_ASK) : SymbolInfoDouble(_Symbol, SYMBOL_BID);
+   g_precio_entrada1 = precio;
+   
+   if(!ColocarOrdenMercado(tipoOrden, g_lote_inicial, g_tp1_ticks, 1))
+   {
+      g_sistema_activo = false;
+      return false;
+   }
+   
+   double punto = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+   if(tipoOrden == ORDER_TYPE_BUY)
+   {
+      g_precio_entrada2 = g_precio_entrada1 - (g_distancia_ticks * punto);
+   }
+   else
+   {
+      g_precio_entrada2 = g_precio_entrada1 + (g_distancia_ticks * punto);
+   }
+   
+   // ========== CALCULAR PRECIOS DE COBERTURA FIJOS ==========
+   // Estos precios se calculan UNA SOLA VEZ al inicio
+   
+   // Precio de cobertura para Entrada#1 (niveles IMPARES)
+   if(tipoOrden == ORDER_TYPE_BUY)
+   {
+      g_precio_cobertura_E1 = g_precio_entrada1 + (g_tp1_ticks * punto);
+   }
+   else
+   {
+      g_precio_cobertura_E1 = g_precio_entrada1 - (g_tp1_ticks * punto);
+   }
+   
+   // Precio de cobertura para Entrada#2 (niveles PARES)
+   ENUM_ORDER_TYPE tipoNivel2 = DeterminarTipoOrdenPorNivel(2);
+   if(tipoNivel2 == ORDER_TYPE_BUY)
+   {
+      g_precio_cobertura_E2 = g_precio_entrada2 + (g_tp2_ticks * punto);
+   }
+   else
+   {
+      g_precio_cobertura_E2 = g_precio_entrada2 - (g_tp2_ticks * punto);
+   }
+   
+   Print(">>> Precio Cobertura E#1 (fijo): ", DoubleToString(g_precio_cobertura_E1, _Digits));
+   Print(">>> Precio Cobertura E#2 (fijo): ", DoubleToString(g_precio_cobertura_E2, _Digits));
+   // ========== FIN CÁLCULO PRECIOS DE COBERTURA ==========
+   
+   // ========== CALCULAR LOTAJE PARA ENTRADA#2 ==========
+   double lotajeNivel2;
+   
+   // Si el nivel de activación es 2, usar neutralización
+   if(g_nivel_activacion_cierre == 2)
+   {
+      // Para nivel 2, igualar con el lote inicial
+      lotajeNivel2 = g_lote_inicial;
+      
+      Print(">>> CIERRE VIRTUAL = 2: Entrada#2 se programa con NEUTRALIZACION");
+      Print(">>> Lotaje Entrada#1: ", DoubleToString(g_lote_inicial, 2));
+      Print(">>> Lotaje Entrada#2: ", DoubleToString(lotajeNivel2, 2), " (IGUALANDO)");
+   }
+   else
+   {
+      // Para otros niveles, usar martingala normal
+      lotajeNivel2 = g_lote_inicial * 2;
+      Print(">>> Entrada#2 se programa con martingala: ", DoubleToString(lotajeNivel2, 2));
+   }
+   // ========== FIN CÁLCULO LOTAJE ==========
+   
+   ColocarOrdenPendiente(tipoNivel2, g_precio_entrada2, lotajeNivel2, g_tp2_ticks, 2);
+   
+   Print("Sistema iniciado - Entrada#1: ", g_precio_entrada1, " Entrada#2: ", g_precio_entrada2);
+   Print("Secuencia de tipos: ", (tipoOrden == ORDER_TYPE_BUY ? "BUY-SELL-BUY-SELL..." : "SELL-BUY-SELL-BUY..."));
+   
+   return true;
+}
