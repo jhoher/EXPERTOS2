@@ -1,0 +1,236 @@
+//+------------------------------------------------------------------+
+//| Gestionar sistema Roll-Off                                      |
+//| VERSIÓN FINAL: Usa variable global para detectar neutralización |
+//+------------------------------------------------------------------+
+void GestionarSistemaRollOff()
+{
+   if(!g_sistema_activo) return;
+   
+   // Verificar nivel de activación
+   if(g_nivel_actual < g_nivel_activacion_cierre)
+      return;
+   
+   // ========== VERIFICAR NEUTRALIZACIÓN ==========
+   // PRIORIDAD 1: Variable global (más confiable)
+   // PRIORIDAD 2: Cálculo de volúmenes (fallback)
+   bool hayNeutralizacion = g_orden_neutralizadora_activada || VerificarNeutralizacion();
+   // ==============================================
+   
+   // PRIMERA ACTIVACIÓN
+   if(!g_roll_off_activo && hayNeutralizacion)
+   {
+      g_roll_off_activo = true;
+      
+      // Establecer precio de referencia
+      double precioUltimaEntrada = 0;
+      CPositionInfo posInfo;
+      
+      for(int i = 0; i < PositionsTotal(); i++)
+      {
+         if(posInfo.SelectByIndex(i))
+         {
+            if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+            {
+               string comentario = posInfo.Comment();
+               int nivel = 0;
+               
+               if(StringFind(comentario, "Nivel_") >= 0)
+               {
+                  nivel = (int)StringToInteger(StringSubstr(comentario, 6));
+               }
+               
+               if(nivel >= g_nivel_actual)
+               {
+                  precioUltimaEntrada = posInfo.PriceOpen();
+               }
+            }
+         }
+      }
+      
+      g_precio_activacion_roll_off = precioUltimaEntrada;
+      
+      Print("========================================");
+      Print(">>> SISTEMA ROLL-OFF ACTIVADO <<<");
+      Print(">>> PRIMERA NEUTRALIZACIÓN DETECTADA");
+      Print(">>> Nivel: ", g_nivel_actual);
+      Print(">>> Precio referencia: ", DoubleToString(g_precio_activacion_roll_off, _Digits));
+      Print("========================================");
+      
+      // Quitar TP/SL de todas
+      CTrade tradeGestion;
+      tradeGestion.SetExpertMagicNumber(g_numero_magico);
+      
+      int tpSlQuitados = 0;
+      for(int i = 0; i < PositionsTotal(); i++)
+      {
+         if(posInfo.SelectByIndex(i))
+         {
+            if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+            {
+               ulong ticket = posInfo.Ticket();
+               double tp = posInfo.TakeProfit();
+               double sl = posInfo.StopLoss();
+               
+               if(tp != 0 || sl != 0)
+               {
+                  if(tradeGestion.PositionModify(ticket, 0, 0))
+                  {
+                     Print("  ✓ TP/SL quitados #", ticket);
+                     tpSlQuitados++;
+                  }
+               }
+            }
+         }
+      }
+      
+      Print(">>> TP/SL quitados: ", tpSlQuitados);
+      Print(">>> Esperando movimiento de ", g_ticks_umbral_roll_off, " ticks");
+      Print("========================================");
+      
+      return;
+   }
+   
+   // GESTIÓN ACTIVA
+   if(g_roll_off_activo)
+   {
+      // Monitorear estado
+      MonitorearGanadorasRollOff();
+      
+      // ========== VERIFICAR ESTADO ACTUAL ==========
+      // USAR VARIABLE GLOBAL PRIMERO
+      bool neutralizacionActiva = g_orden_neutralizadora_activada || VerificarNeutralizacion();
+      
+      // ========== LÓGICA POR ESTADO ==========
+      
+      if(neutralizacionActiva)
+      {
+         // ========== ESTADO: NEUTRALIZADO ==========
+         
+         double precioActual = (SymbolInfoDouble(_Symbol, SYMBOL_BID) + 
+                               SymbolInfoDouble(_Symbol, SYMBOL_ASK)) / 2;
+         
+         double punto = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+         double movimiento = precioActual - g_precio_activacion_roll_off;
+         int ticksMovidos = (int)MathRound(movimiento / punto);
+         
+         bool umbralAlcanzado = (MathAbs(ticksMovidos) >= g_ticks_umbral_roll_off);
+         
+         // Ejecutar Roll-Off si alcanzó umbral
+         if(umbralAlcanzado && (TimeCurrent() - g_ultimo_roll_off) > 60)
+         {
+            Print("========================================");
+            Print(">>> UMBRAL ALCANZADO <<<");
+            Print(">>> Movimiento: ", MathAbs(ticksMovidos), " ticks");
+            Print(">>> Precio referencia: ", DoubleToString(g_precio_activacion_roll_off, _Digits));
+            Print(">>> Precio actual: ", DoubleToString(precioActual, _Digits));
+            Print(">>> Ejecutando Roll-Off...");
+            Print("========================================");
+            
+            bool exito = EjecutarRollOff();
+            
+            if(exito)
+            {
+               Print(">>> Roll-Off completado");
+               Print(">>> Nuevo precio referencia establecido");
+               
+               // ✅ RESETEAR VARIABLE GLOBAL después de Roll-Off exitoso
+               g_orden_neutralizadora_activada = false;
+            }
+         }
+         
+         // Mostrar estado cada 100 ticks
+         static int contadorTicks = 0;
+         contadorTicks++;
+         if(contadorTicks >= 100)
+         {
+            Print("--- Roll-Off activo ---");
+            Print("Estado: NEUTRALIZADO");
+            Print("Movimiento desde referencia: ", ticksMovidos, " ticks");
+            Print("Umbral: ", g_ticks_umbral_roll_off, " ticks");
+            Print("Restante: ", (g_ticks_umbral_roll_off - MathAbs(ticksMovidos)), " ticks");
+            contadorTicks = 0;
+         }
+      }
+      else
+      {
+         // ========== ESTADO: NO NEUTRALIZADO ==========
+         
+         // ========== PASO 7: RECALCULAR TP SI ESTÁ CERCA ==========
+         double tpActual = 0;
+         ENUM_POSITION_TYPE tipoGanadoras = POSITION_TYPE_BUY;
+         
+         CPositionInfo posInfoPaso7;
+         for(int i = 0; i < PositionsTotal(); i++)
+         {
+            if(posInfoPaso7.SelectByIndex(i))
+            {
+               if(posInfoPaso7.Magic() == g_numero_magico && posInfoPaso7.Symbol() == _Symbol)
+               {
+                  tpActual = posInfoPaso7.TakeProfit();
+                  tipoGanadoras = posInfoPaso7.PositionType();
+                  
+                  if(tpActual != 0)
+                     break;
+               }
+            }
+         }
+         
+         if(tpActual != 0)
+         {
+            // Calcular distancia
+            double precioActual;
+            if(tipoGanadoras == POSITION_TYPE_BUY)
+               precioActual = SymbolInfoDouble(_Symbol, SYMBOL_BID);
+            else
+               precioActual = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+            
+            double punto = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
+            double distancia = MathAbs(tpActual - precioActual);
+            int ticksHastaTP = (int)MathRound(distancia / punto);
+            
+            static datetime ultimoRecalculo = 0;
+            
+            // Si faltan ≤10 ticks Y han pasado 60s
+            if(ticksHastaTP <= 10 && ticksHastaTP > 0 && (TimeCurrent() - ultimoRecalculo) > 60)
+            {
+               Print("========================================");
+               Print(">>> PASO 7: RECALCULAR TP <<<");
+               Print(">>> TP está cerca: ", ticksHastaTP, " ticks");
+               Print(">>> Ejecutando Roll-Off para recalcular");
+               Print("========================================");
+               
+               bool exito = EjecutarRollOff();
+               
+               if(exito)
+               {
+                  Print(">>> TP recalculado con swap actualizado");
+                  ultimoRecalculo = TimeCurrent();
+               }
+            }
+            
+            // Mostrar distancia cada 100 ticks
+            static int contadorPaso7 = 0;
+            contadorPaso7++;
+            if(contadorPaso7 >= 100 && ticksHastaTP > 21)
+            {
+               Print("--- Paso 7 ---");
+               Print("Distancia al TP: ", ticksHastaTP, " ticks");
+               Print("Umbral recálculo: 21 ticks");
+               contadorPaso7 = 0;
+            }
+         }
+         // ========== FIN PASO 7 ==========
+         
+         // Reporte cada 30s
+         static datetime ultimoReporteNoNeutralizado = 0;
+         if(TimeCurrent() - ultimoReporteNoNeutralizado > 30)
+         {
+            Print("--- Roll-Off activo ---");
+            Print("Estado: NO neutralizado");
+            Print("Acción: Esperando TP o activación orden protección");
+            Print("NO se cuentan ticks en este estado");
+            ultimoReporteNoNeutralizado = TimeCurrent();
+         }
+      }
+   }
+}
