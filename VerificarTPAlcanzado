@@ -1,0 +1,56 @@
+bool CPanelTrading::VerificarTPAlcanzado()
+{
+   static int posicionesAnterior = 0;
+   int posicionesActual = 0;
+   
+   for(int i = 0; i < PositionsTotal(); i++)
+   {
+      if(posicionInfo.SelectByIndex(i))
+      {
+         if(posicionInfo.Magic() == g_numero_magico && posicionInfo.Symbol() == _Symbol)
+         {
+            posicionesActual++;
+         }
+      }
+   }
+   
+   if(g_sistema_activo && posicionesAnterior > posicionesActual && posicionesActual >= 0)
+   {
+      posicionesAnterior = posicionesActual;
+      if(HistorySelect(TimeCurrent() - 60, TimeCurrent()))
+      {
+         int total = HistoryDealsTotal();
+         for(int i = total - 1; i >= 0; i--)
+         {
+            ulong ticket = HistoryDealGetTicket(i);
+            if(HistoryDealGetInteger(ticket, DEAL_MAGIC) == g_numero_magico)
+            {
+               double profit = HistoryDealGetDouble(ticket, DEAL_PROFIT);
+               if(profit > 0)
+               {
+                  Print("TP alcanzado - Cerrando todas las ordenes");
+                  return true;
+               }
+            }
+         }
+      }
+   }
+   
+   posicionesAnterior = posicionesActual;
+   return false;
+}
+
+bool CPanelTrading::VerificarOrdenPendienteActiva()
+{
+   for(int i = 0; i < OrdersTotal(); i++)
+   {
+      if(ordenInfo.SelectByIndex(i))
+      {
+         if(ordenInfo.Magic() == g_numero_magico && ordenInfo.Symbol() == _Symbol)
+         {
+            return true;
+         }
+      }
+   }
+   return false;
+}
