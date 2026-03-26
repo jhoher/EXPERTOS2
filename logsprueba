@@ -1,0 +1,88 @@
+2026.03.25 20:41:54.960	Cobertura Fin del Stop Loss (AUDUSD,M1)	========== EJECUTANDO ROLL-OFF ==========
+2026.03.25 20:41:54.963	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> MODO: CIERRA GANADORAS <<<
+2026.03.25 20:41:54.963	Cobertura Fin del Stop Loss (AUDUSD,M1)	P&L BUY: -0.24 | P&L SELL: 0.00
+2026.03.25 20:41:54.963	Cobertura Fin del Stop Loss (AUDUSD,M1)	Lado ganador: SELL
+2026.03.25 20:41:54.963	Cobertura Fin del Stop Loss (AUDUSD,M1)	Lado perdedor (quedará abierto): BUY
+2026.03.25 20:41:54.963	Cobertura Fin del Stop Loss (AUDUSD,M1)	Precio actual (referencia para orden): 0.69455
+2026.03.25 20:41:54.963	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.03.25 20:41:54.963	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> PASO 1: CERRANDO GANADORAS <<<
+2026.03.25 20:41:54.964	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Identificada PERDEDORA #270828129 Vol:0.14 Tipo:BUY Com:RollOff_Proteccion → QUEDA ABIERTA
+2026.03.25 20:41:54.964	Cobertura Fin del Stop Loss (AUDUSD,M1)	----------------------------------------------
+2026.03.25 20:41:54.964	Cobertura Fin del Stop Loss (AUDUSD,M1)	Ganadoras a cerrar: 0
+2026.03.25 20:41:54.964	Cobertura Fin del Stop Loss (AUDUSD,M1)	Volumen ganadoras cerradas: 0.00
+2026.03.25 20:41:55.162	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Leyendo TODA la secuencia desde inicio ---
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Deal #215674428 Pos #270808613
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Profit: 4.24
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Swap: 0.00
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Volumen: 0.14
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Deal #215609956 Pos #270566788
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Profit: -8.96
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Swap: -0.21
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Volumen: 0.14
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Deal #215593579 Pos #270566791
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Profit: 7.87
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Swap: -0.88
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Volumen: 0.14
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	----------------------------------------------
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	Total entradas cerradas: 3
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	PROFIT TODAS CERRADAS: 2.06
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Leyendo SWAP de perdedoras abiertas ---
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Swap perdedora abierta #270828129: 0.00
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	----------------------------------------------
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	Total perdedoras abiertas: 1
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	Volumen total perdedoras: 0.14
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	SWAP PERDEDORAS ABIERTAS: 0.00
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> PASO 2: COMISIONES TOTALES <<<
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Comisión cerrada #270808613: 0.72
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Comisión cerrada #270566788: 0.72
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Comisión cerrada #270566791: 0.72
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Comisión perdedora abierta #270828129: 0.72
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	----------------------------------------------
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	COMISIONES TOTALES: 2.88
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> PASO 3: P&L REALIZADO (ganancia de cerradas) <<<
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	PROFIT TODAS CERRADAS: 2.06
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	SWAP PERDEDORAS ABIERTAS: 0.00
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	COMISIONES TOTALES: -2.88
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	----------------------------------------------
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	P&L REALIZADO: -0.82
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> PASO 4: CALCULAR TP PARA PERDEDORAS <<<
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	P&L REALIZADO: -0.82
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	GananciaM: 0.01
+2026.03.25 20:41:55.173	Cobertura Fin del Stop Loss (AUDUSD,M1)	Pérdida MÁXIMA permitida en perdedoras: -0.83
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Analizando perdedoras abiertas ---
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Perdedora #270828129 Tipo:BUY Nivel:0 Vol:0.14
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Precio apertura: 0.69456
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	----------------------------------------------
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	Precio promedio apertura perdedoras: 0.69456
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> EXTRAYENDO VALOR TICK DESDE PERDEDORA <<<
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Posición #270828129
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Precio apertura: 0.69456
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Precio AHORA: 0.69454
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Puntos actuales: -2.0
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Profit AHORA: -0.24
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Volumen: 0.14
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	  → Valor TICK ACTUAL: 0.857143
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	Valor TICK para cálculos: 0.857143
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	----------------------------------------------
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> CÁLCULO TP PARA PERDEDORAS <<<
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	Pérdida máxima permitida: -0.83
+2026.03.25 20:41:55.266	Cobertura Fin del Stop Loss (AUDUSD,M1)	Volumen total perdedoras: 0.14
+2026.03.25 20:41:55.267	Cobertura Fin del Stop Loss (AUDUSD,M1)	Valor TICK: 0.857143
+2026.03.25 20:41:55.267	Cobertura Fin del Stop Loss (AUDUSD,M1)	Puntos de pérdida permitidos: 6.9
+2026.03.25 20:41:55.267	Cobertura Fin del Stop Loss (AUDUSD,M1)	Precio promedio apertura: 0.69456
+2026.03.25 20:41:55.267	Cobertura Fin del Stop Loss (AUDUSD,M1)	TP calculado: 0.69449
+2026.03.25 20:41:55.267	Cobertura Fin del Stop Loss (AUDUSD,M1)	Precio actual: 0.69454
+2026.03.25 20:41:55.267	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.03.25 20:41:55.267	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> TP YA SUPERADO - OBJETIVO CUMPLIDO <<<
+2026.03.25 20:41:55.267	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Cerrando TODAS las posiciones
+2026.03.25 20:41:55.267	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.03.25 20:41:55.358	Cobertura Fin del Stop Loss (AUDUSD,M1)	  ✓ Cerrada #270828129
+2026.03.25 20:41:55.412	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> OBJETIVO ALCANZADO
+2026.03.25 20:41:55.413	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> TP recalculado con swap actualizado
+2026.03.25 20:41:55.679	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.03.25 20:41:55.679	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> TP ALCANZADO - OBJETIVO CUMPLIDO <<<
+2026.03.25 20:41:55.679	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.03.25 20:41:55.679	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Variables reseteadas - Sistema listo
