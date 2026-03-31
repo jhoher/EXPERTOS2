@@ -1,0 +1,79 @@
+2026.03.31 09:39:04.340	Cobertura Fin del Stop Loss (EURUSD,M5)	--- Roll-Off activo ---
+2026.03.31 09:39:04.340	Cobertura Fin del Stop Loss (EURUSD,M5)	Posiciones: 1
+2026.03.31 09:39:04.340	Cobertura Fin del Stop Loss (EURUSD,M5)	Estado: NO neutralizado
+2026.03.31 09:39:04.340	Cobertura Fin del Stop Loss (EURUSD,M5)	TP fijo: 1.15230
+2026.03.31 09:39:04.340	Cobertura Fin del Stop Loss (EURUSD,M5)	Acción: Esperando TP o activación orden protección
+2026.03.31 09:39:04.540	Cobertura Fin del Stop Loss (EURUSD,M5)	--- Roll-Off activo ---
+2026.03.31 09:39:04.540	Cobertura Fin del Stop Loss (EURUSD,M5)	Estado: NO neutralizado
+2026.03.31 09:39:04.540	Cobertura Fin del Stop Loss (EURUSD,M5)	Último modo: CIERRA PERDEDORAS
+2026.03.31 09:39:04.540	Cobertura Fin del Stop Loss (EURUSD,M5)	Ciclos ejecutados: 1
+2026.03.31 09:39:05.913	Cobertura Fin del Stop Loss (EURUSD,M5)	--- Paso 7: 28 ticks al TP ---
+2026.03.31 09:39:14.487	Cobertura Fin del Stop Loss (EURUSD,M5)	--- Roll-Off activo ---
+2026.03.31 09:39:14.487	Cobertura Fin del Stop Loss (EURUSD,M5)	Posiciones: 1
+2026.03.31 09:39:14.487	Cobertura Fin del Stop Loss (EURUSD,M5)	Estado: NO neutralizado
+2026.03.31 09:39:14.487	Cobertura Fin del Stop Loss (EURUSD,M5)	TP fijo: 1.15230
+2026.03.31 09:39:14.487	Cobertura Fin del Stop Loss (EURUSD,M5)	Acción: Esperando TP o activación orden protección
+2026.03.31 09:39:25.613	Cobertura Fin del Stop Loss (EURUSD,M5)	--- Roll-Off activo ---
+2026.03.31 09:39:25.613	Cobertura Fin del Stop Loss (EURUSD,M5)	Posiciones: 1
+2026.03.31 09:39:25.613	Cobertura Fin del Stop Loss (EURUSD,M5)	Estado: NO neutralizado
+2026.03.31 09:39:25.613	Cobertura Fin del Stop Loss (EURUSD,M5)	TP fijo: 1.15230
+2026.03.31 09:39:25.613	Cobertura Fin del Stop Loss (EURUSD,M5)	Acción: Esperando TP o activación orden protección
+2026.03.31 09:39:35.567	Cobertura Fin del Stop Loss (EURUSD,M5)	--- Roll-Off activo ---
+2026.03.31 09:39:35.567	Cobertura Fin del Stop Loss (EURUSD,M5)	Estado: NO neutralizado
+2026.03.31 09:39:35.567	Cobertura Fin del Stop Loss (EURUSD,M5)	Último modo: CIERRA PERDEDORAS
+2026.03.31 09:39:35.567	Cobertura Fin del Stop Loss (EURUSD,M5)	Ciclos ejecutados: 1
+2026.03.31 09:39:36.427	Cobertura Fin del Stop Loss (EURUSD,M5)	--- Roll-Off activo ---
+2026.03.31 09:39:36.427	Cobertura Fin del Stop Loss (EURUSD,M5)	Posiciones: 1
+2026.03.31 09:39:36.427	Cobertura Fin del Stop Loss (EURUSD,M5)	Estado: NO neutralizado
+2026.03.31 09:39:36.427	Cobertura Fin del Stop Loss (EURUSD,M5)	TP fijo: 1.15230
+2026.03.31 09:39:36.427	Cobertura Fin del Stop Loss (EURUSD,M5)	Acción: Esperando TP o activación orden protección
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> PASO 7: RECALCULAR TP (8 ticks) <<<
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	========================================
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> DETECTANDO CONDICIÓN DEL MERCADO <<<
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> REGLA DE CONTRADICCIÓN ACTIVADA <<<
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> Último Roll-Off: CIERRA PERDEDORAS
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> Pero el mercado neutralizó de nuevo
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> El precio se devolvió → NO era tendencia
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> FORZANDO: CIERRA GANADORAS (rango confirmado)
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	========================================
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> MODO ROLL-OFF: CIERRA GANADORAS (mercado en RANGO)
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	========================================
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	========== EJECUTANDO ROLL-OFF #2 ==========
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> MODO: CIERRA GANADORAS
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	P&L BUY: 0.00 | P&L SELL: 7.46
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	Lado ganador: SELL
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	Lado perdedor: BUY
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	Precio actual (referencia): 1.15238
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> PASO 0: LEER SWAP DE TODAS LAS POSICIONES <<<
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	  Pos #275096416 Tipo:SELL Com:Nivel_1 Swap: 0.00
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	SWAP TOTAL TODAS ABIERTAS: 0.00
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	========================================
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> PASO 1: CERRANDO GANADORAS <<<
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	  GANADORA #275096416 Vol:0.10 Tipo:SELL Com:Nivel_1 → SE CERRARÁ
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	----------------------------------------------
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	Posiciones a cerrar: 1
+2026.03.31 09:39:38.290	Cobertura Fin del Stop Loss (EURUSD,M5)	Volumen cerrado: 0.10
+2026.03.31 09:39:38.375	Cobertura Fin del Stop Loss (EURUSD,M5)	  ✓ Cerrada #275096416
+2026.03.31 09:39:38.692	Cobertura Fin del Stop Loss (EURUSD,M5)	--- Leyendo TODA la secuencia desde inicio ---
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	  Deal #219236771 Pos #275096416
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	    Profit: 7.46
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	    Swap: 0.00
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	    Volumen: 0.10
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	  Deal #219233667 Pos #275096421
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	    Profit: -7.03
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	    Swap: 0.00
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	    Volumen: 0.10
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	----------------------------------------------
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	Total cerradas: 2
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	PROFIT CERRADAS: 0.43
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	--- Posiciones que quedan abiertas ---
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	Total abiertas: 0
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	Volumen total abiertas: 0.00
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	SWAP ABIERTAS: 0.00
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	✗ ERROR: No hay posiciones abiertas después del cierre
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	TP alcanzado - Cerrando todas las ordenes
+2026.03.31 09:39:38.693	Cobertura Fin del Stop Loss (EURUSD,M5)	=== CERRANDO SECUENCIA ===
+2026.03.31 09:39:38.778	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> Precios de cobertura fijos reseteados
+2026.03.31 09:39:38.778	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> Variables ADX + Alternancia reseteadas
+2026.03.31 09:39:38.778	Cobertura Fin del Stop Loss (EURUSD,M5)	>>> Variables Roll-Off reseteadas
+2026.03.31 09:39:38.778	Cobertura Fin del Stop Loss (EURUSD,M5)	=== CIERRE COMPLETADO ===
