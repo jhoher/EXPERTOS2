@@ -736,24 +736,33 @@ bool EjecutarRollOff()
          valorTickActual = 0.84;
       
       // Calcular TP
-      double puntosPermitidos = MathAbs(perdidaMaximaPermitida) / (volumenTotalAbiertas * valorTickActual);
+  // Las perdedoras necesitan GANAR lo suficiente para cubrir la pérdida acumulada
+      // gananciaRequerida = |plRealizado| + GananciaM
+      double gananciaRequerida = MathAbs(plRealizado) + g_ganancia_objetivo;
+      double puntosNecesarios = gananciaRequerida / (volumenTotalAbiertas * valorTickActual);
       
       double precioTP;
       if(tipoAbiertas == ORDER_TYPE_BUY)
-         precioTP = precioPromedio - (puntosPermitidos * punto);
+      {
+         // BUY perdedora necesita que el precio SUBA para ganar
+         precioTP = precioPromedio + (puntosNecesarios * punto);
+      }
       else
-         precioTP = precioPromedio + (puntosPermitidos * punto);
+      {
+         // SELL perdedora necesita que el precio BAJE para ganar
+         precioTP = precioPromedio - (puntosNecesarios * punto);
+      }
       
       precioTP = NormalizeDouble(precioTP, digits);
       
       Print("TP calculado: ", DoubleToString(precioTP, digits));
       
-      // Verificar si TP ya superado
+      // Verificar si TP ya superado (precio ya pasó el nivel del TP)
       bool tpYaSuperado = false;
       if(tipoAbiertas == ORDER_TYPE_BUY)
-         tpYaSuperado = (precioActualCalculo >= precioTP);
+         tpYaSuperado = (precioActualCalculo >= precioTP);  // BUY: TP arriba, superado si precio >= TP
       else
-         tpYaSuperado = (precioActualCalculo <= precioTP);
+         tpYaSuperado = (precioActualCalculo <= precioTP);  // SELL: TP abajo, superado si precio <= TP
       
       if(tpYaSuperado)
       {
@@ -1431,8 +1440,91 @@ void MonitorearGanadorasRollOff()
                DoubleToString(g_precio_activacion_roll_off, _Digits));
       }
       
-      Print(">>> NEUTRALIZACIÓN ACTIVADA POR ORDEN <<<");
-      Print(">>> QUITANDO TODOS LOS TP/SL <<<");
+    Print(">>> NEUTRALIZACIÓN ACTIVADA POR ORDEN <<<");
+      
+      if(g_modo_rolloff == 0)
+      {
+         Print(">>> QUITANDO TODOS LOS TP/SL (modo anterior: cierra ganadoras) <<<");
+         
+         int tpSlQuitados = 0;
+         for(int i = 0; i < PositionsTotal(); i++)
+         {
+            if(posInfo.SelectByIndex(i))
+            {
+               if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+               {
+                  ulong ticket = posInfo.Ticket();
+                  double tp = posInfo.TakeProfit();
+                  double sl = posInfo.StopLoss();
+                  if(tp != 0 || sl != 0)
+                  {
+                     if(tradeMonitor.PositionModify(ticket, 0, 0))
+                     {
+                        Print("  ✓ TP/SL quitados #", ticket);
+                        tpSlQuitados++;
+                        Sleep(50);
+                     }
+                  }
+               }
+            }
+         }
+         Print(">>> TPs quitados: ", tpSlQuitados);
+      }
+      else
+      {
+         Print(">>> PRESERVANDO TP DE GANADORA (modo anterior: cierra perdedoras) <<<");
+         for(int i = 0; i < PositionsTotal(); i++)
+         {
+            if(posInfo.SelectByIndex(i))
+            {
+               if(posInfo.Magic() == g_numero_magico && posInfo.Symbol() == _Symbol)
+               {
+                  string comentario = posInfo.Comment();
+                  if(StringFind(comentario, "RollOff_Proteccion") >= 0)
+                  {
+                     ulong ticket = posInfo.Ticket();
+                     double tp = posInfo.TakeProfit();
+                     double sl = posInfo.StopLoss();
+                     if(tp != 0 || sl != 0)
+                     {
+                        if(tradeMonitor.PositionModify(ticket, 0, 0))
+                        {
+                           Print("  ✓ TP/SL quitados solo de neutralizadora #", ticket);
+                           Sleep(50);
+                        }
+                     }
+                  }
+                  else
+                  {
+                     Print("  ✓ PRESERVADO TP de #", posInfo.Ticket(), " (", comentario, ")");
+                  }
+               }
+            }
+         }
+      }
+      
+      COrderInfo ordInfo;
+      int ordenesCanceladas = 0;
+      for(int i = OrdersTotal() - 1; i >= 0; i--)
+      {
+         if(ordInfo.SelectByIndex(i))
+         {
+            if(ordInfo.Magic() == g_numero_magico && ordInfo.Symbol() == _Symbol)
+            {
+               string com = ordInfo.Comment();
+               if(StringFind(com, "RollOff_Proteccion") >= 0)
+               {
+                  if(tradeMonitor.OrderDelete(ordInfo.Ticket()))
+                  {
+                     Print("  ✓ Orden cancelada #", ordInfo.Ticket());
+                     ordenesCanceladas++;
+                  }
+               }
+            }
+         }
+      }
+      
+      Print(">>> Órdenes canceladas: ", ordenesCanceladas);
       
       int tpSlQuitados = 0;
       
@@ -1460,9 +1552,7 @@ void MonitorearGanadorasRollOff()
       }
       
       Print(">>> TPs quitados: ", tpSlQuitados);
-      
-      COrderInfo ordInfo;
-      int ordenesCanceladas = 0;
+          
       for(int i = OrdersTotal() - 1; i >= 0; i--)
       {
          if(ordInfo.SelectByIndex(i))
