@@ -1,0 +1,115 @@
+2026.04.06 19:36:55.135	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> UMBRAL ALCANZADO <<<
+2026.04.06 19:36:55.135	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> Movimiento: 78 ticks
+2026.04.06 19:36:55.135	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> Roll-Off #1 - ADX decidirá el modo
+2026.04.06 19:36:55.135	Cobertura Fin del Stop Loss (USDJPY,M5)	========================================
+2026.04.06 19:36:55.135	Cobertura Fin del Stop Loss (USDJPY,M5)	========================================
+2026.04.06 19:36:55.135	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> DETECTANDO CONDICIÓN DEL MERCADO <<<
+2026.04.06 19:36:55.146	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> Handle ADX creado (M5): 10
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	ADX actual (M5): 35.3
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	ADX anterior: 33.0
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	+DI: 28.1 | -DI: 9.3
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> Dirección tendencia: ALCISTA (+DI > -DI)
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> DECISIÓN: TENDENCIA (ADX=35.3 > 25)
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	========================================
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> MODO ROLL-OFF: CIERRA PERDEDORAS (mercado en TENDENCIA)
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	========================================
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	========== EJECUTANDO ROLL-OFF #1 ==========
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> MODO: CIERRA PERDEDORAS
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	P&L BUY: 0.53 | P&L SELL: -1.53
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	Lado ganador: BUY
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	Lado perdedor: SELL
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	Precio actual (referencia): 159.774
+2026.04.06 19:36:55.256	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> PASO 0: LEER SWAP DE TODAS LAS POSICIONES <<<
+2026.04.06 19:36:55.266	Cobertura Fin del Stop Loss (USDJPY,M5)	  Pos #279352552 Tipo:BUY Com:Nivel_1 Swap: 0.07
+2026.04.06 19:36:55.266	Cobertura Fin del Stop Loss (USDJPY,M5)	  Pos #279352553 Tipo:SELL Com:Nivel_2 Swap: -0.29
+2026.04.06 19:36:55.266	Cobertura Fin del Stop Loss (USDJPY,M5)	SWAP TOTAL TODAS ABIERTAS: -0.22
+2026.04.06 19:36:55.266	Cobertura Fin del Stop Loss (USDJPY,M5)	========================================
+2026.04.06 19:36:55.266	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> PASO 1: CERRANDO PERDEDORAS <<<
+2026.04.06 19:36:55.266	Cobertura Fin del Stop Loss (USDJPY,M5)	  PERDEDORA #279352553 Vol:0.03 Tipo:SELL Com:Nivel_2 → SE CERRARÁ
+2026.04.06 19:36:55.267	Cobertura Fin del Stop Loss (USDJPY,M5)	  GANADORA #279352552 Vol:0.03 Tipo:BUY Com:Nivel_1 → QUEDA ABIERTA
+2026.04.06 19:36:55.267	Cobertura Fin del Stop Loss (USDJPY,M5)	----------------------------------------------
+2026.04.06 19:36:55.267	Cobertura Fin del Stop Loss (USDJPY,M5)	Posiciones a cerrar: 1
+2026.04.06 19:36:55.267	Cobertura Fin del Stop Loss (USDJPY,M5)	Volumen cerrado: 0.03
+2026.04.06 19:36:55.363	Cobertura Fin del Stop Loss (USDJPY,M5)	  ✓ Cerrada #279352553
+2026.04.06 19:36:55.676	Cobertura Fin del Stop Loss (USDJPY,M5)	--- Leyendo TODA la secuencia desde inicio ---
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	  Deal #222559986 Pos #279352553
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	    Profit: -1.24
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	    Swap: -0.29
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	    Volumen: 0.03
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	----------------------------------------------
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	Total cerradas: 1
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	PROFIT CERRADAS: -1.24
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	--- Posiciones que quedan abiertas ---
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	  Abierta #279352552: Swap=0.07
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	Total abiertas: 1
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	Volumen total abiertas: 0.03
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	SWAP ABIERTAS: 0.07
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	SWAP TOTAL REAL: -0.22
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> PASO 2: COMISIONES TOTALES <<<
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	COMISIONES TOTALES: 0.32
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> PASO 3: P&L REALIZADO <<<
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	PROFIT CERRADAS: -1.24
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	SWAP TOTAL REAL: -0.22
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	SWAP ABIERTAS: 0.07
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	COMISIONES: -0.32
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	P&L REALIZADO: -1.71
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	========================================
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> GANADORAS QUEDAN ABIERTAS <<<
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> Calculando TP desde precio de apertura <<<
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	P&L REALIZADO: -1.71
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	GananciaM: 0.01
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	Ganancia TOTAL requerida al cierre: 1.72
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	  Ganadora #279352552 Apertura:159.746 Vol:0.03
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	Precio promedio apertura ganadoras: 159.746
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	  Valor TICK extraído: 0.540230
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	----------------------------------------------
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> CÁLCULO TP PARA GANADORAS <<<
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	Ganancia requerida: 1.72
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	Volumen ganadoras: 0.03
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	Valor TICK: 0.540230
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	Puntos necesarios desde apertura: 106.1
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	Precio apertura promedio: 159.746
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	TP calculado: 159.852
+2026.04.06 19:36:55.686	Cobertura Fin del Stop Loss (USDJPY,M5)	Precio actual: 159.775
+2026.04.06 19:36:55.772	Cobertura Fin del Stop Loss (USDJPY,M5)	  ✓ TP ganadora #279352552 → 159.852
+2026.04.06 19:36:55.772	Cobertura Fin del Stop Loss (USDJPY,M5)	TPs configurados: 1
+2026.04.06 19:36:55.772	Cobertura Fin del Stop Loss (USDJPY,M5)	Ganancia esperada al TP: 1.72
+2026.04.06 19:36:55.772	Cobertura Fin del Stop Loss (USDJPY,M5)	Resultado proyectado: 0.008
+2026.04.06 19:36:55.772	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> Resultado proyectado aceptable: 0.008 ✓
+2026.04.06 19:36:55.772	Cobertura Fin del Stop Loss (USDJPY,M5)	----------------------------------------------
+2026.04.06 19:36:55.772	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> ORDEN PROTECCIÓN NEUTRALIZADORA <<<
+2026.04.06 19:36:55.772	Cobertura Fin del Stop Loss (USDJPY,M5)	Tipo: SELL STOP
+2026.04.06 19:36:55.772	Cobertura Fin del Stop Loss (USDJPY,M5)	Volumen: 0.03
+2026.04.06 19:36:55.772	Cobertura Fin del Stop Loss (USDJPY,M5)	Precio: 159.724
+2026.04.06 19:36:55.859	Cobertura Fin del Stop Loss (USDJPY,M5)	✓ Orden protección #279501377
+2026.04.06 19:36:55.859	Cobertura Fin del Stop Loss (USDJPY,M5)	✓ Precio referencia: 159.774
+2026.04.06 19:36:55.859	Cobertura Fin del Stop Loss (USDJPY,M5)	==========================================
+2026.04.06 19:36:55.859	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> Roll-Off #1 completado
+2026.04.06 19:36:55.859	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> Modo: CIERRA PERDEDORAS
+2026.04.06 19:36:55.859	Cobertura Fin del Stop Loss (USDJPY,M5)	==========================================
+2026.04.06 19:36:55.859	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> Roll-Off completado
+2026.04.06 19:36:55.958	Cobertura Fin del Stop Loss (USDJPY,M5)	>>> MonitorearGanadoras: Esperando siguiente tick después de Roll-Off
+2026.04.06 19:36:55.958	Cobertura Fin del Stop Loss (USDJPY,M5)	--- Roll-Off activo ---
+2026.04.06 19:36:55.958	Cobertura Fin del Stop Loss (USDJPY,M5)	Estado: NO neutralizado
+2026.04.06 19:36:55.958	Cobertura Fin del Stop Loss (USDJPY,M5)	Último modo: CIERRA PERDEDORAS
+2026.04.06 19:36:55.958	Cobertura Fin del Stop Loss (USDJPY,M5)	Ciclos ejecutados: 1
+2026.04.06 19:37:02.910	Cobertura Fin del Stop Loss (USDJPY,M5)	--- Roll-Off activo ---
+2026.04.06 19:37:02.910	Cobertura Fin del Stop Loss (USDJPY,M5)	Posiciones: 1
+2026.04.06 19:37:02.910	Cobertura Fin del Stop Loss (USDJPY,M5)	Estado: NO neutralizado
+2026.04.06 19:37:02.910	Cobertura Fin del Stop Loss (USDJPY,M5)	TP fijo: 159.852
+2026.04.06 19:37:02.910	Cobertura Fin del Stop Loss (USDJPY,M5)	Acción: Esperando TP o activación orden protección
+2026.04.06 19:37:13.409	Cobertura Fin del Stop Loss (USDJPY,M5)	--- Roll-Off activo ---
+2026.04.06 19:37:13.409	Cobertura Fin del Stop Loss (USDJPY,M5)	Posiciones: 1
+2026.04.06 19:37:13.409	Cobertura Fin del Stop Loss (USDJPY,M5)	Estado: NO neutralizado
+2026.04.06 19:37:13.409	Cobertura Fin del Stop Loss (USDJPY,M5)	TP fijo: 159.852
+2026.04.06 19:37:13.409	Cobertura Fin del Stop Loss (USDJPY,M5)	Acción: Esperando TP o activación orden protección
+2026.04.06 19:37:26.275	Cobertura Fin del Stop Loss (USDJPY,M5)	--- Roll-Off activo ---
+2026.04.06 19:37:26.275	Cobertura Fin del Stop Loss (USDJPY,M5)	Posiciones: 1
+2026.04.06 19:37:26.275	Cobertura Fin del Stop Loss (USDJPY,M5)	Estado: NO neutralizado
+2026.04.06 19:37:26.275	Cobertura Fin del Stop Loss (USDJPY,M5)	TP fijo: 159.852
+2026.04.06 19:37:26.275	Cobertura Fin del Stop Loss (USDJPY,M5)	Acción: Esperando TP o activación orden protección
+2026.04.06 19:37:26.483	Cobertura Fin del Stop Loss (USDJPY,M5)	--- Roll-Off activo ---
+2026.04.06 19:37:26.483	Cobertura Fin del Stop Loss (USDJPY,M5)	Estado: NO neutralizado
+2026.04.06 19:37:26.483	Cobertura Fin del Stop Loss (USDJPY,M5)	Último modo: CIERRA PERDEDORAS
+2026.04.06 19:37:26.483	Cobertura Fin del Stop Loss (USDJPY,M5)	Ciclos ejecutados: 1
+2026.04.06 19:37:36.849	Cobertura Fin del Stop Loss (USDJPY,M5)	--- Roll-Off activo ---
