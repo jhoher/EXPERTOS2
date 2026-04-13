@@ -1,0 +1,153 @@
+2026.04.13 02:01:01.952	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> UMBRAL ALCANZADO <<<
+2026.04.13 02:01:01.952	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Movimiento: 78 ticks
+2026.04.13 02:01:01.952	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Roll-Off #1 - ADX decidirá el modo
+2026.04.13 02:01:01.952	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.04.13 02:01:01.952	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.04.13 02:01:01.952	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> DETECTANDO CONDICIÓN DEL MERCADO <<<
+2026.04.13 02:01:01.956	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Handle ADX creado (M5): 10
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	ADX actual (M5): 35.5
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	ADX anterior: 31.4
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	+DI: 33.4 | -DI: 7.7
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Dirección tendencia: ALCISTA (+DI > -DI)
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> DECISIÓN: TENDENCIA (ADX=35.5 > 25)
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> MODO ROLL-OFF: CIERRA PERDEDORAS (mercado en TENDENCIA)
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	========== EJECUTANDO ROLL-OFF #1 ==========
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> MODO: CIERRA PERDEDORAS
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	P&L BUY: 28.02 | P&L SELL: -47.78
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	Lado ganador: BUY
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	Lado perdedor: SELL
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	Precio actual (referencia): 0.70484
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> PASO 0: LEER SWAP DE TODAS LAS POSICIONES <<<
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Pos #284166439 Tipo:SELL Com:Nivel_1 Swap: 0.00
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Pos #284166440 Tipo:BUY Com:Nivel_2 Swap: 0.00
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	SWAP TOTAL TODAS ABIERTAS: 0.00
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> PASO 1: CERRANDO PERDEDORAS <<<
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	  GANADORA #284166440 Vol:0.42 Tipo:BUY Com:Nivel_2 → QUEDA ABIERTA
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	  PERDEDORA #284166439 Vol:0.42 Tipo:SELL Com:Nivel_1 → SE CERRARÁ
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	----------------------------------------------
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	Posiciones a cerrar: 1
+2026.04.13 02:01:02.062	Cobertura Fin del Stop Loss (AUDUSD,M1)	Volumen cerrado: 0.42
+2026.04.13 02:01:02.148	Cobertura Fin del Stop Loss (AUDUSD,M1)	  ✓ Cerrada #284166439
+2026.04.13 02:01:02.470	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Leyendo TODA la secuencia desde inicio ---
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Deal #226428626 Pos #284166439
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Profit: -47.78
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Swap: 0.00
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	    Volumen: 0.42
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	----------------------------------------------
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	Total cerradas: 1
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	PROFIT CERRADAS: -47.78
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Posiciones que quedan abiertas ---
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Abierta #284166440: Swap=0.00
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	Total abiertas: 1
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	Volumen total abiertas: 0.42
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	SWAP ABIERTAS: 0.00
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	SWAP TOTAL REAL: 0.00
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> PASO 2: COMISIONES TOTALES <<<
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	COMISIONES TOTALES: 4.37
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> PASO 3: P&L REALIZADO <<<
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	PROFIT CERRADAS: -47.78
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	SWAP TOTAL REAL: 0.00 (incluye abiertas y cerradas)
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	COMISIONES: -4.37
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	P&L REALIZADO: -52.15
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> GANADORAS QUEDAN ABIERTAS <<<
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Calculando TP desde precio de apertura <<<
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	P&L REALIZADO: -52.15
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	GananciaM: 0.01
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	Ganancia TOTAL requerida al cierre: 52.16
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Ganadora #284166440 Apertura:0.70406 Vol:0.42
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	Precio promedio apertura ganadoras: 0.70406
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	  Valor TICK extraído: 0.855357
+2026.04.13 02:01:02.473	Cobertura Fin del Stop Loss (AUDUSD,M1)	----------------------------------------------
+2026.04.13 02:01:02.474	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> CÁLCULO TP PARA GANADORAS <<<
+2026.04.13 02:01:02.474	Cobertura Fin del Stop Loss (AUDUSD,M1)	Ganancia requerida: 52.16
+2026.04.13 02:01:02.474	Cobertura Fin del Stop Loss (AUDUSD,M1)	Volumen ganadoras: 0.42
+2026.04.13 02:01:02.474	Cobertura Fin del Stop Loss (AUDUSD,M1)	Valor TICK: 0.855357
+2026.04.13 02:01:02.474	Cobertura Fin del Stop Loss (AUDUSD,M1)	Puntos necesarios desde apertura: 145.2
+2026.04.13 02:01:02.474	Cobertura Fin del Stop Loss (AUDUSD,M1)	Precio apertura promedio: 0.70406
+2026.04.13 02:01:02.474	Cobertura Fin del Stop Loss (AUDUSD,M1)	TP calculado: 0.70551
+2026.04.13 02:01:02.474	Cobertura Fin del Stop Loss (AUDUSD,M1)	Precio actual: 0.70486
+2026.04.13 02:01:02.562	Cobertura Fin del Stop Loss (AUDUSD,M1)	  ✓ TP ganadora #284166440 → 0.70551
+2026.04.13 02:01:02.562	Cobertura Fin del Stop Loss (AUDUSD,M1)	TPs configurados: 1
+2026.04.13 02:01:02.562	Cobertura Fin del Stop Loss (AUDUSD,M1)	Ganancia esperada al TP: 52.09
+2026.04.13 02:01:02.562	Cobertura Fin del Stop Loss (AUDUSD,M1)	Resultado proyectado: -0.057
+2026.04.13 02:01:02.562	Cobertura Fin del Stop Loss (AUDUSD,M1)	✅ TP SEGURO: i=1 TP:0.70552 Res:0.302
+2026.04.13 02:01:02.642	Cobertura Fin del Stop Loss (AUDUSD,M1)	TP ajustado a: 0.70552 Resultado: 0.302
+2026.04.13 02:01:02.642	Cobertura Fin del Stop Loss (AUDUSD,M1)	----------------------------------------------
+2026.04.13 02:01:02.642	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> ORDEN PROTECCIÓN NEUTRALIZADORA <<<
+2026.04.13 02:01:02.642	Cobertura Fin del Stop Loss (AUDUSD,M1)	Tipo: SELL STOP
+2026.04.13 02:01:02.642	Cobertura Fin del Stop Loss (AUDUSD,M1)	Volumen: 0.42
+2026.04.13 02:01:02.642	Cobertura Fin del Stop Loss (AUDUSD,M1)	Precio: 0.70434
+2026.04.13 02:01:02.725	Cobertura Fin del Stop Loss (AUDUSD,M1)	✓ Orden protección #284277546
+2026.04.13 02:01:02.725	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Trailing reseteado para nueva orden de protección
+2026.04.13 02:01:02.725	Cobertura Fin del Stop Loss (AUDUSD,M1)	✓ Precio referencia: 0.70484
+2026.04.13 02:01:02.725	Cobertura Fin del Stop Loss (AUDUSD,M1)	==========================================
+2026.04.13 02:01:02.725	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Roll-Off #1 completado
+2026.04.13 02:01:02.725	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Modo: CIERRA PERDEDORAS
+2026.04.13 02:01:02.725	Cobertura Fin del Stop Loss (AUDUSD,M1)	==========================================
+2026.04.13 02:01:02.725	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Roll-Off completado
+2026.04.13 02:01:02.910	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> MonitorearGanadoras: Esperando siguiente tick después de Roll-Off
+2026.04.13 02:01:02.910	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Roll-Off activo ---
+2026.04.13 02:01:02.910	Cobertura Fin del Stop Loss (AUDUSD,M1)	Estado: NO neutralizado
+2026.04.13 02:01:02.910	Cobertura Fin del Stop Loss (AUDUSD,M1)	Último modo: CIERRA PERDEDORAS
+2026.04.13 02:01:02.910	Cobertura Fin del Stop Loss (AUDUSD,M1)	Ciclos ejecutados: 1
+2026.04.13 02:01:12.586	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Roll-Off activo ---
+2026.04.13 02:01:12.586	Cobertura Fin del Stop Loss (AUDUSD,M1)	Posiciones: 1
+2026.04.13 02:01:12.586	Cobertura Fin del Stop Loss (AUDUSD,M1)	Estado: NO neutralizado
+2026.04.13 02:01:12.586	Cobertura Fin del Stop Loss (AUDUSD,M1)	TP fijo: 0.70552
+2026.04.13 02:01:12.586	Cobertura Fin del Stop Loss (AUDUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.04.13 02:01:23.151	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Roll-Off activo ---
+2026.04.13 02:01:23.151	Cobertura Fin del Stop Loss (AUDUSD,M1)	Posiciones: 1
+2026.04.13 02:01:23.151	Cobertura Fin del Stop Loss (AUDUSD,M1)	Estado: NO neutralizado
+2026.04.13 02:01:23.151	Cobertura Fin del Stop Loss (AUDUSD,M1)	TP fijo: 0.70552
+2026.04.13 02:01:23.151	Cobertura Fin del Stop Loss (AUDUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.04.13 02:01:40.414	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Roll-Off activo ---
+2026.04.13 02:01:40.414	Cobertura Fin del Stop Loss (AUDUSD,M1)	Posiciones: 1
+2026.04.13 02:01:40.414	Cobertura Fin del Stop Loss (AUDUSD,M1)	Estado: NO neutralizado
+2026.04.13 02:01:40.415	Cobertura Fin del Stop Loss (AUDUSD,M1)	TP fijo: 0.70552
+2026.04.13 02:01:40.415	Cobertura Fin del Stop Loss (AUDUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.04.13 02:01:40.415	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Roll-Off activo ---
+2026.04.13 02:01:40.415	Cobertura Fin del Stop Loss (AUDUSD,M1)	Estado: NO neutralizado
+2026.04.13 02:01:40.415	Cobertura Fin del Stop Loss (AUDUSD,M1)	Último modo: CIERRA PERDEDORAS
+2026.04.13 02:01:40.415	Cobertura Fin del Stop Loss (AUDUSD,M1)	Ciclos ejecutados: 1
+2026.04.13 02:01:52.693	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Roll-Off activo ---
+2026.04.13 02:01:52.693	Cobertura Fin del Stop Loss (AUDUSD,M1)	Posiciones: 1
+2026.04.13 02:01:52.693	Cobertura Fin del Stop Loss (AUDUSD,M1)	Estado: NO neutralizado
+2026.04.13 02:01:52.693	Cobertura Fin del Stop Loss (AUDUSD,M1)	TP fijo: 0.70552
+2026.04.13 02:01:52.693	Cobertura Fin del Stop Loss (AUDUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.04.13 02:01:59.807	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Paso 7: 47 ticks al TP ---
+2026.04.13 02:02:03.113	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Roll-Off activo ---
+2026.04.13 02:02:03.113	Cobertura Fin del Stop Loss (AUDUSD,M1)	Posiciones: 1
+2026.04.13 02:02:03.113	Cobertura Fin del Stop Loss (AUDUSD,M1)	Estado: NO neutralizado
+2026.04.13 02:02:03.113	Cobertura Fin del Stop Loss (AUDUSD,M1)	TP fijo: 0.70552
+2026.04.13 02:02:03.113	Cobertura Fin del Stop Loss (AUDUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.04.13 02:02:11.465	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Roll-Off activo ---
+2026.04.13 02:02:11.465	Cobertura Fin del Stop Loss (AUDUSD,M1)	Estado: NO neutralizado
+2026.04.13 02:02:11.465	Cobertura Fin del Stop Loss (AUDUSD,M1)	Último modo: CIERRA PERDEDORAS
+2026.04.13 02:02:19.360	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.04.13 02:02:19.360	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> TRAILING ACTIVADO <<<
+2026.04.13 02:02:19.360	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Distancia al TP: 39 ticks
+2026.04.13 02:02:19.360	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Precio referencia inicial: 0.70513
+2026.04.13 02:02:19.360	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Orden protección actual: 0.70434
+2026.04.13 02:02:19.360	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.04.13 02:02:25.022	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Roll-Off activo ---
+2026.04.13 02:02:25.022	Cobertura Fin del Stop Loss (AUDUSD,M1)	Posiciones: 1
+2026.04.13 02:02:25.022	Cobertura Fin del Stop Loss (AUDUSD,M1)	Estado: NO neutralizado
+2026.04.13 02:02:25.022	Cobertura Fin del Stop Loss (AUDUSD,M1)	TP fijo: 0.70552
+2026.04.13 02:02:25.022	Cobertura Fin del Stop Loss (AUDUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.04.13 02:31:35.039	Cobertura Fin del Stop Loss (AUDUSD,M1)	Estado: NO neutralizado
+2026.04.13 02:31:35.039	Cobertura Fin del Stop Loss (AUDUSD,M1)	Último modo: CIERRA PERDEDORAS
+2026.04.13 02:31:35.039	Cobertura Fin del Stop Loss (AUDUSD,M1)	Ciclos ejecutados: 1
+2026.04.13 02:31:44.858	Cobertura Fin del Stop Loss (AUDUSD,M1)	--- Roll-Off activo ---
+2026.04.13 02:31:44.858	Cobertura Fin del Stop Loss (AUDUSD,M1)	Posiciones: 1
+2026.04.13 02:31:44.858	Cobertura Fin del Stop Loss (AUDUSD,M1)	Estado: NO neutralizado
+2026.04.13 02:31:44.858	Cobertura Fin del Stop Loss (AUDUSD,M1)	TP fijo: 0.70552
+2026.04.13 02:31:44.858	Cobertura Fin del Stop Loss (AUDUSD,M1)	Acción: Esperando TP o activación orden protección
+2026.04.13 02:31:52.054	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.04.13 02:31:52.054	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> TP ALCANZADO - OBJETIVO CUMPLIDO <<<
+2026.04.13 02:31:52.054	Cobertura Fin del Stop Loss (AUDUSD,M1)	========================================
+2026.04.13 02:31:52.136	Cobertura Fin del Stop Loss (AUDUSD,M1)	>>> Variables reseteadas - Sistema listo
+
