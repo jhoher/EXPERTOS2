@@ -1,0 +1,639 @@
+//+------------------------------------------------------------------+
+//|  MÓDULO: DETECCIÓN DE ESTRUCTURA M3 + M1 (v8)                    |
+//|  SIN ZigZag - basado en color de vela + fractales                |
+//|  Elaborado para Jhoan Daniel Ocoro Hernandez                     |
+//|                                                                  |
+//|  REGLA FUNDAMENTAL:                                              |
+//|  - M3 usa SOLO velas de PERIOD_M3 (CopyXxx con PERIOD_M3)       |
+//|  - M1 usa SOLO velas de PERIOD_M1 (CopyXxx con PERIOD_M1)       |
+//|  - Las velas de M1 NUNCA se usan para marcar estructura M3      |
+//|  - Las velas de M3 NUNCA se usan para marcar estructura M1      |
+//|                                                                  |
+//|  M3: 2 velas opuestas = retroceso. M1: 1 vela = retroceso.      |
+//|  Puntos AMARILLOS = M3. Puntos CYAN = M1.                       |
+//+------------------------------------------------------------------+
+
+#define SENAL_SIN_SENAL    0
+#define SENAL_ALCISTA      1
+#define SENAL_BAJISTA     -1
+
+input bool InpDibujarPivotes = true;
+input int  InpBarrasInicioM3 = 200;
+
+#define EST_SIN_ESTRUCTURA         0
+#define EST_BAJANDO_PROVISIONAL    1
+#define EST_BAJANDO_RETROCESO      2
+#define EST_SUBIENDO_PROVISIONAL   3
+#define EST_SUBIENDO_RETROCESO     4
+
+struct PuntoDibujado
+{
+   string   tipo;
+   double   precio;
+   datetime tiempo;
+   bool     esAlto;
+};
+
+#define MAX_PUNTOS 300
+
+PuntoDibujado g_puntos_m3[];
+int g_total_puntos_m3 = 0;
+
+PuntoDibujado g_puntos_m1[];
+int g_total_puntos_m1 = 0;
+
+struct EstadoEstructura
+{
+   int      estado;
+   double   precio_low;
+   datetime tiempo_low;
+   bool     low_fijo;
+   double   precio_high;
+   datetime tiempo_high;
+   bool     high_fijo;
+   int      velas_retroceso;
+   double   retroceso_extreme;
+   datetime tiempo_retroceso_extreme;
+   double   ultimo_high_fijo;
+   double   ultimo_low_fijo;
+   double   ultimo_AB;
+   datetime tiempo_AB;
+   double   ultimo_BA;
+   datetime tiempo_BA;
+   int      tendencia;
+};
+
+EstadoEstructura g_est_m3;
+EstadoEstructura g_est_m1;
+
+bool g_m1_activo = false;
+datetime g_ultima_vela_m1_evaluada = 0;
+datetime g_ultima_vela_procesada_m3 = 0;
+datetime g_ultima_vela_procesada_m1 = 0;
+
+
+//+------------------------------------------------------------------+
+//| Agregar punto fijo al historial                                  |
+//+------------------------------------------------------------------+
+void AgregarPuntoFijo(PuntoDibujado &puntos[], int &total,
+                      double precio, datetime tiempo, bool esAlto,
+                      string tfLabel)
+{
+   string tipo;
+   
+   if(esAlto)
+   {
+      double ultimoAlto = 0;
+      bool hayRef = false;
+      for(int i = total - 1; i >= 0; i--)
+      {
+         if(puntos[i].esAlto)
+         { ultimoAlto = puntos[i].precio; hayRef = true; break; }
+      }
+      tipo = (!hayRef || precio > ultimoAlto) ? "AA" : "AB";
+   }
+   else
+   {
+      double ultimoBajo = 0;
+      bool hayRef = false;
+      for(int i = total - 1; i >= 0; i--)
+      {
+         if(!puntos[i].esAlto)
+         { ultimoBajo = puntos[i].precio; hayRef = true; break; }
+      }
+      tipo = (!hayRef || precio < ultimoBajo) ? "BB" : "BA";
+   }
+   
+   if(total >= MAX_PUNTOS)
+   {
+      for(int i = 0; i < total - 1; i++) puntos[i] = puntos[i + 1];
+      total--;
+   }
+   
+   ArrayResize(puntos, total + 1);
+   puntos[total].tipo = tipo;
+   puntos[total].precio = precio;
+   puntos[total].tiempo = tiempo;
+   puntos[total].esAlto = esAlto;
+   total++;
+   
+   Print("[", tfLabel, "] Punto FIJO #", total, ": ", tipo,
+         " @ ", DoubleToString(precio, _Digits),
+         " [", TimeToString(tiempo, TIME_DATE|TIME_MINUTES), "]");
+}
+
+
+void ResetearEstado(EstadoEstructura &est)
+{
+   est.estado = EST_SIN_ESTRUCTURA;
+   est.precio_low = 0;   est.tiempo_low = 0;   est.low_fijo = false;
+   est.precio_high = 0;  est.tiempo_high = 0;  est.high_fijo = false;
+   est.velas_retroceso = 0;
+   est.retroceso_extreme = 0;  est.tiempo_retroceso_extreme = 0;
+   est.ultimo_high_fijo = 0;   est.ultimo_low_fijo = 0;
+   est.ultimo_AB = 0;  est.tiempo_AB = 0;
+   est.ultimo_BA = 0;  est.tiempo_BA = 0;
+   est.tendencia = SENAL_SIN_SENAL;
+}
+
+
+string NombreEstado(int estado)
+{
+   switch(estado)
+   {
+      case EST_SIN_ESTRUCTURA:       return "SIN_EST";
+      case EST_BAJANDO_PROVISIONAL:  return "BAJ_PROV";
+      case EST_BAJANDO_RETROCESO:    return "BAJ_RET";
+      case EST_SUBIENDO_PROVISIONAL: return "SUB_PROV";
+      case EST_SUBIENDO_RETROCESO:   return "SUB_RET";
+      default:                       return "???";
+   }
+}
+
+
+//+------------------------------------------------------------------+
+//| PROCESAR VELA                                                    |
+//+------------------------------------------------------------------+
+bool ProcesarVela(EstadoEstructura &est, double o, double c, double h, double l,
+                  datetime t, int velasRetroceso,
+                  PuntoDibujado &puntos[], int &totalPuntos,
+                  bool registrar, string tfLabel)
+{
+   bool esAlcista = (c > o);
+   bool esBajista = (c < o);
+   bool huboCambio = false;
+   
+   switch(est.estado)
+   {
+      case EST_SIN_ESTRUCTURA:
+      {
+         if(esBajista)
+         {
+            est.estado = EST_BAJANDO_PROVISIONAL;
+            est.precio_low = l; est.tiempo_low = t;
+            est.low_fijo = false; est.velas_retroceso = 0;
+            est.tendencia = SENAL_BAJISTA;
+         }
+         else if(esAlcista)
+         {
+            est.estado = EST_SUBIENDO_PROVISIONAL;
+            est.precio_high = h; est.tiempo_high = t;
+            est.high_fijo = false; est.velas_retroceso = 0;
+            est.tendencia = SENAL_ALCISTA;
+         }
+         break;
+      }
+      
+      case EST_BAJANDO_PROVISIONAL:
+      {
+         if(l < est.precio_low)
+         {
+            est.precio_low = l; est.tiempo_low = t;
+            est.velas_retroceso = 0;
+            est.retroceso_extreme = 0; est.tiempo_retroceso_extreme = 0;
+         }
+         if(esAlcista)
+         {
+            est.velas_retroceso++;
+            if(est.velas_retroceso == 1 || h > est.retroceso_extreme)
+            { est.retroceso_extreme = h; est.tiempo_retroceso_extreme = t; }
+            
+            if(est.velas_retroceso >= velasRetroceso)
+            {
+               est.low_fijo = true;
+               est.estado = EST_BAJANDO_RETROCESO;
+               est.ultimo_low_fijo = est.precio_low;
+               if(registrar)
+                  AgregarPuntoFijo(puntos, totalPuntos, est.precio_low, est.tiempo_low, false, tfLabel);
+            }
+         }
+         else if(esBajista)
+         {
+            est.velas_retroceso = 0;
+            est.retroceso_extreme = 0; est.tiempo_retroceso_extreme = 0;
+         }
+         break;
+      }
+      
+      case EST_BAJANDO_RETROCESO:
+      {
+         if(h > est.retroceso_extreme)
+         { est.retroceso_extreme = h; est.tiempo_retroceso_extreme = t; }
+         
+         if(l < est.precio_low)
+         {
+            if(registrar && est.retroceso_extreme > 0)
+               AgregarPuntoFijo(puntos, totalPuntos, est.retroceso_extreme, est.tiempo_retroceso_extreme, true, tfLabel);
+            if(est.retroceso_extreme > 0)
+            {
+               est.ultimo_high_fijo = est.retroceso_extreme;
+               est.ultimo_AB = est.retroceso_extreme; est.tiempo_AB = est.tiempo_retroceso_extreme;
+            }
+            
+            est.precio_low = l; est.tiempo_low = t;
+            est.low_fijo = false; est.velas_retroceso = 0;
+            est.retroceso_extreme = 0; est.tiempo_retroceso_extreme = 0;
+            est.estado = EST_BAJANDO_PROVISIONAL;
+            est.tendencia = SENAL_BAJISTA;
+         }
+         else if(est.ultimo_AB > 0 && h > est.ultimo_AB)
+         {
+            if(registrar && est.retroceso_extreme > 0)
+               AgregarPuntoFijo(puntos, totalPuntos, est.retroceso_extreme, est.tiempo_retroceso_extreme, true, tfLabel);
+            if(est.retroceso_extreme > 0)
+               est.ultimo_high_fijo = est.retroceso_extreme;
+            est.ultimo_BA = est.precio_low; est.tiempo_BA = est.tiempo_low;
+            
+            est.precio_high = h; est.tiempo_high = t;
+            est.high_fijo = false; est.velas_retroceso = 0;
+            est.retroceso_extreme = 0; est.tiempo_retroceso_extreme = 0;
+            est.estado = EST_SUBIENDO_PROVISIONAL;
+            est.tendencia = SENAL_ALCISTA;
+            huboCambio = true;
+            
+            Print("[", tfLabel, "] >>> CAMBIO ESTRUCTURA: BAJISTA → ALCISTA <<<");
+         }
+         break;
+      }
+      
+      case EST_SUBIENDO_PROVISIONAL:
+      {
+         if(h > est.precio_high)
+         {
+            est.precio_high = h; est.tiempo_high = t;
+            est.velas_retroceso = 0;
+            est.retroceso_extreme = 0; est.tiempo_retroceso_extreme = 0;
+         }
+         if(esBajista)
+         {
+            est.velas_retroceso++;
+            if(est.velas_retroceso == 1 || est.retroceso_extreme == 0 || l < est.retroceso_extreme)
+            { est.retroceso_extreme = l; est.tiempo_retroceso_extreme = t; }
+            
+            if(est.velas_retroceso >= velasRetroceso)
+            {
+               est.high_fijo = true;
+               est.estado = EST_SUBIENDO_RETROCESO;
+               est.ultimo_high_fijo = est.precio_high;
+               if(registrar)
+                  AgregarPuntoFijo(puntos, totalPuntos, est.precio_high, est.tiempo_high, true, tfLabel);
+            }
+         }
+         else if(esAlcista)
+         {
+            est.velas_retroceso = 0;
+            est.retroceso_extreme = 0; est.tiempo_retroceso_extreme = 0;
+         }
+         break;
+      }
+      
+      case EST_SUBIENDO_RETROCESO:
+      {
+         if(est.retroceso_extreme == 0 || l < est.retroceso_extreme)
+         { est.retroceso_extreme = l; est.tiempo_retroceso_extreme = t; }
+         
+         if(h > est.precio_high)
+         {
+            if(registrar && est.retroceso_extreme > 0)
+               AgregarPuntoFijo(puntos, totalPuntos, est.retroceso_extreme, est.tiempo_retroceso_extreme, false, tfLabel);
+            if(est.retroceso_extreme > 0)
+            {
+               est.ultimo_low_fijo = est.retroceso_extreme;
+               est.ultimo_BA = est.retroceso_extreme; est.tiempo_BA = est.tiempo_retroceso_extreme;
+            }
+            
+            est.precio_high = h; est.tiempo_high = t;
+            est.high_fijo = false; est.velas_retroceso = 0;
+            est.retroceso_extreme = 0; est.tiempo_retroceso_extreme = 0;
+            est.estado = EST_SUBIENDO_PROVISIONAL;
+            est.tendencia = SENAL_ALCISTA;
+         }
+         else if(est.ultimo_BA > 0 && l < est.ultimo_BA)
+         {
+            if(registrar && est.retroceso_extreme > 0)
+               AgregarPuntoFijo(puntos, totalPuntos, est.retroceso_extreme, est.tiempo_retroceso_extreme, false, tfLabel);
+            if(est.retroceso_extreme > 0)
+               est.ultimo_low_fijo = est.retroceso_extreme;
+            est.ultimo_AB = est.precio_high; est.tiempo_AB = est.tiempo_high;
+            
+            est.precio_low = l; est.tiempo_low = t;
+            est.low_fijo = false; est.velas_retroceso = 0;
+            est.retroceso_extreme = 0; est.tiempo_retroceso_extreme = 0;
+            est.estado = EST_BAJANDO_PROVISIONAL;
+            est.tendencia = SENAL_BAJISTA;
+            huboCambio = true;
+            
+            Print("[", tfLabel, "] >>> CAMBIO ESTRUCTURA: ALCISTA → BAJISTA <<<");
+         }
+         break;
+      }
+   }
+   
+   return huboCambio;
+}
+
+
+int EvaluarTendencia(const EstadoEstructura &est)
+{ return est.tendencia; }
+
+
+//+------------------------------------------------------------------+
+//| Construir estructura inicial M3 (200 velas de PERIOD_M3)         |
+//+------------------------------------------------------------------+
+void ConstruirEstructuraInicialM3()
+{
+   double open[], close[], high[], low[];
+   datetime time[];
+   ArraySetAsSeries(open, false); ArraySetAsSeries(close, false);
+   ArraySetAsSeries(high, false); ArraySetAsSeries(low, false);
+   ArraySetAsSeries(time, false);
+   
+   // CRÍTICO: Usa PERIOD_M3 explícitamente
+   int n = CopyOpen(_Symbol, PERIOD_M3, 0, InpBarrasInicioM3, open);
+   CopyClose(_Symbol, PERIOD_M3, 0, InpBarrasInicioM3, close);
+   CopyHigh(_Symbol, PERIOD_M3, 0, InpBarrasInicioM3, high);
+   CopyLow(_Symbol, PERIOD_M3, 0, InpBarrasInicioM3, low);
+   CopyTime(_Symbol, PERIOD_M3, 0, InpBarrasInicioM3, time);
+   
+   if(n < 10) return;
+   
+   Print(">>> Construyendo M3 con ", n, " velas de PERIOD_M3");
+   Print(">>> Primera vela M3: ", TimeToString(time[0], TIME_DATE|TIME_MINUTES));
+   Print(">>> Última vela M3: ", TimeToString(time[n-1], TIME_DATE|TIME_MINUTES));
+   
+   g_total_puntos_m3 = 0;
+   ArrayResize(g_puntos_m3, 0);
+   
+   for(int i = 1; i < n - 1; i++)
+      ProcesarVela(g_est_m3, open[i], close[i], high[i], low[i], time[i], 2,
+                   g_puntos_m3, g_total_puntos_m3, true, "M3");
+   
+   g_ultima_vela_procesada_m3 = time[n - 2];
+   
+   Print(">>> M3 puntos totales: ", g_total_puntos_m3);
+   
+   if(g_est_m3.estado == EST_BAJANDO_RETROCESO || g_est_m3.estado == EST_SUBIENDO_RETROCESO)
+   {
+      g_m1_activo = true;
+      Print(">>> M3 en retroceso → M1 activo");
+   }
+}
+
+
+bool InicializarEstructura()
+{
+   ResetearEstado(g_est_m3);
+   ResetearEstado(g_est_m1);
+   g_m1_activo = false;
+   g_ultima_vela_procesada_m3 = 0;
+   g_ultima_vela_procesada_m1 = 0;
+   g_ultima_vela_m1_evaluada = 0;
+   g_total_puntos_m3 = 0; ArrayResize(g_puntos_m3, 0);
+   g_total_puntos_m1 = 0; ArrayResize(g_puntos_m1, 0);
+   
+   ConstruirEstructuraInicialM3();
+   
+   Print("========================================");
+   Print(">>> Estructura v8 inicializada");
+   Print(">>> M3: ", NombreEstado(g_est_m3.estado), " Puntos: ", g_total_puntos_m3);
+   Print(">>> M1 activo: ", (g_m1_activo ? "SI" : "NO"));
+   Print("========================================");
+   
+   DibujarEstructura();
+   return true;
+}
+
+
+void LiberarEstructura()
+{ BorrarDibujos(); }
+
+
+//+------------------------------------------------------------------+
+//| Actualizar M3 — SOLO con velas de PERIOD_M3                      |
+//+------------------------------------------------------------------+
+bool ActualizarM3()
+{
+   double open[], close[], high[], low[];
+   datetime time[];
+   ArraySetAsSeries(open, true); ArraySetAsSeries(close, true);
+   ArraySetAsSeries(high, true); ArraySetAsSeries(low, true);
+   ArraySetAsSeries(time, true);
+   
+   // CRÍTICO: PERIOD_M3 explícito
+   if(CopyOpen(_Symbol, PERIOD_M3, 0, 3, open) < 3) return false;
+   CopyClose(_Symbol, PERIOD_M3, 0, 3, close);
+   CopyHigh(_Symbol, PERIOD_M3, 0, 3, high);
+   CopyLow(_Symbol, PERIOD_M3, 0, 3, low);
+   CopyTime(_Symbol, PERIOD_M3, 0, 3, time);
+   
+   if(time[1] == g_ultima_vela_procesada_m3) return false;
+   
+   // LOG: mostrar qué vela M3 se procesa
+   Print("[M3] Nueva vela M3 cerrada: ", TimeToString(time[1], TIME_DATE|TIME_MINUTES),
+         " O:", DoubleToString(open[1], _Digits),
+         " C:", DoubleToString(close[1], _Digits),
+         " H:", DoubleToString(high[1], _Digits),
+         " L:", DoubleToString(low[1], _Digits),
+         " (", (close[1] > open[1] ? "ALCISTA" : close[1] < open[1] ? "BAJISTA" : "NEUTRA"), ")");
+   
+   int antes = g_est_m3.estado;
+   g_ultima_vela_procesada_m3 = time[1];
+   ProcesarVela(g_est_m3, open[1], close[1], high[1], low[1], time[1], 2,
+                g_puntos_m3, g_total_puntos_m3, true, "M3");
+   int despues = g_est_m3.estado;
+   
+   if(antes != despues)
+      Print("[M3] Estado: ", NombreEstado(antes), " → ", NombreEstado(despues));
+   
+   return ((despues == EST_BAJANDO_RETROCESO && antes != EST_BAJANDO_RETROCESO) ||
+           (despues == EST_SUBIENDO_RETROCESO && antes != EST_SUBIENDO_RETROCESO));
+}
+
+
+//+------------------------------------------------------------------+
+//| Actualizar M1 — SOLO con velas de PERIOD_M1                      |
+//+------------------------------------------------------------------+
+bool ActualizarM1()
+{
+   if(!g_m1_activo) return false;
+   
+   double open[], close[], high[], low[];
+   datetime time[];
+   ArraySetAsSeries(open, true); ArraySetAsSeries(close, true);
+   ArraySetAsSeries(high, true); ArraySetAsSeries(low, true);
+   ArraySetAsSeries(time, true);
+   
+   // CRÍTICO: PERIOD_M1 explícito
+   if(CopyOpen(_Symbol, PERIOD_M1, 0, 3, open) < 3) return false;
+   CopyClose(_Symbol, PERIOD_M1, 0, 3, close);
+   CopyHigh(_Symbol, PERIOD_M1, 0, 3, high);
+   CopyLow(_Symbol, PERIOD_M1, 0, 3, low);
+   CopyTime(_Symbol, PERIOD_M1, 0, 3, time);
+   
+   if(time[1] == g_ultima_vela_procesada_m1) return false;
+   
+   g_ultima_vela_procesada_m1 = time[1];
+   return ProcesarVela(g_est_m1, open[1], close[1], high[1], low[1], time[1], 1,
+                       g_puntos_m1, g_total_puntos_m1, true, "M1");
+}
+
+
+//+------------------------------------------------------------------+
+//| DIBUJO                                                           |
+//+------------------------------------------------------------------+
+void BorrarDibujos()
+{
+   int total = ObjectsTotal(0);
+   for(int i = total - 1; i >= 0; i--)
+   {
+      string nombre = ObjectName(0, i);
+      if(StringFind(nombre, "EST_") == 0)
+         ObjectDelete(0, nombre);
+   }
+}
+
+void DibujarPuntoChart(string nombre, datetime tiempo, double precio,
+                       color clr, bool esAlto, int ancho)
+{
+   if(!InpDibujarPivotes) return;
+   ObjectDelete(0, nombre);
+   ObjectCreate(0, nombre, OBJ_ARROW, 0, tiempo, precio);
+   ObjectSetInteger(0, nombre, OBJPROP_ARROWCODE, esAlto ? 217 : 218);
+   ObjectSetInteger(0, nombre, OBJPROP_COLOR, clr);
+   ObjectSetInteger(0, nombre, OBJPROP_WIDTH, ancho);
+   ObjectSetString(0, nombre, OBJPROP_TOOLTIP,
+                   nombre + " " + DoubleToString(precio, _Digits));
+}
+
+void DibujarEtiqueta(string nombre, datetime tiempo, double precio,
+                     string texto, color clr, bool arriba)
+{
+   if(!InpDibujarPivotes) return;
+   ObjectDelete(0, nombre);
+   double offset = arriba ? (20 * _Point) : -(20 * _Point);
+   ObjectCreate(0, nombre, OBJ_TEXT, 0, tiempo, precio + offset);
+   ObjectSetString(0, nombre, OBJPROP_TEXT, texto);
+   ObjectSetInteger(0, nombre, OBJPROP_COLOR, clr);
+   ObjectSetInteger(0, nombre, OBJPROP_FONTSIZE, 8);
+   ObjectSetString(0, nombre, OBJPROP_FONT, "Arial Bold");
+}
+
+void DibujarHistorial(PuntoDibujado &puntos[], int total,
+                      string prefijo, color clr, int ancho)
+{
+   for(int i = 0; i < total; i++)
+   {
+      string sfx = IntegerToString(i) + "_" + IntegerToString((long)puntos[i].tiempo);
+      DibujarPuntoChart("EST_" + prefijo + "P_" + sfx,
+                        puntos[i].tiempo, puntos[i].precio,
+                        clr, puntos[i].esAlto, ancho);
+      DibujarEtiqueta("EST_" + prefijo + "L_" + sfx,
+                      puntos[i].tiempo, puntos[i].precio,
+                      puntos[i].tipo, clr, puntos[i].esAlto);
+   }
+}
+
+void DibujarEstructura()
+{
+   if(!InpDibujarPivotes) return;
+   BorrarDibujos();
+   
+   ENUM_TIMEFRAMES tfActual = (ENUM_TIMEFRAMES)ChartPeriod(0);
+   
+   // En M3 → solo puntos M3 (amarillo)
+   if(tfActual == PERIOD_M3)
+      DibujarHistorial(g_puntos_m3, g_total_puntos_m3, "M3_", clrYellow, 2);
+   
+   // En M1 → solo puntos M1 (cyan)
+   if(tfActual == PERIOD_M1 && g_m1_activo)
+      DibujarHistorial(g_puntos_m1, g_total_puntos_m1, "M1_", clrCyan, 1);
+}
+
+
+//+------------------------------------------------------------------+
+//| ORQUESTADORA                                                     |
+//+------------------------------------------------------------------+
+int DetectarSenalEstructura()
+{
+   datetime tiemposM1[];
+   ArraySetAsSeries(tiemposM1, true);
+   if(CopyTime(_Symbol, PERIOD_M1, 0, 2, tiemposM1) < 2)
+      return SENAL_SIN_SENAL;
+   
+   datetime tVela = tiemposM1[1];
+   if(tVela == g_ultima_vela_m1_evaluada)
+      return SENAL_SIN_SENAL;
+   g_ultima_vela_m1_evaluada = tVela;
+   
+   bool m3Ret = ActualizarM3();
+   
+   if(m3Ret)
+   {
+      int tM3 = EvaluarTendencia(g_est_m3);
+      Print("========================================");
+      Print(">>> M3 RETROCESO CONFIRMADO <<<");
+      Print(">>> Tendencia M3: ", (tM3 == SENAL_BAJISTA ? "BAJISTA" : "ALCISTA"));
+      Print(">>> ACTIVANDO M1 desde cero");
+      Print("========================================");
+      
+      ResetearEstado(g_est_m1);
+      g_total_puntos_m1 = 0; ArrayResize(g_puntos_m1, 0);
+      g_m1_activo = true;
+      g_ultima_vela_procesada_m1 = 0;
+   }
+   
+   if(g_m1_activo && !m3Ret)
+   {
+      if(g_est_m3.estado != EST_BAJANDO_RETROCESO && g_est_m3.estado != EST_SUBIENDO_RETROCESO)
+      {
+         g_m1_activo = false;
+         Print("[ESTRUCTURA] M3 salio de retroceso → M1 off");
+      }
+   }
+   
+   bool m1Cambio = ActualizarM1();
+   
+   DibujarEstructura();
+   
+   if(!g_m1_activo)
+   {
+      static datetime uLog = 0;
+      if(TimeCurrent() - uLog > 30)
+      {
+         Print("[EST] M3:", NombreEstado(g_est_m3.estado),
+               " T:", (g_est_m3.tendencia==SENAL_ALCISTA?"ALC":
+                       g_est_m3.tendencia==SENAL_BAJISTA?"BAJ":"---"),
+               " | M1:OFF");
+         uLog = TimeCurrent();
+      }
+      return SENAL_SIN_SENAL;
+   }
+   
+   if(!m1Cambio)
+      return SENAL_SIN_SENAL;
+   
+   int tendM3 = EvaluarTendencia(g_est_m3);
+   int tendM1 = EvaluarTendencia(g_est_m1);
+   
+   if(tendM1 != tendM3)
+   {
+      Print("[EST] M1 cambio pero NO hacia M3");
+      return SENAL_SIN_SENAL;
+   }
+   
+   if(EvaluarTendencia(g_est_m3) != tendM3)
+   {
+      Print("[EST] >>> ANULADA: M3 cambio <<<");
+      return SENAL_SIN_SENAL;
+   }
+   
+   Print("========================================");
+   Print(">>> SENAL CONFIRMADA <<<");
+   Print(">>> M3: ", (tendM3==SENAL_ALCISTA?"ALCISTA":"BAJISTA"));
+   Print(">>> M1 cambio hacia M3: OK");
+   Print(">>> Vela: ", TimeToString(tVela, TIME_DATE|TIME_MINUTES));
+   Print("========================================");
+   
+   g_m1_activo = false;
+   return tendM3;
+}
